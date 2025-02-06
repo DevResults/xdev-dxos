@@ -40,6 +40,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
     </html>
   );
 }
+const createWorker = () =>
+  new SharedWorker(new URL("../public/shared-worker", import.meta.url), {
+    type: "module",
+    name: "dxos-client-worker",
+  });
 
 const Component = () => {
   // Get the user to log in before a space can be obtained.
@@ -59,7 +64,7 @@ const Component = () => {
 
 export default function App() {
   return (
-    <ClientProvider>
+    <ClientProvider createWorker={createWorker}>
       <Component />
       <Outlet />;
     </ClientProvider>
