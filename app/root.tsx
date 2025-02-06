@@ -3,6 +3,7 @@ import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration }
 import { ClientProvider } from "@dxos/react-client";
 import { useQuery, useSpaces } from "@dxos/react-client/echo";
 import { useIdentity } from "@dxos/react-client/halo";
+import { configProvider } from "./config";
 
 import type { Route } from "./+types/root";
 import "./app.css";
@@ -57,16 +58,25 @@ const Component = () => {
   return (
     <>
       {JSON.stringify(identity)}
-      {objects[0]?.id || "No objects"}
+      {JSON.stringify(space)}
+      {objects.map((d) => JSON.stringify(d))}
     </>
   );
 };
 
 export default function App() {
   return (
-    <ClientProvider createWorker={createWorker}>
+    <ClientProvider
+      config={configProvider}
+      createWorker={createWorker}
+      onInitialized={async (client) => {
+        if (!client.halo.identity.get()) {
+          await client.halo.createIdentity();
+        }
+      }}
+    >
       <Component />
-      <Outlet />;
+      <Outlet />
     </ClientProvider>
   );
 }
