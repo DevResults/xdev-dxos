@@ -1,11 +1,8 @@
-import {
-  isRouteErrorResponse,
-  Links,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-} from "react-router";
+import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
+
+import { ClientProvider } from "@dxos/react-client";
+import { useQuery, useSpaces } from "@dxos/react-client/echo";
+import { useIdentity } from "@dxos/react-client/halo";
 
 import type { Route } from "./+types/root";
 import "./app.css";
@@ -28,7 +25,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1"
+        />
         <Meta />
         <Links />
       </head>
@@ -41,8 +41,29 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
+const Component = () => {
+  // Get the user to log in before a space can be obtained.
+  const identity = useIdentity();
+  // Get the first available space, created with the identity.
+  const [space] = useSpaces();
+  // Grab everything in the space.
+  const objects = useQuery(space, {});
+  // Show the id of the first object returned.
+  return (
+    <>
+      {JSON.stringify(identity)}
+      {objects[0]?.id || "No objects"}
+    </>
+  );
+};
+
 export default function App() {
-  return <Outlet />;
+  return (
+    <ClientProvider>
+      <Component />
+      <Outlet />;
+    </ClientProvider>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
@@ -52,10 +73,7 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
 
   if (isRouteErrorResponse(error)) {
     message = error.status === 404 ? "404" : "Error";
-    details =
-      error.status === 404
-        ? "The requested page could not be found."
-        : error.statusText || details;
+    details = error.status === 404 ? "The requested page could not be found." : error.statusText || details;
   } else if (import.meta.env.DEV && error && error instanceof Error) {
     details = error.message;
     stack = error.stack;

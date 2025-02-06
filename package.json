@@ -9,20 +9,23 @@
     "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
+    "@dxos/react-client": "^0.6.13",
     "@react-router/node": "^7.1.5",
     "@react-router/serve": "^7.1.5",
     "isbot": "^5.1.17",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-router": "^7.1.5"
+    "react": "18.2",
+    "react-dom": "18.2",
+    "react-router": "^7.1.5",
+    "vite-plugin-top-level-await": "^1.4.4",
+    "vite-plugin-wasm": "^3.4.1"
   },
   "devDependencies": {
     "@react-router/dev": "^7.1.5",
     "@react-router/remix-routes-option-adapter": "^7.1.5",
     "@tailwindcss/vite": "^4.0.0",
     "@types/node": "^20",
-    "@types/react": "^19.0.1",
-    "@types/react-dom": "^19.0.1",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
     "react-router-devtools": "^1.1.0",
     "remix-flat-routes": "^0.8.4",
     "tailwindcss": "^4.0.0",
