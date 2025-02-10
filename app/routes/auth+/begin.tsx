@@ -11,7 +11,7 @@ export default function Begin() {
 
   useEffect(() => {
     if (identity?.profile?.displayName) {
-      navigate("/welcome");
+      navigate("/auth/setup");
     }
   }, [identity]);
 
