@@ -1,7 +1,8 @@
 import { useClient } from "@dxos/react-client";
 import { useIdentity } from "@dxos/react-client/halo";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import { UserNameForm } from "./ui/UserNameForm";
 
 export default function Begin() {
   const identity = useIdentity();
@@ -11,11 +12,15 @@ export default function Begin() {
   useEffect(() => {
     if (identity?.profile?.displayName) {
       navigate("/welcome");
-    } else {
-      (async () => {
-        await client.shell.open();
-      })();
     }
   }, [identity]);
-  return <></>;
+
+  return (
+    <UserNameForm
+      userName=""
+      onSubmit={({ n: userName }) => {
+        client.halo.updateProfile({ displayName: userName });
+      }}
+    />
+  );
 }
