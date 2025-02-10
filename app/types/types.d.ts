@@ -2,3 +2,9 @@
 export type LocalState = {
   spaceKey?: string;
 };
+
+export type NavItem = {
+  name: string;
+  to: string;
+  icon: Icon;
+};

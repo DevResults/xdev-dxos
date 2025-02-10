@@ -1,0 +1,60 @@
+import { cx } from "~/lib/cx";
+import { likesDescription } from "~/lib/likesDescription";
+import { useState } from "react";
+
+export function Likes({ likes = [], self, onToggle }: Props) {
+  const numLikes = likes.length ?? 0;
+  const likedByMe = likes.map(({ id }) => id).includes(self.id);
+  const readonly = onToggle === undefined;
+
+  const [animateLike, setAnimateLike] = useState(false);
+  const [animateUnlike, setAnimateUnlike] = useState(false);
+
+  if (readonly && numLikes === 0) return null;
+
+  return (
+    <button
+      className="flex min-h-[1.5em] cursor-pointer flex-row items-center gap-1 py-px font-sans text-xs text-neutral-400"
+      onClick={() => {
+        if (readonly) return;
+        if (likedByMe) {
+          setAnimateUnlike(true);
+          setTimeout(() => setAnimateUnlike(false), 200);
+        } else {
+          setAnimateLike(true);
+          setTimeout(() => setAnimateLike(false), 200);
+        }
+
+        onToggle();
+      }}
+      title={numLikes === 0 ? "Click to like" : likesDescription(likes, self)}
+    >
+      {numLikes === 0 ? (
+        <IconHeart
+          className={cx(
+            "size-[1em]", //
+            animateUnlike && "animate-shortshake"
+          )}
+        />
+      ) : (
+        <>
+          <IconHeartFilled
+            className={cx(
+              "size-[1em]",
+              likedByMe && "text-primary",
+              animateLike && "animate-celebrate",
+              animateUnlike && "animate-shortshake"
+            )}
+          />
+          {numLikes}
+        </>
+      )}
+    </button>
+  );
+}
+
+type Props = {
+  likes?: any[];
+  self: any;
+  onToggle?: () => void;
+};
