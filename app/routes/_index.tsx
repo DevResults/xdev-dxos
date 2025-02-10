@@ -1,10 +1,6 @@
-import { useEffect } from "react";
-import { useNavigate } from "react-router";
+import { useRedirect } from "~/hooks/useRedirect";
 
 export default function Index() {
-  const navigate = useNavigate();
-  useEffect(() => {
-    navigate("/welcome", { replace: true });
-  });
+  useRedirect({ from: "/", to: "/welcome" });
   return <></>;
 }

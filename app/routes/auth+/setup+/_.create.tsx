@@ -3,7 +3,7 @@ import { TeamNameForm } from "./ui/TeamNameForm";
 import { useIdentity } from "@dxos/react-client/halo";
 import { useClient } from "@dxos/react-client";
 import { useLocalState } from "~/hooks/useLocalState";
-import { useEffect } from "react";
+import { useRedirect } from "~/hooks/useRedirect";
 
 export default function AuthCreatePage() {
   const identity = useIdentity();
@@ -14,17 +14,13 @@ export default function AuthCreatePage() {
   // hooks ↑
 
   if (!identity?.profile?.displayName) {
-    useEffect(() => {
-      navigate("/auth/begin");
-    }, [identity]);
+    useRedirect({ from: "/auth/setup/create", to: "/auth/begin" });
     return null;
   }
 
   // already have a team
   if (spaceKey) {
-    useEffect(() => {
-      navigate("/");
-    }, [client]);
+    useRedirect({ from: "/auth/setup/create", to: "/" });
     return null;
   }
 
