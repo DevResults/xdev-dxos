@@ -10,16 +10,11 @@ export default function Private() {
   useEffect(() => {
     if (!identity?.profile) navigate("/auth/begin");
   }, [identity]);
-  return (
-    <Layout>
+  return identity?.profile ? (
+    <AppLayout self={identity}>
       <Outlet />
-    </Layout>
+    </AppLayout>
+  ) : (
+    <Loading />
   );
-}
-
-function Layout({ children }: { children: React.ReactNode }) {
-  const identity = useIdentity();
-  if (identity === undefined) return <Loading />;
-
-  return <AppLayout self={identity}>{children}</AppLayout>;
 }
