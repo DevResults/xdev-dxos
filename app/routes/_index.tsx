@@ -1,10 +1,10 @@
-import type { Route } from "./+types/_index";
-import { Welcome } from "../ui/welcome/welcome";
+import { useEffect } from "react";
+import { useNavigate } from "react-router";
 
-export function meta({}: Route.MetaArgs) {
-  return [{ title: "New React Router App" }, { name: "description", content: "Welcome to React Router!" }];
-}
-
-export default function Home() {
-  return <Welcome />;
+export default function Index() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    navigate("/welcome", { replace: true });
+  });
+  return <></>;
 }
