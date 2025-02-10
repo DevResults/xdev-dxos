@@ -48,6 +48,7 @@ const createWorker = () =>
 export default function App() {
   return (
     <ClientProvider
+      shell="./shell.html"
       config={configProvider}
       createWorker={createWorker}
       onInitialized={async (client) => {
