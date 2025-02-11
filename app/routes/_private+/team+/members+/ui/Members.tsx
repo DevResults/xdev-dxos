@@ -3,9 +3,16 @@ import { Button } from "~/ui/shadcn/button";
 import { by } from "~/lib/by";
 import { cx } from "~/lib/cx";
 import { Avatar } from "~/ui/Avatar";
+import { useShell } from "@dxos/react-client";
+import { useLocalState } from "~/hooks/useLocalState";
+import { useSpace } from "@dxos/react-client/echo";
 
 export const Members = ({ self, contacts, onPromote = () => {}, onDemote = () => {} }: Props) => {
   const adminIcon = <IconCircleKey className="size-5 text-primary-500" />;
+
+  const shell = useShell();
+  const { spaceKey } = useLocalState();
+  const space = useSpace(spaceKey);
 
   if (!self || !contacts) return null;
   return (
@@ -94,16 +101,13 @@ export const Members = ({ self, contacts, onPromote = () => {}, onDemote = () =>
               <div className="text-center">
                 {!contact.isMember && !contact.isSelf && contact.invitationStatus !== "PENDING" ? (
                   <Button
-                    asChild
                     intent="primary"
                     size="xs"
+                    onClick={() => {
+                      void shell.shareSpace({ spaceId: space!.id });
+                    }}
                   >
-                    <Link
-                      to="/team/members/invite"
-                      state={{ userId: contact.id }}
-                    >
-                      Invite
-                    </Link>
+                    Invite
                   </Button>
                 ) : null}
 

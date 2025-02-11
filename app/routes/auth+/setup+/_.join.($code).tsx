@@ -1,18 +1,33 @@
 import { useNavigate, useParams } from "react-router";
 import { useState } from "react";
 import { InvitationForm } from "./ui/InvitationForm";
+import { useShell } from "@dxos/react-client";
+import { useLocalState } from "~/hooks/useLocalState";
+import { useRedirect } from "~/hooks/useRedirect";
 
 export default function AuthJoinPage() {
   const navigate = useNavigate();
   const invitationCodeFromUrl = useParams().code;
   const [error, setError] = useState<string | undefined>(undefined);
+  const shell = useShell();
+  const { spaceKey, update } = useLocalState();
 
   // hooks ↑
 
-  const joinWithCode = async (invitationCode: string) => {
-    // Save our user info etc. to local storage
+  if (spaceKey) {
+    useRedirect({ from: /.*/, to: "/" });
+    return null;
+  }
 
-    navigate("/");
+  const joinWithCode = async (invitationCode: string) => {
+    const { space } = await shell.joinSpace({ invitationCode });
+    if (space) {
+      // Save our user info etc. to local storage
+      update({ spaceKey: space.id });
+      navigate(`/`);
+    } else {
+      setError("Something went wrong... I don't know what");
+    }
   };
 
   return invitationCodeFromUrl ? (
