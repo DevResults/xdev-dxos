@@ -1,23 +1,19 @@
-import type { ReactNode } from "react"
-import type UAParser from "ua-parser-js"
+import type { ReactNode } from "react";
+import { DeviceType, type Device } from "@dxos/react-client/halo";
 
-export const getDeviceIcon = (deviceInfo: UAParser.IResult) =>
-  deviceInfo.device.type === "mobile" ? <IconDeviceMobile /> : <IconDeviceDesktop />
+export const getDeviceIcon = (deviceInfo: Device) =>
+  deviceInfo.profile?.type === DeviceType.MOBILE ? <IconDeviceMobile /> : <IconDeviceDesktop />;
 
 const getMatchingIcon =
-  (
-    accessor: (deviceInfo: UAParser.IResult) => string | undefined,
-    lookup: Record<string, ReactNode>,
-    fallback: ReactNode,
-  ) =>
-  (deviceInfo: UAParser.IResult) => {
-    const text = accessor(deviceInfo) ?? ""
-    const key = Object.keys(lookup).find(val => text.toLocaleLowerCase().includes(val))
-    return key ? lookup[key] : fallback
-  }
+  (accessor: (deviceInfo: Device) => string | undefined, lookup: Record<string, ReactNode>, fallback: ReactNode) =>
+  (deviceInfo: Device) => {
+    const text = accessor(deviceInfo) ?? "";
+    const key = Object.keys(lookup).find((val) => text.toLocaleLowerCase().includes(val));
+    return key ? lookup[key] : fallback;
+  };
 
 export const getBrowserIcon = getMatchingIcon(
-  i => i.browser.name,
+  (i) => i.profile?.platform,
   {
     chrome: <IconBrandChrome />,
     edge: <IconBrandEdge />,
@@ -26,11 +22,11 @@ export const getBrowserIcon = getMatchingIcon(
     safari: <IconBrandSafari />,
     android: <IconBrandAndroid />,
   },
-  <IconBrowser />,
-)
+  <IconBrowser />
+);
 
 export const getOsIcon = getMatchingIcon(
-  i => i.os.name,
+  (i) => i.profile?.os,
   {
     windows: <IconBrandWindows />,
     mac: <IconBrandFinder />,
@@ -40,5 +36,5 @@ export const getOsIcon = getMatchingIcon(
     ubuntu: <IconBrandQq />,
     chromium: <IconBrandChrome />,
   },
-  null,
-)
+  null
+);

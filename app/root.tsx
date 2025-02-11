@@ -38,11 +38,6 @@ export default function App() {
       shell="./shell.html"
       config={configProvider}
       createWorker={createWorker}
-      onInitialized={async (client) => {
-        if (!client.halo.identity.get()) {
-          await client.halo.createIdentity();
-        }
-      }}
     >
       <Outlet />
     </ClientProvider>

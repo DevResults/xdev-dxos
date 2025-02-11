@@ -1,9 +1,9 @@
 import { Outlet } from "react-router";
 import { Devices } from "./ui/Devices";
+import { useTeam } from "~/hooks/useTeam";
 
 export default function DevicesPage() {
-  const device = {};
-  const devices: any[] = [];
+  const { device, devices } = useTeam();
   return (
     <>
       <Devices
