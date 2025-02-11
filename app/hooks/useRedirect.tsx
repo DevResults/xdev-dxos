@@ -1,17 +1,22 @@
 import { useLocation, useNavigate } from "react-router";
 import { useEffect } from "react";
+import type { LocalState } from "~/types/types";
+import { useLocalState } from "./useLocalState";
 
-export function useRedirect({ from, to, condition = true }: Params) {
+export function useRedirect({ from, to, condition = true, localState = undefined }: Params) {
   const { pathname, state } = useLocation();
   const navigate = useNavigate();
+  const { update } = useLocalState();
   useEffect(() => {
     if (!condition) return;
     if (typeof from === "string" && pathname === from) {
       console.log(`redirecting from ${from} to ${to}`);
+      if (localState) update(localState);
       navigate(to, { state });
     } else if (from instanceof RegExp && from.test(pathname)) {
       const newTo = pathname.replace(from, to);
       console.log(`redirecting from ${from} to ${newTo}`);
+      if (localState) update(localState);
       navigate(newTo, { state });
     } else {
       console.log("oops... don't know how to redirect", { from, to, pathname });
@@ -23,4 +28,5 @@ type Params = {
   from: string | RegExp;
   to: string;
   condition?: boolean;
+  localState?: Partial<LocalState>;
 };

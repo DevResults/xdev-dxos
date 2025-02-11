@@ -18,8 +18,12 @@ export default function Begin() {
   return (
     <UserNameForm
       userName=""
-      onSubmit={({ n: userName }) => {
-        client.halo.updateProfile({ displayName: userName });
+      onSubmit={async ({ n: userName }) => {
+        if (identity) {
+          await client.halo.updateProfile({ displayName: userName });
+        } else {
+          await client.halo.createIdentity({ displayName: userName });
+        }
       }}
     />
   );

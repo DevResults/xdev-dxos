@@ -5,10 +5,11 @@ export function useLocalState() {
   const initialState: LocalState = {};
   const [state, setState] = useLocalStorage("xdev-localstate", initialState);
 
-  const { spaceKey } = state;
+  const { spaceKey, invitationCode } = state;
 
   return {
     spaceKey,
+    invitationCode,
 
     update: (s: Partial<LocalState>) => setState({ ...state, ...s }),
     reset: () => setState(initialState),
