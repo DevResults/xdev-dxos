@@ -14,10 +14,7 @@ export default function AuthJoinPage() {
 
   // hooks ↑
 
-  if (spaceKey) {
-    useRedirect({ from: /.*/, to: "/" });
-    return null;
-  }
+  useRedirect({ from: /.*/, to: "/", condition: Boolean(spaceKey) });
 
   const joinWithCode = async (invitationCode: string) => {
     const { space } = await shell.joinSpace({ invitationCode });

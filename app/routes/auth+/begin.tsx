@@ -13,7 +13,7 @@ export default function Begin() {
     if (identity?.profile?.displayName) {
       navigate("/auth/setup");
     }
-  }, [identity]);
+  }, [identity, navigate]);
 
   return (
     <UserNameForm

@@ -26,21 +26,6 @@ export const DoneInput = ({
   // the content of the done while editing
   const [newContent, setNewContent] = useState(content);
 
-  // handle entering and exiting edit mode
-  useEffect(() => {
-    if (!editing) input.current?.blur(); // blur when leaving editing mode
-  }, [editing]);
-
-  // update the input when the content of the done is modified from elsewhere
-  useEffect(() => {
-    setNewContent(content);
-  }, [content]);
-
-  // focus the input when isFocused is true
-  useEffect(() => {
-    if (isFocused) input.current?.focus();
-  }, [isFocused]);
-
   const input = useHotkeys<HTMLTextAreaElement>(
     [enter, escape, up, down, left, right],
     (e, { keys = [] }) => {
@@ -62,6 +47,21 @@ export const DoneInput = ({
     },
     { enableOnFormTags: true }
   );
+
+  // handle entering and exiting edit mode
+  useEffect(() => {
+    if (!editing) input.current?.blur(); // blur when leaving editing mode
+  }, [editing, input]);
+
+  // update the input when the content of the done is modified from elsewhere
+  useEffect(() => {
+    setNewContent(content);
+  }, [content, input]);
+
+  // focus the input when isFocused is true
+  useEffect(() => {
+    if (isFocused) input.current?.focus();
+  }, [isFocused, input]);
 
   return (
     <TextareaAutosize

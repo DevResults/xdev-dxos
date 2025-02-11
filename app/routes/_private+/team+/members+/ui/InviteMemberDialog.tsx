@@ -6,7 +6,7 @@ export function InviteMemberDialog({ onClose, contact, invitationCode, defaultOp
   const [isOpen, setIsOpen] = useState(defaultOpen);
   useEffect(() => {
     setIsOpen(defaultOpen);
-  }, [contact]);
+  }, [contact, defaultOpen]);
 
   if (!invitationCode) return null;
 

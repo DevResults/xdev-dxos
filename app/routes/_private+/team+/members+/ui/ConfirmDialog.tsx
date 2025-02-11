@@ -15,7 +15,7 @@ export function ConfirmDialog({
   const [isOpen, setIsOpen] = useState(defaultOpen);
   useEffect(() => {
     setIsOpen(defaultOpen);
-  });
+  }, [defaultOpen]);
 
   return (
     <Dialog

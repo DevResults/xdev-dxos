@@ -36,18 +36,6 @@ export const TimeEntryInput = ({
   const showError = errors.length > 0;
   const errorMessageId = `time-entry-error-${date.toString()}`;
 
-  useEffect(() => {
-    // select the content when entering focus
-    if (isFocused) textareaRef.current?.select();
-  }, [isFocused]);
-
-  useEffect(() => {
-    // update the input when the content of the time entry is modified from elsewhere
-    setNewContent(content);
-  }, [content]);
-
-  const [autocompleteOpen, setAutocompleteOpen] = useState(false);
-
   // bind textarea to hotkeys
   const textareaRef = useHotkeys<HTMLTextAreaElement>(
     [enter, escape, up, down, left, right],
@@ -77,6 +65,18 @@ export const TimeEntryInput = ({
     },
     { enableOnFormTags: true }
   );
+
+  useEffect(() => {
+    // select the content when entering focus
+    if (isFocused) textareaRef.current?.select();
+  }, [isFocused, textareaRef]);
+
+  useEffect(() => {
+    // update the input when the content of the time entry is modified from elsewhere
+    setNewContent(content);
+  }, [content]);
+
+  const [autocompleteOpen, setAutocompleteOpen] = useState(false);
 
   /**
    * Given a (potentially multiline) input string, attempts to parse into one or more time entries.

@@ -6,8 +6,6 @@ import { useHotkeys } from "react-hotkeys-hook";
 const { enter, up, down } = Keys;
 
 export const AutocompleteMenu = ({ items, onSelect, id }: Props) => {
-  if (items.length === 0) return null;
-
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   useHotkeys(

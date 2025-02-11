@@ -13,16 +13,10 @@ export default function AuthCreatePage() {
 
   // hooks ↑
 
-  if (!identity?.profile?.displayName) {
-    useRedirect({ from: "/auth/setup/create", to: "/auth/begin" });
-    return null;
-  }
+  useRedirect({ from: "/auth/setup/create", to: "/auth/begin", condition: !identity?.profile?.displayName });
 
   // already have a team
-  if (spaceKey) {
-    useRedirect({ from: "/auth/setup/create", to: "/" });
-    return null;
-  }
+  useRedirect({ from: "/auth/setup/create", to: "/", condition: Boolean(spaceKey) });
 
   const defaultTeamName = "DevResults";
 

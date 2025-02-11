@@ -9,7 +9,7 @@ export default function Private() {
   const navigate = useNavigate();
   useEffect(() => {
     if (!identity?.profile) navigate("/auth/begin");
-  }, [identity]);
+  }, [identity, navigate]);
   return identity?.profile ? (
     <AppLayout self={identity}>
       <Outlet />

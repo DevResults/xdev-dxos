@@ -16,7 +16,7 @@ export function useRedirect({ from, to, condition = true }: Params) {
     } else {
       console.log("oops... don't know how to redirect", { from, to, pathname });
     }
-  }, [pathname]);
+  }, [pathname, state, from, to, condition, navigate]);
 }
 
 type Params = {
