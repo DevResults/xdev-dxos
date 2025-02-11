@@ -2,7 +2,7 @@ import { Checkbox } from "~/ui/shadcn/checkbox";
 import { useState } from "react";
 import { PageLayout } from "../ui/layouts/PageLayout";
 import { MyWeek } from "./ui/MyWeek";
-import { WeekNav } from "./ui/WeekNav";
+import { WeekNav } from "../ui/WeekNav";
 import { useSelectedWeek } from "~/hooks/useSelectedWeek";
 
 export default function MyWeek$DatePage() {
@@ -17,8 +17,8 @@ export default function MyWeek$DatePage() {
       return [];
     },
   };
-  const projects = [];
-  const clients = [];
+  const projects: any[] = [];
+  const clients: any[] = [];
 
   return (
     <PageLayout
