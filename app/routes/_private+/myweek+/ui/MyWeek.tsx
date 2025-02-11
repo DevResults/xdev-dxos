@@ -7,6 +7,7 @@ import { isWeekend } from "~/lib/isWeekend";
 import { sum } from "~/lib/sum";
 import { DailyDones } from "./DailyDones";
 import { DailyTimeEntries } from "./DailyTimeEntries";
+import type { DoneEntry } from "~/schema/DoneEntry";
 
 const FULL_DAY = 7 * 60;
 const FULL_WEEK = FULL_DAY * 5;
@@ -139,7 +140,7 @@ export const MyWeek = ({ start, showWeekends = false, doneEntries, timeEntries, 
 type Props = {
   start: LocalDate;
   showWeekends: boolean;
-  doneEntries: any;
+  doneEntries: DoneEntry[];
   timeEntries: any;
   projects: any;
   clients: any;

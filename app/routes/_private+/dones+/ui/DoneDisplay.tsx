@@ -1,11 +1,13 @@
 import { cx } from "~/lib/cx";
 import { Likes } from "../../ui/Likes";
+import type { DoneEntry } from "~/schema/DoneEntry";
 
 /**
  * Displays a read-only DoneEntry along with the Like button.
  */
 export function DoneDisplay({ className = "", done, updateLikes, self }: Props) {
-  const { content, likes } = done;
+  const { content } = done;
+  const likes: any[] = [];
   return (
     <li className="rounded-md bg-neutral-50 p-2">
       <span className={cx("done-entry whitespace-pre-line", className)}>{content}</span>
@@ -24,7 +26,7 @@ export function DoneDisplay({ className = "", done, updateLikes, self }: Props) 
 
 type Props = {
   className?: string;
-  done: any;
+  done: DoneEntry;
   updateLikes: (likes: any[]) => void;
   self: any;
 };

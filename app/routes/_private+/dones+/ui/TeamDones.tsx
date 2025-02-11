@@ -1,6 +1,8 @@
 import { Avatar } from "~/ui/Avatar";
 import { DoneDisplay } from "./DoneDisplay";
 import { CenteredLayout } from "~/ui/layouts/CenteredLayout";
+import type { DoneEntry } from "~/schema/DoneEntry";
+import type { Identity } from "@dxos/react-client/halo";
 
 export const TeamDones = ({ dones, contacts, updateLikes, self }: Props) => {
   if (dones.length === 0)
@@ -24,12 +26,13 @@ export const TeamDones = ({ dones, contacts, updateLikes, self }: Props) => {
   return (
     <div className="flex grow flex-col gap-x-2 gap-y-8 sm:grid sm:grid-cols-3 lg:grid-cols-5">
       {contacts.map((contact) => {
-        const contactDones = donesByContact[contact.id];
+        const contactId = contact.identityKey.toString();
+        const contactDones = donesByContact[contactId];
 
         return contactDones?.length > 0 ? (
           <div
             className="min-h-1/3 flex flex-col gap-2"
-            key={contact.id}
+            key={contactId}
           >
             {/* user's avatar & name */}
             <h3 className="flex flex-row items-center gap-2 text-base">
@@ -37,7 +40,7 @@ export const TeamDones = ({ dones, contacts, updateLikes, self }: Props) => {
                 size="md"
                 contact={contact}
               />
-              <span>{contact.firstName}</span>
+              <span>{contact.profile?.displayName ?? contactId}</span>
             </h3>
             {/* user's dones */}
             <ul className="flex flex-col gap-1 font-normal text-neutral-700">
@@ -60,8 +63,8 @@ export const TeamDones = ({ dones, contacts, updateLikes, self }: Props) => {
 };
 
 type Props = {
-  dones: any[];
-  contacts: any[];
+  dones: DoneEntry[];
+  contacts: Identity[];
   updateLikes: (id: any, likes: any[]) => void;
   self: any;
 };

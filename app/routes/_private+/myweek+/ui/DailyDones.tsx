@@ -1,14 +1,21 @@
-import { type LocalDate } from "@js-joda/core";
+import { LocalDate } from "@js-joda/core";
 import { cx } from "~/lib/cx";
 import { useState } from "react";
 import { DoneEditable } from "./DoneEditable";
 import { DoneInput } from "./DoneInput";
+import { DoneEntry } from "~/schema/DoneEntry";
+import { useLocalState } from "~/hooks/useLocalState";
+import { create, useSpace } from "@dxos/react-client/echo";
 
 /** Displays a single day of the current user's dones */
 export const DailyDones = ({ date, doneEntries, self }: Props) => {
   const [focus, setFocus] = useState<number>(-1); // nothing focused by default
+  const { spaceKey } = useLocalState();
+  const space = useSpace(spaceKey);
 
-  const dones: any[] = [];
+  const sDate = date.toString();
+  const sContactId = self.identityKey.toString();
+  const dones = doneEntries.filter((d) => d.date == sDate && d.contactId == sContactId);
 
   const focusNext = () => setFocus((f: number) => Math.min(f + 1, dones.length + 1));
   const focusPrev = () => setFocus((f: number) => Math.max(f - 1, 0));
@@ -22,8 +29,10 @@ export const DailyDones = ({ date, doneEntries, self }: Props) => {
             <DoneEditable
               done={done}
               index={index}
-              onUpdate={(content) => doneEntries.update({ id: done.id, content })}
-              onDestroy={() => doneEntries.destroy(done.id)}
+              onUpdate={(content) => {
+                done.content = content;
+              }}
+              onDestroy={() => space?.db.remove(done)}
               isFocused={focus === index}
               onFocus={setFocus}
               onFocusNext={focusNext}
@@ -49,7 +58,15 @@ export const DailyDones = ({ date, doneEntries, self }: Props) => {
             onFocusPrev={focusPrev}
             onDestroy={() => {}}
             onChange={(content) => {
-              // doneEntries.add(new DoneEntry({ date, contactId: self.id, content }))
+              const done = create(DoneEntry, {
+                contactId: sContactId,
+                content,
+                date: sDate,
+                timestamp: new Date().toISOString(),
+              });
+              console.log({ self, done });
+
+              space?.db.add(done);
               setFocus(dones.length + 1);
             }}
           />
@@ -61,6 +78,6 @@ export const DailyDones = ({ date, doneEntries, self }: Props) => {
 
 type Props = {
   date: LocalDate;
-  doneEntries: any;
+  doneEntries: DoneEntry[];
   self: any;
 };

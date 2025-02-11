@@ -3,18 +3,21 @@ import { useTeam } from "~/hooks/useTeam";
 import { PageLayout } from "../ui/layouts/PageLayout";
 import { TeamDones } from "./ui/TeamDones";
 import { WeekNav } from "../ui/WeekNav";
+import { Filter, useQuery, useSpace } from "@dxos/react-client/echo";
+import { useLocalState } from "~/hooks/useLocalState";
+import { DoneEntry } from "~/schema/DoneEntry";
 
 export default function Dones$DatePage() {
-  const doneEntries = {
-    findBy(_, __) {
-      return [];
-    },
-    update(_) {},
-  };
-  const { start } = useSelectedWeek();
+  const { spaceKey } = useLocalState();
+  const space = useSpace(spaceKey);
+  const doneEntries = useQuery(space, Filter.schema(DoneEntry));
+  const { start, end } = useSelectedWeek();
   const { self, contacts } = useTeam();
 
-  const dones = doneEntries.findBy("week", start);
+  // get dones for a week
+  const sStart = start.toString();
+  const sEnd = end.toString();
+  const dones = doneEntries.filter((d) => d.date >= sStart && d.date <= sEnd);
 
   return (
     <PageLayout
@@ -31,7 +34,7 @@ export default function Dones$DatePage() {
           dones={dones}
           contacts={Object.values(contacts)}
           self={self}
-          updateLikes={(id, likes) => doneEntries.update({ id, likes })}
+          updateLikes={(id, likes) => console.log({ id, likes })}
         />
       </div>
     </PageLayout>

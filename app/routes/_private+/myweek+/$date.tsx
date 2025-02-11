@@ -4,11 +4,18 @@ import { PageLayout } from "../ui/layouts/PageLayout";
 import { MyWeek } from "./ui/MyWeek";
 import { WeekNav } from "../ui/WeekNav";
 import { useSelectedWeek } from "~/hooks/useSelectedWeek";
+import { useLocalState } from "~/hooks/useLocalState";
+import { useSpace, useQuery, Filter } from "@dxos/react-client/echo";
+import { DoneEntry } from "~/schema/DoneEntry";
+import { useIdentity } from "@dxos/react-client/halo";
 
 export default function MyWeek$DatePage() {
+  const identity = useIdentity();
+  const { spaceKey } = useLocalState();
+  const space = useSpace(spaceKey);
+  const dones = useQuery(space, Filter.schema(DoneEntry));
   const [showWeekends, setShowWeekends] = useState(false);
   const { start } = useSelectedWeek();
-  const doneEntries = {};
   const timeEntries = {
     reduce() {
       return 0;
@@ -45,7 +52,7 @@ export default function MyWeek$DatePage() {
       }
     >
       <div className="h-full p-1">
-        <MyWeek {...{ start, showWeekends, doneEntries, timeEntries, projects, clients, self }} />
+        <MyWeek {...{ start, showWeekends, doneEntries: dones, timeEntries, projects, clients, self: identity }} />
       </div>
     </PageLayout>
   );
