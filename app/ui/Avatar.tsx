@@ -7,7 +7,7 @@ export function Avatar({ className = "", size = "md", contact }: Props) {
       className={className}
     >
       <AvatarImage src={contact.avatarUrl} />
-      <AvatarFallback>{contact.profile.displayName.slice(0, 1).toLocaleUpperCase()}</AvatarFallback>
+      <AvatarFallback>{(contact.profile?.displayName ?? "ü").slice(0, 1).toLocaleUpperCase()}</AvatarFallback>
     </_Avatar>
   );
 }
