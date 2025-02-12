@@ -4,14 +4,19 @@ import { useState } from "react";
 import { DeleteButton } from "./DeleteButton";
 import { TimeEntryDisplay } from "./TimeEntryDisplay";
 import { TimeEntryInput } from "./TimeEntryInput";
+import type { TimeEntry } from "~/schema/TimeEntry";
+import type { Identity } from "@dxos/react-client/halo";
+import { useLocalState } from "~/hooks/useLocalState";
+import { useSpace, create } from "@dxos/react-client/echo";
 
 /** Displays a single day of the current user's timeentries */
 export const DailyTimeEntries = ({ date, timeEntries, projects, clients, longestDay, self }: Props) => {
   const [focus, setFocus] = useState<number>(-1); // nothing focused by default
+  const { spaceKey } = useLocalState();
+  const space = useSpace(spaceKey);
 
-  const entries = timeEntries
-    .findBy("date", date) // for this day
-    .filter(({ contactId }) => contactId === self.id); // for this contact
+  const sDate = date.toString();
+  const entries = timeEntries.filter(({ date }) => date == sDate);
 
   const onFocusNext = () => setFocus((f: number) => f + 1);
   const onFocusPrev = () => setFocus((f: number) => Math.max(f - 1, 0));
@@ -48,8 +53,8 @@ export const DailyTimeEntries = ({ date, timeEntries, projects, clients, longest
                   {...{ index, date, projects, clients, self, onFocusNext, onFocusPrev, onDiscard }}
                   isFocused={focus === index}
                   onFocus={setFocus}
-                  onDestroy={() => timeEntries.destroy(timeEntry.id)}
-                  onCommit={(e) => timeEntries.update({ ...e, id: timeEntry.id })}
+                  onDestroy={() => space?.db.remove(timeEntry)}
+                  onCommit={(e) => Object.assign(timeEntry, e)}
                 />
               ) : (
                 <div className="group relative h-full cursor-pointer">
@@ -59,7 +64,7 @@ export const DailyTimeEntries = ({ date, timeEntries, projects, clients, longest
                     self={self}
                   />
                   <span className="absolute right-0 top-0 z-10">
-                    <DeleteButton onDestroy={() => timeEntries.destroy(timeEntry.id)} />
+                    <DeleteButton onDestroy={() => space?.db.remove(timeEntry)} />
                   </span>
                 </div>
               )}
@@ -75,7 +80,7 @@ export const DailyTimeEntries = ({ date, timeEntries, projects, clients, longest
             {...{ date, projects, clients, self, onFocusNext, onFocusPrev, onDiscard }}
             isFocused={focus === entries.length}
             onFocus={setFocus}
-            onCommit={(e) => timeEntries.add(e)}
+            onCommit={(e) => space?.db.add(e)}
           />
         </li>
       </ul>
@@ -85,9 +90,9 @@ export const DailyTimeEntries = ({ date, timeEntries, projects, clients, longest
 
 type Props = {
   date: LocalDate;
-  timeEntries: any;
-  projects: any;
-  clients: any;
+  timeEntries: TimeEntry[];
+  projects: string[];
+  clients: string[];
   longestDay: number;
-  self: any;
+  self: Identity;
 };

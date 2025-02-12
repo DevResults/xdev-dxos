@@ -97,8 +97,6 @@ export const getAutocompleteItems = <Name, Item>(
   const { collection, property } = mode;
 
   return collection
-    .all()
-    .map((item) => String(item[property]))
     .filter((value) => value.toLowerCase().includes(query.toLowerCase()))
     .sort((a, b) => {
       // list matches that start with the query first, otherwise sort alphabetically
@@ -115,8 +113,8 @@ export type AutocompleteTrigger = {
   trigger: string;
 };
 
-export type AutocompleteMode<Name = any, Item = any, C = any> = AutocompleteTrigger & {
-  property: any;
+export type AutocompleteMode<Name = any, Item = any, C = string[]> = AutocompleteTrigger & {
+  property?: never;
   collection: C;
 };
 

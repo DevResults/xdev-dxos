@@ -8,6 +8,8 @@ import { sum } from "~/lib/sum";
 import { DailyDones } from "./DailyDones";
 import { DailyTimeEntries } from "./DailyTimeEntries";
 import type { DoneEntry } from "~/schema/DoneEntry";
+import type { TimeEntry } from "~/schema/TimeEntry";
+import type { Identity } from "@dxos/react-client/halo";
 
 const FULL_DAY = 7 * 60;
 const FULL_WEEK = FULL_DAY * 5;
@@ -15,10 +17,8 @@ const FULL_WEEK = FULL_DAY * 5;
 export const MyWeek = ({ start, showWeekends = false, doneEntries, timeEntries, projects, clients, self }: Props) => {
   const days = getDaysOfWeek(start).filter((date) => showWeekends || !isWeekend(date));
 
-  const myTimeEntries = timeEntries
-    .findBy("week", start) // for the week being shown
-    // only my entries
-    .filter(({ contactId }) => contactId === self.id);
+  const sContactId = self.identityKey.toString();
+  const myTimeEntries = timeEntries.filter(({ contactId }) => contactId == sContactId);
 
   const dailyTotals = myTimeEntries.reduce<Record<string, number>>((acc, { date, duration }) => {
     const day = date.toString();
@@ -99,7 +99,7 @@ export const MyWeek = ({ start, showWeekends = false, doneEntries, timeEntries, 
           key={date.toString()}
           className={cx("p-1", weekendShading(date))}
         >
-          <DailyTimeEntries {...{ timeEntries, projects, clients, date, self, longestDay }} />
+          <DailyTimeEntries {...{ timeEntries: myTimeEntries, projects, clients, date, self, longestDay }} />
         </div>
       ))}
       {/* daily totals */}
@@ -141,8 +141,8 @@ type Props = {
   start: LocalDate;
   showWeekends: boolean;
   doneEntries: DoneEntry[];
-  timeEntries: any;
-  projects: any;
-  clients: any;
-  self: any;
+  timeEntries: TimeEntry[];
+  projects: string[];
+  clients: string[];
+  self: Identity;
 };

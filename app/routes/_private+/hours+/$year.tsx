@@ -5,17 +5,17 @@ import { getCurrentYear } from "~/lib/getCurrentYear";
 import { HoursReport } from "./ui/HoursReport";
 import { PageLayout } from "../ui/layouts/PageLayout";
 import { YearNav } from "./ui/YearNav";
+import { useLocalState } from "~/hooks/useLocalState";
+import { Filter, useQuery, useSpace } from "@dxos/react-client/echo";
+import { TimeEntry } from "~/schema/TimeEntry";
 
 export default function Hours$YearPage() {
-  const contacts = {};
-  const timeEntries = {
-    findBy(_) {
-      return [];
-    },
-  };
+  const { spaceKey } = useLocalState();
+  const space = useSpace(spaceKey);
+  const timeEntries = useQuery(space, Filter.schema(TimeEntry));
   const currentYear = getCurrentYear();
-  const { self } = useTeam();
   const year = useSelectedYear();
+  const { self, contacts } = useTeam();
 
   useRedirect({ from: "/hours", to: `/hours/${currentYear}`, condition: year > currentYear });
 

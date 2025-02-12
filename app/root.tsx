@@ -6,6 +6,7 @@ import { configProvider } from "./config";
 import type { Route } from "./+types/root";
 import "./app.css";
 import { DoneEntry } from "./schema/DoneEntry";
+import { TimeEntry } from "./schema/TimeEntry";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -39,7 +40,7 @@ export default function App() {
       shell="./shell.html"
       config={configProvider}
       createWorker={createWorker}
-      types={[DoneEntry]}
+      types={[DoneEntry, TimeEntry]}
     >
       <Outlet />
     </ClientProvider>

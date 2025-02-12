@@ -6,6 +6,8 @@ import { Keys } from "~/lib/keys";
 import { useEffect, useState } from "react";
 import { useHotkeys } from "react-hotkeys-hook";
 import { AutocompleteTextarea } from "./AutocompleteTextarea";
+import { TimeEntry } from "~/schema/TimeEntry";
+import type { Identity } from "@dxos/react-client/halo";
 
 const { enter, escape, up, down, left, right } = Keys;
 
@@ -17,7 +19,7 @@ export const TimeEntryInput = ({
   content,
   index,
   isFocused = false,
-  self: { id: contactId },
+  self,
   date,
   projects,
   clients,
@@ -93,8 +95,8 @@ export const TimeEntryInput = ({
       // process each line as a separate entry
       const [errors, parsedEntries] = TimeEntry.parseMany({
         input: content,
-        contactId,
-        date,
+        contactId: self.identityKey.toString(),
+        date: date.toString(),
         projects,
         clients,
       });
@@ -127,8 +129,8 @@ export const TimeEntryInput = ({
           value={newContent}
           modes={
             [
-              { type: "PROJECT", trigger: "#", collection: projects, property: "fullCode" },
-              { type: "CLIENT", trigger: "@", collection: clients, property: "code" },
+              { type: "PROJECT", trigger: "#", collection: projects },
+              { type: "CLIENT", trigger: "@", collection: clients },
             ] as const
           }
           aria-invalid={showError}
@@ -177,15 +179,15 @@ export const TimeEntryInput = ({
 export type Props = {
   content: string;
   index: number;
-  self: any;
+  self: Identity;
   date: LocalDate;
-  projects: any;
-  clients: any;
+  projects: string[];
+  clients: string[];
   isFocused?: boolean;
   onFocus?: (index: number) => void;
   onFocusNext?: () => void;
   onFocusPrev?: () => void;
   onDestroy?: () => void;
-  onCommit?: (timeEntry: any) => void;
+  onCommit?: (timeEntry: TimeEntry) => void;
   onDiscard?: () => void;
 };

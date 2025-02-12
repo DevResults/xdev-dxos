@@ -1,6 +1,8 @@
 import { cx } from "~/lib/cx";
 import { formatDuration } from "~/lib/formatDuration";
 import type { ReactNode } from "react";
+import type { TimeEntry } from "~/schema/TimeEntry";
+import type { Identity } from "@dxos/react-client/halo";
 
 /**
  * Displays a read-only TimeEntry
@@ -34,19 +36,13 @@ export function TimeEntryDisplay({ className = "", timeEntry }: Props) {
         {/* project */}
         <Badge
           className=" text-white"
-          style={{ backgroundColor: project.color }}
+          style={{ backgroundColor: "green" }}
           // icon={<IconHash />}
         >
-          #<span className="font-bold">{project.code}</span>
-          {project.subCode ? (
-            <>
-              <span className="inline-block px-px">:</span>
-              {project.subCode}
-            </>
-          ) : null}
+          #<span className="font-bold">{project}</span>
         </Badge>
         {/* client */}
-        {client ? <Badge className="border border-neutral-200 text-black">@{client.code}</Badge> : null}
+        {client ? <Badge className="border border-neutral-200 text-black">@{client}</Badge> : null}
       </div>
       {description ? <div className="px-1 text-xs">{description}</div> : null}
     </div>
@@ -84,6 +80,6 @@ export function Badge({
 
 type Props = {
   className?: string;
-  timeEntry: any;
-  self: any;
+  timeEntry: TimeEntry;
+  self: Identity;
 };

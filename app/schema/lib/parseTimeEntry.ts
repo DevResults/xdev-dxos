@@ -1,14 +1,14 @@
-import { createId } from "@paralleldrive/cuid2";
 import { E } from "./Effect";
-import { TimeEntry, TimeEntryId, type TimeEntryInput } from "../TimeEntry";
+import { TimeEntry, type TimeEntryInput } from "../TimeEntry";
 import { parseClient } from "./parseClient";
 import { parseDuration } from "./parseDuration";
 import { parseProject } from "./parseProject";
+import { create } from "@dxos/react-client/echo";
 
 /**
  * Takes a string input like "1h #out doctor" and parses it into a TimeEntry object.
  */
-export const parseTimeEntry = ({ input, contactId, date, id = TimeEntryId.make(createId()) }: TimeEntryInput) =>
+export const parseTimeEntry = ({ input, contactId, date }: TimeEntryInput) =>
   E.gen(function* (_) {
     const { duration, text: durationText } = yield* parseDuration(input);
     const { project, text: projectText } = yield* parseProject(input);
@@ -22,8 +22,7 @@ export const parseTimeEntry = ({ input, contactId, date, id = TimeEntryId.make(c
         .replace(clientText, "")
     );
 
-    return new TimeEntry({
-      id,
+    return create(TimeEntry, {
       contactId,
       date,
       duration,

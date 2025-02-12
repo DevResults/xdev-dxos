@@ -64,8 +64,6 @@ export const DailyDones = ({ date, doneEntries, self }: Props) => {
                 date: sDate,
                 timestamp: new Date().toISOString(),
               });
-              console.log({ self, done });
-
               space?.db.add(done);
               setFocus(dones.length + 1);
             }}
