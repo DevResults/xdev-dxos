@@ -42,6 +42,7 @@
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
     "textarea-caret-ts": "^4.1.1",
+    "ts-regex-builder": "^1.8.2",
     "ua-parser-js": "^2.0.2",
     "unplugin-auto-import": "^19.0.0",
     "unplugin-icons": "^22.0.0",
