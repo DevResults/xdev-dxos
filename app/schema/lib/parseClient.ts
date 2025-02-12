@@ -45,7 +45,7 @@ export const parseClient = (input: string) =>
     if (results.length === 0) return { client: undefined, text: "" };
 
     const { code, text } = results[0];
-    const client = clients.find((d) => d == code);
+    const client = clients.find((d) => d.code == code);
     return { text, client };
   });
 

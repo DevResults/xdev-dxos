@@ -2,6 +2,7 @@ import { cx } from "~/lib/cx";
 import { Keys } from "~/lib/keys";
 import { useState } from "react";
 import { useHotkeys } from "react-hotkeys-hook";
+import type { CollectionItem, StringKeyOf } from "~/types/types";
 
 const { enter, up, down } = Keys;
 
@@ -87,9 +88,9 @@ export const findAutocompleteQuery = (
  * Given a query and a set of autocomplete definitions, returns an array of strings to show in an
  * autocomplete menu.
  */
-export const getAutocompleteItems = <Name, Item>(
+export const getAutocompleteItems = <Item extends CollectionItem>(
   { query, trigger }: AutocompleteState,
-  autocompleteModes: Array<AutocompleteMode<Name, Item>>
+  autocompleteModes: Array<AutocompleteMode<Item>>
 ) => {
   const mode = autocompleteModes.find((m) => m.trigger === trigger);
   if (!mode) return [];
@@ -97,6 +98,7 @@ export const getAutocompleteItems = <Name, Item>(
   const { collection, property } = mode;
 
   return collection
+    .map((item) => String(item[property]))
     .filter((value) => value.toLowerCase().includes(query.toLowerCase()))
     .sort((a, b) => {
       // list matches that start with the query first, otherwise sort alphabetically
@@ -113,8 +115,8 @@ export type AutocompleteTrigger = {
   trigger: string;
 };
 
-export type AutocompleteMode<Name = any, Item = any, C = string[]> = AutocompleteTrigger & {
-  property?: never;
+export type AutocompleteMode<Item extends CollectionItem = any, C = Array<Item>> = AutocompleteTrigger & {
+  property: StringKeyOf<Item>;
   collection: C;
 };
 

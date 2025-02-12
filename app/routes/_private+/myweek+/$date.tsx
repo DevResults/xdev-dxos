@@ -9,6 +9,8 @@ import { useSpace, useQuery, Filter } from "@dxos/react-client/echo";
 import { DoneEntry } from "~/schema/DoneEntry";
 import { useIdentity } from "@dxos/react-client/halo";
 import { TimeEntry } from "~/schema/TimeEntry";
+import { projects } from "~/data/projects";
+import { clients } from "~/data/clients";
 
 export default function MyWeek$DatePage() {
   const identity = useIdentity();
@@ -18,8 +20,6 @@ export default function MyWeek$DatePage() {
   const [showWeekends, setShowWeekends] = useState(false);
   const { start, end } = useSelectedWeek();
   const timeEntries = useQuery(space, Filter.schema(TimeEntry));
-  const projects: string[] = ["a", "b"];
-  const clients: string[] = ["me", "you"];
 
   const sStart = start.toString();
   const sEnd = end.toString();

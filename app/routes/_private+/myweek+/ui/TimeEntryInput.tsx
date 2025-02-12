@@ -8,6 +8,8 @@ import { useHotkeys } from "react-hotkeys-hook";
 import { AutocompleteTextarea } from "./AutocompleteTextarea";
 import { TimeEntry } from "~/schema/TimeEntry";
 import type { Identity } from "@dxos/react-client/halo";
+import type { Project } from "~/schema/Project";
+import type { Client } from "~/schema/Client";
 
 const { enter, escape, up, down, left, right } = Keys;
 
@@ -129,8 +131,8 @@ export const TimeEntryInput = ({
           value={newContent}
           modes={
             [
-              { type: "PROJECT", trigger: "#", collection: projects },
-              { type: "CLIENT", trigger: "@", collection: clients },
+              { type: "PROJECT", trigger: "#", collection: projects, property: "fullCode" },
+              { type: "CLIENT", trigger: "@", collection: clients, property: "code" },
             ] as const
           }
           aria-invalid={showError}
@@ -181,8 +183,8 @@ export type Props = {
   index: number;
   self: Identity;
   date: LocalDate;
-  projects: string[];
-  clients: string[];
+  projects: Project[];
+  clients: Client[];
   isFocused?: boolean;
   onFocus?: (index: number) => void;
   onFocusNext?: () => void;

@@ -8,6 +8,8 @@ import type { TimeEntry } from "~/schema/TimeEntry";
 import type { Identity } from "@dxos/react-client/halo";
 import { useLocalState } from "~/hooks/useLocalState";
 import { useSpace, create } from "@dxos/react-client/echo";
+import type { Project } from "~/schema/Project";
+import type { Client } from "~/schema/Client";
 
 /** Displays a single day of the current user's timeentries */
 export const DailyTimeEntries = ({ date, timeEntries, projects, clients, longestDay, self }: Props) => {
@@ -61,6 +63,8 @@ export const DailyTimeEntries = ({ date, timeEntries, projects, clients, longest
                   <TimeEntryDisplay
                     key={index}
                     timeEntry={timeEntry}
+                    projects={projects}
+                    clients={clients}
                     self={self}
                   />
                   <span className="absolute right-0 top-0 z-10">
@@ -91,8 +95,8 @@ export const DailyTimeEntries = ({ date, timeEntries, projects, clients, longest
 type Props = {
   date: LocalDate;
   timeEntries: TimeEntry[];
-  projects: string[];
-  clients: string[];
+  projects: Project[];
+  clients: Client[];
   longestDay: number;
   self: Identity;
 };

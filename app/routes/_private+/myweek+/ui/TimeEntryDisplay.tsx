@@ -3,14 +3,18 @@ import { formatDuration } from "~/lib/formatDuration";
 import type { ReactNode } from "react";
 import type { TimeEntry } from "~/schema/TimeEntry";
 import type { Identity } from "@dxos/react-client/halo";
+import type { Project } from "~/schema/Project";
+import type { Client } from "~/schema/Client";
 
 /**
  * Displays a read-only TimeEntry
  */
-export function TimeEntryDisplay({ className = "", timeEntry }: Props) {
+export function TimeEntryDisplay({ className = "", timeEntry, projects, clients }: Props) {
   if (timeEntry === undefined) return null;
 
-  const { input, client, project, duration, description } = timeEntry;
+  const { input, client: clientId, project: projectId, duration, description } = timeEntry;
+  const project = projects.find((d) => d.id == projectId);
+  const client = clients.find((d) => d.id == clientId);
 
   return (
     <div
@@ -36,13 +40,19 @@ export function TimeEntryDisplay({ className = "", timeEntry }: Props) {
         {/* project */}
         <Badge
           className=" text-white"
-          style={{ backgroundColor: "green" }}
+          style={{ backgroundColor: project?.color }}
           // icon={<IconHash />}
         >
-          #<span className="font-bold">{project}</span>
+          #<span className="font-bold">{project?.code}</span>
+          {project?.subCode ? (
+            <>
+              <span className="inline-block px-px">:</span>
+              {project?.subCode}
+            </>
+          ) : null}
         </Badge>
         {/* client */}
-        {client ? <Badge className="border border-neutral-200 text-black">@{client}</Badge> : null}
+        {client ? <Badge className="border border-neutral-200 text-black">@{client.code}</Badge> : null}
       </div>
       {description ? <div className="px-1 text-xs">{description}</div> : null}
     </div>
@@ -81,5 +91,7 @@ export function Badge({
 type Props = {
   className?: string;
   timeEntry: TimeEntry;
+  projects: Project[];
+  clients: Client[];
   self: Identity;
 };

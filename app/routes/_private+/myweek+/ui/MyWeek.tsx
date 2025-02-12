@@ -10,6 +10,8 @@ import { DailyTimeEntries } from "./DailyTimeEntries";
 import type { DoneEntry } from "~/schema/DoneEntry";
 import type { TimeEntry } from "~/schema/TimeEntry";
 import type { Identity } from "@dxos/react-client/halo";
+import type { Client } from "~/schema/Client";
+import type { Project } from "~/schema/Project";
 
 const FULL_DAY = 7 * 60;
 const FULL_WEEK = FULL_DAY * 5;
@@ -142,7 +144,7 @@ type Props = {
   showWeekends: boolean;
   doneEntries: DoneEntry[];
   timeEntries: TimeEntry[];
-  projects: string[];
-  clients: string[];
+  projects: Project[];
+  clients: Client[];
   self: Identity;
 };

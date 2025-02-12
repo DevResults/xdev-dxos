@@ -6,6 +6,8 @@ import { ProvidedProjects } from "./ProjectCollection";
 import { ProvidedClients } from "./ClientCollection";
 import { parseTimeEntry } from "./lib/parseTimeEntry";
 import { TypedObject } from "@dxos/echo-schema";
+import type { Project } from "./Project";
+import type { Client } from "./Client";
 
 export const TimeEntryId = pipe(Cuid, S.brand("TimeEntryId"));
 export type TimeEntryId = typeof TimeEntryId.Type;
@@ -44,8 +46,8 @@ export class TimeEntry extends TypedObject({ typename: "devresults.com/type/Time
     projects,
     clients,
   }: TimeEntryInput & {
-    projects: string[];
-    clients: string[];
+    projects: Project[];
+    clients: Client[];
   }) => {
     const parse = (input: string) =>
       pipe(
