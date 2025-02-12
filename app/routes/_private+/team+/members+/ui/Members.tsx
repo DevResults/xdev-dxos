@@ -6,7 +6,7 @@ import { Avatar } from "~/ui/Avatar";
 import { useShell } from "@dxos/react-client";
 import { useLocalState } from "~/hooks/useLocalState";
 import { useSpace } from "@dxos/react-client/echo";
-import type { Contact } from "~/schema/Contact";
+import type { ExtendedContact } from "~/schema/Contact";
 
 export const Members = ({ self, contacts, onPromote = () => {}, onDemote = () => {} }: Props) => {
   const adminIcon = <IconCircleKey className="size-5 text-primary-500" />;
@@ -145,16 +145,24 @@ export const Members = ({ self, contacts, onPromote = () => {}, onDemote = () =>
             </div>
           );
         })}
+
+        <div className="col-span-4 grid grid-cols-subgrid border-b p-2 gap-2 text-center">
+          <div></div>
+          <div className="flex flex-1 flex-row items-start gap-2">
+            <Button
+              intent="primary"
+              size="xs"
+              onClick={() => {
+                void shell.shareSpace({ spaceId: space!.id });
+              }}
+            >
+              Invite
+            </Button>
+          </div>
+        </div>
       </div>
     </>
   );
-};
-
-type ExtendedContact = Contact & {
-  isMember: boolean;
-  isAdmin: boolean;
-  isSelf: boolean;
-  invitationStatus: string;
 };
 
 type Props = {

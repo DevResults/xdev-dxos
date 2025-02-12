@@ -19,3 +19,39 @@ export class Contact extends TypedObject({ typename: "devresults.com/type/Contac
   static encode = S.encodeSync(Contact);
   static decode = S.decodeSync(Contact);
 }
+
+type EncodedContact = typeof Contact.Encoded;
+
+// unable to extend dxos objects the same way, so we'll do it naively
+
+export class ExtendedContact implements EncodedContact {
+  private readonly contact: Contact;
+  readonly isSelf: boolean;
+  readonly isAdmin: boolean;
+  constructor({ contact, isSelf, isAdmin }: { contact: Contact; isSelf: boolean; isAdmin: boolean }) {
+    this.contact = contact;
+    this.isSelf = isSelf;
+    this.isAdmin = isAdmin;
+  }
+  get id() {
+    return this.contact.id;
+  }
+  get identityId() {
+    return this.contact.identityId;
+  }
+  get userName() {
+    return this.contact.userName;
+  }
+  get firstName() {
+    return this.contact.firstName;
+  }
+  get lastName() {
+    return this.contact.lastName;
+  }
+  get avatarUrl() {
+    return this.contact.avatarUrl;
+  }
+
+  readonly isMember: boolean = true;
+  readonly invitationStatus?: string;
+}
