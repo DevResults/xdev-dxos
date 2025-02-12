@@ -2,9 +2,9 @@ import { cx } from "~/lib/cx";
 import { formatDuration } from "~/lib/formatDuration";
 import type { ReactNode } from "react";
 import type { TimeEntry } from "~/schema/TimeEntry";
-import type { Identity } from "@dxos/react-client/halo";
 import type { Project } from "~/schema/Project";
 import type { Client } from "~/schema/Client";
+import type { Contact } from "~/schema/Contact";
 
 /**
  * Displays a read-only TimeEntry
@@ -93,5 +93,5 @@ type Props = {
   timeEntry: TimeEntry;
   projects: Project[];
   clients: Client[];
-  self: Identity;
+  self: Contact;
 };

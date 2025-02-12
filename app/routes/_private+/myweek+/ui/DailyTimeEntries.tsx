@@ -5,11 +5,11 @@ import { DeleteButton } from "./DeleteButton";
 import { TimeEntryDisplay } from "./TimeEntryDisplay";
 import { TimeEntryInput } from "./TimeEntryInput";
 import type { TimeEntry } from "~/schema/TimeEntry";
-import type { Identity } from "@dxos/react-client/halo";
 import { useLocalState } from "~/hooks/useLocalState";
-import { useSpace, create } from "@dxos/react-client/echo";
+import { useSpace } from "@dxos/react-client/echo";
 import type { Project } from "~/schema/Project";
 import type { Client } from "~/schema/Client";
+import type { Contact } from "~/schema/Contact";
 
 /** Displays a single day of the current user's timeentries */
 export const DailyTimeEntries = ({ date, timeEntries, projects, clients, longestDay, self }: Props) => {
@@ -98,5 +98,5 @@ type Props = {
   projects: Project[];
   clients: Client[];
   longestDay: number;
-  self: Identity;
+  self: Contact;
 };

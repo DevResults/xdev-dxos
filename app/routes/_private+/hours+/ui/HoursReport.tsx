@@ -11,8 +11,8 @@ import { sum } from "~/lib/sum";
 import { Fragment } from "react/jsx-runtime";
 import { Avatar } from "~/ui/Avatar";
 import { CenteredLayout } from "~/ui/layouts/CenteredLayout";
-import type { Identity } from "@dxos/react-client/halo";
 import type { TimeEntry } from "~/schema/TimeEntry";
+import type { Contact, ContactId } from "~/schema/Contact";
 
 function rankByScore(_) {
   return new Map();
@@ -36,7 +36,7 @@ export const HoursReport = ({ year, contacts, timeEntries }: Props) => {
   }
 
   /** Which contacts have any hours data at all? */
-  const reportingContacts = contacts.filter((c) => entries.some((e) => e.contactId == c.identityKey.toString()));
+  const reportingContacts = contacts.filter((c) => entries.some((e) => e.contactId === c.id));
 
   /** All weeks in the given year */
   const weeks = getSundaysForYear(year);
@@ -49,31 +49,30 @@ export const HoursReport = ({ year, contacts, timeEntries }: Props) => {
 
   /** How many minutes have been logged by each contact for each week? */
   const minutesByWeekByContact = new Map(
-    reportingContacts.map(({ identityKey }) => {
-      const sContactId = identityKey.toString();
+    reportingContacts.map(({ id }) => {
       const minutesByWeek = new Map(
         weeks.map((week) => {
           const totalMinutes = sum(
             entries
               .filter(({ date }) => getSunday(LocalDate.parse(date)).equals(week)) // for this week
-              .filter(({ contactId }) => contactId === sContactId) // for this contact
+              .filter(({ contactId }) => contactId === id) // for this contact
               .map((entry) => entry.duration)
           );
           return [String(week), totalMinutes];
         })
       );
-      return [sContactId, minutesByWeek];
+      return [id, minutesByWeek];
     })
   );
 
   /** Convenience lookup for minutesByWeekByContact */
-  const getMinutes = (contactId: string, week: LocalDate) =>
+  const getMinutes = (contactId: ContactId, week: LocalDate) =>
     minutesByWeekByContact.get(contactId)?.get(String(week)) ?? 0;
 
   /** How many weeks has each contact completed? (as an array of objects) */
-  const completionScores = reportingContacts.map(({ identityKey }) => {
-    const sContactId = identityKey.toString();
-    const score = weeks.filter((week) => isCompleteWeek(getMinutes(sContactId, week)) && isPast(week)).length;
+  const completionScores = reportingContacts.map(({ id }) => {
+    const sContactId = id.toString();
+    const score = weeks.filter((week) => isCompleteWeek(getMinutes(id, week)) && isPast(week)).length;
     return { sContactId, score };
   });
 
@@ -86,10 +85,7 @@ export const HoursReport = ({ year, contacts, timeEntries }: Props) => {
   /** As a team, which weeks do we have complete data for? */
   const teamCompletionByWeek = new Map(
     weeks.map((week) => {
-      const isComplete = reportingContacts.every(({ identityKey }) => {
-        const id = identityKey.toString();
-        return isCompleteWeek(getMinutes(id, week));
-      });
+      const isComplete = reportingContacts.every(({ id }) => isCompleteWeek(getMinutes(id, week)));
       return [String(week), isComplete];
     })
   );
@@ -130,8 +126,7 @@ export const HoursReport = ({ year, contacts, timeEntries }: Props) => {
       {/* DATA ROWS  */}
 
       {reportingContacts.map((contact) => {
-        const id = contact.identityKey.toString();
-        const firstName = contact.profile?.displayName ?? "Ünknown";
+        const { id, firstName } = contact;
 
         const completeWeeks = completionByContact.get(id)!;
         const weeksBehind = weeksToDate - completeWeeks;
@@ -261,5 +256,5 @@ const futureBackground = cx("bg-neutral-50");
 type Props = {
   year: number;
   timeEntries: TimeEntry[];
-  contacts: Identity[];
+  contacts: Contact[];
 };

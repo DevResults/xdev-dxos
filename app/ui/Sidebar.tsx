@@ -2,6 +2,7 @@ import { NavLink } from "react-router";
 import { cx } from "~/lib/cx";
 import { Avatar } from "./Avatar";
 import type { NavItem } from "~/types/types";
+import type { Contact } from "~/schema/Contact";
 
 export function Sidebar({ self, close }: Props) {
   const navigation: NavItem[] = [
@@ -33,7 +34,7 @@ export function Sidebar({ self, close }: Props) {
             className="mx-auto"
           />
         </span>
-        <span className="truncate text-sm font-semibold text-black">{self.fullName}</span>
+        <span className="truncate text-sm font-semibold text-black">{self.firstName}</span>
       </header>
 
       {/* app navigation */}
@@ -91,7 +92,7 @@ const NavLinks = ({ items, close }: { items: NavItem[]; close: undefined | (() =
 };
 
 type Props = {
-  self: any;
+  self: Contact;
 
   close?: undefined | (() => void);
 };

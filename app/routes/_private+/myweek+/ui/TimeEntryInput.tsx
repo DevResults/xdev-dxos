@@ -7,9 +7,9 @@ import { useEffect, useState } from "react";
 import { useHotkeys } from "react-hotkeys-hook";
 import { AutocompleteTextarea } from "./AutocompleteTextarea";
 import { TimeEntry } from "~/schema/TimeEntry";
-import type { Identity } from "@dxos/react-client/halo";
 import type { Project } from "~/schema/Project";
 import type { Client } from "~/schema/Client";
+import type { Contact } from "~/schema/Contact";
 
 const { enter, escape, up, down, left, right } = Keys;
 
@@ -97,7 +97,7 @@ export const TimeEntryInput = ({
       // process each line as a separate entry
       const [errors, parsedEntries] = TimeEntry.parseMany({
         input: content,
-        contactId: self.identityKey.toString(),
+        contactId: self.id,
         date: date.toString(),
         projects,
         clients,
@@ -181,7 +181,7 @@ export const TimeEntryInput = ({
 export type Props = {
   content: string;
   index: number;
-  self: Identity;
+  self: Contact;
   date: LocalDate;
   projects: Project[];
   clients: Client[];

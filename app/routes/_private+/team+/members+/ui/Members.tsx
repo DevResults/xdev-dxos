@@ -6,6 +6,7 @@ import { Avatar } from "~/ui/Avatar";
 import { useShell } from "@dxos/react-client";
 import { useLocalState } from "~/hooks/useLocalState";
 import { useSpace } from "@dxos/react-client/echo";
+import type { Contact } from "~/schema/Contact";
 
 export const Members = ({ self, contacts, onPromote = () => {}, onDemote = () => {} }: Props) => {
   const adminIcon = <IconCircleKey className="size-5 text-primary-500" />;
@@ -32,7 +33,7 @@ export const Members = ({ self, contacts, onPromote = () => {}, onDemote = () =>
           const canChangeAdminStatus = self.isAdmin && !contact.isSelf;
           return (
             <div
-              key={contact.identityKey}
+              key={contact.id}
               className="col-span-4 grid grid-cols-subgrid items-center border-b p-2"
             >
               {/* Admin icon */}
@@ -75,7 +76,7 @@ export const Members = ({ self, contacts, onPromote = () => {}, onDemote = () =>
               <div className="flex flex-1 flex-row items-start gap-2">
                 <Avatar contact={contact} />
                 <div>
-                  <div className="font-medium">{contact.fullName}</div>
+                  <div className="font-medium">{contact.firstName}</div>
                   <div className="flex flex-row gap-2 divide-x text-xs text-neutral-400 [&>div:not(:first-child)]:pl-2">
                     {contact.isSelf ? <div>You</div> : null}
                     <div>
@@ -149,9 +150,16 @@ export const Members = ({ self, contacts, onPromote = () => {}, onDemote = () =>
   );
 };
 
+type ExtendedContact = Contact & {
+  isMember: boolean;
+  isAdmin: boolean;
+  isSelf: boolean;
+  invitationStatus: string;
+};
+
 type Props = {
-  self?: any;
-  contacts?: any[];
+  self?: ExtendedContact;
+  contacts?: ExtendedContact[];
   onPromote?: (userId: string) => void;
   onDemote?: (userId: string) => void;
   onRemove?: (userId: string) => void;

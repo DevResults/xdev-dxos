@@ -2,6 +2,7 @@ import { Drawer, DrawerContent } from "~/ui/shadcn/drawer";
 import { cx } from "~/lib/cx";
 import { useState } from "react";
 import { Sidebar } from "../Sidebar";
+import type { Contact } from "~/schema/Contact";
 
 export function AppLayout({ self, children }: Props) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -77,6 +78,6 @@ export function AppLayout({ self, children }: Props) {
 }
 
 type Props = {
-  self: any;
+  self: Contact;
   children: React.ReactNode;
 };

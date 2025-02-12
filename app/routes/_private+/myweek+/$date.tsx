@@ -7,13 +7,13 @@ import { useSelectedWeek } from "~/hooks/useSelectedWeek";
 import { useLocalState } from "~/hooks/useLocalState";
 import { useSpace, useQuery, Filter } from "@dxos/react-client/echo";
 import { DoneEntry } from "~/schema/DoneEntry";
-import { useIdentity } from "@dxos/react-client/halo";
 import { TimeEntry } from "~/schema/TimeEntry";
 import { projects } from "~/data/projects";
 import { clients } from "~/data/clients";
+import { useTeam } from "~/hooks/useTeam";
 
 export default function MyWeek$DatePage() {
-  const identity = useIdentity();
+  const { self } = useTeam();
   const { spaceKey } = useLocalState();
   const space = useSpace(spaceKey);
   const dones = useQuery(space, Filter.schema(DoneEntry));
@@ -50,9 +50,7 @@ export default function MyWeek$DatePage() {
       }
     >
       <div className="h-full p-1">
-        <MyWeek
-          {...{ start, showWeekends, doneEntries: dones, timeEntries: times, projects, clients, self: identity! }}
-        />
+        <MyWeek {...{ start, showWeekends, doneEntries: dones, timeEntries: times, projects, clients, self }} />
       </div>
     </PageLayout>
   );

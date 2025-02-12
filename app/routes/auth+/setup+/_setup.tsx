@@ -7,8 +7,14 @@ export default function Setup() {
   const identity = useIdentity();
   const { invitationCode, spaceKey } = useLocalState();
 
-  useRedirect({ from: "/auth/setup", to: "/auth/begin", condition: !identity?.profile?.displayName });
-  useRedirect({ from: "/auth/setup", to: `/auth/setup/join/${invitationCode}`, condition: Boolean(invitationCode) });
+  const identityConfigured = Boolean(identity?.profile?.displayName);
+
+  useRedirect({ from: "/auth/setup", to: "/auth/begin", condition: !identityConfigured });
+  useRedirect({
+    from: "/auth/setup",
+    to: `/auth/setup/join/${invitationCode}`,
+    condition: identityConfigured && Boolean(invitationCode),
+  });
   useRedirect({ from: "/auth/setup", to: "/", condition: Boolean(identity) && Boolean(spaceKey) });
 
   return <SetupOptions />;

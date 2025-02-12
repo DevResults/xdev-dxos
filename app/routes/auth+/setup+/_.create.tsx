@@ -4,6 +4,8 @@ import { useIdentity } from "@dxos/react-client/halo";
 import { useClient } from "@dxos/react-client";
 import { useLocalState } from "~/hooks/useLocalState";
 import { useRedirect } from "~/hooks/useRedirect";
+import { create } from "@dxos/react-client/echo";
+import { Contact } from "~/schema/Contact";
 
 export default function AuthCreatePage() {
   const identity = useIdentity();
@@ -28,6 +30,16 @@ export default function AuthCreatePage() {
         const space = await client.spaces.create({ name: teamName });
         update({ spaceKey: space.key });
         await space.waitUntilReady();
+
+        // build a contact for yourself
+        const contact = create(Contact, {
+          identityId: identity!.identityKey.toString(),
+          avatarUrl: "",
+          firstName: identity!.profile!.displayName!,
+          lastName: "",
+          userName: identity!.profile!.displayName!,
+        });
+        space.db.add(contact);
 
         // Navigate to the app
         navigate("/");

@@ -9,9 +9,9 @@ import { DailyDones } from "./DailyDones";
 import { DailyTimeEntries } from "./DailyTimeEntries";
 import type { DoneEntry } from "~/schema/DoneEntry";
 import type { TimeEntry } from "~/schema/TimeEntry";
-import type { Identity } from "@dxos/react-client/halo";
 import type { Client } from "~/schema/Client";
 import type { Project } from "~/schema/Project";
+import type { Contact } from "~/schema/Contact";
 
 const FULL_DAY = 7 * 60;
 const FULL_WEEK = FULL_DAY * 5;
@@ -19,8 +19,7 @@ const FULL_WEEK = FULL_DAY * 5;
 export const MyWeek = ({ start, showWeekends = false, doneEntries, timeEntries, projects, clients, self }: Props) => {
   const days = getDaysOfWeek(start).filter((date) => showWeekends || !isWeekend(date));
 
-  const sContactId = self.identityKey.toString();
-  const myTimeEntries = timeEntries.filter(({ contactId }) => contactId == sContactId);
+  const myTimeEntries = timeEntries.filter(({ contactId }) => contactId === self.id);
 
   const dailyTotals = myTimeEntries.reduce<Record<string, number>>((acc, { date, duration }) => {
     const day = date.toString();
@@ -146,5 +145,5 @@ type Props = {
   timeEntries: TimeEntry[];
   projects: Project[];
   clients: Client[];
-  self: Identity;
+  self: Contact;
 };
