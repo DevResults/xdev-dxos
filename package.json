@@ -6,7 +6,7 @@
     "build": "react-router build",
     "dev": "react-router dev --open",
     "start": "react-router-serve ./build/server/index.js",
-    "typecheck": "react-router typegen && tsc",
+    "typecheck": "react-router typegen && tsc -p ./app/tsconfig.json --noEmit",
     "icon-types": "node ./scripts/generate-icon-types.js"
   },
   "dependencies": {
