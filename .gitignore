@@ -4,3 +4,9 @@
 # React Router
 /.react-router/
 /build/
+
+# asdf
+.tool-versions
+
+# vscode
+/.vscode/
