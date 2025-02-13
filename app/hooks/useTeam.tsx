@@ -1,6 +1,6 @@
 import { DeviceKind, useDevices, useIdentity } from "@dxos/react-client/halo"
 import { useLocalState } from "./useLocalState"
-import { create, Filter, useMembers, useQuery, useSpace } from "@dxos/react-client/echo"
+import { HaloSpaceMember, Filter, useMembers, useQuery, useSpace } from "@dxos/react-client/echo"
 import { Contact, ExtendedContact } from "~/schema/Contact"
 
 /**
@@ -13,9 +13,9 @@ export const useTeam = () => {
   const members = useMembers(space?.key)
   const contacts = useQuery(space, Filter.schema(Contact)).map(c => {
     const member = members.find(m => m.identity.identityKey.toString() == c.identityId)
-    const isAdmin = member?.role == 4 // Role.Admin
+    const isAdmin = member?.role == HaloSpaceMember.Role.ADMIN
     const isSelf = member?.identity.identityKey.toString() == identity?.identityKey.toString()
-    return new ExtendedContact({ contact: c, isAdmin, isSelf })
+    return new ExtendedContact({ contact: c, isAdmin, isSelf, identity: member?.identity })
   })
   const devices = useDevices()
   const device = devices.find(d => d.kind === DeviceKind.CURRENT)

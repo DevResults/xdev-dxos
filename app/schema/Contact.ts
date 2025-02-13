@@ -2,6 +2,8 @@ import { pipe, S } from "./lib/Effect"
 import { Cuid } from "./Cuid"
 import { withDefaultId } from "./lib/withDefault"
 import { TypedObject } from "@dxos/echo-schema"
+import type { Identity } from "@dxos/react-client/halo"
+import type { PublicKey } from "@dxos/react-client"
 
 export const ContactId = pipe(Cuid, S.brand("ContactId"))
 export type ContactId = typeof ContactId.Type
@@ -28,21 +30,25 @@ type EncodedContact = typeof Contact.Encoded
 // unable to extend dxos objects the same way, so we'll do it naively
 
 export class ExtendedContact implements EncodedContact {
-  private readonly contact: Contact
+  readonly contact: Contact
   readonly isSelf: boolean
   readonly isAdmin: boolean
+  readonly identityKey: PublicKey | undefined
   constructor({
     contact,
     isSelf,
     isAdmin,
+    identity,
   }: {
     contact: Contact
     isSelf: boolean
     isAdmin: boolean
+    identity: Identity | undefined
   }) {
     this.contact = contact
     this.isSelf = isSelf
     this.isAdmin = isAdmin
+    this.identityKey = identity?.identityKey
   }
   get id() {
     return this.contact.id
