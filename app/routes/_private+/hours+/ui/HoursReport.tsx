@@ -13,10 +13,7 @@ import { Avatar } from "~/ui/Avatar"
 import { CenteredLayout } from "~/ui/layouts/CenteredLayout"
 import type { TimeEntry } from "~/schema/TimeEntry"
 import type { Contact, ContactId } from "~/schema/Contact"
-
-function rankByScore(_) {
-  return new Map()
-}
+import { rankByScore } from "~/lib/rankByScore"
 
 export const HoursReport = ({ year, contacts, timeEntries }: Props) => {
   const sYear = year.toString()
@@ -73,13 +70,11 @@ export const HoursReport = ({ year, contacts, timeEntries }: Props) => {
   const completionScores = reportingContacts.map(({ id }) => {
     const sContactId = id.toString()
     const score = weeks.filter(week => isCompleteWeek(getMinutes(id, week)) && isPast(week)).length
-    return { sContactId, score }
+    return { id: sContactId, score }
   })
 
   /** How many weeks has each contact completed? (as a map) */
-  const completionByContact = new Map(
-    completionScores.map(({ sContactId, score }) => [sContactId, score]),
-  )
+  const completionByContact = new Map(completionScores.map(({ id, score }) => [id, score]))
 
   /** Rank of contacts according to completion rates (0 = least complete) */
   const rankByCompletion = rankByScore(completionScores)
