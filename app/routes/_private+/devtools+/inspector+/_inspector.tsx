@@ -4,8 +4,8 @@ import "react-json-view-lite/dist/index.css"
 import { useSpaces } from "@dxos/react-client/echo"
 
 export default function InspectorPage() {
-  const rootDoc = useSpaces()
-  if (!rootDoc) return null
+  const spaces = useSpaces()
+  if (!spaces) return null
 
   const styles = {
     ...defaultStyles,
@@ -15,29 +15,26 @@ export default function InspectorPage() {
     noQuotesForStringValues: true,
   }
 
-  const tabItems = Object.keys(rootDoc) as Array<keyof typeof rootDoc>
-
   return (
     <div className="flex h-full">
-      <Tabs defaultValue={tabItems[0]} className="flex grow flex-col">
+      <Tabs defaultValue={spaces[0].id} className="flex grow flex-col">
         <div>
           <TabsList className="">
-            {tabItems.map(tabItem => {
-              const count = Object.keys(rootDoc[tabItem]).length
+            {spaces.map(space => {
               return (
-                <TabsTrigger key={tabItem} value={tabItem}>
-                  <span className="mr-1">{tabItem}</span>
-                  <span className="text-xs font-light text-neutral-400">({count})</span>
+                <TabsTrigger key={space.id} value={space.id}>
+                  <span className="mr-1">{space.id}</span>
+                  {/* <span className="text-xs font-light text-neutral-400">({count})</span> */}
                 </TabsTrigger>
               )
             })}
           </TabsList>
         </div>
         <div className="grow overflow-scroll">
-          {tabItems.map(tabItem => (
-            <TabsContent key={tabItem} value={tabItem}>
+          {spaces.map(space => (
+            <TabsContent key={space.id} value={space.id}>
               <JsonView
-                data={rootDoc[tabItem]}
+                data={space}
                 style={styles}
                 shouldExpandNode={level => level < 2}
                 clickToExpandNode={true}
