@@ -1,4 +1,4 @@
-import { ConfirmDialog } from "./ConfirmDialog";
+import { ConfirmDialog } from "./ConfirmDialog"
 
 export function RevokeInvitationDialog({
   onClose = () => {},
@@ -7,7 +7,7 @@ export function RevokeInvitationDialog({
   revoke = () => {},
   defaultOpen = false,
 }: Props) {
-  if (!invitation) return null;
+  if (!invitation) return null
 
   return (
     <ConfirmDialog
@@ -15,20 +15,20 @@ export function RevokeInvitationDialog({
       body={`${contact.firstName} will no longer be able to use it to join.`}
       intent="danger"
       onConfirm={() => {
-        revoke();
-        onClose();
+        revoke()
+        onClose()
       }}
       onCancel={onClose}
       confirmButtonText="Yes, revoke"
       defaultOpen={defaultOpen}
     ></ConfirmDialog>
-  );
+  )
 }
 
 export type Props = {
-  onClose: () => void;
-  contact: any;
-  invitation: any;
-  revoke: () => void;
-  defaultOpen?: boolean;
-};
+  onClose: () => void
+  contact: any
+  invitation: any
+  revoke: () => void
+  defaultOpen?: boolean
+}

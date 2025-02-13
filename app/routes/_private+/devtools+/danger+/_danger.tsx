@@ -1,22 +1,22 @@
-import { Alert, AlertDescription } from "~/ui/shadcn/alert";
-import { DoneEntryGenerator } from "./ui/DoneEntryGenerator";
-import { DoneEntryImporter } from "./ui/DoneEntryImporter";
-import { TimeEntryGenerator } from "./ui/TimeEntryGenerator";
-import { TimeEntryImporter } from "./ui/TimeEntryImporter";
+import { Alert, AlertDescription } from "~/ui/shadcn/alert"
+import { DoneEntryGenerator } from "./ui/DoneEntryGenerator"
+import { DoneEntryImporter } from "./ui/DoneEntryImporter"
+import { TimeEntryGenerator } from "./ui/TimeEntryGenerator"
+import { TimeEntryImporter } from "./ui/TimeEntryImporter"
 
 export default function DangerPage() {
   const fake = {
     add(_: any) {},
     destroyAll() {},
     all() {
-      return [];
+      return []
     },
-  };
-  const timeEntries = fake;
-  const doneEntries = fake;
-  const clients = fake;
-  const projects = fake;
-  const contacts = fake;
+  }
+  const timeEntries = fake
+  const doneEntries = fake
+  const clients = fake
+  const projects = fake
+  const contacts = fake
 
   return (
     <div>
@@ -24,7 +24,8 @@ export default function DangerPage() {
         <Alert variant="danger">
           <IconExclamationCircle />
           <AlertDescription>
-            <b>Careful!</b> The tools on this page overwrite existing data and shouldn't be used in production.
+            <b>Careful!</b> The tools on this page overwrite existing data and shouldn't be used in
+            production.
           </AlertDescription>
         </Alert>
         <div className="flex flex-col gap-2 divide-y border-t">
@@ -35,7 +36,7 @@ export default function DangerPage() {
                 <div className="w-[30em]">
                   <DoneEntryGenerator
                     contacts={contacts.all()}
-                    add={(done) => doneEntries.add(done)}
+                    add={done => doneEntries.add(done)}
                     destroyAll={() => doneEntries.destroyAll()}
                   />
                 </div>
@@ -46,7 +47,7 @@ export default function DangerPage() {
               content: (
                 <DoneEntryImporter
                   contacts={contacts.all()}
-                  add={(done) => doneEntries.add(done)}
+                  add={done => doneEntries.add(done)}
                   destroyAll={() => doneEntries.destroyAll()}
                 />
               ),
@@ -59,7 +60,7 @@ export default function DangerPage() {
                     contacts={contacts.all()}
                     clients={clients.all()}
                     projects={projects.all()}
-                    add={(t) => timeEntries.add(t)}
+                    add={t => timeEntries.add(t)}
                     destroyAll={() => timeEntries.destroyAll()}
                   />
                 </div>
@@ -72,7 +73,7 @@ export default function DangerPage() {
                   <TimeEntryImporter
                     defaultOpen={true}
                     destroyAll={() => timeEntries.destroyAll()}
-                    add={(timeEntry) => timeEntries.add(timeEntry)}
+                    add={timeEntry => timeEntries.add(timeEntry)}
                     contacts={contacts.all()}
                     clients={clients.all()}
                     projects={projects.all()}
@@ -81,10 +82,7 @@ export default function DangerPage() {
               ),
             },
           ].map(({ heading, content }) => (
-            <div
-              className="flex flex-row py-2"
-              key={heading}
-            >
+            <div className="flex flex-row py-2" key={heading}>
               <h3 className="w-[14em] flex-none">{heading}</h3>
               <div className="flex-grow">{content}</div>
             </div>
@@ -92,5 +90,5 @@ export default function DangerPage() {
         </div>
       </div>
     </div>
-  );
+  )
 }

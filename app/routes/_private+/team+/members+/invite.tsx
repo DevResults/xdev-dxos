@@ -1,16 +1,16 @@
-import { useLocation, useNavigate } from "react-router";
-import { InviteMemberDialog } from "./ui/InviteMemberDialog";
+import { useLocation, useNavigate } from "react-router"
+import { InviteMemberDialog } from "./ui/InviteMemberDialog"
 
 export default function MembersInvitePage() {
   // the userId of the contact we're inviting is passed in the location state
-  const { userId } = useLocation().state;
-  const navigate = useNavigate();
+  const { userId } = useLocation().state
+  const navigate = useNavigate()
 
   // look up the contact information for the user we're inviting
-  const contact = { userId };
+  const contact = { userId }
 
   // generate an invitation code for the contact
-  const invitationCode = "hello";
+  const invitationCode = "hello"
 
   // ↑ hooks
 
@@ -21,5 +21,5 @@ export default function MembersInvitePage() {
       contact={contact}
       invitationCode={invitationCode}
     />
-  );
+  )
 }

@@ -1,23 +1,30 @@
-import { Button } from "~/ui/shadcn/button";
-import { Dialog, DialogBody, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "~/ui/shadcn/dialog";
-import { useEffect, useState } from "react";
+import { Button } from "~/ui/shadcn/button"
+import {
+  Dialog,
+  DialogBody,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "~/ui/shadcn/dialog"
+import { useEffect, useState } from "react"
 
 export function InviteDeviceDialog({ onClose, invitationCode, defaultOpen = false }: Props) {
-  const [isOpen, setIsOpen] = useState(defaultOpen);
+  const [isOpen, setIsOpen] = useState(defaultOpen)
   useEffect(() => {
-    setIsOpen(defaultOpen);
-  }, [invitationCode]);
+    setIsOpen(defaultOpen)
+  }, [invitationCode])
 
-  if (!invitationCode) return null;
+  if (!invitationCode) return null
 
-  const url = `${window.location.origin}/link/${invitationCode}`;
+  const url = `${window.location.origin}/link/${invitationCode}`
 
   return (
     <Dialog
       open={isOpen}
-      onOpenChange={(open) => {
-        setIsOpen(open);
-        if (!open) onClose();
+      onOpenChange={open => {
+        setIsOpen(open)
+        if (!open) onClose()
       }}
     >
       <DialogContent>
@@ -30,8 +37,8 @@ export function InviteDeviceDialog({ onClose, invitationCode, defaultOpen = fals
             intent="primary"
             size="md"
             onClick={() => {
-              onClose?.();
-              setIsOpen(false);
+              onClose?.()
+              setIsOpen(false)
             }}
           >
             Done
@@ -39,11 +46,11 @@ export function InviteDeviceDialog({ onClose, invitationCode, defaultOpen = fals
         </DialogFooter>
       </DialogContent>
     </Dialog>
-  );
+  )
 }
 
 export type Props = {
-  onClose: () => void;
-  invitationCode: string | undefined;
-  defaultOpen?: boolean;
-};
+  onClose: () => void
+  invitationCode: string | undefined
+  defaultOpen?: boolean
+}

@@ -1,4 +1,4 @@
-import { CenteredLayout } from "./layouts/CenteredLayout";
+import { CenteredLayout } from "./layouts/CenteredLayout"
 
 export const ComingSoon = ({ children }: { children: React.ReactNode }) => (
   <CenteredLayout>
@@ -7,4 +7,4 @@ export const ComingSoon = ({ children }: { children: React.ReactNode }) => (
       <span className="text-sm">Coming soon!</span>
     </p>
   </CenteredLayout>
-);
+)

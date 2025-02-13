@@ -1,23 +1,23 @@
-import { LocalDate } from "@js-joda/core";
-import { cx } from "~/lib/cx";
-import { useState } from "react";
-import { DoneEditable } from "./DoneEditable";
-import { DoneInput } from "./DoneInput";
-import { DoneEntry } from "~/schema/DoneEntry";
-import { useLocalState } from "~/hooks/useLocalState";
-import { create, useSpace } from "@dxos/react-client/echo";
+import { LocalDate } from "@js-joda/core"
+import { cx } from "~/lib/cx"
+import { useState } from "react"
+import { DoneEditable } from "./DoneEditable"
+import { DoneInput } from "./DoneInput"
+import { DoneEntry } from "~/schema/DoneEntry"
+import { useLocalState } from "~/hooks/useLocalState"
+import { create, useSpace } from "@dxos/react-client/echo"
 
 /** Displays a single day of the current user's dones */
 export const DailyDones = ({ date, doneEntries, self }: Props) => {
-  const [focus, setFocus] = useState<number>(-1); // nothing focused by default
-  const { spaceKey } = useLocalState();
-  const space = useSpace(spaceKey);
+  const [focus, setFocus] = useState<number>(-1) // nothing focused by default
+  const { spaceKey } = useLocalState()
+  const space = useSpace(spaceKey)
 
-  const sDate = date.toString();
-  const dones = doneEntries.filter((d) => d.date == sDate && d.contactId == self.id);
+  const sDate = date.toString()
+  const dones = doneEntries.filter(d => d.date == sDate && d.contactId == self.id)
 
-  const focusNext = () => setFocus((f: number) => Math.min(f + 1, dones.length + 1));
-  const focusPrev = () => setFocus((f: number) => Math.max(f - 1, 0));
+  const focusNext = () => setFocus((f: number) => Math.min(f + 1, dones.length + 1))
+  const focusPrev = () => setFocus((f: number) => Math.max(f - 1, 0))
 
   return (
     <>
@@ -28,8 +28,8 @@ export const DailyDones = ({ date, doneEntries, self }: Props) => {
             <DoneEditable
               done={done}
               index={index}
-              onUpdate={(content) => {
-                done.content = content;
+              onUpdate={content => {
+                done.content = content
               }}
               onDestroy={() => space?.db.remove(done)}
               isFocused={focus === index}
@@ -44,7 +44,7 @@ export const DailyDones = ({ date, doneEntries, self }: Props) => {
         <li
           className={cx(
             "flex grow flex-col rounded-md border p-2",
-            "focus-within:border-2 focus-within:border-primary-600"
+            "focus-within:border-2 focus-within:border-primary-600",
           )}
         >
           <DoneInput
@@ -56,25 +56,25 @@ export const DailyDones = ({ date, doneEntries, self }: Props) => {
             onFocusNext={focusNext}
             onFocusPrev={focusPrev}
             onDestroy={() => {}}
-            onChange={(content) => {
+            onChange={content => {
               const done = create(DoneEntry, {
                 contactId: self.id,
                 content,
                 date: sDate,
                 timestamp: new Date().toISOString(),
-              });
-              space?.db.add(done);
-              setFocus(dones.length + 1);
+              })
+              space?.db.add(done)
+              setFocus(dones.length + 1)
             }}
           />
         </li>
       </ul>
     </>
-  );
-};
+  )
+}
 
 type Props = {
-  date: LocalDate;
-  doneEntries: DoneEntry[];
-  self: any;
-};
+  date: LocalDate
+  doneEntries: DoneEntry[]
+  self: any
+}

@@ -1,28 +1,30 @@
-import { Link, useLocation, useParams } from "react-router";
-import { useNavigationHotkey } from "~/hooks/useNavigationHotkey";
-import { useSelectedWeek } from "~/hooks/useSelectedWeek";
-import { formatDateRange } from "~/lib/formatDateRange";
-import { getSunday } from "~/lib/getSunday";
+import { Link, useLocation, useParams } from "react-router"
+import { useNavigationHotkey } from "~/hooks/useNavigationHotkey"
+import { useSelectedWeek } from "~/hooks/useSelectedWeek"
+import { formatDateRange } from "~/lib/formatDateRange"
+import { getSunday } from "~/lib/getSunday"
 
 export const WeekNav = () => {
-  const { start, end } = useSelectedWeek();
+  const { start, end } = useSelectedWeek()
 
-  const { pathname } = useLocation();
-  const { date = "" } = useParams();
+  const { pathname } = useLocation()
+  const { date = "" } = useParams()
 
-  const current = pathname.replace(date, getSunday().toString());
-  const prev = pathname.replace(date, start.minusWeeks(1).toString());
-  const next = pathname.replace(date, start.plusWeeks(1).toString());
+  const current = pathname.replace(date, getSunday().toString())
+  const prev = pathname.replace(date, start.minusWeeks(1).toString())
+  const next = pathname.replace(date, start.plusWeeks(1).toString())
 
-  useNavigationHotkey("t", current);
-  useNavigationHotkey("p,j,pageup", prev);
-  useNavigationHotkey("n,k,pagedown", next);
+  useNavigationHotkey("t", current)
+  useNavigationHotkey("p,j,pageup", prev)
+  useNavigationHotkey("n,k,pagedown", next)
 
   return (
-    <div className="flex flex-row items-center gap-2 ">
-      <span className="whitespace-nowrap font-serif tracking-tight">{formatDateRange(start, end)}</span>
+    <div className="flex flex-row items-center gap-2">
+      <span className="whitespace-nowrap font-serif tracking-tight">
+        {formatDateRange(start, end)}
+      </span>
 
-      <div className="flex flex-row items-center gap-2 rounded-lg border ">
+      <div className="flex flex-row items-center gap-2 rounded-lg border">
         <Link
           className="border-r px-3 py-1"
           title="Previous week (p)"
@@ -46,5 +48,5 @@ export const WeekNav = () => {
         />
       </div>
     </div>
-  );
-};
+  )
+}

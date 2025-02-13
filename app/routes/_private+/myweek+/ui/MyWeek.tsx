@@ -1,59 +1,67 @@
-import { LocalDate } from "@js-joda/core";
-import { cx } from "~/lib/cx";
-import { DAY_OF_MONTH, DAY_OF_WEEK, formatDate } from "~/lib/formatDate";
-import { formatDuration } from "~/lib/formatDuration";
-import { getDaysOfWeek } from "~/lib/getDaysOfWeek";
-import { isWeekend } from "~/lib/isWeekend";
-import { sum } from "~/lib/sum";
-import { DailyDones } from "./DailyDones";
-import { DailyTimeEntries } from "./DailyTimeEntries";
-import type { DoneEntry } from "~/schema/DoneEntry";
-import type { TimeEntry } from "~/schema/TimeEntry";
-import type { Client } from "~/schema/Client";
-import type { Project } from "~/schema/Project";
-import type { Contact } from "~/schema/Contact";
+import { LocalDate } from "@js-joda/core"
+import { cx } from "~/lib/cx"
+import { DAY_OF_MONTH, DAY_OF_WEEK, formatDate } from "~/lib/formatDate"
+import { formatDuration } from "~/lib/formatDuration"
+import { getDaysOfWeek } from "~/lib/getDaysOfWeek"
+import { isWeekend } from "~/lib/isWeekend"
+import { sum } from "~/lib/sum"
+import { DailyDones } from "./DailyDones"
+import { DailyTimeEntries } from "./DailyTimeEntries"
+import type { DoneEntry } from "~/schema/DoneEntry"
+import type { TimeEntry } from "~/schema/TimeEntry"
+import type { Client } from "~/schema/Client"
+import type { Project } from "~/schema/Project"
+import type { Contact } from "~/schema/Contact"
 
-const FULL_DAY = 7 * 60;
-const FULL_WEEK = FULL_DAY * 5;
+const FULL_DAY = 7 * 60
+const FULL_WEEK = FULL_DAY * 5
 
-export const MyWeek = ({ start, showWeekends = false, doneEntries, timeEntries, projects, clients, self }: Props) => {
-  const days = getDaysOfWeek(start).filter((date) => showWeekends || !isWeekend(date));
+export const MyWeek = ({
+  start,
+  showWeekends = false,
+  doneEntries,
+  timeEntries,
+  projects,
+  clients,
+  self,
+}: Props) => {
+  const days = getDaysOfWeek(start).filter(date => showWeekends || !isWeekend(date))
 
-  const myTimeEntries = timeEntries.filter(({ contactId }) => contactId === self.id);
+  const myTimeEntries = timeEntries.filter(({ contactId }) => contactId === self.id)
 
   const dailyTotals = myTimeEntries.reduce<Record<string, number>>((acc, { date, duration }) => {
-    const day = date.toString();
+    const day = date.toString()
     return {
       ...acc,
       [day]: (acc[day] || 0) + duration,
-    };
-  }, {});
+    }
+  }, {})
 
-  const weeklyTotal = sum(Object.values(dailyTotals));
+  const weeklyTotal = sum(Object.values(dailyTotals))
 
   // find the longest day to set the height of the time entries
-  const longestDay = Math.max(...Object.values(dailyTotals));
+  const longestDay = Math.max(...Object.values(dailyTotals))
 
-  const weekendShading = (date: LocalDate) => cx(isWeekend(date) && "bg-neutral-100");
+  const weekendShading = (date: LocalDate) => cx(isWeekend(date) && "bg-neutral-100")
 
   return (
     <div
       className={cx(
         // mobile
-        "grid-flow-col grid-cols-[auto_1fr_1fr]  ",
+        "grid-flow-col grid-cols-[auto_1fr_1fr]",
         { "grid-rows-7": showWeekends },
         { "grid-rows-5": !showWeekends },
         // desktop
-        "sm:grid-flow-row sm:grid-rows-[auto_auto_1fr_auto_auto_1fr] ",
+        "sm:grid-flow-row sm:grid-rows-[auto_auto_1fr_auto_auto_1fr]",
         { "sm:grid-cols-7": showWeekends },
         { "sm:grid-cols-5": !showWeekends },
         // common
-        "grid h-full w-full"
+        "grid h-full w-full",
       )}
     >
       {/* DAYS OF WEEK HEADINGS */}
-      {days.map((date) => {
-        const isToday = date.equals(LocalDate.now());
+      {days.map(date => {
+        const isToday = date.equals(LocalDate.now())
 
         return (
           <h2
@@ -61,10 +69,10 @@ export const MyWeek = ({ start, showWeekends = false, doneEntries, timeEntries, 
             className={cx(
               "items-center p-2 text-center tracking-tight",
               // mobile: dark line to right, day & date horizontal
-              "flex border-b border-r border-r-black ",
+              "flex border-b border-r border-r-black",
               // desktop: dark line below, day & date vertical
               "sm:flex-col sm:border-r-0 sm:border-b-black",
-              weekendShading(date)
+              weekendShading(date),
             )}
           >
             {/* day of week */}
@@ -81,31 +89,32 @@ export const MyWeek = ({ start, showWeekends = false, doneEntries, timeEntries, 
               {formatDate(date, DAY_OF_MONTH)}
             </span>
           </h2>
-        );
+        )
       })}
       {/* HOURS */}
       <div className="col-span-full flex items-center gap-1 p-2">
-        <h3 className="flex grow items-center gap-1 ">
+        <h3 className="flex grow items-center gap-1">
           <IconClock2 />
           Hours
         </h3>
         <div className="flex items-center text-xs font-semibold text-neutral-400">
           <IconStopwatch />
           {formatDuration(weeklyTotal)}
-          {weeklyTotal >= FULL_WEEK ? <IconSquareRoundedCheckFilled className="mx-2 size-5 text-success" /> : null}
+          {weeklyTotal >= FULL_WEEK ?
+            <IconSquareRoundedCheckFilled className="mx-2 size-5 text-success" />
+          : null}
         </div>
       </div>
-      {days.map((date) => (
-        <div
-          key={date.toString()}
-          className={cx("p-1", weekendShading(date))}
-        >
-          <DailyTimeEntries {...{ timeEntries: myTimeEntries, projects, clients, date, self, longestDay }} />
+      {days.map(date => (
+        <div key={date.toString()} className={cx("p-1", weekendShading(date))}>
+          <DailyTimeEntries
+            {...{ timeEntries: myTimeEntries, projects, clients, date, self, longestDay }}
+          />
         </div>
       ))}
       {/* daily totals */}
-      {days.map((date) => {
-        const total = dailyTotals[date.toString()] || 0;
+      {days.map(date => {
+        const total = dailyTotals[date.toString()] || 0
         return (
           <div
             key={date.toString()}
@@ -114,36 +123,35 @@ export const MyWeek = ({ start, showWeekends = false, doneEntries, timeEntries, 
             <div className="flex flex-row items-center gap-px pb-1 pt-2 text-xs font-semibold text-neutral-400">
               <IconStopwatch />
               {formatDuration(total)}
-              {total >= FULL_DAY ? <IconSquareRoundedCheckFilled className="mx-2 size-4 text-success" /> : null}
+              {total >= FULL_DAY ?
+                <IconSquareRoundedCheckFilled className="mx-2 size-4 text-success" />
+              : null}
             </div>
           </div>
-        );
+        )
       })}
       {/* DONES */}
       <h3 className="col-span-full flex items-center gap-1 py-2">
         <IconClipboardCheck />
         Dones
       </h3>
-      {days.map((date) => {
+      {days.map(date => {
         return (
-          <div
-            key={date.toString()}
-            className={cx("overflow-auto", weekendShading(date))}
-          >
+          <div key={date.toString()} className={cx("overflow-auto", weekendShading(date))}>
             <DailyDones {...{ doneEntries, date, self }} />
           </div>
-        );
+        )
       })}
     </div>
-  );
-};
+  )
+}
 
 type Props = {
-  start: LocalDate;
-  showWeekends: boolean;
-  doneEntries: DoneEntry[];
-  timeEntries: TimeEntry[];
-  projects: Project[];
-  clients: Client[];
-  self: Contact;
-};
+  start: LocalDate
+  showWeekends: boolean
+  doneEntries: DoneEntry[]
+  timeEntries: TimeEntry[]
+  projects: Project[]
+  clients: Client[]
+  self: Contact
+}

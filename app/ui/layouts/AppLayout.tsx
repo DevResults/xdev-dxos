@@ -1,11 +1,11 @@
-import { Drawer, DrawerContent } from "~/ui/shadcn/drawer";
-import { cx } from "~/lib/cx";
-import { useState } from "react";
-import { Sidebar } from "../Sidebar";
-import type { Contact } from "~/schema/Contact";
+import { Drawer, DrawerContent } from "~/ui/shadcn/drawer"
+import { cx } from "~/lib/cx"
+import { useState } from "react"
+import { Sidebar } from "../Sidebar"
+import type { Contact } from "~/schema/Contact"
 
 export function AppLayout({ self, children }: Props) {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false)
 
   return (
     <>
@@ -13,7 +13,7 @@ export function AppLayout({ self, children }: Props) {
       <div
         className={cx(
           "absolute top-0 z-40 flex w-12 items-center border-r pl-4 lg:hidden",
-          "h-12 " // matches height of nav in PageLayout
+          "h-12", // matches height of nav in PageLayout
         )}
       >
         <button
@@ -22,19 +22,12 @@ export function AppLayout({ self, children }: Props) {
           onClick={() => setSidebarOpen(true)}
         >
           <span className="sr-only">Open sidebar</span>
-          <IconMenu2
-            className="size-5"
-            aria-hidden="true"
-          />
+          <IconMenu2 className="size-5" aria-hidden="true" />
         </button>
       </div>
 
       {/* slideout sidebar (smaller screens) */}
-      <Drawer
-        open={sidebarOpen}
-        direction="left"
-        onOpenChange={(open) => setSidebarOpen(open)}
-      >
+      <Drawer open={sidebarOpen} direction="left" onOpenChange={open => setSidebarOpen(open)}>
         <div className="lg:hidden">
           {/* sidebar container */}
           <DrawerContent
@@ -43,24 +36,15 @@ export function AppLayout({ self, children }: Props) {
           >
             {/* close sidebar button */}
             <div className="absolute left-full top-0 flex w-12 justify-center pt-2">
-              <button
-                className="p-1"
-                onClick={() => setSidebarOpen(false)}
-              >
+              <button className="p-1" onClick={() => setSidebarOpen(false)}>
                 <span className="sr-only">Close sidebar</span>
-                <IconX
-                  className="size-5 text-white"
-                  aria-hidden="true"
-                />
+                <IconX className="size-5 text-white" aria-hidden="true" />
               </button>
             </div>
 
             {/* sidebar */}
             <div className="flex h-full grow flex-col gap-y-5 overflow-y-auto bg-white">
-              <Sidebar
-                self={self}
-                close={() => setSidebarOpen(false)}
-              />
+              <Sidebar self={self} close={() => setSidebarOpen(false)} />
             </div>
           </DrawerContent>
         </div>
@@ -74,10 +58,10 @@ export function AppLayout({ self, children }: Props) {
       {/* page */}
       <main className={`flex h-screen w-full flex-col bg-white lg:pl-[12em]`}>{children}</main>
     </>
-  );
+  )
 }
 
 type Props = {
-  self: Contact;
-  children: React.ReactNode;
-};
+  self: Contact
+  children: React.ReactNode
+}

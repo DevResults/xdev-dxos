@@ -1,6 +1,13 @@
-import { Button } from "~/ui/shadcn/button";
-import { Dialog, DialogBody, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "~/ui/shadcn/dialog";
-import { useEffect, useState } from "react";
+import { Button } from "~/ui/shadcn/button"
+import {
+  Dialog,
+  DialogBody,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "~/ui/shadcn/dialog"
+import { useEffect, useState } from "react"
 
 export function ConfirmDialog({
   confirmButtonText = "Yes, do it",
@@ -12,16 +19,16 @@ export function ConfirmDialog({
   intent = "primary",
   defaultOpen = false,
 }: Props) {
-  const [isOpen, setIsOpen] = useState(defaultOpen);
+  const [isOpen, setIsOpen] = useState(defaultOpen)
   useEffect(() => {
-    setIsOpen(defaultOpen);
-  }, [defaultOpen]);
+    setIsOpen(defaultOpen)
+  }, [defaultOpen])
 
   return (
     <Dialog
       open={isOpen}
-      onOpenChange={(open) => {
-        setIsOpen(open);
+      onOpenChange={open => {
+        setIsOpen(open)
       }}
     >
       <DialogContent className="max-w-xl">
@@ -38,8 +45,8 @@ export function ConfirmDialog({
             intent="neutral"
             size="md"
             onClick={() => {
-              onCancel();
-              setIsOpen(false);
+              onCancel()
+              setIsOpen(false)
             }}
             children={cancelButtonText}
           />
@@ -47,24 +54,24 @@ export function ConfirmDialog({
             intent={intent}
             size="md"
             onClick={() => {
-              onConfirm();
-              setIsOpen(false);
+              onConfirm()
+              setIsOpen(false)
             }}
             children={confirmButtonText}
           />
         </DialogFooter>
       </DialogContent>
     </Dialog>
-  );
+  )
 }
 
 export type Props = {
-  confirmButtonText?: React.ReactNode;
-  cancelButtonText?: React.ReactNode;
-  onConfirm?: () => void;
-  onCancel?: () => void;
-  title?: string;
-  body?: string;
-  intent?: "primary" | "danger" | "neutral";
-  defaultOpen?: boolean;
-};
+  confirmButtonText?: React.ReactNode
+  cancelButtonText?: React.ReactNode
+  onConfirm?: () => void
+  onCancel?: () => void
+  title?: string
+  body?: string
+  intent?: "primary" | "danger" | "neutral"
+  defaultOpen?: boolean
+}

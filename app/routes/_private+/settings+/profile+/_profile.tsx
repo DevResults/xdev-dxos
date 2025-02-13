@@ -1,4 +1,4 @@
-import { ComingSoon } from "~/ui/ComingSoon";
+import { ComingSoon } from "~/ui/ComingSoon"
 
 /** This is where people can update their personal info, avatar, etc. */
 export default function ProfilePage() {
@@ -6,5 +6,5 @@ export default function ProfilePage() {
     <ComingSoon>
       <IconUserCircle />
     </ComingSoon>
-  );
+  )
 }

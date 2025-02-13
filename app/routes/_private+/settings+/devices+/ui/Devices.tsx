@@ -1,34 +1,34 @@
-import { Link } from "react-router";
-import { Button } from "~/ui/shadcn/button";
-import { cx } from "~/lib/cx";
-import { getBrowserIcon, getDeviceIcon, getOsIcon } from "~/lib/getDeviceIcon";
-import type UAParser from "ua-parser-js";
-import { MetadataList } from "./MetadataList";
-import { useShell } from "@dxos/react-client";
-import type { Device } from "@dxos/react-client/halo";
+import { Link } from "react-router"
+import { Button } from "~/ui/shadcn/button"
+import { cx } from "~/lib/cx"
+import { getBrowserIcon, getDeviceIcon, getOsIcon } from "~/lib/getDeviceIcon"
+import type UAParser from "ua-parser-js"
+import { MetadataList } from "./MetadataList"
+import { useShell } from "@dxos/react-client"
+import type { Device } from "@dxos/react-client/halo"
 
 export const Devices = ({ ownDevice, devices = [] }: Props) => {
-  const shell = useShell();
+  const shell = useShell()
   return (
-    <div className="w-full max-w-xl ">
+    <div className="w-full max-w-xl">
       <div className="flex flex-row items-center">
         <h2 className="flex-1">Devices</h2>
         <Button
           intent="primary"
           onClick={async () => {
-            const { device } = await shell.shareIdentity();
+            const { device } = await shell.shareIdentity()
           }}
         >
           Link another device
         </Button>
       </div>
       <div
-        className="Devices my-3 grid gap-x-4 border-t text-sm "
+        className="Devices my-3 grid gap-x-4 border-t text-sm"
         style={{
           gridTemplateColumns: "1fr min-content",
         }}
       >
-        {devices?.sort(selfFirst(ownDevice)).map((device) => {
+        {devices?.sort(selfFirst(ownDevice)).map(device => {
           return (
             <div
               key={device.deviceKey.toString()}
@@ -38,7 +38,7 @@ export const Devices = ({ ownDevice, devices = [] }: Props) => {
                 <div
                   className={cx(
                     "text-3xl",
-                    device.deviceKey === ownDevice.deviceKey ? "text-primary-500" : "text-gray-400"
+                    device.deviceKey === ownDevice.deviceKey ? "text-primary-500" : "text-gray-400",
                   )}
                 >
                   {getDeviceIcon(device)}
@@ -70,17 +70,17 @@ export const Devices = ({ ownDevice, devices = [] }: Props) => {
                 )}
               </div>
             </div>
-          );
+          )
         })}
       </div>
     </div>
-  );
-};
+  )
+}
 
 type Props = {
-  ownDevice: Device;
-  devices?: Device[];
-};
+  ownDevice: Device
+  devices?: Device[]
+}
 
 const selfFirst = (self: Device) => (a: Device, b: Device) =>
-  a === self ? -1 : a.deviceKey.toString().localeCompare(b.deviceKey.toString());
+  a === self ? -1 : a.deviceKey.toString().localeCompare(b.deviceKey.toString())

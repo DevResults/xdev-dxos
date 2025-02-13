@@ -1,10 +1,10 @@
-"use client";
+"use client"
 
-import * as TabsPrimitive from "@radix-ui/react-tabs";
-import { cx } from "~/lib/cx";
-import * as React from "react";
+import * as TabsPrimitive from "@radix-ui/react-tabs"
+import { cx } from "~/lib/cx"
+import * as React from "react"
 
-const Tabs = TabsPrimitive.Root;
+const Tabs = TabsPrimitive.Root
 
 const TabsList = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.List>,
@@ -12,11 +12,14 @@ const TabsList = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <TabsPrimitive.List
     ref={ref}
-    className={cx("inline-flex h-10 items-center justify-center rounded-md bg-neutral-100 p-1", className)}
+    className={cx(
+      "inline-flex h-10 items-center justify-center rounded-md bg-neutral-100 p-1",
+      className,
+    )}
     {...props}
   />
-));
-TabsList.displayName = TabsPrimitive.List.displayName;
+))
+TabsList.displayName = TabsPrimitive.List.displayName
 
 const TabsTrigger = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Trigger>,
@@ -26,17 +29,17 @@ const TabsTrigger = React.forwardRef<
     ref={ref}
     className={cx(
       "ring-offset-background focus-visible:ring-ring",
-      " data-[state=active]:bg-white ",
+      "data-[state=active]:bg-white",
       "inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1.5",
       "text-sm font-medium transition-all",
       "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
-      "disabled:pointer-events-none disabled:opacity-50 ",
-      className
+      "disabled:pointer-events-none disabled:opacity-50",
+      className,
     )}
     {...props}
   />
-));
-TabsTrigger.displayName = TabsPrimitive.Trigger.displayName;
+))
+TabsTrigger.displayName = TabsPrimitive.Trigger.displayName
 
 const TabsContent = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Content>,
@@ -46,11 +49,11 @@ const TabsContent = React.forwardRef<
     ref={ref}
     className={cx(
       "mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-500 focus-visible:ring-offset-2",
-      className
+      className,
     )}
     {...props}
   />
-));
-TabsContent.displayName = TabsPrimitive.Content.displayName;
+))
+TabsContent.displayName = TabsPrimitive.Content.displayName
 
-export { Tabs, TabsContent, TabsList, TabsTrigger };
+export { Tabs, TabsContent, TabsList, TabsTrigger }

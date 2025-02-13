@@ -1,8 +1,8 @@
-import { Card, CardContent, CardHeader } from "~/ui/shadcn/card";
-import { Button } from "~/ui/shadcn/button";
-import { cx } from "~/lib/cx";
-import { Fragment } from "react/jsx-runtime";
-import { Link } from "react-router";
+import { Card, CardContent, CardHeader } from "~/ui/shadcn/card"
+import { Button } from "~/ui/shadcn/button"
+import { cx } from "~/lib/cx"
+import { Fragment } from "react/jsx-runtime"
+import { Link } from "react-router"
 
 export const SetupOptions = () => {
   const options = [
@@ -24,10 +24,10 @@ export const SetupOptions = () => {
       buttonText: "Create a team",
       target: "/auth/setup/create",
     },
-  ];
+  ]
 
   return (
-    <Card className="w-[40em] ">
+    <Card className="w-[40em]">
       <CardHeader />
       <CardContent
         className={cx([
@@ -43,12 +43,7 @@ export const SetupOptions = () => {
               </div>
               <div className="text-balance p-3 sm:p-5">{label}</div>
               <div className="sm:p-3">
-                <Button
-                  asChild
-                  intent="primary"
-                  size="lg"
-                  className="h-full w-full justify-center"
-                >
+                <Button asChild intent="primary" size="lg" className="h-full w-full justify-center">
                   <Link to={target}>{buttonText}</Link>
                 </Button>
               </div>
@@ -57,5 +52,5 @@ export const SetupOptions = () => {
         ))}
       </CardContent>
     </Card>
-  );
-};
+  )
+}

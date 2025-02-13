@@ -1,20 +1,20 @@
-import { cx } from "~/lib/cx";
-import { formatDuration } from "~/lib/formatDuration";
-import type { ReactNode } from "react";
-import type { TimeEntry } from "~/schema/TimeEntry";
-import type { Project } from "~/schema/Project";
-import type { Client } from "~/schema/Client";
-import type { Contact } from "~/schema/Contact";
+import { cx } from "~/lib/cx"
+import { formatDuration } from "~/lib/formatDuration"
+import type { ReactNode } from "react"
+import type { TimeEntry } from "~/schema/TimeEntry"
+import type { Project } from "~/schema/Project"
+import type { Client } from "~/schema/Client"
+import type { Contact } from "~/schema/Contact"
 
 /**
  * Displays a read-only TimeEntry
  */
 export function TimeEntryDisplay({ className = "", timeEntry, projects, clients }: Props) {
-  if (timeEntry === undefined) return null;
+  if (timeEntry === undefined) return null
 
-  const { input, client: clientId, project: projectId, duration, description } = timeEntry;
-  const project = projects.find((d) => d.id == projectId);
-  const client = clients.find((d) => d.id == clientId);
+  const { input, client: clientId, project: projectId, duration, description } = timeEntry
+  const project = projects.find(d => d.id == projectId)
+  const client = clients.find(d => d.id == clientId)
 
   return (
     <div
@@ -23,7 +23,7 @@ export function TimeEntryDisplay({ className = "", timeEntry, projects, clients 
         "text-sm font-normal leading-tight",
         "bg-neutral-50",
         "hover:bg-neutral-100",
-        className
+        className,
       )}
       title={input}
       tabIndex={0}
@@ -39,24 +39,28 @@ export function TimeEntryDisplay({ className = "", timeEntry, projects, clients 
         </Badge>
         {/* project */}
         <Badge
-          className=" text-white"
+          className="text-white"
           style={{ backgroundColor: project?.color }}
           // icon={<IconHash />}
         >
           #<span className="font-bold">{project?.code}</span>
-          {project?.subCode ? (
+          {project?.subCode ?
             <>
               <span className="inline-block px-px">:</span>
               {project?.subCode}
             </>
-          ) : null}
+          : null}
         </Badge>
         {/* client */}
-        {client ? <Badge className="border border-neutral-200 text-black">@{client.code}</Badge> : null}
+        {client ?
+          <Badge className="border border-neutral-200 text-black">@{client.code}</Badge>
+        : null}
       </div>
-      {description ? <div className="px-1 text-xs">{description}</div> : null}
+      {description ?
+        <div className="px-1 text-xs">{description}</div>
+      : null}
     </div>
-  );
+  )
 }
 
 export function Badge({
@@ -66,11 +70,11 @@ export function Badge({
   children,
   truncate = true,
 }: {
-  icon?: ReactNode;
-  className?: string;
-  style?: React.CSSProperties;
-  children: ReactNode;
-  truncate?: boolean;
+  icon?: ReactNode
+  className?: string
+  style?: React.CSSProperties
+  children: ReactNode
+  truncate?: boolean
 }) {
   return (
     <span
@@ -78,20 +82,22 @@ export function Badge({
         "flex flex-row items-center gap-px rounded px-2 py-1",
         "text-2xs text-neutral-500",
         { "min-w-0 overflow-hidden": truncate },
-        className
+        className,
       )}
       style={style}
     >
       <span className="shrink-0">{icon}</span>
-      <span className={cx({ "overflow-hidden text-ellipsis whitespace-nowrap": truncate })}>{children}</span>
+      <span className={cx({ "overflow-hidden text-ellipsis whitespace-nowrap": truncate })}>
+        {children}
+      </span>
     </span>
-  );
+  )
 }
 
 type Props = {
-  className?: string;
-  timeEntry: TimeEntry;
-  projects: Project[];
-  clients: Client[];
-  self: Contact;
-};
+  className?: string
+  timeEntry: TimeEntry
+  projects: Project[]
+  clients: Client[]
+  self: Contact
+}

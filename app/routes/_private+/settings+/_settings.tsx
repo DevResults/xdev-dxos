@@ -1,6 +1,6 @@
-import { Outlet } from "react-router";
-import { SecondaryNav } from "../ui/SecondaryNav";
-import { PageLayout } from "../ui/layouts/PageLayout";
+import { Outlet } from "react-router"
+import { SecondaryNav } from "../ui/SecondaryNav"
+import { PageLayout } from "../ui/layouts/PageLayout"
 
 export default function SettingsLayout() {
   return (
@@ -18,5 +18,5 @@ export default function SettingsLayout() {
     >
       <Outlet />
     </PageLayout>
-  );
+  )
 }

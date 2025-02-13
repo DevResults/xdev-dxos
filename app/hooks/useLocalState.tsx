@@ -1,11 +1,11 @@
-import { useLocalStorage } from "@uidotdev/usehooks";
-import type { LocalState } from "~/types/types.d.ts";
+import { useLocalStorage } from "@uidotdev/usehooks"
+import type { LocalState } from "~/types/types.d.ts"
 
 export function useLocalState() {
-  const initialState: LocalState = {};
-  const [state, setState] = useLocalStorage("xdev-localstate", initialState);
+  const initialState: LocalState = {}
+  const [state, setState] = useLocalStorage("xdev-localstate", initialState)
 
-  const { spaceKey, invitationCode } = state;
+  const { spaceKey, invitationCode } = state
 
   return {
     spaceKey,
@@ -13,5 +13,5 @@ export function useLocalState() {
 
     update: (s: Partial<LocalState>) => setState({ ...state, ...s }),
     reset: () => setState(initialState),
-  };
+  }
 }

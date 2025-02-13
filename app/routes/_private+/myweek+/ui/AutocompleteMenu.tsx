@@ -1,56 +1,55 @@
-import { cx } from "~/lib/cx";
-import { Keys } from "~/lib/keys";
-import { useState } from "react";
-import { useHotkeys } from "react-hotkeys-hook";
-import type { CollectionItem, StringKeyOf } from "~/types/types";
+import { cx } from "~/lib/cx"
+import { Keys } from "~/lib/keys"
+import { useState } from "react"
+import { useHotkeys } from "react-hotkeys-hook"
+import type { CollectionItem, StringKeyOf } from "~/types/types"
 
-const { enter, up, down } = Keys;
+const { enter, up, down } = Keys
 
 export const AutocompleteMenu = ({ items, onSelect, id }: Props) => {
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState(0)
 
   useHotkeys(
     [enter, up, down],
     (e, { keys = [] }) => {
-      e.preventDefault(); // Prevent form submission
-      e.stopImmediatePropagation();
-      const key = keys.join("");
-      if (key === enter) onSelect(items[selectedIndex]);
-      if (key === up) setSelectedIndex((i) => Math.max(i - 1, 0));
-      if (key === down) setSelectedIndex((i) => Math.min(i + 1, items.length - 1));
+      e.preventDefault() // Prevent form submission
+      e.stopImmediatePropagation()
+      const key = keys.join("")
+      if (key === enter) onSelect(items[selectedIndex])
+      if (key === up) setSelectedIndex(i => Math.max(i - 1, 0))
+      if (key === down) setSelectedIndex(i => Math.min(i + 1, items.length - 1))
     },
-    { enableOnFormTags: true }
-  );
+    { enableOnFormTags: true },
+  )
 
   return (
-    <div
-      role="listbox"
-      id={id}
-      aria-label={`Suggestions`}
-    >
+    <div role="listbox" id={id} aria-label={`Suggestions`}>
       {items.map((item, index) => (
         <div
           key={item}
           role="option"
           aria-selected={index === selectedIndex}
-          className={cx("cursor-pointer rounded px-2 py-1", index === selectedIndex && "bg-primary-100")}
-          onMouseDown={(e) => {
-            e.preventDefault(); // Prevent textarea blur
-            onSelect(item);
+          className={cx(
+            "cursor-pointer rounded px-2 py-1",
+            index === selectedIndex && "bg-primary-100",
+          )}
+          onMouseDown={e => {
+            e.preventDefault() // Prevent textarea blur
+            onSelect(item)
           }}
         >
           {item}
         </div>
       ))}
     </div>
-  );
-};
+  )
+}
 
 type Props = {
-  id: string;
-  items: string[];
-  onSelect: (selection: string) => void;
-};
+  id: string
+  items: string[]
+  onSelect: (selection: string) => void
+}
 
 // HELPERS
 
@@ -64,25 +63,25 @@ export const findAutocompleteQuery = (
   /** The position of the cursor within the input */
   position: number,
   /** The trigger definitions */
-  triggers: AutocompleteTrigger[]
+  triggers: AutocompleteTrigger[],
 ): AutocompleteState | undefined => {
   // Find start of current word
-  let start = position;
-  while (start > 0 && !/\s/.test(text[start - 1])) start--;
+  let start = position
+  while (start > 0 && !/\s/.test(text[start - 1])) start--
 
   // Find end of current word
-  let end = position;
-  while (end < text.length && !/\s/.test(text[end])) end++;
+  let end = position
+  while (end < text.length && !/\s/.test(text[end])) end++
 
   // Extract word at cursor
-  const word = text.slice(start, end);
+  const word = text.slice(start, end)
 
   for (const { type, trigger } of triggers)
     if (word.startsWith(trigger)) {
-      const query = word.slice(1); // remove the trigger character at the beginning
-      return { type, trigger, start, end, query };
+      const query = word.slice(1) // remove the trigger character at the beginning
+      return { type, trigger, start, end, query }
     }
-};
+}
 
 /**
  * Given a query and a set of autocomplete definitions, returns an array of strings to show in an
@@ -90,38 +89,41 @@ export const findAutocompleteQuery = (
  */
 export const getAutocompleteItems = <Item extends CollectionItem>(
   { query, trigger }: AutocompleteState,
-  autocompleteModes: Array<AutocompleteMode<Item>>
+  autocompleteModes: Array<AutocompleteMode<Item>>,
 ) => {
-  const mode = autocompleteModes.find((m) => m.trigger === trigger);
-  if (!mode) return [];
+  const mode = autocompleteModes.find(m => m.trigger === trigger)
+  if (!mode) return []
 
-  const { collection, property } = mode;
+  const { collection, property } = mode
 
   return collection
-    .map((item) => String(item[property]))
-    .filter((value) => value.toLowerCase().includes(query.toLowerCase()))
+    .map(item => String(item[property]))
+    .filter(value => value.toLowerCase().includes(query.toLowerCase()))
     .sort((a, b) => {
       // list matches that start with the query first, otherwise sort alphabetically
-      const aStartsWith = a.toLowerCase().startsWith(query.toLowerCase());
-      const bStartsWith = b.toLowerCase().startsWith(query.toLowerCase());
-      if (aStartsWith && !bStartsWith) return -1;
-      if (!aStartsWith && bStartsWith) return 1;
-      return a.localeCompare(b);
-    });
-};
+      const aStartsWith = a.toLowerCase().startsWith(query.toLowerCase())
+      const bStartsWith = b.toLowerCase().startsWith(query.toLowerCase())
+      if (aStartsWith && !bStartsWith) return -1
+      if (!aStartsWith && bStartsWith) return 1
+      return a.localeCompare(b)
+    })
+}
 
 export type AutocompleteTrigger = {
-  type: string;
-  trigger: string;
-};
+  type: string
+  trigger: string
+}
 
-export type AutocompleteMode<Item extends CollectionItem = any, C = Array<Item>> = AutocompleteTrigger & {
-  property: StringKeyOf<Item>;
-  collection: C;
-};
+export type AutocompleteMode<
+  Item extends CollectionItem = any,
+  C = Array<Item>,
+> = AutocompleteTrigger & {
+  property: StringKeyOf<Item>
+  collection: C
+}
 
 export type AutocompleteState = AutocompleteTrigger & {
-  start: number;
-  end: number;
-  query: string;
-};
+  start: number
+  end: number
+  query: string
+}

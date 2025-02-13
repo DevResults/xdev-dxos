@@ -1,14 +1,16 @@
-import { useRedirect } from "~/hooks/useRedirect";
-import { cx } from "~/lib/cx";
-import { NavLink } from "react-router";
+import { useRedirect } from "~/hooks/useRedirect"
+import { cx } from "~/lib/cx"
+import { NavLink } from "react-router"
 
 export function SecondaryNav({ heading, items = [], parent: parentPath }: Props) {
-  const [firstItem] = items;
-  useRedirect({ from: `/${parentPath}`, to: `/${parentPath}/${firstItem.to}` });
+  const [firstItem] = items
+  useRedirect({ from: `/${parentPath}`, to: `/${parentPath}/${firstItem.to}` })
 
   return (
-    <nav className="flex h-12 w-full shrink-0 flex-row items-stretch gap-2 ">
-      <div className="mr-4 flex items-center border-b-4 border-transparent font-semibold ">{heading}</div>
+    <nav className="flex h-12 w-full shrink-0 flex-row items-stretch gap-2">
+      <div className="mr-4 flex items-center border-b-4 border-transparent font-semibold">
+        {heading}
+      </div>
       {items.map(({ to, label }) => (
         <NavLink
           key={to}
@@ -27,11 +29,11 @@ export function SecondaryNav({ heading, items = [], parent: parentPath }: Props)
         </NavLink>
       ))}
     </nav>
-  );
+  )
 }
 
 type Props = {
-  heading: React.ReactNode;
-  items?: Array<{ to: string; label: string }>;
-  parent: string;
-};
+  heading: React.ReactNode
+  items?: Array<{ to: string; label: string }>
+  parent: string
+}

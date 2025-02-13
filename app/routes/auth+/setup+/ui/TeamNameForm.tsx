@@ -1,16 +1,23 @@
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Button } from "~/ui/shadcn/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "~/ui/shadcn/card";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "~/ui/shadcn/form";
-import { Input } from "~/ui/shadcn/input";
-import { useForm, type SubmitHandler } from "react-hook-form";
-import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod"
+import { Button } from "~/ui/shadcn/button"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "~/ui/shadcn/card"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "~/ui/shadcn/form"
+import { Input } from "~/ui/shadcn/input"
+import { useForm, type SubmitHandler } from "react-hook-form"
+import { z } from "zod"
 
 export const TeamNameForm = ({ teamName = "", onSubmit }: Props) => {
   const form = useForm<Schema>({
     resolver: zodResolver(schema),
     defaultValues: { teamName },
-  });
+  })
 
   return (
     <Card className="w-[20em]">
@@ -28,10 +35,7 @@ export const TeamNameForm = ({ teamName = "", onSubmit }: Props) => {
                 <FormItem>
                   <FormLabel className="sr-only">Team name</FormLabel>
                   <FormControl>
-                    <Input
-                      autoFocus
-                      {...field}
-                    />
+                    <Input autoFocus {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -39,29 +43,24 @@ export const TeamNameForm = ({ teamName = "", onSubmit }: Props) => {
             />
           </CardContent>
           <CardFooter>
-            <Button
-              type="submit"
-              intent="primary"
-              size="md"
-              className="grow justify-center"
-            >
+            <Button type="submit" intent="primary" size="md" className="grow justify-center">
               Continue
             </Button>
           </CardFooter>
         </form>
       </Form>
     </Card>
-  );
-};
+  )
+}
 
 const schema = z.object({
   teamName: z.string().min(2, {
     message: "Team name must be at least 2 characters.",
   }),
-});
-type Schema = z.infer<typeof schema>;
+})
+type Schema = z.infer<typeof schema>
 
 type Props = {
-  teamName?: string;
-  onSubmit: SubmitHandler<Schema>;
-};
+  teamName?: string
+  onSubmit: SubmitHandler<Schema>
+}

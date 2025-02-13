@@ -1,46 +1,38 @@
-import { cx } from "~/lib/cx";
-import { DeleteButton } from "./DeleteButton";
-import { DoneInput, type Props as InputProps } from "./DoneInput";
-import { Likes } from "../../ui/Likes";
+import { cx } from "~/lib/cx"
+import { DeleteButton } from "./DeleteButton"
+import { DoneInput, type Props as InputProps } from "./DoneInput"
+import { Likes } from "../../ui/Likes"
 
 /**
  * Used for displaying the current user's own dones to them so they can edit them. Wraps a
  * DoneInput and adds the like button and delete button.
  */
 export const DoneEditable = ({ done, onDestroy, onUpdate, self, ...passthruProps }: Props) => {
-  if (done === undefined) return null;
-  const { content, likes = [] } = done;
+  if (done === undefined) return null
+  const { content, likes = [] } = done
 
   return (
     <span
       className={cx(
         "group relative block rounded-md border-2 border-transparent bg-neutral-50 p-2",
-        "focus-within:border-primary-600 focus-within:bg-white"
+        "focus-within:border-primary-600 focus-within:bg-white",
       )}
     >
-      <DoneInput
-        content={content}
-        {...passthruProps}
-        onDestroy={onDestroy}
-        onChange={onUpdate}
-      />
-      <Likes
-        likes={[...likes]}
-        self={self}
-      />
+      <DoneInput content={content} {...passthruProps} onDestroy={onDestroy} onChange={onUpdate} />
+      <Likes likes={[...likes]} self={self} />
       <span className="absolute right-0 top-0">
         <DeleteButton onDestroy={onDestroy} />
       </span>
     </span>
-  );
-};
+  )
+}
 
-type PassthruProps = Pick<InputProps, "isFocused" | "onFocus" | "onFocusNext" | "onFocusPrev">;
+type PassthruProps = Pick<InputProps, "isFocused" | "onFocus" | "onFocusNext" | "onFocusPrev">
 
 export type Props = {
-  done: any;
-  index: number;
-  onDestroy: () => void;
-  onUpdate: (content: string) => void;
-  self: any;
-} & PassthruProps;
+  done: any
+  index: number
+  onDestroy: () => void
+  onUpdate: (content: string) => void
+  self: any
+} & PassthruProps

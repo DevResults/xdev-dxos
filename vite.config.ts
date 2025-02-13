@@ -1,13 +1,13 @@
-import { reactRouter } from "@react-router/dev/vite";
-import { defineConfig } from "vite";
-import tsconfigPaths from "vite-tsconfig-paths";
-import topLevelAwait from "vite-plugin-top-level-await";
-import { ConfigPlugin } from "@dxos/config/vite-plugin";
-import { resolve } from "node:path";
-import wasm from "vite-plugin-wasm";
-import icons from "unplugin-icons/vite";
-import iconsResolver from "unplugin-icons/resolver";
-import autoImport from "unplugin-auto-import/vite";
+import { reactRouter } from "@react-router/dev/vite"
+import { defineConfig } from "vite"
+import tsconfigPaths from "vite-tsconfig-paths"
+import topLevelAwait from "vite-plugin-top-level-await"
+import { ConfigPlugin } from "@dxos/config/vite-plugin"
+import { resolve } from "node:path"
+import wasm from "vite-plugin-wasm"
+import icons from "unplugin-icons/vite"
+import iconsResolver from "unplugin-icons/resolver"
+import autoImport from "unplugin-auto-import/vite"
 
 export default defineConfig({
   build: {
@@ -43,4 +43,4 @@ export default defineConfig({
     format: "es",
     plugins: () => [topLevelAwait(), wasm()],
   },
-});
+})

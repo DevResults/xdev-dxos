@@ -1,11 +1,18 @@
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "~/ui/shadcn/card";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "~/ui/shadcn/form";
-import { Input } from "~/ui/shadcn/input";
-import { useEffect } from "react";
-import { useForm, type SubmitHandler } from "react-hook-form";
-import { z } from "zod";
-import { SubmitButton } from "./SubmitButton";
+import { zodResolver } from "@hookform/resolvers/zod"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "~/ui/shadcn/card"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "~/ui/shadcn/form"
+import { Input } from "~/ui/shadcn/input"
+import { useEffect } from "react"
+import { useForm, type SubmitHandler } from "react-hook-form"
+import { z } from "zod"
+import { SubmitButton } from "./SubmitButton"
 
 export function InvitationForm({
   heading,
@@ -18,23 +25,23 @@ export function InvitationForm({
   const form = useForm<Schema>({
     resolver: zodResolver(schema),
     defaultValues: { invitationCode },
-  });
-  const { setError, formState } = form;
+  })
+  const { setError, formState } = form
 
   useEffect(() => {
-    if (_error) setError("invitationCode", { type: "custom", message: _error });
-  });
+    if (_error) setError("invitationCode", { type: "custom", message: _error })
+  })
 
   return (
     <Card className="w-full max-w-xl">
       <Form {...form}>
         <form
-          onSubmit={form.handleSubmit(async (data) => {
+          onSubmit={form.handleSubmit(async data => {
             try {
-              await onSubmit(data);
+              await onSubmit(data)
             } catch (error: any) {
-              const { message } = error as Error;
-              setError("invitationCode", { type: "custom", message });
+              const { message } = error as Error
+              setError("invitationCode", { type: "custom", message })
             }
           })}
         >
@@ -50,11 +57,7 @@ export function InvitationForm({
                 <FormItem>
                   <FormLabel>Invitation code</FormLabel>
                   <FormControl>
-                    <Input
-                      autoFocus
-                      {...field}
-                      disabled={readOnly}
-                    />
+                    <Input autoFocus {...field} disabled={readOnly} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -75,7 +78,7 @@ export function InvitationForm({
         </form>
       </Form>
     </Card>
-  );
+  )
 }
 
 const schema = z.object({
@@ -84,14 +87,14 @@ const schema = z.object({
     .trim()
     .min(8, { message: "Code must be at least 8 characters." })
     .regex(/^[a-zA-Z\d]+$/, { message: "An invitation code can only have letters and numbers." }),
-});
-type Schema = z.infer<typeof schema>;
+})
+type Schema = z.infer<typeof schema>
 
 type Props = {
-  heading: React.ReactNode;
-  description?: React.ReactNode;
-  invitationCode?: string | undefined;
-  readOnly?: boolean;
-  onSubmit: SubmitHandler<Schema>;
-  error?: string | undefined;
-};
+  heading: React.ReactNode
+  description?: React.ReactNode
+  invitationCode?: string | undefined
+  readOnly?: boolean
+  onSubmit: SubmitHandler<Schema>
+  error?: string | undefined
+}

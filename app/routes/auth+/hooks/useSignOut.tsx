@@ -1,13 +1,13 @@
-import { useClient } from "@dxos/react-client";
-import { useLocalState } from "~/hooks/useLocalState";
+import { useClient } from "@dxos/react-client"
+import { useLocalState } from "~/hooks/useLocalState"
 
 export const useSignOut = () => {
-  const localState = useLocalState();
-  const client = useClient();
+  const localState = useLocalState()
+  const client = useClient()
 
   return async () => {
     // clear user, device, team from local storage / halo
-    localState.reset();
-    await client.reset();
-  };
-};
+    localState.reset()
+    await client.reset()
+  }
+}

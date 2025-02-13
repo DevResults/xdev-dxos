@@ -1,7 +1,12 @@
-import { ConfirmDialog } from "./ConfirmDialog";
+import { ConfirmDialog } from "./ConfirmDialog"
 
-export function RemoveMemberDialog({ onClose = () => {}, contact, remove = () => {}, defaultOpen = false }: Props) {
-  if (!contact) return null;
+export function RemoveMemberDialog({
+  onClose = () => {},
+  contact,
+  remove = () => {},
+  defaultOpen = false,
+}: Props) {
+  if (!contact) return null
 
   return (
     <ConfirmDialog
@@ -9,18 +14,18 @@ export function RemoveMemberDialog({ onClose = () => {}, contact, remove = () =>
       body={`${contact.firstName} will be permanently removed from this team.`}
       intent="danger"
       onConfirm={() => {
-        remove();
-        onClose();
+        remove()
+        onClose()
       }}
       onCancel={onClose}
       defaultOpen={defaultOpen}
     ></ConfirmDialog>
-  );
+  )
 }
 
 export type Props = {
-  onClose: () => void;
-  contact: any;
-  remove: () => void;
-  defaultOpen?: boolean;
-};
+  onClose: () => void
+  contact: any
+  remove: () => void
+  defaultOpen?: boolean
+}

@@ -1,9 +1,9 @@
-import { useTeam } from "~/hooks/useTeam";
-import { Outlet } from "react-router";
-import { Members } from "./ui/Members";
+import { useTeam } from "~/hooks/useTeam"
+import { Outlet } from "react-router"
+import { Members } from "./ui/Members"
 
 export default function MembersPage() {
-  const { contacts, self } = useTeam();
+  const { contacts, self } = useTeam()
   return (
     <>
       <Members
@@ -18,5 +18,5 @@ export default function MembersPage() {
       {/* Outlet for dialogs */}
       <Outlet />
     </>
-  );
+  )
 }

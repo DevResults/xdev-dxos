@@ -1,6 +1,6 @@
-import * as React from "react";
-import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
-import { cx } from "~/lib/cx";
+import * as React from "react"
+import * as CheckboxPrimitive from "@radix-ui/react-checkbox"
+import { cx } from "~/lib/cx"
 
 const Checkbox = React.forwardRef<
   React.ElementRef<typeof CheckboxPrimitive.Root>,
@@ -15,7 +15,7 @@ const Checkbox = React.forwardRef<
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
         "disabled:cursor-not-allowed disabled:opacity-50",
         "data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground",
-        className
+        className,
       )}
       {...props}
     >
@@ -23,8 +23,8 @@ const Checkbox = React.forwardRef<
         <IconCheck className="relative -top-px h-4 w-4" />
       </CheckboxPrimitive.Indicator>
     </CheckboxPrimitive.Root>
-  );
-});
-Checkbox.displayName = CheckboxPrimitive.Root.displayName;
+  )
+})
+Checkbox.displayName = CheckboxPrimitive.Root.displayName
 
-export { Checkbox };
+export { Checkbox }

@@ -1,4 +1,4 @@
-import { Client } from "../schema/Client";
+import { Client } from "../schema/Client"
 
 export const clients = `
 2scale
@@ -124,5 +124,5 @@ wwb
 zam`
   .trim()
   .split("\n")
-  .filter((s) => s.length)
-  .map((line) => new Client(line.trim()));
+  .filter(s => s.length)
+  .map(line => new Client(line.trim()))

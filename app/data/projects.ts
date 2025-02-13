@@ -1,6 +1,6 @@
-import { unique } from "../lib/unique";
-import { Project } from "~/schema/Project";
-import tailwindColors from "tailwindcss/colors";
+import { unique } from "../lib/unique"
+import { Project } from "~/schema/Project"
+import tailwindColors from "tailwindcss/colors"
 
 const projectList = `
 Business:Contracts	yes	Contract negotiation & other back-and-forth
@@ -66,18 +66,18 @@ Tech wealth:Webpack
 Thought Leadership		`
   .trim()
   .split("\n")
-  .map((line) => {
-    const [fullCode, requiresClient, description] = line.trim().split("\t");
-    const [code, subCode] = fullCode.split(/:\s*/).map((s) => s.trim().replaceAll(" ", "-"));
+  .map(line => {
+    const [fullCode, requiresClient, description] = line.trim().split("\t")
+    const [code, subCode] = fullCode.split(/:\s*/).map(s => s.trim().replaceAll(" ", "-"))
     return {
       code,
       subCode,
       requiresClient: requiresClient === "yes",
       description,
-    };
-  });
+    }
+  })
 
-const uniqueCodes = unique(projectList.map((p) => p.code));
+const uniqueCodes = unique(projectList.map(p => p.code))
 
 const colorNames: Array<keyof typeof tailwindColors> = [
   "red",
@@ -97,21 +97,21 @@ const colorNames: Array<keyof typeof tailwindColors> = [
   "fuchsia",
   "pink",
   "rose",
-];
+]
 
 export const colors = [
-  ...colorNames.map((name) => tailwindColors[name][500]),
-  ...colorNames.map((name) => tailwindColors[name][300]),
-  ...colorNames.map((name) => tailwindColors[name][800]),
-];
+  ...colorNames.map(name => tailwindColors[name][500]),
+  ...colorNames.map(name => tailwindColors[name][300]),
+  ...colorNames.map(name => tailwindColors[name][800]),
+]
 
 /** Returns a color that is guaranteed to be (a) unique to this project code and (b) stable as more projects are added */
 const codeColor = (code: string) => {
-  const index = uniqueCodes.indexOf(code);
-  return colors[index % colors.length];
-};
+  const index = uniqueCodes.indexOf(code)
+  return colors[index % colors.length]
+}
 
 export const projects = projectList.map(
   ({ code, subCode, requiresClient, description }) =>
-    new Project(code, subCode, description, requiresClient, codeColor(code))
-);
+    new Project(code, subCode, description, requiresClient, codeColor(code)),
+)

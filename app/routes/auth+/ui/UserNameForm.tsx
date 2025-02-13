@@ -1,17 +1,24 @@
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Button } from "~/ui/shadcn/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "~/ui/shadcn/card";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "~/ui/shadcn/form";
-import { Input } from "~/ui/shadcn/input";
-import { useForm, type SubmitHandler } from "react-hook-form";
-import { Munge } from "./Munge";
-import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod"
+import { Button } from "~/ui/shadcn/button"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "~/ui/shadcn/card"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "~/ui/shadcn/form"
+import { Input } from "~/ui/shadcn/input"
+import { useForm, type SubmitHandler } from "react-hook-form"
+import { Munge } from "./Munge"
+import { z } from "zod"
 
 export const UserNameForm = ({ userName = "", onSubmit }: Props) => {
   const form = useForm<Schema>({
     resolver: zodResolver(schema),
     defaultValues: { n: userName },
-  });
+  })
 
   return (
     <Card className="w-[20em]">
@@ -33,10 +40,7 @@ export const UserNameForm = ({ userName = "", onSubmit }: Props) => {
                     <Munge>Name</Munge>
                   </FormLabel>
                   <FormControl>
-                    <Input
-                      autoFocus
-                      {...field}
-                    />
+                    <Input autoFocus {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -44,30 +48,25 @@ export const UserNameForm = ({ userName = "", onSubmit }: Props) => {
             />
           </CardContent>
           <CardFooter>
-            <Button
-              type="submit"
-              intent="primary"
-              size="md"
-              className="grow justify-center"
-            >
+            <Button type="submit" intent="primary" size="md" className="grow justify-center">
               Continue
             </Button>
           </CardFooter>
         </form>
       </Form>
     </Card>
-  );
-};
+  )
+}
 
 const schema = z.object({
   // `n` because if we call it `userName`, 1password picks it up
   n: z.string().min(2, {
     message: "Name must be at least 2 characters.",
   }),
-});
-type Schema = z.infer<typeof schema>;
+})
+type Schema = z.infer<typeof schema>
 
 type Props = {
-  userName: string | undefined;
-  onSubmit: SubmitHandler<Schema>;
-};
+  userName: string | undefined
+  onSubmit: SubmitHandler<Schema>
+}

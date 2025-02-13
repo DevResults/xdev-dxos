@@ -1,4 +1,4 @@
-import { ComingSoon } from "~/ui/ComingSoon";
+import { ComingSoon } from "~/ui/ComingSoon"
 
 /** This will be the page for editing the client list */
 export default function ClientsPage() {
@@ -6,5 +6,5 @@ export default function ClientsPage() {
     <ComingSoon>
       <IconDatabaseSmile />
     </ComingSoon>
-  );
+  )
 }

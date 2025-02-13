@@ -1,6 +1,6 @@
 export class Client {
-  readonly id: string;
+  readonly id: string
   constructor(readonly code: string) {
-    this.id = code;
+    this.id = code
   }
 }
