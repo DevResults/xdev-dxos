@@ -30,12 +30,7 @@ export default function Dones$DatePage() {
       }
     >
       <div className="flex flex-col gap-2 p-4">
-        <TeamDones
-          dones={dones}
-          contacts={contacts}
-          self={self}
-          updateLikes={(id, likes) => console.log({ id, likes })}
-        />
+        <TeamDones dones={dones} contacts={contacts} self={self} />
       </div>
     </PageLayout>
   )

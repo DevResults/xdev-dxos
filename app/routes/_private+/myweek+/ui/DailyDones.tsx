@@ -61,6 +61,7 @@ export const DailyDones = ({ date, doneEntries, self }: Props) => {
                 contactId: self.id,
                 content,
                 date: sDate,
+                likes: [],
                 timestamp: new Date().toISOString(),
               })
               space?.db.add(done)

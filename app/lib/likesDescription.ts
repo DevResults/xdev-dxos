@@ -1,4 +1,6 @@
-export function likesDescription(likes: any[], self: any) {
+import type { Contact } from "~/schema/Contact"
+
+export function likesDescription(likes: Contact[], self: Contact) {
   const numLikes = likes.length
   const sortedNames = likes.map(({ firstName }) => firstName).sort()
   const index = sortedNames.indexOf(self.firstName)

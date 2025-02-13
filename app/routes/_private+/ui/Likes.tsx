@@ -1,10 +1,11 @@
 import { cx } from "~/lib/cx"
 import { likesDescription } from "~/lib/likesDescription"
 import { useState } from "react"
+import type { Contact } from "~/schema/Contact"
 
 export function Likes({ likes = [], self, onToggle }: Props) {
   const numLikes = likes.length ?? 0
-  const likedByMe = likes.map(({ id }) => id).includes(self.id)
+  const likedByMe = likes.includes(self)
   const readonly = onToggle === undefined
 
   const [animateLike, setAnimateLike] = useState(false)
@@ -53,7 +54,7 @@ export function Likes({ likes = [], self, onToggle }: Props) {
 }
 
 type Props = {
-  likes?: any[]
-  self: any
+  likes?: Contact[]
+  self: Contact
   onToggle?: () => void
 }

@@ -4,7 +4,7 @@ import { CenteredLayout } from "~/ui/layouts/CenteredLayout"
 import type { DoneEntry } from "~/schema/DoneEntry"
 import type { Contact } from "~/schema/Contact"
 
-export const TeamDones = ({ dones, contacts, updateLikes, self }: Props) => {
+export const TeamDones = ({ dones, contacts, self }: Props) => {
   if (dones.length === 0)
     return (
       <CenteredLayout>
@@ -38,14 +38,7 @@ export const TeamDones = ({ dones, contacts, updateLikes, self }: Props) => {
               {/* user's dones */}
               <ul className="flex flex-col gap-1 font-normal text-neutral-700">
                 {contactDones?.map(done => {
-                  return (
-                    <DoneDisplay
-                      key={done.id}
-                      done={done}
-                      updateLikes={likes => updateLikes(done.id, likes)}
-                      self={self}
-                    />
-                  )
+                  return <DoneDisplay key={done.id} done={done} self={self} contacts={contacts} />
                 })}
               </ul>
             </div>
@@ -58,6 +51,5 @@ export const TeamDones = ({ dones, contacts, updateLikes, self }: Props) => {
 type Props = {
   dones: DoneEntry[]
   contacts: Contact[]
-  updateLikes: (id: any, likes: any[]) => void
   self: any
 }

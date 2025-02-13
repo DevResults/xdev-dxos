@@ -3,6 +3,7 @@ import { stripUndefined } from "./lib/stripUndefined"
 import { Cuid } from "./Cuid"
 import { withDefaultId } from "./lib/withDefault"
 import { TypedObject } from "@dxos/echo-schema"
+import { Contact } from "./Contact"
 
 export const DoneEntryId = pipe(Cuid, S.brand("DoneEntryId"))
 export type DoneEntryId = typeof DoneEntryId.Type
@@ -15,6 +16,7 @@ export class DoneEntry extends TypedObject({
   date: S.String,
   contactId: S.String,
   content: S.String,
+  likes: S.Array(S.String),
   timestamp: S.String,
 }) {
   static decode = (encoded: DoneEntryEncoded) =>
