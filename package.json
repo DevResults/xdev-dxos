@@ -18,6 +18,7 @@
     "@effect/schema": "^0.75.5",
     "@headlessui/react": "^2.2.0",
     "@hookform/resolvers": "^4.0.0",
+    "@ibm/plex": "^6.4.0",
     "@js-joda/core": "^5.6.4",
     "@js-joda/locale_en-us": "^4.15.1",
     "@paralleldrive/cuid2": "^2.2.2",

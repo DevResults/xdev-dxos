@@ -1,3 +1,5 @@
+import "@ibm/plex/css/ibm-plex.css"
+
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router"
 
 import { ClientProvider } from "@dxos/react-client"
