@@ -3,20 +3,35 @@ import { DoneEntryGenerator } from "./ui/DoneEntryGenerator"
 import { DoneEntryImporter } from "./ui/DoneEntryImporter"
 import { TimeEntryGenerator } from "./ui/TimeEntryGenerator"
 import { TimeEntryImporter } from "./ui/TimeEntryImporter"
+import { clients } from "~/data/clients"
+import { projects } from "~/data/projects"
+import { useLocalState } from "~/hooks/useLocalState"
+import {
+  create,
+  Filter,
+  useQuery,
+  useSpace,
+  type ReactiveEchoObject,
+} from "@dxos/react-client/echo"
+import { Contact } from "~/schema/Contact"
+import { DoneEntry } from "~/schema/DoneEntry"
+import { TimeEntry } from "~/schema/TimeEntry"
+import type { BaseObject } from "@dxos/echo-schema"
 
 export default function DangerPage() {
-  const fake = {
-    add(_: any) {},
-    destroyAll() {},
-    all() {
-      return []
-    },
+  const { spaceKey } = useLocalState()
+  const space = useSpace(spaceKey)
+  const contacts = useQuery(space, Filter.schema(Contact))
+  const doneEntries = useQuery(space, Filter.schema(DoneEntry))
+  const timeEntries = useQuery(space, Filter.schema(TimeEntry))
+
+  const addDone = (done: Omit<DoneEntry, "id">) => space?.db.add(create(DoneEntry, done))
+  const addTimeEntries = (timeEntries: Omit<TimeEntry, "id">[]) => {
+    for (const timeEntry of timeEntries) space?.db.add(create(TimeEntry, timeEntry))
   }
-  const timeEntries = fake
-  const doneEntries = fake
-  const clients = fake
-  const projects = fake
-  const contacts = fake
+  function destroyAll<T extends ReactiveEchoObject<U>, U extends BaseObject>(list: T[]) {
+    for (const item of list) space?.db.remove(item)
+  }
 
   return (
     <div>
@@ -35,9 +50,9 @@ export default function DangerPage() {
               content: (
                 <div className="w-[30em]">
                   <DoneEntryGenerator
-                    contacts={contacts.all()}
-                    add={done => doneEntries.add(done)}
-                    destroyAll={() => doneEntries.destroyAll()}
+                    contacts={contacts}
+                    add={addDone}
+                    destroyAll={() => destroyAll(doneEntries)}
                   />
                 </div>
               ),
@@ -46,9 +61,9 @@ export default function DangerPage() {
               heading: "Import dones data",
               content: (
                 <DoneEntryImporter
-                  contacts={contacts.all()}
-                  add={done => doneEntries.add(done)}
-                  destroyAll={() => doneEntries.destroyAll()}
+                  contacts={contacts}
+                  add={addDone}
+                  destroyAll={() => destroyAll(doneEntries)}
                 />
               ),
             },
@@ -57,11 +72,11 @@ export default function DangerPage() {
               content: (
                 <div className="w-[30em]">
                   <TimeEntryGenerator
-                    contacts={contacts.all()}
-                    clients={clients.all()}
-                    projects={projects.all()}
-                    add={t => timeEntries.add(t)}
-                    destroyAll={() => timeEntries.destroyAll()}
+                    contacts={contacts}
+                    clients={clients}
+                    projects={projects}
+                    add={addTimeEntries}
+                    destroyAll={() => destroyAll(timeEntries)}
                   />
                 </div>
               ),
@@ -72,11 +87,11 @@ export default function DangerPage() {
                 <div>
                   <TimeEntryImporter
                     defaultOpen={true}
-                    destroyAll={() => timeEntries.destroyAll()}
-                    add={timeEntry => timeEntries.add(timeEntry)}
-                    contacts={contacts.all()}
-                    clients={clients.all()}
-                    projects={projects.all()}
+                    destroyAll={() => destroyAll(timeEntries)}
+                    add={addTimeEntries}
+                    contacts={contacts}
+                    clients={clients}
+                    projects={projects}
                   />
                 </div>
               ),

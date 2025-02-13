@@ -3,10 +3,9 @@ import { Button } from "~/ui/shadcn/button"
 import { NO_OP } from "~/lib/constants"
 import { useState } from "react"
 import { RadioGroup } from "./RadioGroup"
-
-function generateDones(_: any) {
-  return []
-}
+import { generateDones } from "../lib/generateDones"
+import type { DoneEntry } from "~/schema/DoneEntry"
+import type { Contact } from "~/schema/Contact"
 
 export const DoneEntryGenerator = ({ destroyAll = NO_OP, add = () => {}, contacts }: Props) => {
   const weekOptions = ["1", "2", "5", "10", "20", "50", "200"]
@@ -79,7 +78,7 @@ export const DoneEntryGenerator = ({ destroyAll = NO_OP, add = () => {}, contact
 }
 
 type Props = {
-  contacts: any[]
+  contacts: Contact[]
   destroyAll(): void
-  add(done: any): void
+  add(done: Omit<DoneEntry, "id">): void
 }
