@@ -3,10 +3,7 @@ import { Button } from "~/ui/shadcn/button"
 import { getSunday } from "~/lib/getSunday"
 import { useState } from "react"
 import { RadioGroup } from "./RadioGroup"
-
-function generateTimeEntries(_: any) {
-  return []
-}
+import { generateTimeEntries } from "../lib/generateTimeEntries"
 
 export const TimeEntryGenerator = ({
   destroyAll = () => {},
