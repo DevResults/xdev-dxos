@@ -1,14 +1,20 @@
 import { Button } from "~/ui/shadcn/button"
 import { NO_OP } from "~/lib/constants"
 import { useState } from "react"
+import type { DoneEntry } from "~/schema/DoneEntry"
+import type { Contact } from "~/schema/Contact"
+import { pipe, E } from "~/schema/lib/Effect"
+import { csvToDoneEntries } from "../lib/csvToDoneEntries"
+import { ProvidedContacts } from "~/schema/ContactCollection"
 
 export const DoneEntryImporter = ({ add = NO_OP, destroyAll = NO_OP, contacts = [] }: Props) => {
   const [importData, setImportData] = useState("")
   const [errors, setErrors] = useState<Error[]>([])
-  const [doneEntries, setDones] = useState<any[]>([])
+  const [doneEntries, setDones] = useState<Omit<DoneEntry, "id">[]>([])
   const [successMessage, setSuccessMessage] = useState<string | undefined>(undefined)
 
-  const decode = (csv: string) => []
+  const decode = (csv: string) =>
+    pipe(csv, csvToDoneEntries, E.provideService(ProvidedContacts, contacts), E.runSync)
 
   const onImportDataChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     const csv = event.target.value
@@ -37,10 +43,10 @@ export const DoneEntryImporter = ({ add = NO_OP, destroyAll = NO_OP, contacts = 
           cols={200}
           placeholder={[
             "Enter comma-delimited entries, one per line in this format: ",
-            "contactId,date,content ",
+            "contactId,date,content,likes,timestamp ",
             "",
             "Example: ",
-            "brent,2023-01-27,Added feature X",
+            "brent,2023-01-27,Added feature X,[],",
           ].join("\n")}
         ></textarea>
         <div className="-mt-1 mb-2 rounded-md rounded-t-none border border-t-0 bg-neutral-50 p-2 pt-3">
@@ -84,7 +90,7 @@ export const DoneEntryImporter = ({ add = NO_OP, destroyAll = NO_OP, contacts = 
 }
 
 type Props = {
-  contacts: any[]
-  add(d: any): void
+  contacts: Contact[]
+  add(d: Omit<DoneEntry, "id">): void
   destroyAll(): void
 }
