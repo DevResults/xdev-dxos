@@ -19,7 +19,7 @@ const validCodeCharacters = choiceOf(alphanumeric, "&")
  * - You can look up a project by its full code, e.g. `Feature: API` or `Out`
  * - You can look up a project by its subcode, e.g. `Training` or `Project X` as long as there is only one project with that subcode
  */
-const findByCode = (input: string, projects: Project[]) => {
+export const findByCode = (input: string, projects: Project[]) => {
   if (input.length === 0) return E.fail(new ProjectCodeNotFoundError({ input }))
 
   return E.gen(function* () {

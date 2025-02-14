@@ -1,7 +1,13 @@
 import type { Contact } from "./Contact"
-import { Context } from "./lib/Effect"
+import { Context, Data } from "./lib/Effect"
 
 export class ProvidedContacts extends Context.Tag("ProvidedContacts")<
   ProvidedContacts,
   Contact[]
 >() {}
+
+export class ContactNotFoundError //
+  extends Data.TaggedError("ContactCollection/ContactNotFound")<{ userName: string }>
+{
+  message = `There is no contact with username "${this.userName}"`
+}

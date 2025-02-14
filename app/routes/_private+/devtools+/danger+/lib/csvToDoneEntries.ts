@@ -3,7 +3,7 @@ import { Data, E, S } from "lib/Effect"
 import { type ContactId } from "schema/Contact"
 import { DoneEntry, DoneEntryId } from "~/schema/DoneEntry"
 import { csvToSchema } from "./parseCsv"
-import { ProvidedContacts } from "~/schema/ContactCollection"
+import { ContactNotFoundError, ProvidedContacts } from "~/schema/ContactCollection"
 
 class DoneEntryCsvRow extends S.Class<DoneEntryCsvRow>("DoneEntryCsvRow")({
   userName: S.String,
@@ -78,10 +78,4 @@ const adaptError = (error: Error) => {
   }
 
   return message
-}
-
-export class ContactNotFoundError //
-  extends Data.TaggedError("ContactCollection/ContactNotFound")<{ userName: string }>
-{
-  message = `There is no contact with username "${this.userName}"`
 }

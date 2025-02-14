@@ -1,6 +1,15 @@
 import { Button } from "~/ui/shadcn/button"
 import { NO_OP } from "~/lib/constants"
 import { useState } from "react"
+import { E, pipe } from "~/schema/lib/Effect"
+import { csvToTimeEntries } from "../lib/csvToTimeEntries"
+import { ProvidedProjects } from "~/schema/ProjectCollection"
+import { ProvidedContacts } from "~/schema/ContactCollection"
+import { ProvidedClients } from "~/schema/ClientCollection"
+import type { TimeEntry } from "~/schema/TimeEntry"
+import type { Contact } from "~/schema/Contact"
+import type { Project } from "~/schema/Project"
+import type { Client } from "~/schema/Client"
 
 export const TimeEntryImporter = ({
   add = NO_OP,
@@ -11,11 +20,19 @@ export const TimeEntryImporter = ({
 }: Props) => {
   const [importData, setImportData] = useState("")
   const [errors, setErrors] = useState<Error[]>([])
-  const [timeEntries, setTimes] = useState<any[]>([])
+  const [timeEntries, setTimes] = useState<Omit<TimeEntry, "id">[]>([])
 
   const [successMessage, setSuccessMessage] = useState<string | undefined>(undefined)
 
-  const decode = (csv: string) => []
+  const decode = (csv: string) =>
+    pipe(
+      csv,
+      csvToTimeEntries,
+      E.provideService(ProvidedContacts, contacts),
+      E.provideService(ProvidedProjects, projects),
+      E.provideService(ProvidedClients, clients),
+      E.runSync,
+    )
 
   const onImportDataChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     const csv = event.target.value
@@ -27,7 +44,7 @@ export const TimeEntryImporter = ({
 
   const onImport = () => {
     destroyAll()
-    for (const d of timeEntries) add(d)
+    add(timeEntries)
     setSuccessMessage(`Imported ${timeEntries.length} entries`)
   }
 
@@ -46,7 +63,7 @@ export const TimeEntryImporter = ({
             "",
 
             "Example: ",
-            "brent,2023-01-27,1.4,Tech Wealth: Bug Fixin,,Fixed data table import error",
+            "brent,2023-01-27,1.4,Tech-wealth:Bug-fixin,,Fixed data table import error",
           ].join("\n")}
         ></textarea>
         <div className="-mt-1 mb-2 rounded-md rounded-t-none border border-t-0 bg-neutral-50 p-2 pt-3">
@@ -91,9 +108,9 @@ export const TimeEntryImporter = ({
 
 type Props = {
   defaultOpen: boolean
-  contacts: any[]
-  projects: any[]
-  clients: any[]
+  contacts: Contact[]
+  projects: Project[]
+  clients: Client[]
   destroyAll(): void
-  add(t: any): void
+  add(ts: Omit<TimeEntry, "id">[]): void
 }
