@@ -43,4 +43,8 @@ export default defineConfig({
     format: "es",
     plugins: () => [topLevelAwait(), wasm()],
   },
+  optimizeDeps: {
+    // use route files as entry points when crawling for dependencies
+    entries: ["**/routes/**/*.tsx"],
+  },
 })
