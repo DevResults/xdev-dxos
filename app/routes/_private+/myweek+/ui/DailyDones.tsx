@@ -6,9 +6,10 @@ import { DoneInput } from "./DoneInput"
 import { cx } from "~/lib/cx"
 import { DoneEntry } from "~/schema/DoneEntry"
 import { useLocalState } from "~/hooks/useLocalState"
+import type { Contact } from "~/schema/Contact"
 
 /** Displays a single day of the current user's dones */
-export const DailyDones = ({ date, doneEntries, self }: Props) => {
+export const DailyDones = ({ date, doneEntries, self, contacts }: Props) => {
   const [focus, setFocus] = useState<number>(-1) // nothing focused by default
   const { spaceKey } = useLocalState()
   const space = useSpace(spaceKey)
@@ -37,6 +38,7 @@ export const DailyDones = ({ date, doneEntries, self }: Props) => {
               onFocusNext={focusNext}
               onFocusPrev={focusPrev}
               self={self}
+              contacts={contacts}
             />
           </li>
         ))}
@@ -77,5 +79,6 @@ export const DailyDones = ({ date, doneEntries, self }: Props) => {
 type Props = {
   date: LocalDate
   doneEntries: DoneEntry[]
-  self: any
+  self: Contact
+  contacts: Contact[]
 }

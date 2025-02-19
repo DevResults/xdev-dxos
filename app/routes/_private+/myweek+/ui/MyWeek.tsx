@@ -24,6 +24,7 @@ export const MyWeek = ({
   projects,
   clients,
   self,
+  contacts,
 }: Props) => {
   const days = getDaysOfWeek(start).filter(date => showWeekends || !isWeekend(date))
 
@@ -138,7 +139,7 @@ export const MyWeek = ({
       {days.map(date => {
         return (
           <div key={date.toString()} className={cx("overflow-auto", weekendShading(date))}>
-            <DailyDones {...{ doneEntries, date, self }} />
+            <DailyDones {...{ doneEntries, date, self, contacts }} />
           </div>
         )
       })}
@@ -154,4 +155,5 @@ type Props = {
   projects: Project[]
   clients: Client[]
   self: Contact
+  contacts: Contact[]
 }

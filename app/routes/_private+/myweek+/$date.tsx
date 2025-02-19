@@ -13,7 +13,7 @@ import { Project } from "~/schema/Project"
 import { Client } from "~/schema/Client"
 
 export default function MyWeek$DatePage() {
-  const { self } = useTeam()
+  const { self, contacts } = useTeam()
   const { spaceKey } = useLocalState()
   const space = useSpace(spaceKey)
   const dones = useQuery(space, Filter.schema(DoneEntry))
@@ -58,6 +58,7 @@ export default function MyWeek$DatePage() {
             projects,
             clients,
             self,
+            contacts,
           }}
         />
       </div>
