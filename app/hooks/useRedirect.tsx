@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */ // state is any
+
 import { useLocation, useNavigate } from "react-router"
 import { useEffect } from "react"
 import { useLocalState } from "./useLocalState"

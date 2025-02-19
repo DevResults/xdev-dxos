@@ -3,9 +3,10 @@ import { useSpace, HaloSpaceMember } from "@dxos/react-client/echo"
 import { RemoveMemberDialog } from "./ui/RemoveMemberDialog"
 import { useTeam } from "~/hooks/useTeam"
 import { useLocalState } from "~/hooks/useLocalState"
+import type { ContactId } from "~/schema/Contact"
 
 export default function RemovePage() {
-  const { userId } = useLocation().state
+  const { userId } = useLocation().state as { userId: ContactId }
 
   const { self, contacts } = useTeam()
   const navigate = useNavigate()

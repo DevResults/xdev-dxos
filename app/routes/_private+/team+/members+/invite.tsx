@@ -1,9 +1,10 @@
 import { useLocation, useNavigate } from "react-router"
 import { InviteMemberDialog } from "./ui/InviteMemberDialog"
+import type { ContactId } from "~/schema/Contact"
 
 export default function MembersInvitePage() {
   // the userId of the contact we're inviting is passed in the location state
-  const { userId } = useLocation().state
+  const { userId } = useLocation().state as { userId: ContactId }
   const navigate = useNavigate()
 
   // look up the contact information for the user we're inviting
