@@ -1,4 +1,7 @@
+import { create } from "@dxos/react-client/echo"
 import { Client } from "../schema/Client"
+
+const sNow = new Date().toISOString()
 
 export const clients = `
 2scale
@@ -125,4 +128,4 @@ zam`
   .trim()
   .split("\n")
   .filter(s => s.length)
-  .map(line => new Client(line.trim()))
+  .map(line => create(Client, { code: line.trim(), timestamp: sNow }))

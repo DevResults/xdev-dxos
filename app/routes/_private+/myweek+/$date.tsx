@@ -8,9 +8,9 @@ import { useLocalState } from "~/hooks/useLocalState"
 import { useSpace, useQuery, Filter } from "@dxos/react-client/echo"
 import { DoneEntry } from "~/schema/DoneEntry"
 import { TimeEntry } from "~/schema/TimeEntry"
-import { projects } from "~/data/projects"
-import { clients } from "~/data/clients"
 import { useTeam } from "~/hooks/useTeam"
+import { Project } from "~/schema/Project"
+import { Client } from "~/schema/Client"
 
 export default function MyWeek$DatePage() {
   const { self } = useTeam()
@@ -20,6 +20,8 @@ export default function MyWeek$DatePage() {
   const [showWeekends, setShowWeekends] = useState(false)
   const { start, end } = useSelectedWeek()
   const timeEntries = useQuery(space, Filter.schema(TimeEntry))
+  const projects = useQuery(space, Filter.schema(Project))
+  const clients = useQuery(space, Filter.schema(Client))
 
   const sStart = start.toString()
   const sEnd = end.toString()

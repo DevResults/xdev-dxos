@@ -1,6 +1,9 @@
 import { unique } from "../lib/unique"
-import { Project } from "~/schema/Project"
+import { makeFullCode, Project } from "~/schema/Project"
 import tailwindColors from "tailwindcss/colors"
+import { create } from "@dxos/react-client/echo"
+
+const sNow = new Date().toISOString()
 
 const projectList = `
 Business:Contracts	yes	Contract negotiation & other back-and-forth
@@ -111,7 +114,14 @@ const codeColor = (code: string) => {
   return colors[index % colors.length]
 }
 
-export const projects = projectList.map(
-  ({ code, subCode, requiresClient, description }) =>
-    new Project(code, subCode, description, requiresClient, codeColor(code)),
+export const projects = projectList.map(({ code, subCode, requiresClient, description }) =>
+  create(Project, {
+    code,
+    subCode,
+    fullCode: makeFullCode(code, subCode),
+    description,
+    requiresClient,
+    color: codeColor(code),
+    timestamp: sNow,
+  }),
 )

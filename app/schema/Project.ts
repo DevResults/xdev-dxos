@@ -1,20 +1,33 @@
-export class Project {
-  readonly id: string
-  constructor(
-    readonly code: string,
-    readonly subCode: string,
-    readonly description: string,
-    readonly requiresClient: boolean = false,
-    readonly color: string,
-  ) {
-    this.id = makeFullCode(code, subCode)
-  }
+import { pipe, S } from "./lib/Effect"
+import { stripUndefined } from "./lib/stripUndefined"
+import { Cuid } from "./Cuid"
+import { withDefaultId } from "./lib/withDefault"
+import { TypedObject } from "@dxos/echo-schema"
 
-  get fullCode() {
-    return makeFullCode(this.code, this.subCode)
-  }
+export const ProjectId = pipe(Cuid, S.brand("ProjectId"))
+export type ProjectId = typeof ProjectId.Type
+
+export class Project extends TypedObject({
+  typename: "devresults.com/type/Project",
+  version: "0.1.0",
+})({
+  id: withDefaultId(ProjectId),
+  code: S.String,
+  subCode: S.optional(S.String),
+  fullCode: S.String, // ideally calculated fields would not need to be on the defined schema
+  description: S.optional(S.String),
+  requiresClient: S.Boolean,
+  color: S.optional(S.String),
+  timestamp: S.String,
+}) {
+  static decode = S.decodeSync(Project)
+  static encode = (project: Project) =>
+    pipe(
+      project, //
+      S.encodeSync(Project),
+      stripUndefined,
+    )
 }
 
-export function makeFullCode(code: string, subCode?: string) {
-  return subCode ? `${code}:${subCode}` : code
-}
+export const makeFullCode = (code: string, subCode?: string) =>
+  subCode ? `${code}:${subCode}` : code

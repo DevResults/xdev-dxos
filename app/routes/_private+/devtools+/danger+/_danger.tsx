@@ -3,8 +3,6 @@ import { DoneEntryGenerator } from "./ui/DoneEntryGenerator"
 import { DoneEntryImporter } from "./ui/DoneEntryImporter"
 import { TimeEntryGenerator } from "./ui/TimeEntryGenerator"
 import { TimeEntryImporter } from "./ui/TimeEntryImporter"
-import { clients } from "~/data/clients"
-import { projects } from "~/data/projects"
 import { useLocalState } from "~/hooks/useLocalState"
 import {
   create,
@@ -17,6 +15,8 @@ import { Contact } from "~/schema/Contact"
 import { DoneEntry } from "~/schema/DoneEntry"
 import { TimeEntry } from "~/schema/TimeEntry"
 import type { BaseObject } from "@dxos/echo-schema"
+import { Client } from "~/schema/Client"
+import { Project } from "~/schema/Project"
 
 export default function DangerPage() {
   const { spaceKey } = useLocalState()
@@ -24,6 +24,8 @@ export default function DangerPage() {
   const contacts = useQuery(space, Filter.schema(Contact))
   const doneEntries = useQuery(space, Filter.schema(DoneEntry))
   const timeEntries = useQuery(space, Filter.schema(TimeEntry))
+  const clients = useQuery(space, Filter.schema(Client))
+  const projects = useQuery(space, Filter.schema(Project))
 
   const addDone = (done: Omit<DoneEntry, "id">) => space?.db.add(create(DoneEntry, done))
   const addTimeEntries = (timeEntries: Omit<TimeEntry, "id">[]) => {

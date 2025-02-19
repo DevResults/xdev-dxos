@@ -6,6 +6,8 @@ import { useLocalState } from "~/hooks/useLocalState"
 import { useRedirect } from "~/hooks/useRedirect"
 import { create } from "@dxos/react-client/echo"
 import { Contact } from "~/schema/Contact"
+import { projects } from "~/data/projects"
+import { clients } from "~/data/clients"
 
 export default function AuthCreatePage() {
   const identity = useIdentity()
@@ -44,6 +46,10 @@ export default function AuthCreatePage() {
           userName: identity!.profile!.displayName!,
         })
         space.db.add(contact)
+
+        // seed projects and clients
+        for (const project of projects) space.db.add(project)
+        for (const client of clients) space.db.add(client)
 
         // Navigate to the app
         navigate("/")
