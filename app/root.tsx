@@ -9,6 +9,7 @@ import "./app.css"
 import { DoneEntry } from "./schema/DoneEntry"
 import { TimeEntry } from "./schema/TimeEntry"
 import { Contact } from "./schema/Contact"
+import { Loading } from "./ui/Loading"
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -49,6 +50,10 @@ export default function App() {
       <Outlet />
     </ClientProvider>
   )
+}
+
+export function HydrateFallback() {
+  return <Loading />
 }
 
 export { ErrorBoundary } from "./ErrorBoundary"
