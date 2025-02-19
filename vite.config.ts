@@ -7,7 +7,21 @@ import { resolve } from "node:path"
 import wasm from "vite-plugin-wasm"
 import icons from "unplugin-icons/vite"
 import iconsResolver from "unplugin-icons/resolver"
+import { type Options as AutoImportOptions } from "unplugin-auto-import/types"
 import autoImport from "unplugin-auto-import/vite"
+
+// auto-import setup for icons
+const autoImportOptions: AutoImportOptions = {
+  dts: false,
+  resolvers: [
+    iconsResolver({
+      prefix: false,
+      extension: "jsx",
+      enabledCollections: ["tabler"],
+      alias: { icon: "tabler" },
+    }),
+  ],
+}
 
 export default defineConfig({
   build: {
@@ -24,19 +38,7 @@ export default defineConfig({
     topLevelAwait(),
     wasm(),
     ConfigPlugin(),
-    autoImport({
-      dts: false,
-      resolvers: [
-        iconsResolver({
-          prefix: false,
-          extension: "jsx",
-          enabledCollections: ["tabler"],
-          alias: {
-            icon: "tabler",
-          },
-        }),
-      ],
-    }),
+    autoImport(autoImportOptions),
     icons({ compiler: "jsx", jsx: "react" }),
   ],
   worker: {
