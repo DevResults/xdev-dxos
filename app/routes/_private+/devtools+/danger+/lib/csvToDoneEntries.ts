@@ -29,8 +29,8 @@ export const csvToDoneEntries = (csvData: string) =>
         const likesUserNames = JSON.parse(row.likes) as string[]
         const likes = [] as ContactId[]
         for (const userName of likesUserNames) {
-          const contact = contacts.find(({ userName }) => userName == userName)
-          if (contact == null) return yield* E.fail(new ContactNotFoundError({ userName }))
+          const contact = contacts.find(d => d.userName === userName)
+          if (contact === undefined) return yield* E.fail(new ContactNotFoundError({ userName }))
           likes.push(contact.id)
         }
 
