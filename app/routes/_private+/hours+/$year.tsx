@@ -8,6 +8,7 @@ import { YearNav } from "./ui/YearNav"
 import { useLocalState } from "~/hooks/useLocalState"
 import { Filter, useQuery, useSpace } from "@dxos/react-client/echo"
 import { TimeEntry } from "~/schema/TimeEntry"
+import { LocalDate } from "@js-joda/core"
 
 export default function Hours$YearPage() {
   const { spaceKey } = useLocalState()
@@ -19,7 +20,10 @@ export default function Hours$YearPage() {
 
   useRedirect({ from: "/hours", to: `/hours/${currentYear}`, condition: year > currentYear })
 
-  const years: any[] = []
+  const years =
+    timeEntries.length > 0 ?
+      new Set(timeEntries.map(({ date }) => LocalDate.parse(date).year()))
+    : [Number.NEGATIVE_INFINITY, Number.POSITIVE_INFINITY]
   const minYear = Math.min(...years)
   const maxYear = Math.max(...years)
 
