@@ -1,9 +1,8 @@
+import { TypedObject } from "@dxos/echo-schema"
 import { E, pipe, S } from "./lib/Effect"
 import { stripUndefined } from "./lib/stripUndefined"
 import { Cuid } from "./Cuid"
 import { withDefaultId } from "./lib/withDefault"
-import { TypedObject } from "@dxos/echo-schema"
-import { Contact } from "./Contact"
 
 export const DoneEntryId = pipe(Cuid, S.brand("DoneEntryId"))
 export type DoneEntryId = typeof DoneEntryId.Type

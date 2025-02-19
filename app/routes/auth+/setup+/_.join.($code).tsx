@@ -1,11 +1,11 @@
 import { useNavigate, useParams } from "react-router"
 import { useState } from "react"
-import { InvitationForm } from "./ui/InvitationForm"
 import { useShell } from "@dxos/react-client"
-import { useLocalState } from "~/hooks/useLocalState"
-import { useRedirect } from "~/hooks/useRedirect"
 import { useIdentity } from "@dxos/react-client/halo"
 import { create } from "@dxos/react-client/echo"
+import { InvitationForm } from "./ui/InvitationForm"
+import { useLocalState } from "~/hooks/useLocalState"
+import { useRedirect } from "~/hooks/useRedirect"
 import { Contact } from "~/schema/Contact"
 
 export default function AuthJoinPage() {

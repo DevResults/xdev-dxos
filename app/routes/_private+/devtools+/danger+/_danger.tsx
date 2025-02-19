@@ -1,9 +1,4 @@
 import { Alert, AlertDescription } from "@ui/alert"
-import { DoneEntryGenerator } from "./ui/DoneEntryGenerator"
-import { DoneEntryImporter } from "./ui/DoneEntryImporter"
-import { TimeEntryGenerator } from "./ui/TimeEntryGenerator"
-import { TimeEntryImporter } from "./ui/TimeEntryImporter"
-import { useLocalState } from "~/hooks/useLocalState"
 import {
   create,
   Filter,
@@ -11,10 +6,15 @@ import {
   useSpace,
   type ReactiveEchoObject,
 } from "@dxos/react-client/echo"
+import type { BaseObject } from "@dxos/echo-schema"
+import { DoneEntryGenerator } from "./ui/DoneEntryGenerator"
+import { DoneEntryImporter } from "./ui/DoneEntryImporter"
+import { TimeEntryGenerator } from "./ui/TimeEntryGenerator"
+import { TimeEntryImporter } from "./ui/TimeEntryImporter"
+import { useLocalState } from "~/hooks/useLocalState"
 import { Contact } from "~/schema/Contact"
 import { DoneEntry } from "~/schema/DoneEntry"
 import { TimeEntry } from "~/schema/TimeEntry"
-import type { BaseObject } from "@dxos/echo-schema"
 import { Client } from "~/schema/Client"
 import { Project } from "~/schema/Project"
 
@@ -28,9 +28,10 @@ export default function DangerPage() {
   const projects = useQuery(space, Filter.schema(Project))
 
   const addDone = (done: Omit<DoneEntry, "id">) => space?.db.add(create(DoneEntry, done))
-  const addTimeEntries = (timeEntries: Omit<TimeEntry, "id">[]) => {
+  const addTimeEntries = (timeEntries: Array<Omit<TimeEntry, "id">>) => {
     for (const timeEntry of timeEntries) space?.db.add(create(TimeEntry, timeEntry))
   }
+
   function destroyAll<T extends ReactiveEchoObject<U>, U extends BaseObject>(list: T[]) {
     for (const item of list) space?.db.remove(item)
   }

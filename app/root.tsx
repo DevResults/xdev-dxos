@@ -1,10 +1,7 @@
 import "@ibm/plex/css/ibm-plex.css"
-
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router"
-
 import { ClientProvider } from "@dxos/react-client"
 import { configProvider } from "./config"
-
 import "./index.css"
 import { DoneEntry } from "./schema/DoneEntry"
 import { TimeEntry } from "./schema/TimeEntry"
@@ -35,6 +32,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
     </html>
   )
 }
+
 const createWorker = () =>
   new SharedWorker(new URL("../public/shared-worker", import.meta.url), {
     type: "module",

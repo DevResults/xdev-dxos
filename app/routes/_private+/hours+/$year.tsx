@@ -1,14 +1,14 @@
+import { Filter, useQuery, useSpace } from "@dxos/react-client/echo"
+import { LocalDate } from "@js-joda/core"
+import { PageLayout } from "../ui/layouts/PageLayout"
+import { HoursReport } from "./ui/HoursReport"
+import { YearNav } from "./ui/YearNav"
 import { useRedirect } from "~/hooks/useRedirect"
 import { useSelectedYear } from "~/hooks/useSelectedYear"
 import { useTeam } from "~/hooks/useTeam"
 import { getCurrentYear } from "~/lib/getCurrentYear"
-import { HoursReport } from "./ui/HoursReport"
-import { PageLayout } from "../ui/layouts/PageLayout"
-import { YearNav } from "./ui/YearNav"
 import { useLocalState } from "~/hooks/useLocalState"
-import { Filter, useQuery, useSpace } from "@dxos/react-client/echo"
 import { TimeEntry } from "~/schema/TimeEntry"
-import { LocalDate } from "@js-joda/core"
 
 export default function Hours$YearPage() {
   const { spaceKey } = useLocalState()

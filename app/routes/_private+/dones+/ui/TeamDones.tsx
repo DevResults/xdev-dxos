@@ -1,5 +1,5 @@
-import { Avatar } from "~/ui/Avatar"
 import { DoneDisplay } from "./DoneDisplay"
+import { Avatar } from "~/ui/Avatar"
 import { CenteredLayout } from "~/ui/layouts/CenteredLayout"
 import type { DoneEntry } from "~/schema/DoneEntry"
 import type { Contact } from "~/schema/Contact"

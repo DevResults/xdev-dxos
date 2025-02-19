@@ -1,9 +1,9 @@
-import { E } from "./Effect"
+import { create } from "@dxos/react-client/echo"
 import { TimeEntry, type TimeEntryInput } from "../TimeEntry"
+import { E } from "./Effect"
 import { parseClient } from "./parseClient"
 import { parseDuration } from "./parseDuration"
 import { parseProject } from "./parseProject"
-import { create } from "@dxos/react-client/echo"
 
 /**
  * Takes a string input like "1h #out doctor" and parses it into a TimeEntry object.

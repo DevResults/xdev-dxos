@@ -1,6 +1,6 @@
+import { useState } from "react"
 import { cx } from "~/lib/cx"
 import { likesDescription } from "~/lib/likesDescription"
-import { useState } from "react"
 import type { Contact } from "~/schema/Contact"
 
 export function Likes({ likes = [], self, onToggle }: Props) {

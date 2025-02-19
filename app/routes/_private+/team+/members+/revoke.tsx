@@ -1,6 +1,6 @@
-import { useTeam } from "~/hooks/useTeam"
 import { useLocation, useNavigate } from "react-router"
 import { RevokeInvitationDialog } from "./ui/RevokeInvitationDialog"
+import { useTeam } from "~/hooks/useTeam"
 
 export default function RevokeInvitationPage() {
   const { userId } = useLocation().state
@@ -20,7 +20,7 @@ export default function RevokeInvitationPage() {
   return (
     <RevokeInvitationDialog
       defaultOpen={true}
-      onClose={() => navigate("..")}
+      onClose={async () => navigate("..")}
       contact={contact}
       invitation={invitation}
       revoke={revoke}

@@ -1,6 +1,6 @@
+import type { ReactNode } from "react"
 import { cx } from "~/lib/cx"
 import { formatDuration } from "~/lib/formatDuration"
-import type { ReactNode } from "react"
 import type { TimeEntry } from "~/schema/TimeEntry"
 import type { Project } from "~/schema/Project"
 import type { Client } from "~/schema/Client"
@@ -13,8 +13,8 @@ export function TimeEntryDisplay({ className = "", timeEntry, projects, clients 
   if (timeEntry === undefined) return null
 
   const { input, client: clientId, project: projectId, duration, description } = timeEntry
-  const project = projects.find(d => d.id == projectId)
-  const client = clients.find(d => d.id == clientId)
+  const project = projects.find(d => d.id === projectId)
+  const client = clients.find(d => d.id === clientId)
 
   return (
     <div

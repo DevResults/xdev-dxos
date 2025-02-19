@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from "react-router"
 import { useEffect } from "react"
-import type { LocalState } from "~/types/types"
 import { useLocalState } from "./useLocalState"
+import type { LocalState } from "~/types/types"
 
 export function useRedirect({ from, to, condition = true, localState = undefined }: Params) {
   const { pathname, state } = useLocation()

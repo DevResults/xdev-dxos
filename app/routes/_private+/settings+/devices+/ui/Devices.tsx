@@ -1,11 +1,10 @@
 import { Link } from "react-router"
 import { Button } from "@ui/button"
-import { cx } from "~/lib/cx"
-import { getBrowserIcon, getDeviceIcon, getOsIcon } from "~/lib/getDeviceIcon"
-import type UAParser from "ua-parser-js"
-import { MetadataList } from "./MetadataList"
 import { useShell } from "@dxos/react-client"
 import type { Device } from "@dxos/react-client/halo"
+import { MetadataList } from "./MetadataList"
+import { getBrowserIcon, getDeviceIcon, getOsIcon } from "~/lib/getDeviceIcon"
+import { cx } from "~/lib/cx"
 
 export const Devices = ({ ownDevice, devices = [] }: Props) => {
   const shell = useShell()

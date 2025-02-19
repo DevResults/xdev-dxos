@@ -1,8 +1,8 @@
 import { Button } from "@ui/button"
-import { NO_OP } from "~/lib/constants"
 import { useState } from "react"
-import { E, pipe } from "~/schema/lib/Effect"
 import { csvToTimeEntries } from "../lib/csvToTimeEntries"
+import { NO_OP } from "~/lib/constants"
+import { E, pipe } from "~/schema/lib/Effect"
 import { ProvidedProjects } from "~/schema/ProjectCollection"
 import { ProvidedContacts } from "~/schema/ContactCollection"
 import { ProvidedClients } from "~/schema/ClientCollection"
@@ -20,7 +20,7 @@ export const TimeEntryImporter = ({
 }: Props) => {
   const [importData, setImportData] = useState("")
   const [errors, setErrors] = useState<Error[]>([])
-  const [timeEntries, setTimes] = useState<Omit<TimeEntry, "id">[]>([])
+  const [timeEntries, setTimes] = useState<Array<Omit<TimeEntry, "id">>>([])
 
   const [successMessage, setSuccessMessage] = useState<string | undefined>(undefined)
 
@@ -112,5 +112,5 @@ type Props = {
   projects: Project[]
   clients: Client[]
   destroyAll(): void
-  add(ts: Omit<TimeEntry, "id">[]): void
+  add(ts: Array<Omit<TimeEntry, "id">>): void
 }

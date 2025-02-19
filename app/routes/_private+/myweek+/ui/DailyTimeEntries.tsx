@@ -1,12 +1,12 @@
 import type { LocalDate } from "@js-joda/core"
-import { cx } from "~/lib/cx"
 import { useState } from "react"
+import { useSpace } from "@dxos/react-client/echo"
 import { DeleteButton } from "./DeleteButton"
 import { TimeEntryDisplay } from "./TimeEntryDisplay"
 import { TimeEntryInput } from "./TimeEntryInput"
+import { cx } from "~/lib/cx"
 import type { TimeEntry } from "~/schema/TimeEntry"
 import { useLocalState } from "~/hooks/useLocalState"
-import { useSpace } from "@dxos/react-client/echo"
 import type { Project } from "~/schema/Project"
 import type { Client } from "~/schema/Client"
 import type { Contact } from "~/schema/Contact"
@@ -25,7 +25,7 @@ export const DailyTimeEntries = ({
   const space = useSpace(spaceKey)
 
   const sDate = date.toString()
-  const entries = timeEntries.filter(({ date }) => date == sDate)
+  const entries = timeEntries.filter(({ date }) => date === sDate)
 
   const onFocusNext = () => setFocus((f: number) => f + 1)
   const onFocusPrev = () => setFocus((f: number) => Math.max(f - 1, 0))

@@ -1,11 +1,11 @@
-import { LocalDate } from "@js-joda/core"
-import { cx } from "~/lib/cx"
+import { type LocalDate } from "@js-joda/core"
 import { useState } from "react"
+import { create, useSpace } from "@dxos/react-client/echo"
 import { DoneEditable } from "./DoneEditable"
 import { DoneInput } from "./DoneInput"
+import { cx } from "~/lib/cx"
 import { DoneEntry } from "~/schema/DoneEntry"
 import { useLocalState } from "~/hooks/useLocalState"
-import { create, useSpace } from "@dxos/react-client/echo"
 
 /** Displays a single day of the current user's dones */
 export const DailyDones = ({ date, doneEntries, self }: Props) => {

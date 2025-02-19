@@ -1,6 +1,6 @@
+import { NavLink } from "react-router"
 import { useRedirect } from "~/hooks/useRedirect"
 import { cx } from "~/lib/cx"
-import { NavLink } from "react-router"
 
 export function SecondaryNav({ heading, items = [], parent: parentPath }: Props) {
   const [firstItem] = items

@@ -1,11 +1,10 @@
 import { Data, E, S } from "lib/Effect"
 import { ClientNotFoundError, ProvidedClients } from "schema/ClientCollection"
 import { ContactNotFoundError, ProvidedContacts } from "schema/ContactCollection"
-import { reconstructTimeEntryInput } from "./reconstructTimeEntryInput"
 import { ProvidedProjects } from "schema/ProjectCollection"
-import { TimeEntry } from "schema/TimeEntry"
+import { reconstructTimeEntryInput } from "./reconstructTimeEntryInput"
 import { csvToSchema } from "./parseCsv"
-import { findByCode, ProjectCodeNotFoundError } from "~/schema/lib/parseProject"
+import { findByCode } from "~/schema/lib/parseProject"
 
 export class TimeEntryCsvRow extends S.Class<TimeEntryCsvRow>("TimeEntryCsvRow")({
   userName: S.String,
@@ -33,7 +32,7 @@ export const csvToTimeEntries = (csvData: string) =>
         if (contact == null)
           return yield* E.fail(new ContactNotFoundError({ userName: row.userName }))
         const project = yield* findByCode(row.project, projects)
-        let client = undefined
+        let client
         if (row.client.length > 0) {
           client = clients.find(({ code }) => code == row.client)
           if (client == null) return yield* E.fail(new ClientNotFoundError({ code: row.client }))

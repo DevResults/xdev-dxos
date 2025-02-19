@@ -1,6 +1,3 @@
-import { Data, E } from "./Effect"
-import { alphanumeric, endWord, startWord } from "./regex"
-import { ProvidedProjects } from "../ProjectCollection"
 import {
   buildRegExp,
   capture,
@@ -10,6 +7,9 @@ import {
   whitespace,
   zeroOrMore,
 } from "ts-regex-builder"
+import { ProvidedProjects } from "../ProjectCollection"
+import { Data, E } from "./Effect"
+import { alphanumeric, endWord, startWord } from "./regex"
 import { makeFullCode, type Project } from "~/schema/Project"
 
 const validCodeCharacters = choiceOf(alphanumeric, "&")
@@ -27,12 +27,12 @@ export const findByCode = (input: string, projects: Project[]) => {
 
     // see if the code matches a unique fullCode, e.g. `Feature: API` or `Out`
     const fullCode = makeFullCode(code, subCode)
-    const fullCodeMatches = projects.find(d => d.fullCode == fullCode)
+    const fullCodeMatches = projects.find(d => d.fullCode === fullCode)
     if (fullCodeMatches) return fullCodeMatches
 
     if (!subCode) {
       // see if the code matches a unique subcode, e.g. `Training` or `Project X`
-      const subCodeMatches = projects.filter(d => d.subCode == subCode)
+      const subCodeMatches = projects.filter(d => d.subCode === subCode)
 
       if (subCodeMatches.length === 0) {
         return yield* E.fail(new ProjectCodeNotFoundError({ input }))
@@ -86,6 +86,7 @@ export const parseProject = (input: string) =>
     if (project === undefined) {
       return yield* E.fail(new ProjectCodeNotFoundError({ input }))
     }
+
     return { project, text }
   })
 

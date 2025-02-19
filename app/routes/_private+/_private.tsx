@@ -2,11 +2,11 @@ import { useSpace, HaloSpaceMember } from "@dxos/react-client/echo"
 import { useIdentity } from "@dxos/react-client/halo"
 import { useEffect } from "react"
 import { Outlet, useNavigate } from "react-router"
+import { useSignOut } from "../auth+/hooks/useSignOut"
 import { useLocalState } from "~/hooks/useLocalState"
 import { useTeam } from "~/hooks/useTeam"
 import { AppLayout } from "~/ui/layouts/AppLayout"
 import { Loading } from "~/ui/Loading"
-import { useSignOut } from "../auth+/hooks/useSignOut"
 
 export default function Private() {
   const { spaceKey } = useLocalState()
@@ -17,19 +17,19 @@ export default function Private() {
   const signOut = useSignOut()
 
   useEffect(() => {
-    if (!identity) navigate("/auth/begin")
+    if (!identity) void navigate("/auth/begin")
   }, [identity, navigate])
 
   useEffect(() => {
     const members = space?.members.get()
     if (!self && identity && members) {
       const member = members.find(
-        d => d.identity.identityKey.toString() == identity.identityKey.toString(),
+        d => d.identity.identityKey.toString() === identity.identityKey.toString(),
       )
-      if (member?.role == HaloSpaceMember.Role.REMOVED) {
+      if (member?.role === HaloSpaceMember.Role.REMOVED) {
         ;(async () => {
           await signOut()
-          navigate("/")
+          void navigate("/")
         })()
       }
     }

@@ -1,6 +1,6 @@
 import { NavLink } from "react-router"
-import { cx } from "~/lib/cx"
 import { Avatar } from "./Avatar"
+import { cx } from "~/lib/cx"
 import type { NavItem } from "~/types/types"
 import type { Contact } from "~/schema/Contact"
 

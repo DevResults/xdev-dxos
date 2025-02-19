@@ -1,12 +1,12 @@
 import { makeRandom } from "@herbcaudill/random"
 import { type LocalDate } from "@js-joda/core"
 import { dummyDones } from "./dummyDones"
+import { reconstructTimeEntryInput } from "./reconstructTimeEntryInput"
+import { getWorkDays } from "./getWorkDays"
 import type { Client } from "~/schema/Client"
 import type { Contact, ContactId } from "~/schema/Contact"
 import { type Project } from "~/schema/Project"
-import { reconstructTimeEntryInput } from "./reconstructTimeEntryInput"
-import { TimeEntry } from "~/schema/TimeEntry"
-import { getWorkDays } from "./getWorkDays"
+import { type TimeEntry } from "~/schema/TimeEntry"
 
 export function generateTimeEntries({
   contacts,
@@ -20,7 +20,7 @@ export function generateTimeEntries({
 }: Inputs) {
   const random = makeRandom(seed)
   const OUT = projects.find(d => d.code.toLowerCase() === "out")!.id
-  const timeEntries: Omit<TimeEntry, "id">[] = []
+  const timeEntries: Array<Omit<TimeEntry, "id">> = []
 
   // Assign a timekeeping style to each contact
   const contactStyles = Object.fromEntries(
@@ -60,7 +60,7 @@ export function generateTimeEntries({
     const timestamp = new Date().toISOString()
     let totalDuration = 0
 
-    const newEntries: Omit<TimeEntry, "id">[] = []
+    const newEntries: Array<Omit<TimeEntry, "id">> = []
 
     while (totalDuration < todaysTotal) {
       const duration = Math.min(random.integer(1, 32) * 15, todaysTotal - totalDuration)

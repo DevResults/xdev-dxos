@@ -1,8 +1,8 @@
-import { useTeam } from "~/hooks/useTeam"
 import { useLocation, useNavigate } from "react-router"
-import { RemoveMemberDialog } from "./ui/RemoveMemberDialog"
-import { useLocalState } from "~/hooks/useLocalState"
 import { useSpace, HaloSpaceMember } from "@dxos/react-client/echo"
+import { RemoveMemberDialog } from "./ui/RemoveMemberDialog"
+import { useTeam } from "~/hooks/useTeam"
+import { useLocalState } from "~/hooks/useLocalState"
 
 export default function RemovePage() {
   const { userId } = useLocation().state
@@ -23,7 +23,7 @@ export default function RemovePage() {
   return (
     <RemoveMemberDialog
       defaultOpen={true}
-      onClose={() => navigate("..")}
+      onClose={async () => navigate("..")}
       contact={contact}
       remove={async () => {
         // remove from space

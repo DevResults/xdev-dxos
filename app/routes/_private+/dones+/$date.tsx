@@ -1,9 +1,9 @@
+import { Filter, useQuery, useSpace } from "@dxos/react-client/echo"
+import { PageLayout } from "../ui/layouts/PageLayout"
+import { WeekNav } from "../ui/WeekNav"
+import { TeamDones } from "./ui/TeamDones"
 import { useSelectedWeek } from "~/hooks/useSelectedWeek"
 import { useTeam } from "~/hooks/useTeam"
-import { PageLayout } from "../ui/layouts/PageLayout"
-import { TeamDones } from "./ui/TeamDones"
-import { WeekNav } from "../ui/WeekNav"
-import { Filter, useQuery, useSpace } from "@dxos/react-client/echo"
 import { useLocalState } from "~/hooks/useLocalState"
 import { DoneEntry } from "~/schema/DoneEntry"
 

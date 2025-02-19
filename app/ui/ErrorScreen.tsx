@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@ui/card"
-import { CenteredLayout } from "./layouts/CenteredLayout"
 import type { ErrorResponse } from "react-router"
+import { CenteredLayout } from "./layouts/CenteredLayout"
 
 const isRouteErrorResponse = (e: Error | ErrorResponse): e is ErrorResponse => {
   return "status" in e && "statusText" in e && "data" in e

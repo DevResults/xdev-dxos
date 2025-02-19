@@ -1,5 +1,5 @@
-import { useSignOut } from "./hooks/useSignOut"
 import { useState } from "react"
+import { useSignOut } from "./hooks/useSignOut"
 import { Signout } from "./ui/Signout"
 
 export default function SignOutPage() {

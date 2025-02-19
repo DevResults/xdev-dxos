@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-floating-promises */
-/* eslint-disable no-await-in-loop */
 
 import { clientsClaim } from "workbox-core"
 import {

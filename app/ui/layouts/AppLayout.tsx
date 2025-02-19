@@ -1,7 +1,7 @@
 import { Drawer, DrawerContent } from "@ui/drawer"
-import { cx } from "~/lib/cx"
 import { useState } from "react"
 import { Sidebar } from "../Sidebar"
+import { cx } from "~/lib/cx"
 import type { Contact } from "~/schema/Contact"
 
 export function AppLayout({ self, children }: Props) {

@@ -1,6 +1,6 @@
 import { DeviceKind, useDevices, useIdentity } from "@dxos/react-client/halo"
-import { useLocalState } from "./useLocalState"
 import { HaloSpaceMember, Filter, useMembers, useQuery, useSpace } from "@dxos/react-client/echo"
+import { useLocalState } from "./useLocalState"
 import { Contact, ExtendedContact } from "~/schema/Contact"
 
 /**

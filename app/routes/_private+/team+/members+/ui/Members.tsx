@@ -1,11 +1,11 @@
 import { Link } from "react-router"
 import { Button } from "@ui/button"
+import { useShell } from "@dxos/react-client"
+import { useSpace } from "@dxos/react-client/echo"
 import { by } from "~/lib/by"
 import { cx } from "~/lib/cx"
 import { Avatar } from "~/ui/Avatar"
-import { useShell } from "@dxos/react-client"
 import { useLocalState } from "~/hooks/useLocalState"
-import { useSpace } from "@dxos/react-client/echo"
 import type { ExtendedContact } from "~/schema/Contact"
 
 export const Members = ({ self, contacts, onPromote = () => {}, onDemote = () => {} }: Props) => {

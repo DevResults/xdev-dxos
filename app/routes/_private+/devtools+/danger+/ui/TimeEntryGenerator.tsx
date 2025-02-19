@@ -1,9 +1,9 @@
 import { LocalDate } from "@js-joda/core"
 import { Button } from "@ui/button"
-import { getSunday } from "~/lib/getSunday"
 import { useState } from "react"
-import { RadioGroup } from "./RadioGroup"
 import { generateTimeEntries } from "../lib/generateTimeEntries"
+import { RadioGroup } from "./RadioGroup"
+import { getSunday } from "~/lib/getSunday"
 
 export const TimeEntryGenerator = ({
   destroyAll = () => {},

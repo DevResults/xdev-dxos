@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router"
-import { useTeam } from "~/hooks/useTeam"
 import { InviteDeviceDialog } from "./ui/InviteDeviceDialog"
+import { useTeam } from "~/hooks/useTeam"
 
 export default function DevicesInvitePage() {
   const { self } = useTeam()
@@ -11,7 +11,7 @@ export default function DevicesInvitePage() {
   return (
     <InviteDeviceDialog
       defaultOpen={true}
-      onClose={() => navigate("..")}
+      onClose={async () => navigate("..")}
       invitationCode={invitationCode}
     />
   )

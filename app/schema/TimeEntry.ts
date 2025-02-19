@@ -1,3 +1,4 @@
+import { TypedObject } from "@dxos/echo-schema"
 import { E, pipe, S } from "./lib/Effect"
 import { stripUndefined } from "./lib/stripUndefined"
 import { Cuid } from "./Cuid"
@@ -5,7 +6,6 @@ import { withDefaultId } from "./lib/withDefault"
 import { ProvidedProjects } from "./ProjectCollection"
 import { ProvidedClients } from "./ClientCollection"
 import { parseTimeEntry } from "./lib/parseTimeEntry"
-import { TypedObject } from "@dxos/echo-schema"
 import type { Project } from "./Project"
 import type { Client } from "./Client"
 

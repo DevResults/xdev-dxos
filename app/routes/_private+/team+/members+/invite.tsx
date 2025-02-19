@@ -17,7 +17,7 @@ export default function MembersInvitePage() {
   return (
     <InviteMemberDialog
       defaultOpen={true}
-      onClose={() => navigate("..")}
+      onClose={async () => navigate("..")}
       contact={contact}
       invitationCode={invitationCode}
     />

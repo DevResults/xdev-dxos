@@ -1,6 +1,6 @@
-import { useTeam } from "~/hooks/useTeam"
 import { Outlet } from "react-router"
 import { Members } from "./ui/Members"
+import { useTeam } from "~/hooks/useTeam"
 
 export default function MembersPage() {
   const { contacts, self } = useTeam()

@@ -1,5 +1,3 @@
-import { E, Data } from "./Effect"
-import { number } from "./regex"
 import {
   buildRegExp,
   capture,
@@ -8,6 +6,8 @@ import {
   optional,
   startOfString,
 } from "ts-regex-builder"
+import { E, Data } from "./Effect"
+import { number } from "./regex"
 
 /** Finds and parses a duration, expressed in decimal or hours:minutes, from inside a string of text */
 export const parseDuration = (input: string) => {

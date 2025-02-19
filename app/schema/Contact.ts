@@ -1,9 +1,9 @@
-import { pipe, S } from "./lib/Effect"
-import { Cuid } from "./Cuid"
-import { withDefaultId } from "./lib/withDefault"
 import { TypedObject } from "@dxos/echo-schema"
 import type { Identity } from "@dxos/react-client/halo"
 import type { PublicKey } from "@dxos/react-client"
+import { pipe, S } from "./lib/Effect"
+import { Cuid } from "./Cuid"
+import { withDefaultId } from "./lib/withDefault"
 
 export const ContactId = pipe(Cuid, S.brand("ContactId"))
 export type ContactId = typeof ContactId.Type
@@ -50,21 +50,27 @@ export class ExtendedContact implements EncodedContact {
     this.isAdmin = isAdmin
     this.identityKey = identity?.identityKey
   }
+
   get id() {
     return this.contact.id
   }
+
   get identityId() {
     return this.contact.identityId
   }
+
   get userName() {
     return this.contact.userName
   }
+
   get firstName() {
     return this.contact.firstName
   }
+
   get lastName() {
     return this.contact.lastName
   }
+
   get avatarUrl() {
     return this.contact.avatarUrl
   }

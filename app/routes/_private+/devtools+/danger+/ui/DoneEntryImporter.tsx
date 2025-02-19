@@ -1,16 +1,16 @@
 import { Button } from "@ui/button"
-import { NO_OP } from "~/lib/constants"
 import { useState } from "react"
+import { csvToDoneEntries } from "../lib/csvToDoneEntries"
+import { NO_OP } from "~/lib/constants"
 import type { DoneEntry } from "~/schema/DoneEntry"
 import type { Contact } from "~/schema/Contact"
 import { pipe, E } from "~/schema/lib/Effect"
-import { csvToDoneEntries } from "../lib/csvToDoneEntries"
 import { ProvidedContacts } from "~/schema/ContactCollection"
 
 export const DoneEntryImporter = ({ add = NO_OP, destroyAll = NO_OP, contacts = [] }: Props) => {
   const [importData, setImportData] = useState("")
   const [errors, setErrors] = useState<Error[]>([])
-  const [doneEntries, setDones] = useState<Omit<DoneEntry, "id">[]>([])
+  const [doneEntries, setDones] = useState<Array<Omit<DoneEntry, "id">>>([])
   const [successMessage, setSuccessMessage] = useState<string | undefined>(undefined)
 
   const decode = (csv: string) =>

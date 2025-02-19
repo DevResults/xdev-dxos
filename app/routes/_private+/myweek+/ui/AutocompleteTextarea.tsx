@@ -1,6 +1,4 @@
 import { Popover, PopoverAnchor, PopoverContent } from "@ui/popover"
-import { NO_OP } from "~/lib/constants"
-import { cx } from "~/lib/cx"
 import { forwardRef, useEffect, useRef, useState, type ForwardedRef } from "react"
 import { Caret } from "textarea-caret-ts"
 import {
@@ -10,6 +8,8 @@ import {
   type AutocompleteMode,
   type AutocompleteState,
 } from "./AutocompleteMenu"
+import { cx } from "~/lib/cx"
+import { NO_OP } from "~/lib/constants"
 
 export const AutocompleteTextarea = forwardRef<HTMLTextAreaElement, Props>(
   (

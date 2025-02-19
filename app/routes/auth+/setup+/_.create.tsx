@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router"
-import { TeamNameForm } from "./ui/TeamNameForm"
 import { useIdentity } from "@dxos/react-client/halo"
 import { useClient } from "@dxos/react-client"
+import { create } from "@dxos/react-client/echo"
+import { TeamNameForm } from "./ui/TeamNameForm"
 import { useLocalState } from "~/hooks/useLocalState"
 import { useRedirect } from "~/hooks/useRedirect"
-import { create } from "@dxos/react-client/echo"
 import { Contact } from "~/schema/Contact"
 import { projects } from "~/data/projects"
 import { clients } from "~/data/clients"
@@ -52,7 +52,7 @@ export default function AuthCreatePage() {
         for (const client of clients) space.db.add(client)
 
         // Navigate to the app
-        navigate("/")
+        void navigate("/")
       }}
     />
   )

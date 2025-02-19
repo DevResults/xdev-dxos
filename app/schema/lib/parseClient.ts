@@ -1,7 +1,7 @@
+import { buildRegExp, capture, oneOrMore } from "ts-regex-builder"
+import { ProvidedClients } from "../ClientCollection"
 import { Data, E } from "./Effect"
 import { alphanumeric, endWord, startWord } from "./regex"
-import { ProvidedClients } from "../ClientCollection"
-import { buildRegExp, capture, oneOrMore } from "ts-regex-builder"
 
 /**
  * Given a string of text, finds a client code (marked by the `@` character), and looks up the

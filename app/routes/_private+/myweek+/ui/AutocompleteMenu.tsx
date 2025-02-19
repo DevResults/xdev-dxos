@@ -1,7 +1,7 @@
-import { cx } from "~/lib/cx"
-import { Keys } from "~/lib/keys"
 import { useState } from "react"
 import { useHotkeys } from "react-hotkeys-hook"
+import { cx } from "~/lib/cx"
+import { Keys } from "~/lib/keys"
 import type { CollectionItem, StringKeyOf } from "~/types/types"
 
 const { enter, up, down } = Keys
@@ -116,7 +116,7 @@ export type AutocompleteTrigger = {
 
 export type AutocompleteMode<
   Item extends CollectionItem = any,
-  C = Array<Item>,
+  C = Item[],
 > = AutocompleteTrigger & {
   property: StringKeyOf<Item>
   collection: C

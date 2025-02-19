@@ -1,8 +1,8 @@
-import { cx } from "~/lib/cx"
-import { Keys } from "~/lib/keys"
 import { useEffect, useState } from "react"
 import { useHotkeys } from "react-hotkeys-hook"
 import TextareaAutosize from "react-textarea-autosize"
+import { Keys } from "~/lib/keys"
+import { cx } from "~/lib/cx"
 
 const { enter, escape, up, down, left, right } = Keys
 

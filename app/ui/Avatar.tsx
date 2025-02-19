@@ -1,5 +1,5 @@
-import type { Contact } from "~/schema/Contact"
 import { Avatar as _Avatar, AvatarImage, AvatarFallback, type AvatarSize } from "@ui/avatar"
+import type { Contact } from "~/schema/Contact"
 
 export function Avatar({ className = "", size = "md", contact }: Props) {
   return (

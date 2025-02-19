@@ -1,7 +1,7 @@
-import { unique } from "../lib/unique"
-import { makeFullCode, Project } from "~/schema/Project"
 import tailwindColors from "tailwindcss/colors"
 import { create } from "@dxos/react-client/echo"
+import { unique } from "../lib/unique"
+import { makeFullCode, Project } from "~/schema/Project"
 
 const sNow = new Date().toISOString()
 

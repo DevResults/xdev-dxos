@@ -1,7 +1,7 @@
 import { useIdentity } from "@dxos/react-client/halo"
-import { useLocalState } from "~/hooks/useLocalState"
 import { humanize } from "@dxos/util"
 import { useQuery, useSpace } from "@dxos/react-client/echo"
+import { useLocalState } from "~/hooks/useLocalState"
 
 export function Welcome() {
   // Get the user to log in before a space can be obtained.
