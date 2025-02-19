@@ -5,7 +5,7 @@ import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router"
 import { ClientProvider } from "@dxos/react-client"
 import { configProvider } from "./config"
 
-import "./app.css"
+import "./index.css"
 import { DoneEntry } from "./schema/DoneEntry"
 import { TimeEntry } from "./schema/TimeEntry"
 import { Contact } from "./schema/Contact"
