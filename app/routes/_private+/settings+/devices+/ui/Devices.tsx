@@ -1,5 +1,5 @@
 import { Link } from "react-router"
-import { Button } from "~/ui/shadcn/button"
+import { Button } from "@ui/button"
 import { cx } from "~/lib/cx"
 import { getBrowserIcon, getDeviceIcon, getOsIcon } from "~/lib/getDeviceIcon"
 import type UAParser from "ua-parser-js"

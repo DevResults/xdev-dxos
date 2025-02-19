@@ -1,4 +1,4 @@
-import { Checkbox } from "~/ui/shadcn/checkbox"
+import { Checkbox } from "@ui/checkbox"
 import { useState } from "react"
 import { PageLayout } from "../ui/layouts/PageLayout"
 import { MyWeek } from "./ui/MyWeek"

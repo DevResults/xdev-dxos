@@ -1,4 +1,4 @@
-import { Button } from "~/ui/shadcn/button"
+import { Button } from "@ui/button"
 import {
   Dialog,
   DialogBody,
@@ -6,7 +6,7 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "~/ui/shadcn/dialog"
+} from "@ui/dialog"
 import { useEffect, useState } from "react"
 
 export function ConfirmDialog({

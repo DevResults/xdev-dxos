@@ -1,14 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "~/ui/shadcn/card"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "~/ui/shadcn/form"
-import { Input } from "~/ui/shadcn/input"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@ui/card"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@ui/form"
+import { Input } from "@ui/input"
 import { useEffect } from "react"
 import { useForm, type SubmitHandler } from "react-hook-form"
 import { z } from "zod"

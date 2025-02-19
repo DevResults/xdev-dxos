@@ -1,4 +1,4 @@
-import { Button } from "~/ui/shadcn/button"
+import { Button } from "@ui/button"
 import { NO_OP } from "~/lib/constants"
 import { useState } from "react"
 import type { DoneEntry } from "~/schema/DoneEntry"

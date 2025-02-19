@@ -1,5 +1,5 @@
 import { Link } from "react-router"
-import { Button } from "~/ui/shadcn/button"
+import { Button } from "@ui/button"
 import { by } from "~/lib/by"
 import { cx } from "~/lib/cx"
 import { Avatar } from "~/ui/Avatar"

@@ -1,5 +1,5 @@
-import { Button } from "~/ui/shadcn/button"
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "~/ui/shadcn/card"
+import { Button } from "@ui/button"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@ui/card"
 import { Link } from "react-router"
 
 export const Signout = ({ confirmed = false, onConfirm = () => {} }: Props) => {

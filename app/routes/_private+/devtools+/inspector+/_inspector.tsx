@@ -1,4 +1,4 @@
-import { Tabs, TabsList, TabsContent, TabsTrigger } from "~/ui/shadcn/tabs"
+import { Tabs, TabsList, TabsContent, TabsTrigger } from "@ui/tabs"
 import { JsonView, defaultStyles } from "react-json-view-lite"
 import "react-json-view-lite/dist/index.css"
 import { useSpaces } from "@dxos/react-client/echo"

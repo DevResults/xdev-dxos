@@ -1,5 +1,5 @@
 import type { LocalDate } from "@js-joda/core"
-import { Popover, PopoverAnchor, PopoverArrow, PopoverContent } from "~/ui/shadcn/popover"
+import { Popover, PopoverAnchor, PopoverArrow, PopoverContent } from "@ui/popover"
 import { NO_OP } from "~/lib/constants"
 import { cx } from "~/lib/cx"
 import { Keys } from "~/lib/keys"

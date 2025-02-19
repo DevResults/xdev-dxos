@@ -1,15 +1,8 @@
 import { zodResolver } from "@hookform/resolvers/zod"
-import { Button } from "~/ui/shadcn/button"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "~/ui/shadcn/card"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "~/ui/shadcn/form"
-import { Input } from "~/ui/shadcn/input"
+import { Button } from "@ui/button"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@ui/card"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@ui/form"
+import { Input } from "@ui/input"
 import { useForm, type SubmitHandler } from "react-hook-form"
 import { Munge } from "./Munge"
 import { z } from "zod"

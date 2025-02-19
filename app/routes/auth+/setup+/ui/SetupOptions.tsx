@@ -1,5 +1,5 @@
-import { Card, CardContent, CardHeader } from "~/ui/shadcn/card"
-import { Button } from "~/ui/shadcn/button"
+import { Card, CardContent, CardHeader } from "@ui/card"
+import { Button } from "@ui/button"
 import { cx } from "~/lib/cx"
 import { Fragment } from "react/jsx-runtime"
 import { Link } from "react-router"

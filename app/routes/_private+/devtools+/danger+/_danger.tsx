@@ -1,4 +1,4 @@
-import { Alert, AlertDescription } from "~/ui/shadcn/alert"
+import { Alert, AlertDescription } from "@ui/alert"
 import { DoneEntryGenerator } from "./ui/DoneEntryGenerator"
 import { DoneEntryImporter } from "./ui/DoneEntryImporter"
 import { TimeEntryGenerator } from "./ui/TimeEntryGenerator"

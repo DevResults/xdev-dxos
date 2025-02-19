@@ -1,5 +1,5 @@
 import { LocalDate } from "@js-joda/core"
-import { Button } from "~/ui/shadcn/button"
+import { Button } from "@ui/button"
 import { getSunday } from "~/lib/getSunday"
 import { useState } from "react"
 import { RadioGroup } from "./RadioGroup"

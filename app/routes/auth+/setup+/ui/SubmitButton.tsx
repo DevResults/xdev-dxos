@@ -1,4 +1,4 @@
-import { type ButtonProps, Button } from "~/ui/shadcn/button"
+import { type ButtonProps, Button } from "@ui/button"
 import { Spinner } from "~/ui/Spinner"
 
 export const SubmitButton = ({ isSubmitting, submittingText, children, ...props }: Props) => (

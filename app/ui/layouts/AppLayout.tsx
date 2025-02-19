@@ -1,4 +1,4 @@
-import { Drawer, DrawerContent } from "~/ui/shadcn/drawer"
+import { Drawer, DrawerContent } from "@ui/drawer"
 import { cx } from "~/lib/cx"
 import { useState } from "react"
 import { Sidebar } from "../Sidebar"

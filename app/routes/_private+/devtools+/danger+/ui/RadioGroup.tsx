@@ -1,5 +1,5 @@
 import * as Headless from "@headlessui/react"
-import { Label } from "~/ui/shadcn/label"
+import { Label } from "@ui/label"
 import { cx } from "~/lib/cx"
 import { useState } from "react"
 
