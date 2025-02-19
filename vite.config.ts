@@ -8,7 +8,31 @@ import wasm from "vite-plugin-wasm"
 import icons from "unplugin-icons/vite"
 import iconsResolver from "unplugin-icons/resolver"
 import { type Options as AutoImportOptions } from "unplugin-auto-import/types"
+import { VitePWA as vitePWA, type VitePWAOptions } from "vite-plugin-pwa"
 import autoImport from "unplugin-auto-import/vite"
+
+const pwaOptions: Partial<VitePWAOptions> = {
+  includeAssets: ["favicon.ico"],
+  srcDir: "app",
+  filename: "sw.ts",
+  registerType: "autoUpdate",
+  strategies: "injectManifest",
+  injectManifest: { globPatterns: ["**/*.{js,css,html,ico,wasm}"] },
+  manifest: {
+    name: "XDev",
+    short_name: "XDev",
+    description: "DevResults local-first team app",
+    theme_color: "#ffffff",
+    background_color: "#FFFFFF",
+    display: "standalone",
+    icons: [
+      { src: "icon-128x128.png", sizes: "128x128", type: "image/png", purpose: "any maskable" },
+      { src: "icon-192x192.png", sizes: "192x192", type: "image/png", purpose: "any maskable" },
+      { src: "icon-256x256.png", sizes: "256x256", type: "image/png", purpose: "any maskable" },
+      { src: "icon-512x512.png", sizes: "512x512", type: "image/png", purpose: "any maskable" },
+    ],
+  },
+}
 
 // auto-import setup for icons
 const autoImportOptions: AutoImportOptions = {
@@ -38,6 +62,7 @@ export default defineConfig({
     topLevelAwait(),
     wasm(),
     ConfigPlugin(),
+    vitePWA(pwaOptions),
     autoImport(autoImportOptions),
     icons({ compiler: "jsx", jsx: "react" }),
   ],

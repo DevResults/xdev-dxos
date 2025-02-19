@@ -15,8 +15,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
+        <meta name="msapplication-TileColor" content="#000000" />
+        <meta name="theme-color" content="#000000" />
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/local-maskable-192x192.png" />
+        <link rel="mask-icon" href="/favicon.ico" color="#000000" />
         <Meta />
         <Links />
       </head>
