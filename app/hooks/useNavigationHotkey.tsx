@@ -5,6 +5,6 @@ export function useNavigationHotkey(keys: string, path: string) {
   const navigate = useNavigate()
   useHotkeys(keys, e => {
     e.preventDefault()
-    navigate(path, { relative: "path" })
+    void navigate(path, { relative: "path" })
   })
 }

@@ -21,8 +21,8 @@ export const csvToDoneEntries = (csvData: string) =>
       const { input, index } = row
       return E.gen(function* () {
         const contacts = yield* ProvidedContacts
-        const contact = contacts.find(({ userName }) => userName == row.userName)
-        if (contact == null)
+        const contact = contacts.find(({ userName }) => userName === row.userName)
+        if (contact === undefined)
           return yield* E.fail(new ContactNotFoundError({ userName: row.userName }))
 
         // `likes` comes in as as serialized array of user names; need to convert that to contactIDs

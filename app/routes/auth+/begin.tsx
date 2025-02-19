@@ -1,4 +1,4 @@
-import { useClient } from "@dxos/react-client"
+import { type Client, useClient } from "@dxos/react-client"
 import { useIdentity } from "@dxos/react-client/halo"
 import { useEffect } from "react"
 import { useNavigate } from "react-router"
@@ -6,12 +6,12 @@ import { UserNameForm } from "./ui/UserNameForm"
 
 export default function Begin() {
   const identity = useIdentity()
-  const client = useClient()
+  const client = useClient() as Client
   const navigate = useNavigate()
 
   useEffect(() => {
     if (identity?.profile?.displayName) {
-      navigate("/auth/setup")
+      void navigate("/auth/setup")
     }
   }, [identity, navigate])
 

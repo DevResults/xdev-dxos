@@ -22,8 +22,6 @@ export function InviteMemberDialog({
 
   if (!invitationCode) return null
 
-  const url = `${window.location.origin}/join/${invitationCode}`
-
   return (
     <Dialog
       open={isOpen}

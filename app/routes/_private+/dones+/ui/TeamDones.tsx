@@ -18,7 +18,7 @@ export const TeamDones = ({ dones, contacts, self }: Props) => {
       </CenteredLayout>
     )
 
-  const donesByContact = dones.reduce<Record<string, any[]>>((userDones, doneData) => {
+  const donesByContact = dones.reduce<Record<string, DoneEntry[]>>((userDones, doneData) => {
     if (userDones[doneData.contactId]) userDones[doneData.contactId].push(doneData)
     else userDones[doneData.contactId] = [doneData]
     return userDones
@@ -51,5 +51,5 @@ export const TeamDones = ({ dones, contacts, self }: Props) => {
 type Props = {
   dones: DoneEntry[]
   contacts: Contact[]
-  self: any
+  self: Contact
 }

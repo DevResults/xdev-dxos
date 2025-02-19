@@ -15,7 +15,7 @@ export const Devices = ({ ownDevice, devices = [] }: Props) => {
         <Button
           intent="primary"
           onClick={async () => {
-            const { device } = await shell.shareIdentity()
+            await shell.shareIdentity()
           }}
         >
           Link another device

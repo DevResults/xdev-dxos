@@ -1,6 +1,6 @@
 import { resolve } from "node:path"
 import { reactRouter } from "@react-router/dev/vite"
-import { defineConfig } from "vite"
+import { defineConfig, type Plugin } from "vite"
 import tsconfigPaths from "vite-tsconfig-paths"
 import topLevelAwait from "vite-plugin-top-level-await"
 import { ConfigPlugin } from "@dxos/config/vite-plugin"
@@ -51,8 +51,8 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        main: resolve(__dirname, "./app/root.tsx"),
-        shell: resolve(__dirname, "./public/shell.html"),
+        main: resolve(import.meta.dirname, "./app/root.tsx"),
+        shell: resolve(import.meta.dirname, "./public/shell.html"),
       },
     },
   },
@@ -60,15 +60,15 @@ export default defineConfig({
     reactRouter(),
     tsconfigPaths(),
     topLevelAwait(),
-    wasm(),
+    wasm() as Plugin,
     ConfigPlugin(),
     vitePWA(pwaOptions),
-    autoImport(autoImportOptions),
+    autoImport(autoImportOptions) as Plugin,
     icons({ compiler: "jsx", jsx: "react" }),
   ],
   worker: {
     format: "es",
-    plugins: () => [topLevelAwait(), wasm()],
+    plugins: () => [topLevelAwait(), wasm() as Plugin],
   },
   optimizeDeps: {
     // use route files as entry points when crawling for dependencies

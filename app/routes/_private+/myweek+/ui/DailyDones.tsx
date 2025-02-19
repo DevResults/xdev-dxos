@@ -14,7 +14,7 @@ export const DailyDones = ({ date, doneEntries, self }: Props) => {
   const space = useSpace(spaceKey)
 
   const sDate = date.toString()
-  const dones = doneEntries.filter(d => d.date == sDate && d.contactId == self.id)
+  const dones = doneEntries.filter(d => d.date === sDate && d.contactId === self.id)
 
   const focusNext = () => setFocus((f: number) => Math.min(f + 1, dones.length + 1))
   const focusPrev = () => setFocus((f: number) => Math.max(f - 1, 0))

@@ -1,5 +1,5 @@
 import { useLocalStorage } from "@uidotdev/usehooks"
-import type { LocalState } from "~/types/types.d.ts"
+import type { LocalState } from "~/types/types"
 
 export function useLocalState() {
   const initialState: LocalState = {}

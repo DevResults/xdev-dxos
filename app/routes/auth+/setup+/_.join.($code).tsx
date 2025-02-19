@@ -44,7 +44,7 @@ export default function AuthJoinPage() {
         userName: identity!.profile!.displayName!,
       })
       space.db.add(contact)
-      navigate(`/`)
+      void navigate(`/`)
     } else {
       setError("Something went wrong... I don't know what")
     }

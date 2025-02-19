@@ -17,7 +17,7 @@ export default function RemovePage() {
   // Only admins can remove members
   if (!self?.isAdmin) return null
 
-  const contact = contacts.find(({ id }) => id == userId)
+  const contact = contacts.find(({ id }) => id === userId)
   if (!contact?.identityKey) return null
 
   return (

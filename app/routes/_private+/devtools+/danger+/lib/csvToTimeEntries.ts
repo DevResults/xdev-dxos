@@ -28,14 +28,18 @@ export const csvToTimeEntries = (csvData: string) =>
         const projects = yield* ProvidedProjects
         const clients = yield* ProvidedClients
 
-        const contact = contacts.find(({ userName }) => userName == row.userName)
-        if (contact == null)
+        const contact = contacts.find(({ userName }) => userName === row.userName)
+        if (contact === undefined) {
           return yield* E.fail(new ContactNotFoundError({ userName: row.userName }))
+        }
+
         const project = yield* findByCode(row.project, projects)
         let client
         if (row.client.length > 0) {
-          client = clients.find(({ code }) => code == row.client)
-          if (client == null) return yield* E.fail(new ClientNotFoundError({ code: row.client }))
+          client = clients.find(({ code }) => code === row.client)
+          if (client === undefined) {
+            return yield* E.fail(new ClientNotFoundError({ code: row.client }))
+          }
         }
 
         return {

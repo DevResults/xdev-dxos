@@ -17,8 +17,6 @@ export function InviteDeviceDialog({ onClose, invitationCode, defaultOpen = fals
 
   if (!invitationCode) return null
 
-  const url = `${window.location.origin}/link/${invitationCode}`
-
   return (
     <Dialog
       open={isOpen}

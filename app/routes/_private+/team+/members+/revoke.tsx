@@ -5,12 +5,12 @@ import { useTeam } from "~/hooks/useTeam"
 export default function RevokeInvitationPage() {
   const { userId } = useLocation().state
 
-  const { self, contacts } = useTeam()
+  const { contacts } = useTeam()
   const navigate = useNavigate()
 
   const contact = contacts[userId]
   const invitation = {}
-  const revoke = () => void 0
+  const revoke = () => undefined
 
   // ----- ↑ hooks
 

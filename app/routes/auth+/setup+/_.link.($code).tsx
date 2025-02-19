@@ -6,15 +6,15 @@ import { InvitationForm } from "./ui/InvitationForm"
 export default function AuthLinkPage() {
   const navigate = useNavigate()
   const invitationCodeFromUrl = useParams().code
-  const [error, setError] = useState<string | undefined>(undefined)
+  const [error] = useState<string | undefined>(undefined)
   const shell = useShell()
 
   // hooks ↑
 
   const joinWithCode = async (invitationCode: string) => {
-    const { identity } = await shell.joinIdentity({ invitationCode })
+    await shell.joinIdentity({ invitationCode })
     // do something with the identity? error handling?
-    navigate("/")
+    void navigate("/")
   }
 
   return invitationCodeFromUrl ?

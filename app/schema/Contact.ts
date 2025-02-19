@@ -34,6 +34,11 @@ export class ExtendedContact implements EncodedContact {
   readonly isSelf: boolean
   readonly isAdmin: boolean
   readonly identityKey: PublicKey | undefined
+  readonly invitationStatus?: string
+  get isMember() {
+    return true
+  }
+
   constructor({
     contact,
     isSelf,
@@ -74,7 +79,4 @@ export class ExtendedContact implements EncodedContact {
   get avatarUrl() {
     return this.contact.avatarUrl
   }
-
-  readonly isMember: boolean = true
-  readonly invitationStatus?: string
 }

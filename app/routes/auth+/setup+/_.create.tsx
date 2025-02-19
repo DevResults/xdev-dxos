@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router"
 import { useIdentity } from "@dxos/react-client/halo"
-import { useClient } from "@dxos/react-client"
+import { type Client, useClient } from "@dxos/react-client"
 import { create } from "@dxos/react-client/echo"
 import { TeamNameForm } from "./ui/TeamNameForm"
 import { useLocalState } from "~/hooks/useLocalState"
@@ -12,7 +12,7 @@ import { clients } from "~/data/clients"
 export default function AuthCreatePage() {
   const identity = useIdentity()
   const navigate = useNavigate()
-  const client = useClient()
+  const client = useClient() as Client
   const { spaceKey, update } = useLocalState()
 
   // hooks ↑

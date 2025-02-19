@@ -12,9 +12,9 @@ export const useTeam = () => {
   const space = useSpace(spaceKey)
   const members = useMembers(space?.key)
   const contacts = useQuery(space, Filter.schema(Contact)).map(c => {
-    const member = members.find(m => m.identity.identityKey.toString() == c.identityId)
-    const isAdmin = member?.role == HaloSpaceMember.Role.ADMIN
-    const isSelf = member?.identity.identityKey.toString() == identity?.identityKey.toString()
+    const member = members.find(m => m.identity.identityKey.toString() === c.identityId)
+    const isAdmin = member?.role === HaloSpaceMember.Role.ADMIN
+    const isSelf = member?.identity.identityKey.toString() === identity?.identityKey.toString()
     return new ExtendedContact({ contact: c, isAdmin, isSelf, identity: member?.identity })
   })
   const devices = useDevices()

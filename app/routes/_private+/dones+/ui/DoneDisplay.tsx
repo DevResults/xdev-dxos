@@ -12,7 +12,7 @@ export function DoneDisplay({ className = "", done, self, contacts }: Props) {
     <li className="rounded-md bg-neutral-50 p-2">
       <span className={cx("done-entry whitespace-pre-line", className)}>{content}</span>
       <Likes
-        likes={likes.map(id => contacts.find(d => d.id == id)).filter(d => d != null)}
+        likes={likes.map(id => contacts.find(d => d.id === id)).filter(d => d !== undefined)}
         self={self}
         onToggle={() => {
           const newLikes = new Set(likes ?? [])
