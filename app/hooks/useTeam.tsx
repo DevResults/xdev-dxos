@@ -13,7 +13,7 @@ export const useTeam = () => {
   const members = useMembers(space?.key)
   const contacts = useQuery(space, Filter.schema(Contact)).map(c => {
     const member = members.find(m => m.identity.identityKey.toString() === c.identityId)
-    const isAdmin = member?.role === HaloSpaceMember.Role.ADMIN
+    const isAdmin = member?.role === HaloSpaceMember.Role.OWNER
     const isSelf = member?.identity.identityKey.toString() === identity?.identityKey.toString()
     return new ExtendedContact({ contact: c, isAdmin, isSelf, identity: member?.identity })
   })
