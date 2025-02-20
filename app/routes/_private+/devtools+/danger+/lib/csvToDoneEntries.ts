@@ -21,7 +21,7 @@ export const csvToDoneEntries = (csvData: string) =>
       const { input, index } = row
       return E.gen(function* () {
         const contacts = yield* ProvidedContacts
-        const contact = contacts.find(({ userName }) => userName === row.userName)
+        const contact = contacts.find(({ userName }) => userName.toLowerCase() === row.userName)
         if (contact === undefined)
           return yield* E.fail(new ContactNotFoundError({ userName: row.userName }))
 
@@ -29,7 +29,7 @@ export const csvToDoneEntries = (csvData: string) =>
         const likesUserNames = JSON.parse(row.likes) as string[]
         const likes = [] as ContactId[]
         for (const userName of likesUserNames) {
-          const contact = contacts.find(d => d.userName === userName)
+          const contact = contacts.find(d => d.userName.toLowerCase() === userName)
           if (contact === undefined) return yield* E.fail(new ContactNotFoundError({ userName }))
           likes.push(contact.id)
         }
