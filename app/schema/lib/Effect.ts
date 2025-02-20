@@ -1,4 +1,4 @@
-// Convenience wrapper of the Effect library with E, S, $ aliases
+// Convenience wrapper of the Effect library with E, S aliases
 
 export { Schema as S, ParseResult } from "@effect/schema"
 export {

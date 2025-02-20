@@ -1,6 +1,6 @@
 import { Order } from "effect"
 import type { NonEmptyArray } from "effect/Array"
-import { Array as A, pipe } from "~/lib/Effect"
+import { Array as A, pipe } from "~/schema/lib/Effect"
 
 /** Given a list of scores associated with IDs, returns a map of rank to ids, where 0 is the lowest rank. */
 export const rankByScore = (items: Item[]) => {

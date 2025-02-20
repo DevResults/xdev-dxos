@@ -1,6 +1,6 @@
-import { Data, E, S } from "lib/Effect"
-import { type ContactId } from "schema/Contact"
 import { csvToSchema } from "./parseCsv"
+import { Data, E, S } from "~/schema/lib/Effect"
+import { type ContactId } from "~/schema/Contact"
 import { ContactNotFoundError, ProvidedContacts } from "~/schema/ContactCollection"
 
 class DoneEntryCsvRow extends S.Class<DoneEntryCsvRow>("DoneEntryCsvRow")({

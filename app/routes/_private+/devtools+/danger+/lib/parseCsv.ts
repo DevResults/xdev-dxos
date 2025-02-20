@@ -1,5 +1,5 @@
 import { parse } from "csv-parse/sync"
-import { E, pipe, S, Data } from "lib/Effect"
+import { E, pipe, S, Data } from "~/schema/lib/Effect"
 
 export const parseCsv = <K extends string, T extends Record<K, string>>(
   csvData: string,
