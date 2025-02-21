@@ -27,12 +27,12 @@ export const findByCode = (input: string, projects: Project[]) => {
 
     // see if the code matches a unique fullCode, e.g. `Feature: API` or `Out`
     const fullCode = makeFullCode(code, subCode)
-    const fullCodeMatches = projects.find(d => d.fullCode === fullCode)
+    const fullCodeMatches = projects.find(d => d.fullCode.toLowerCase() === fullCode.toLowerCase())
     if (fullCodeMatches) return fullCodeMatches
 
     if (!subCode) {
       // see if the code matches a unique subcode, e.g. `Training` or `Project X`
-      const subCodeMatches = projects.filter(d => d.subCode === subCode)
+      const subCodeMatches = projects.filter(d => d.subCode?.toLowerCase() === code.toLowerCase())
 
       if (subCodeMatches.length === 0) {
         return yield* E.fail(new ProjectCodeNotFoundError({ input }))
@@ -103,13 +103,13 @@ export class NoProjectError //
 }
 
 export class ProjectCodeNotFoundError //
-  extends Data.TaggedError("ProjectCollection/CodeNotFound")<{ input: string }>
+  extends Data.TaggedError("parseProject/CodeNotFound")<{ input: string }>
 {
   message = `There is no project with code "${this.input}"`
 }
 
 export class AmbiguousProjectCodeError //
-  extends Data.TaggedError("ProjectCollection/AmbiguousCodeError")<{
+  extends Data.TaggedError("parseProject/AmbiguousProjectCode")<{
     input: string
     matches: string[]
   }>
