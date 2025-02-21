@@ -1,6 +1,7 @@
 import { create } from "@dxos/react-client/echo"
 import { TimeEntry, type TimeEntryInput } from "../TimeEntry"
-import { E } from "./Effect"
+import type { Project } from "../Project"
+import { Data, E } from "./Effect"
 import { parseClient } from "./parseClient"
 import { parseDuration } from "./parseDuration"
 import { parseProject } from "./parseProject"
@@ -13,6 +14,10 @@ export const parseTimeEntry = ({ input, contactId, date }: TimeEntryInput) =>
     const { duration, text: durationText } = yield* parseDuration(input)
     const { project, text: projectText } = yield* parseProject(input)
     const { client, text: clientText = "" } = yield* parseClient(input)
+
+    // Check if this project requires a client to be specified
+    if (project.requiresClient && !client)
+      return yield* E.fail(new ProjectRequiresClientError({ input, project }))
 
     // The description is the remaining text after we've removed the duration, project, and client
     const description = collapseWhitespace(
@@ -35,3 +40,12 @@ export const parseTimeEntry = ({ input, contactId, date }: TimeEntryInput) =>
   })
 
 const collapseWhitespace = (s: string) => s.replaceAll(/\s+/g, " ").trim()
+
+export class ProjectRequiresClientError //
+  extends Data.TaggedError("parseTimeEntry/ProjectRequiresClient")<{
+    input: string
+    project: Project
+  }>
+{
+  message = `For ${this.project.fullCode}, you need to specify a client`
+}
