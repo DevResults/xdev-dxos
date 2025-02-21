@@ -1,15 +1,16 @@
 import { resolve } from "node:path"
-import { reactRouter } from "@react-router/dev/vite"
-import { defineConfig, type Plugin } from "vite"
-import tsconfigPaths from "vite-tsconfig-paths"
-import topLevelAwait from "vite-plugin-top-level-await"
 import { ConfigPlugin } from "@dxos/config/vite-plugin"
-import wasm from "vite-plugin-wasm"
-import icons from "unplugin-icons/vite"
-import iconsResolver from "unplugin-icons/resolver"
+import { reactRouter } from "@react-router/dev/vite"
 import { type Options as AutoImportOptions } from "unplugin-auto-import/types"
-import { VitePWA as vitePWA, type VitePWAOptions } from "vite-plugin-pwa"
 import autoImport from "unplugin-auto-import/vite"
+import iconsResolver from "unplugin-icons/resolver"
+import icons from "unplugin-icons/vite"
+import { type Plugin } from "vite"
+import { VitePWA as vitePWA, type VitePWAOptions } from "vite-plugin-pwa"
+import topLevelAwait from "vite-plugin-top-level-await"
+import wasm from "vite-plugin-wasm"
+import tsconfigPaths from "vite-tsconfig-paths"
+import { defineConfig } from "vitest/config"
 
 const pwaOptions: Partial<VitePWAOptions> = {
   includeAssets: ["favicon.ico"],
@@ -74,4 +75,5 @@ export default defineConfig({
     // use route files as entry points when crawling for dependencies
     entries: ["**/routes/**/*.tsx"],
   },
+  test: { include: ["app/**/*.test.ts"] },
 })
