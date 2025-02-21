@@ -7,7 +7,7 @@ import { ProvidedProjects } from "schema/ProjectCollection"
 import { describe, expect, it } from "vitest"
 import type { ContactId } from "../Contact"
 import { TimeEntry, type TimeEntryEncoded } from "../TimeEntry"
-import { $, E, pipe, S } from "~/schema/lib/Effect"
+import { E, pipe, S } from "~/schema/lib/Effect"
 
 describe("TimeEntry", () => {
   const parse = (input: string) =>
@@ -17,7 +17,7 @@ describe("TimeEntry", () => {
       parseTimeEntry,
       E.provideService(ProvidedProjects, projects),
       E.provideService(ProvidedClients, clients),
-      $,
+      E.runSync,
     )
 
   const encode = (decoded: TimeEntry) =>
@@ -26,7 +26,7 @@ describe("TimeEntry", () => {
       S.encode(TimeEntry),
       E.provideService(ProvidedProjects, projects),
       E.provideService(ProvidedClients, clients),
-      $,
+      E.runSync,
     )
 
   const decode = (encoded: TimeEntryEncoded) =>
@@ -35,7 +35,7 @@ describe("TimeEntry", () => {
       S.decode(TimeEntry),
       E.provideService(ProvidedProjects, projects),
       E.provideService(ProvidedClients, clients),
-      $,
+      E.runSync,
     )
 
   it("parses a TimeEntry", () => {
