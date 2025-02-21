@@ -103,13 +103,13 @@ export class NoProjectError //
 }
 
 export class ProjectCodeNotFoundError //
-  extends Data.TaggedError("ProjectCollection/CodeNotFound")<{ input: string }>
+  extends Data.TaggedError("parseProject/CodeNotFound")<{ input: string }>
 {
   message = `There is no project with code "${this.input}"`
 }
 
 export class AmbiguousProjectCodeError //
-  extends Data.TaggedError("ProjectCollection/AmbiguousCodeError")<{
+  extends Data.TaggedError("parseProject/AmbiguousProjectCode")<{
     input: string
     matches: string[]
   }>

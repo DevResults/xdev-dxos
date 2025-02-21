@@ -45,7 +45,10 @@ export const parseClient = (input: string) =>
     if (results.length === 0) return { client: undefined, text: "" }
 
     const { code, text } = results[0]
-    const client = clients.find(d => d.code === code)
+    const client = clients.find(d => d.code.toLowerCase() === code.toLowerCase())
+
+    if (!client) return yield* E.fail(new ClientCodeNotFoundError({ input, code }))
+
     return { text, client }
   })
 
@@ -53,4 +56,10 @@ export class MultipleClientsError //
   extends Data.TaggedError("parseClient/MultipleClients")<{ input: string }>
 {
   message = "An entry can only include one @client code."
+}
+
+export class ClientCodeNotFoundError //
+  extends Data.TaggedError("parseClient/ClientCodeNotFound")<{ input: string; code: string }>
+{
+  message = "Client code not found."
 }
