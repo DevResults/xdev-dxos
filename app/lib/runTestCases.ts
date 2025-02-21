@@ -1,5 +1,5 @@
 import { test as _test, assert } from "vitest"
-import { $, E, Either, pipe } from "~/schema/lib/Effect"
+import { E, Either, pipe } from "~/schema/lib/Effect"
 
 export const runTestCases = <
   TestCase extends BaseTestCase,
@@ -27,7 +27,7 @@ export const runTestCases = <
         input, //
         decoder,
         E.either,
-        $,
+        E.runSync,
       )
 
     const errorPadding = Math.max(...testCases.filter(tc => tc.error).map(tc => label(tc).length))
