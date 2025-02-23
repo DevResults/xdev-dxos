@@ -10,7 +10,11 @@
     "preinstall": "npx only-allow pnpm",
     "start": "react-router-serve ./build/server/index.js",
     "test": "vitest",
-    "test:run": "vitest --run"
+    "test:run": "vitest --run",
+    "test:all": "run-s typecheck lint test:run test:pw",
+    "test:pw": "cross-env DEBUG=localfirst* pnpm playwright test --project=chromium",
+    "test:pw:exec:ui": "pnpm playwright test --project=chromium --ui",
+    "test:pw:ui": "cross-env PLAYWRIGHT_UI=1 run-p dev test:pw:exec:ui"
   },
   "dependencies": {
     "@dxos/config": "^0.7.5-feature-compute.4d9d99a",
@@ -69,12 +73,14 @@
   },
   "devDependencies": {
     "@iconify-json/tabler": "^1.2.16",
+    "@playwright/test": "1.49.1",
     "@react-router/dev": "^7.1.5",
     "@react-router/remix-routes-option-adapter": "^7.1.5",
     "@tailwindcss/forms": "^0.5.10",
     "@types/node": "^20",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
+    "cross-env": "^7.0.3",
     "eslint": "^8.57.0",
     "eslint-config-xo": "^0.45.0",
     "eslint-config-xo-react": "^0.27.0",
