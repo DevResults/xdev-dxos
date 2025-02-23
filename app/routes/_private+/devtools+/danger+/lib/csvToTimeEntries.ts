@@ -1,3 +1,4 @@
+import { LocalDate } from "@js-joda/core"
 import { reconstructTimeEntryInput } from "./reconstructTimeEntryInput"
 import { csvToSchema } from "./parseCsv"
 import { Data, E, S } from "~/schema/lib/Effect"
@@ -44,8 +45,16 @@ export const csvToTimeEntries = (csvData: string) =>
           }
         }
 
+        let date
+        try {
+          date = LocalDate.parse(row.date).toString()
+        } catch {
+          return yield* E.fail(new Error("Invalid date."))
+        }
+
         return {
           ...row,
+          date,
           duration: Math.floor(row.duration * 60), // duration comes in as hours
           project: project.id,
           client: client?.id,
@@ -83,10 +92,6 @@ export class TimeEntryCsvParseError //
 
 const adaptError = (error: Error) => {
   const { message } = error
-
-  if (message.includes("could not be parsed as LocalDate")) {
-    return "Invalid date."
-  }
 
   if (message.includes("is missing")) {
     const field = /"([^"]+)"/.exec(message)?.[1]

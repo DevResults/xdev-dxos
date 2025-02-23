@@ -1,3 +1,4 @@
+import { LocalDate } from "@js-joda/core"
 import { csvToSchema } from "./parseCsv"
 import { Data, E, S } from "~/schema/lib/Effect"
 import { type ContactId } from "~/schema/Contact"
@@ -34,9 +35,16 @@ export const csvToDoneEntries = (csvData: string) =>
           likes.push(contact.id)
         }
 
+        let date
+        try {
+          date = LocalDate.parse(row.date).toString()
+        } catch {
+          return yield* E.fail(new Error("Invalid date."))
+        }
+
         return {
           contactId: contact.id,
-          date: row.date,
+          date,
           content: row.content,
           likes,
           timestamp: new Date(Number(row.timestamp)).toISOString(),
@@ -65,10 +73,6 @@ export class DoneEntryCsvParseError //
 
 const adaptError = (error: Error) => {
   const { message } = error
-
-  if (message.includes("could not be parsed as LocalDate")) {
-    return "Invalid date."
-  }
 
   if (message.includes("is missing")) {
     const field = /"([^"]+)"/.exec(message)?.[1]
