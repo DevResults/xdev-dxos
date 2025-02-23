@@ -1,16 +1,12 @@
-import { Filter, useQuery, useSpace } from "@dxos/react-client/echo"
 import { PageLayout } from "../ui/layouts/PageLayout"
 import { WeekNav } from "../ui/WeekNav"
 import { TeamDones } from "./ui/TeamDones"
 import { useSelectedWeek } from "~/hooks/useSelectedWeek"
 import { useTeam } from "~/hooks/useTeam"
-import { useLocalState } from "~/hooks/useLocalState"
-import { DoneEntry } from "~/schema/DoneEntry"
+import { useDatabase } from "~/hooks/useDatabase"
 
 export default function Dones$DatePage() {
-  const { spaceKey } = useLocalState()
-  const space = useSpace(spaceKey)
-  const doneEntries = useQuery(space, Filter.schema(DoneEntry))
+  const { doneEntries } = useDatabase()
   const { start, end } = useSelectedWeek()
   const { self, contacts } = useTeam()
 

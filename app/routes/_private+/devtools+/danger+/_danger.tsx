@@ -1,31 +1,19 @@
 import { Alert, AlertDescription } from "@ui/alert"
-import {
-  create,
-  Filter,
-  useQuery,
-  useSpace,
-  type ReactiveEchoObject,
-} from "@dxos/react-client/echo"
+import { create, useSpace, type ReactiveEchoObject } from "@dxos/react-client/echo"
 import type { BaseObject } from "@dxos/echo-schema"
 import { DoneEntryGenerator } from "./ui/DoneEntryGenerator"
 import { DoneEntryImporter } from "./ui/DoneEntryImporter"
 import { TimeEntryGenerator } from "./ui/TimeEntryGenerator"
 import { TimeEntryImporter } from "./ui/TimeEntryImporter"
 import { useLocalState } from "~/hooks/useLocalState"
-import { Contact } from "~/schema/Contact"
 import { DoneEntry } from "~/schema/DoneEntry"
 import { TimeEntry } from "~/schema/TimeEntry"
-import { Client } from "~/schema/Client"
-import { Project } from "~/schema/Project"
+import { useDatabase } from "~/hooks/useDatabase"
 
 export default function DangerPage() {
   const { spaceKey } = useLocalState()
   const space = useSpace(spaceKey)
-  const contacts = useQuery(space, Filter.schema(Contact))
-  const doneEntries = useQuery(space, Filter.schema(DoneEntry))
-  const timeEntries = useQuery(space, Filter.schema(TimeEntry))
-  const clients = useQuery(space, Filter.schema(Client))
-  const projects = useQuery(space, Filter.schema(Project))
+  const { clients, contacts, doneEntries, projects, timeEntries } = useDatabase()
 
   const addDone = (done: Omit<DoneEntry, "id">) => space?.db.add(create(DoneEntry, done))
   const addTimeEntries = (timeEntries: Array<Omit<TimeEntry, "id">>) => {

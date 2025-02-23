@@ -1,27 +1,17 @@
 import { Checkbox } from "@ui/checkbox"
 import { useState } from "react"
-import { useSpace, useQuery, Filter } from "@dxos/react-client/echo"
 import { PageLayout } from "../ui/layouts/PageLayout"
 import { WeekNav } from "../ui/WeekNav"
 import { MyWeek } from "./ui/MyWeek"
 import { useSelectedWeek } from "~/hooks/useSelectedWeek"
-import { useLocalState } from "~/hooks/useLocalState"
-import { DoneEntry } from "~/schema/DoneEntry"
-import { TimeEntry } from "~/schema/TimeEntry"
 import { useTeam } from "~/hooks/useTeam"
-import { Project } from "~/schema/Project"
-import { Client } from "~/schema/Client"
+import { useDatabase } from "~/hooks/useDatabase"
 
 export default function MyWeek$DatePage() {
   const { self, contacts } = useTeam()
-  const { spaceKey } = useLocalState()
-  const space = useSpace(spaceKey)
-  const dones = useQuery(space, Filter.schema(DoneEntry))
+  const { doneEntries, timeEntries, projects, clients } = useDatabase()
   const [showWeekends, setShowWeekends] = useState(false)
   const { start, end } = useSelectedWeek()
-  const timeEntries = useQuery(space, Filter.schema(TimeEntry))
-  const projects = useQuery(space, Filter.schema(Project))
-  const clients = useQuery(space, Filter.schema(Client))
 
   const sStart = start.toString()
   const sEnd = end.toString()
@@ -53,7 +43,7 @@ export default function MyWeek$DatePage() {
           {...{
             start,
             showWeekends,
-            doneEntries: dones,
+            doneEntries,
             timeEntries: times,
             projects,
             clients,

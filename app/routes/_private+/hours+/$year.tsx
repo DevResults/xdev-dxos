@@ -1,4 +1,3 @@
-import { Filter, useQuery, useSpace } from "@dxos/react-client/echo"
 import { LocalDate } from "@js-joda/core"
 import { PageLayout } from "../ui/layouts/PageLayout"
 import { HoursReport } from "./ui/HoursReport"
@@ -7,13 +6,10 @@ import { useRedirect } from "~/hooks/useRedirect"
 import { useSelectedYear } from "~/hooks/useSelectedYear"
 import { useTeam } from "~/hooks/useTeam"
 import { getCurrentYear } from "~/lib/getCurrentYear"
-import { useLocalState } from "~/hooks/useLocalState"
-import { TimeEntry } from "~/schema/TimeEntry"
+import { useDatabase } from "~/hooks/useDatabase"
 
 export default function Hours$YearPage() {
-  const { spaceKey } = useLocalState()
-  const space = useSpace(spaceKey)
-  const timeEntries = useQuery(space, Filter.schema(TimeEntry))
+  const { timeEntries } = useDatabase()
   const currentYear = getCurrentYear()
   const year = useSelectedYear()
   const { self, contacts } = useTeam()
