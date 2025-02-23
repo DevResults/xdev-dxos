@@ -2,22 +2,14 @@ import { E, pipe } from "schema/lib/Effect"
 import { type BaseTestCase } from "lib/runTestCases"
 import { ProvidedContacts } from "schema/ContactCollection"
 import { assert, expect, test } from "vitest"
+import { contacts } from "data/contacts"
 import { csvToDoneEntries } from "../csvToDoneEntries"
-import type { Contact } from "~/schema/Contact"
 
 type TestCase = BaseTestCase & {
   label?: string
   entries?: number
   errors?: number
 }
-
-const contacts = [
-  { userName: "herb" },
-  { userName: "reid" },
-  { userName: "leslie" },
-  { userName: "fred" },
-  { userName: "brent" },
-] as Contact[]
 
 const testCases = [
   // INVALID

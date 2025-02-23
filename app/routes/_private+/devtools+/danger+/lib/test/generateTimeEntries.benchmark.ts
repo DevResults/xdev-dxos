@@ -1,11 +1,9 @@
 import { LocalDate } from "@js-joda/core"
 import { clients } from "data/clients"
+import { contacts } from "data/contacts"
 import { projects } from "data/projects"
 import { bench } from "vitest"
 import { generateTimeEntries } from "../generateTimeEntries"
-import type { Contact } from "~/schema/Contact"
-
-const contacts = [{ id: "herb" }, { id: "leslie" }, { id: "brent" }] as Contact[]
 
 const doWork = (years: number) => {
   generateTimeEntries({

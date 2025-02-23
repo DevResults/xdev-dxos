@@ -1,4 +1,5 @@
 import { clients } from "data/clients"
+import { contacts } from "data/contacts"
 import actualHoursCsv from "data/csv/actual-hours.csv?raw"
 import { projects } from "data/projects"
 import { E, pipe } from "schema/lib/Effect"
@@ -8,46 +9,12 @@ import { ProvidedContacts } from "schema/ContactCollection"
 import { ProvidedProjects } from "schema/ProjectCollection"
 import { assert, expect, test } from "vitest"
 import { csvToTimeEntries } from "../csvToTimeEntries"
-import type { Contact } from "~/schema/Contact"
 
 type TestCase = BaseTestCase & {
   label?: string
   entries?: number
   errors?: number
 }
-
-const contacts = [
-  {
-    userName: "herb",
-  },
-  {
-    userName: "shane",
-  },
-  {
-    userName: "brent",
-  },
-  {
-    userName: "leslie",
-  },
-  {
-    userName: "ritika",
-  },
-  {
-    userName: "aasit",
-  },
-  {
-    userName: "reid",
-  },
-  {
-    userName: "nathan",
-  },
-  {
-    userName: "fred",
-  },
-  {
-    userName: "colleen",
-  },
-] as Contact[]
 
 const testCases = [
   // INVALID

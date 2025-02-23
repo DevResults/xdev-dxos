@@ -1,22 +1,9 @@
 import { LocalDate } from "@js-joda/core"
 import { clients } from "data/clients"
+import { contacts } from "data/contacts"
 import { projects } from "data/projects"
 import { describe, expect, test } from "vitest"
 import { generateTimeEntries } from "../generateTimeEntries"
-import type { Contact } from "~/schema/Contact"
-
-const contacts = [
-  { id: "alice" },
-  { id: "bob" },
-  { id: "charlie" },
-  { id: "dan" },
-  { id: "erin" },
-  { id: "frank" },
-  { id: "grace" },
-  { id: "heidi" },
-  { id: "ivan" },
-  { id: "judy" },
-] as Contact[]
 
 describe("generateTimeEntries", () => {
   test("generates 1 week of data for 1 contact", () => {
