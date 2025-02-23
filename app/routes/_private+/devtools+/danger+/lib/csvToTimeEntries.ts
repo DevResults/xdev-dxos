@@ -28,7 +28,9 @@ export const csvToTimeEntries = (csvData: string) =>
         const projects = yield* ProvidedProjects
         const clients = yield* ProvidedClients
 
-        const contact = contacts.find(({ userName }) => userName === row.userName)
+        const contact = contacts.find(
+          ({ userName }) => userName.toLowerCase() === row.userName.toLowerCase(),
+        )
         if (contact === undefined) {
           return yield* E.fail(new ContactNotFoundError({ userName: row.userName }))
         }
@@ -36,7 +38,7 @@ export const csvToTimeEntries = (csvData: string) =>
         const project = yield* findByCode(row.project, projects)
         let client
         if (row.client.length > 0) {
-          client = clients.find(({ code }) => code === row.client)
+          client = clients.find(({ code }) => code.toLowerCase() === row.client.toLowerCase())
           if (client === undefined) {
             return yield* E.fail(new ClientNotFoundError({ code: row.client }))
           }
