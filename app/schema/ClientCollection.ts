@@ -6,5 +6,5 @@ export class ProvidedClients extends Context.Tag("ProvidedClients")<ProvidedClie
 export class ClientNotFoundError //
   extends Data.TaggedError("ClientCollection/ClientNotFound")<{ code: string }>
 {
-  message = `There is no Client with code "${this.code}"`
+  message = `There is no client with code "${this.code}"`
 }
