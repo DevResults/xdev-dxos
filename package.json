@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "benchmark": "vitest bench",
     "build": "react-router build",
     "dev": "react-router dev --open",
     "icon-types": "node ./scripts/generate-icon-types.js",
