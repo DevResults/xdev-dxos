@@ -1,13 +1,11 @@
 import { Link } from "react-router"
 import { Button } from "@ui/button"
-import { useShell } from "@dxos/react-client"
 import type { Device } from "@dxos/react-client/halo"
+import { getBrowserIcon, getDeviceIcon, getOsIcon } from "../lib/getDeviceIcon"
 import { MetadataList } from "./MetadataList"
-import { getBrowserIcon, getDeviceIcon, getOsIcon } from "~/lib/getDeviceIcon"
 import { cx } from "~/lib/cx"
 
-export const Devices = ({ ownDevice, devices = [] }: Props) => {
-  const shell = useShell()
+export const Devices = ({ ownDevice, devices = [], onInvite = () => {} }: Props) => {
   return (
     <div className="w-full max-w-xl">
       <div className="flex flex-row items-center">
@@ -15,7 +13,7 @@ export const Devices = ({ ownDevice, devices = [] }: Props) => {
         <Button
           intent="primary"
           onClick={async () => {
-            await shell.shareIdentity()
+            onInvite()
           }}
         >
           Link another device
@@ -79,6 +77,7 @@ export const Devices = ({ ownDevice, devices = [] }: Props) => {
 type Props = {
   ownDevice: Device
   devices?: Device[]
+  onInvite: () => void
 }
 
 const selfFirst = (self: Device) => (a: Device, b: Device) =>
