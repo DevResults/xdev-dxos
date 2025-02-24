@@ -1,19 +1,18 @@
 import { Link } from "react-router"
 import { Button } from "@ui/button"
-import { useShell } from "@dxos/react-client"
-import { useSpace } from "@dxos/react-client/echo"
 import { by } from "~/lib/by"
 import { cx } from "~/lib/cx"
 import { Avatar } from "~/ui/Avatar"
-import { useLocalState } from "~/hooks/useLocalState"
 import type { ExtendedContact } from "~/schema/Contact"
 
-export const Members = ({ self, contacts, onPromote = () => {}, onDemote = () => {} }: Props) => {
+export const Members = ({
+  self,
+  contacts,
+  onPromote = () => {},
+  onDemote = () => {},
+  onInvite = () => {},
+}: Props) => {
   const adminIcon = <IconCircleKey className="size-5 text-primary-500" />
-
-  const shell = useShell()
-  const { spaceKey } = useLocalState()
-  const space = useSpace(spaceKey)
 
   if (!self || !contacts) return null
   return (
@@ -108,7 +107,7 @@ export const Members = ({ self, contacts, onPromote = () => {}, onDemote = () =>
                     intent="primary"
                     size="xs"
                     onClick={() => {
-                      void shell.shareSpace({ spaceId: space!.id })
+                      onInvite()
                     }}
                   >
                     Invite
@@ -152,7 +151,7 @@ export const Members = ({ self, contacts, onPromote = () => {}, onDemote = () =>
               intent="primary"
               size="xs"
               onClick={() => {
-                void shell.shareSpace({ spaceId: space!.id })
+                onInvite()
               }}
             >
               Invite
@@ -170,6 +169,6 @@ type Props = {
   onPromote?: (userId: string) => void
   onDemote?: (userId: string) => void
   onRemove?: (userId: string) => void
-  onInvite?: (userId: string) => void
+  onInvite?: () => void
   onRevokeInvitation?: (userId: string) => void
 }
