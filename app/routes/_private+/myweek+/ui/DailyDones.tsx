@@ -1,18 +1,22 @@
 import { type LocalDate } from "@js-joda/core"
 import { useState } from "react"
-import { create, useSpace } from "@dxos/react-client/echo"
+import { create } from "@dxos/react-client/echo"
 import { DoneEditable } from "./DoneEditable"
 import { DoneInput } from "./DoneInput"
 import { cx } from "~/lib/cx"
 import { DoneEntry } from "~/schema/DoneEntry"
-import { useLocalState } from "~/hooks/useLocalState"
 import type { Contact } from "~/schema/Contact"
 
 /** Displays a single day of the current user's dones */
-export const DailyDones = ({ date, doneEntries, self, contacts }: Props) => {
+export const DailyDones = ({
+  date,
+  doneEntries,
+  self,
+  contacts,
+  onAdd = () => {},
+  onRemove = () => {},
+}: Props) => {
   const [focus, setFocus] = useState<number>(-1) // nothing focused by default
-  const { spaceKey } = useLocalState()
-  const space = useSpace(spaceKey)
 
   const sDate = date.toString()
   const dones = doneEntries.filter(d => d.date === sDate && d.contactId === self.id)
@@ -32,7 +36,7 @@ export const DailyDones = ({ date, doneEntries, self, contacts }: Props) => {
               onUpdate={content => {
                 done.content = content
               }}
-              onDestroy={() => space?.db.remove(done)}
+              onDestroy={() => onRemove(done)}
               isFocused={focus === index}
               onFocus={setFocus}
               onFocusNext={focusNext}
@@ -66,7 +70,7 @@ export const DailyDones = ({ date, doneEntries, self, contacts }: Props) => {
                 likes: [],
                 timestamp: new Date().toISOString(),
               })
-              space?.db.add(done)
+              onAdd(done)
               setFocus(dones.length + 1)
             }}
           />
@@ -79,6 +83,8 @@ export const DailyDones = ({ date, doneEntries, self, contacts }: Props) => {
 type Props = {
   date: LocalDate
   doneEntries: DoneEntry[]
+  onAdd: (done: DoneEntry) => void
+  onRemove: (done: DoneEntry) => void
   self: Contact
   contacts: Contact[]
 }

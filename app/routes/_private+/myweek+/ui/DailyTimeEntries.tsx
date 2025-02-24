@@ -1,12 +1,10 @@
 import type { LocalDate } from "@js-joda/core"
 import { useState } from "react"
-import { useSpace } from "@dxos/react-client/echo"
 import { DeleteButton } from "./DeleteButton"
 import { TimeEntryDisplay } from "./TimeEntryDisplay"
 import { TimeEntryInput } from "./TimeEntryInput"
 import { cx } from "~/lib/cx"
 import type { TimeEntry } from "~/schema/TimeEntry"
-import { useLocalState } from "~/hooks/useLocalState"
 import type { Project } from "~/schema/Project"
 import type { Client } from "~/schema/Client"
 import type { Contact } from "~/schema/Contact"
@@ -19,10 +17,10 @@ export const DailyTimeEntries = ({
   clients,
   longestDay,
   self,
+  onAdd = () => {},
+  onRemove = () => {},
 }: Props) => {
   const [focus, setFocus] = useState<number>(-1) // nothing focused by default
-  const { spaceKey } = useLocalState()
-  const space = useSpace(spaceKey)
 
   const sDate = date.toString()
   const entries = timeEntries.filter(({ date }) => date === sDate)
@@ -62,7 +60,7 @@ export const DailyTimeEntries = ({
                   {...{ index, date, projects, clients, self, onFocusNext, onFocusPrev, onDiscard }}
                   isFocused={focus === index}
                   onFocus={setFocus}
-                  onDestroy={() => space?.db.remove(timeEntry)}
+                  onDestroy={() => onRemove(timeEntry)}
                   onCommit={e => Object.assign(timeEntry, e)}
                 />
               : <div className="group relative h-full cursor-pointer">
@@ -74,7 +72,7 @@ export const DailyTimeEntries = ({
                     self={self}
                   />
                   <span className="absolute right-0 top-0 z-10">
-                    <DeleteButton onDestroy={() => space?.db.remove(timeEntry)} />
+                    <DeleteButton onDestroy={() => onRemove(timeEntry)} />
                   </span>
                 </div>
               }
@@ -90,7 +88,7 @@ export const DailyTimeEntries = ({
             {...{ date, projects, clients, self, onFocusNext, onFocusPrev, onDiscard }}
             isFocused={focus === entries.length}
             onFocus={setFocus}
-            onCommit={e => space?.db.add(e)}
+            onCommit={e => onAdd(e)}
           />
         </li>
       </ul>
@@ -105,4 +103,6 @@ type Props = {
   clients: Client[]
   longestDay: number
   self: Contact
+  onAdd: (time: TimeEntry) => void
+  onRemove: (time: TimeEntry) => void
 }

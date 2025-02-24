@@ -25,6 +25,10 @@ export const MyWeek = ({
   clients,
   self,
   contacts,
+  onAddDone = () => {},
+  onRemoveDone = () => {},
+  onAddTime = () => {},
+  onRemoveTime = () => {},
 }: Props) => {
   const days = getDaysOfWeek(start).filter(date => showWeekends || !isWeekend(date))
 
@@ -109,7 +113,16 @@ export const MyWeek = ({
       {days.map(date => (
         <div key={date.toString()} className={cx("p-1", weekendShading(date))}>
           <DailyTimeEntries
-            {...{ timeEntries: myTimeEntries, projects, clients, date, self, longestDay }}
+            {...{
+              timeEntries: myTimeEntries,
+              projects,
+              clients,
+              date,
+              self,
+              longestDay,
+              onAdd: onAddTime,
+              onRemove: onRemoveTime,
+            }}
           />
         </div>
       ))}
@@ -139,7 +152,9 @@ export const MyWeek = ({
       {days.map(date => {
         return (
           <div key={date.toString()} className={cx("overflow-auto", weekendShading(date))}>
-            <DailyDones {...{ doneEntries, date, self, contacts }} />
+            <DailyDones
+              {...{ doneEntries, date, self, contacts, onAdd: onAddDone, onRemove: onRemoveDone }}
+            />
           </div>
         )
       })}
@@ -149,11 +164,15 @@ export const MyWeek = ({
 
 type Props = {
   start: LocalDate
-  showWeekends: boolean
+  showWeekends?: boolean
   doneEntries: DoneEntry[]
   timeEntries: TimeEntry[]
   projects: Project[]
   clients: Client[]
   self: Contact
   contacts: Contact[]
+  onAddDone: (done: DoneEntry) => void
+  onRemoveDone: (done: DoneEntry) => void
+  onAddTime: (time: TimeEntry) => void
+  onRemoveTime: (time: TimeEntry) => void
 }

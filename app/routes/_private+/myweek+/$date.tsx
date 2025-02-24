@@ -1,17 +1,21 @@
 import { Checkbox } from "@ui/checkbox"
 import { useState } from "react"
+import { useSpace } from "@dxos/react-client/echo"
 import { PageLayout } from "../ui/layouts/PageLayout"
 import { WeekNav } from "../ui/WeekNav"
 import { MyWeek } from "./ui/MyWeek"
 import { useSelectedWeek } from "~/hooks/useSelectedWeek"
 import { useTeam } from "~/hooks/useTeam"
 import { useDatabase } from "~/hooks/useDatabase"
+import { useLocalState } from "~/hooks/useLocalState"
 
 export default function MyWeek$DatePage() {
   const { self, contacts } = useTeam()
   const { doneEntries, timeEntries, projects, clients } = useDatabase()
   const [showWeekends, setShowWeekends] = useState(false)
   const { start, end } = useSelectedWeek()
+  const { spaceKey } = useLocalState()
+  const space = useSpace(spaceKey)
 
   const sStart = start.toString()
   const sEnd = end.toString()
@@ -49,6 +53,10 @@ export default function MyWeek$DatePage() {
             clients,
             self,
             contacts,
+            onAddDone: d => space?.db.add(d),
+            onRemoveDone: d => space?.db.remove(d),
+            onAddTime: d => space?.db.add(d),
+            onRemoveTime: d => space?.db.remove(d),
           }}
         />
       </div>
