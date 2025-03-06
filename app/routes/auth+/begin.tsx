@@ -2,7 +2,7 @@ import { type Client, useClient } from "@dxos/react-client"
 import { useIdentity } from "@dxos/react-client/halo"
 import { useEffect } from "react"
 import { useNavigate } from "react-router"
-import { UserNameForm } from "./ui/UserNameForm"
+import { UserNameForm } from "ui/UserNameForm"
 
 export default function Begin() {
   const identity = useIdentity()

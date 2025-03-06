@@ -1,7 +1,7 @@
 import { Outlet } from "react-router"
 import { useSpace } from "@dxos/react-client/echo"
 import { useShell } from "@dxos/react-client"
-import { Members } from "./ui/Members"
+import { Members } from "ui/Members"
 import { useTeam } from "~/hooks/useTeam"
 import { useLocalState } from "~/hooks/useLocalState"
 

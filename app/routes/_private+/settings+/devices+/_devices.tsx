@@ -1,7 +1,7 @@
 import { Outlet } from "react-router"
 import { type PublicKey, useShell } from "@dxos/react-client"
 import { Device, DeviceKind } from "@dxos/react-client/halo"
-import { Devices } from "./ui/Devices"
+import { Devices } from "ui/Devices"
 import { useTeam } from "~/hooks/useTeam"
 
 export default function DevicesPage() {

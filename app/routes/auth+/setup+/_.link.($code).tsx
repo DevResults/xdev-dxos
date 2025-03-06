@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router"
 import { useShell } from "@dxos/react-client"
 import { useState } from "react"
-import { InvitationForm } from "./ui/InvitationForm"
+import { InvitationForm } from "ui/InvitationForm"
 
 export default function AuthLinkPage() {
   const navigate = useNavigate()

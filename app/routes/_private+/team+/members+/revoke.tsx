@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from "react-router"
-import { RevokeInvitationDialog } from "./ui/RevokeInvitationDialog"
+import { RevokeInvitationDialog } from "ui/RevokeInvitationDialog"
 import { useTeam } from "~/hooks/useTeam"
 import type { ContactId } from "~/schema/Contact"
 

@@ -1,4 +1,4 @@
-import { Likes } from "../../ui/Likes"
+import { Likes } from "./Likes"
 import { DeleteButton } from "./DeleteButton"
 import { DoneInput, type Props as InputProps } from "./DoneInput"
 import type { DoneEntry } from "~/schema/DoneEntry"

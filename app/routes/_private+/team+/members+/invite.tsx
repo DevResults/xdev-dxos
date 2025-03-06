@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from "react-router"
-import { InviteMemberDialog } from "./ui/InviteMemberDialog"
+import { InviteMemberDialog } from "ui/InviteMemberDialog"
 import type { ContactId } from "~/schema/Contact"
 
 export default function MembersInvitePage() {

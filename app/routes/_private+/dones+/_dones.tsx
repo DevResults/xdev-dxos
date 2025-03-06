@@ -1,6 +1,6 @@
 import { Outlet } from "react-router"
-import { useRedirect } from "~/hooks/useRedirect"
-import { getSunday } from "~/lib/getSunday"
+import { useRedirect } from "hooks/useRedirect"
+import { getSunday } from "lib/getSunday"
 
 const currentWeek = getSunday().toString()
 

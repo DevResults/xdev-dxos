@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { type ExtendedContact } from "schema/Contact"
-import { storyContact } from "ui/stories/util/storyContact"
-import { Members } from "../Members"
+import { Members } from "ui/Members"
+import { storyContact } from "./util/storyContact"
 
 const meta: Meta<typeof Members> = {
   title: "Settings/Members",

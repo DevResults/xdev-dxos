@@ -3,14 +3,14 @@ import type { Meta, StoryObj } from "@storybook/react"
 import { clients } from "data/clients"
 import { contacts } from "data/contacts"
 import { projects } from "data/projects"
-import { generateDones } from "routes/_private+/devtools+/danger+/lib/generateDones"
-import { generateTimeEntries } from "routes/_private+/devtools+/danger+/lib/generateTimeEntries"
+import { NO_OP } from "lib/constants"
+import { generateDones } from "lib/generateDones"
+import { generateTimeEntries } from "lib/generateTimeEntries"
 import { getSunday } from "lib/getSunday"
 import { type DoneEntry } from "schema/DoneEntry"
 import { type TimeEntry } from "schema/TimeEntry"
-import { storyContact } from "ui/stories/util/storyContact"
 import { MyWeek } from "../MyWeek"
-import { NO_OP } from "~/lib/constants"
+import { storyContact } from "./util/storyContact"
 
 const herb = storyContact("herb")
 

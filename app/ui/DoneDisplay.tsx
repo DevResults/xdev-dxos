@@ -1,7 +1,7 @@
-import { Likes } from "../../ui/Likes"
-import { cx } from "~/lib/cx"
-import type { DoneEntry } from "~/schema/DoneEntry"
-import type { Contact } from "~/schema/Contact"
+import { cx } from "lib/cx"
+import type { DoneEntry } from "schema/DoneEntry"
+import type { Contact } from "schema/Contact"
+import { Likes } from "ui/Likes"
 
 /**
  * Displays a read-only DoneEntry along with the Like button.

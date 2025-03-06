@@ -1,11 +1,11 @@
 import { LocalDate } from "@js-joda/core"
 import { Button } from "@ui/button"
 import { useState } from "react"
-import { generateDones } from "../lib/generateDones"
-import { RadioGroup } from "./RadioGroup"
-import { NO_OP } from "~/lib/constants"
-import type { DoneEntry } from "~/schema/DoneEntry"
-import type { Contact } from "~/schema/Contact"
+import { generateDones } from "lib/generateDones"
+import { NO_OP } from "lib/constants"
+import type { DoneEntry } from "schema/DoneEntry"
+import type { Contact } from "schema/Contact"
+import { RadioGroup } from "ui/RadioGroup"
 
 export const DoneEntryGenerator = ({ destroyAll = NO_OP, add = () => {}, contacts }: Props) => {
   const weekOptions = ["1", "2", "5", "10", "20", "50", "200"]

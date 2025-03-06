@@ -1,10 +1,10 @@
 import { LocalDate } from "@js-joda/core"
 import type { Decorator, Meta, StoryObj } from "@storybook/react"
+import MockDate from "mockdate"
 import { clients } from "data/clients"
 import { contacts } from "data/contacts"
 import { projects } from "data/projects"
-import { generateTimeEntries } from "routes/_private+/devtools+/danger+/lib/generateTimeEntries"
-import MockDate from "mockdate"
+import { generateTimeEntries } from "lib/generateTimeEntries"
 import { type TimeEntry } from "schema/TimeEntry"
 import { HoursReport } from "../HoursReport"
 

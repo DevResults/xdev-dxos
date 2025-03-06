@@ -2,11 +2,11 @@ import { makeRandom } from "@herbcaudill/random"
 import { LocalDate } from "@js-joda/core"
 import type { Meta, StoryObj } from "@storybook/react"
 import { contacts } from "data/contacts"
-import { generateDones } from "routes/_private+/devtools+/danger+/lib/generateDones"
+import { generateDones } from "lib/generateDones"
 import type { Contact } from "schema/Contact"
-import { storyContact } from "ui/stories/util/storyContact"
+import type { DoneEntry } from "schema/DoneEntry"
 import { TeamDones } from "../TeamDones"
-import type { DoneEntry } from "~/schema/DoneEntry"
+import { storyContact } from "./util/storyContact"
 
 const random = makeRandom("dones")
 

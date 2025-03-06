@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { PageLayout } from "routes/_private+/ui/layouts/PageLayout"
-import { SecondaryNav } from "routes/_private+/ui/SecondaryNav"
+import { PageLayout } from "ui/layouts/PageLayout"
+import { SecondaryNav } from "ui/SecondaryNav"
 import { AppLayout } from "../layouts/AppLayout"
 import { storyContact } from "./util/storyContact"
 

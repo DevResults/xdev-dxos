@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { useSignOut } from "./hooks/useSignOut"
-import { Signout } from "./ui/Signout"
+import { useSignOut } from "hooks/useSignOut"
+import { Signout } from "ui/Signout"
 
 export default function SignOutPage() {
   const signOut = useSignOut()

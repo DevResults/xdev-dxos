@@ -1,7 +1,7 @@
 import { LocalDate } from "@js-joda/core"
 import type { Meta, StoryObj } from "@storybook/react"
 import { reactRouterParameters } from "storybook-addon-remix-react-router"
-import { WeekNav } from "../WeekNav"
+import { WeekNav } from "ui/WeekNav"
 
 const meta: Meta<typeof WeekNav> = {
   title: "Components/WeekNav",
