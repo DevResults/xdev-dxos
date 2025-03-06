@@ -1,12 +1,13 @@
+import { create } from "@dxos/react-client/echo"
 import { makeRandom } from "@herbcaudill/random"
 import { type LocalDate } from "@js-joda/core"
-import { dummyDones } from "../../../../../data/dummyDones"
-import { reconstructTimeEntryInput } from "../../../../../lib/reconstructTimeEntryInput"
-import { getWorkDays } from "../../../../../lib/getWorkDays"
-import type { Client } from "~/schema/Client"
-import type { Contact, ContactId } from "~/schema/Contact"
-import { type Project } from "~/schema/Project"
-import { type TimeEntry } from "~/schema/TimeEntry"
+import { dummyDones } from "data/dummyDones"
+import type { Client } from "schema/Client"
+import type { Contact, ContactId } from "schema/Contact"
+import { type Project } from "schema/Project"
+import { TimeEntry } from "schema/TimeEntry"
+import { getWorkDays } from "./getWorkDays"
+import { reconstructTimeEntryInput } from "./reconstructTimeEntryInput"
 
 export function generateTimeEntries({
   contacts,
@@ -19,8 +20,8 @@ export function generateTimeEntries({
   seed = "1234",
 }: Inputs) {
   const random = makeRandom(seed)
-  const OUT = projects.find(d => d.code.toLowerCase() === "out")!.id
-  const timeEntries: Array<Omit<TimeEntry, "id">> = []
+  const OUT = projects.find(d => d.code.toLowerCase() === "out")!
+  const timeEntries: TimeEntry[] = []
 
   // Assign a timekeeping style to each contact
   const contactStyles = Object.fromEntries(
@@ -41,31 +42,30 @@ export function generateTimeEntries({
     return acc
   }, [])
 
-  const dayOff = (contactId: ContactId, date: string) => {
+  const dayOff = (contactId: ContactId, date: LocalDate) => {
     const duration = 60 * 8
     return [
-      {
+      create(TimeEntry, {
         contactId,
-        date,
-        project: OUT,
+        date: date.toString(),
+        project: OUT.id,
         duration,
         input: `Out ${duration}mins`,
-        timestamp: new Date().toISOString(),
-      },
+        timestamp: Date.now().toString(),
+      }),
     ]
   }
 
-  const normalDay = (contactId: ContactId, date: string) => {
+  const normalDay = (contactId: ContactId, date: LocalDate) => {
     const todaysTotal = random.integer(5.5, 8.5) * 60 // 5.5 - 8.5 hrs
-    const timestamp = new Date().toISOString()
     let totalDuration = 0
 
-    const newEntries: Array<Omit<TimeEntry, "id">> = []
+    const newEntries: TimeEntry[] = []
 
     while (totalDuration < todaysTotal) {
       const duration = Math.min(random.integer(1, 32) * 15, todaysTotal - totalDuration)
       const project = random.pick(projects)
-      const maybeClient = project.requiresClient ? random.pick(clients) : null
+      const maybeClient = project.requiresClient ? random.pick(clients) : undefined
       const description = random.probability(0.05) ? random.pick(dummyDones) : ""
       const input = reconstructTimeEntryInput({
         durationInHours: duration / 60,
@@ -73,16 +73,18 @@ export function generateTimeEntries({
         client: maybeClient?.code,
         description,
       })
-      newEntries.push({
-        contactId,
-        date,
-        project: project.id,
-        client: maybeClient?.id,
-        duration,
-        input,
-        description,
-        timestamp,
-      })
+      newEntries.push(
+        create(TimeEntry, {
+          contactId,
+          date: date.toString(),
+          project: project.id,
+          client: maybeClient?.id,
+          duration,
+          input,
+          description,
+          timestamp: Date.now().toString(),
+        }),
+      )
       totalDuration += duration
     }
 
@@ -102,9 +104,8 @@ export function generateTimeEntries({
       if (skipWeek || procrastinating) continue
 
       for (const date of week) {
-        const sDate = date.toString()
         const isDayOff = random.probability(0.15)
-        const newEntries = isDayOff ? dayOff(contact.id, sDate) : normalDay(contact.id, sDate)
+        const newEntries = isDayOff ? dayOff(contact.id, date) : normalDay(contact.id, date)
         timeEntries.push(...newEntries)
       }
     }

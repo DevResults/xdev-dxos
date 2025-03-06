@@ -1,0 +1,60 @@
+Business: Contracts,true,Contract negotiation & other back-and-forth
+Business: Marketing,false,"Work on DevResults.com, writing blogs, creating materials, etc."
+Business: Outreach,true,"Conferences, coffee, donuts, cold calls, etc"
+Business: Proposals,yes,Writing/editing proposals for specific prospects
+DevOps: Azure migration,false,Includes mockups/discussions/codings/PRs
+DevOps: CI configuration,false,Includes mockups/discussions/codings/PRs
+DevOps: General,false,"Non-project-oriented DevOps work: server/VM/database configuration, etc."
+Feature: Ag Grid conversions,false,Includes mockups/discussions/codings/PRs
+Feature: API,false,Includes mockups/discussions/codings/PRs
+Feature: Baselines,false,Includes mockups/discussions/codings/PRs
+Feature: ContentObject Validation,false,Includes mockups/discussions/codings/PRs
+Feature: Count First/Last,false,Includes mockups/discussions/codings/PRs
+Feature: Count Unique Per Reporting Period,false,Includes mockups/discussions/codings/PRs
+Feature: Dashboard,false,Includes mockups/discussions/codings/PRs
+Feature: Data Tables,false,Includes mockups/discussions/codings/PRs
+Feature: DevIndicators,false,Includes mockups/discussions/codings/PRs
+Feature: Diagnostics,false,Includes mockups/discussions/codings/PRs
+Feature: Dropbox integration,false,Includes mockups/discussions/codings/PRs
+Feature: EditGrid,false,Includes mockups/discussions/codings/PRs
+Feature: Enterprise,false,Includes mockups/discussions/codings/PRs
+Feature: Frameworks Index,false,2022-S01 etc
+Feature: GDPR,false,Includes mockups/discussions/codings/PRs
+Feature: Google Drive integration,false,Includes mockups/discussions/codings/PRs
+Feature: Ground Truth,false,Includes mockups/discussions/codings/PRs
+Feature: IATI,false,Includes mockups/discussions/codings/PRs
+Feature: Indexify,false,Includes mockups/discussions/codings/PRs
+Feature: Instance Export,false,Includes mockups/discussions/codings/PRs
+Feature: Internal Tooling,false,"Includes instance bootstrapper features, DevResults CLI, etc."
+Feature: Localization,false,"Includes managing LanguageStrings, getting translations, etc."
+Feature: Matrix,false,Includes mockups/discussions/codings/PRs
+Feature: Metadata visualization,false,Includes mockups/discussions/codings/PRs
+Feature: Notifications,false,Includes mockups/discussions/codings/PRs
+Feature: Partner Permissions,false,2022 sprint 8 and associated work
+Feature: PowerBI,false,Includes mockups/discussions/codings/PRs
+Feature: Project X,false,Includes mockups/discussions/codings/PRs
+Feature: Pseudonyms,false,Includes mockups/discussions/codings/PRs
+Feature: Public Site,false,Includes mockups/discussions/codings/PRs
+Feature: RDTs,false,Includes mockups/discussions/codings/PRs
+Feature: Self-serve,false,Includes mockups/discussions/codings/PRs
+Feature: Single Sign-On,false,"Includes mockups/discussions/codings/PRs, and supporting clients"
+Feature: Standard RP Picker,false,Includes mockups/discussions/codings/PRs
+Feature: Survey123,false,Includes mockups/discussions/codings/PRs
+Feature: SurveyCTO,false,Includes mockups/discussions/codings/PRs
+Feature: Too small to name,false,But you can name it in the comments!
+Feature: WorldAdminDivisions update,false,Includes mockups/discussions/codings/PRs
+Out,false,
+Overhead,false,"General meetings, company process stuff, finance stuff, HR, onboarding, learning…"
+Security,false,All things security
+Support: API,false,Any help provided to helping users access and use the API
+Support: External tooling,false,"Providing support for ""other tools"" outside of DevResults (e.g. PowerBI)"
+Support: Ongoing,false,Includes engineering support to individual clients (but not bug fixing)
+Support: Scaling training & help,false,"Videos, help materials, etc."
+Support: Setup,true,Everything before the instance goes live
+Support: Training,false,Training dedicated to one specific client
+Tech wealth: Bug fixin,false,Probably mostly on call. Note feature in comments if it's a major feature fix.
+Tech wealth: Other,false,Catch-all for general improvements to the codebase
+Tech wealth: Optimization,false,Work to improve performance within the app
+Tech wealth: TypeScript,false,
+Tech wealth: Webpack,false,
+Thought Leadership,false,

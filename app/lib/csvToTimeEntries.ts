@@ -1,9 +1,11 @@
-import { reconstructTimeEntryInput } from "../../../../../lib/reconstructTimeEntryInput"
+import { createId } from "@paralleldrive/cuid2"
+import { Data, E, S } from "schema/lib/Effect"
+import { ProvidedClients } from "schema/ClientCollection"
+import { ProvidedContacts } from "schema/ContactCollection"
+import { reconstructTimeEntryInput } from "schema/lib/reconstructTimeEntryInput"
+import { ProvidedProjects } from "schema/ProjectCollection"
+import { TimeEntry } from "schema/TimeEntry"
 import { csvToSchema } from "./parseCsv"
-import { Data, E, S } from "~/schema/lib/Effect"
-import { ClientNotFoundError, ProvidedClients } from "~/schema/ClientCollection"
-import { ContactNotFoundError, ProvidedContacts } from "~/schema/ContactCollection"
-import { ProvidedProjects } from "~/schema/ProjectCollection"
 import { findByCode } from "~/schema/lib/parseProject"
 
 export class TimeEntryCsvRow extends S.Class<TimeEntryCsvRow>("TimeEntryCsvRow")({
@@ -28,33 +30,42 @@ export const csvToTimeEntries = (csvData: string) =>
         const projects = yield* ProvidedProjects
         const clients = yield* ProvidedClients
 
-        const contact = contacts.find(({ userName }) => userName === row.userName)
-        if (contact === undefined) {
-          return yield* E.fail(new ContactNotFoundError({ userName: row.userName }))
-        }
+        const contact = contacts.find(c => c.userName === row.userName.toLowerCase())
+        if (!contact)
+          return yield* E.fail(
+            new TimeEntryCsvParseError({
+              input,
+              index,
+              cause: new Error(`There is no contact with username "${row.userName}"`),
+            }),
+          )
 
         const project = yield* findByCode(row.project, projects)
-        let client
-        if (row.client.length > 0) {
-          client = clients.find(({ code }) => code === row.client)
-          if (client === undefined) {
-            return yield* E.fail(new ClientNotFoundError({ code: row.client }))
-          }
-        }
+        const client = row.client.length > 0 ? clients.find(c => c.code === row.client) : undefined
 
-        return {
+        if (row.client.length > 0 && !client)
+          return yield* E.fail(
+            new TimeEntryCsvParseError({
+              input,
+              index,
+              cause: new Error(`There is no client with code "${row.client}"`),
+            }),
+          )
+
+        return yield* S.decode(TimeEntry)({
           ...row,
+          id: createId(),
           duration: Math.floor(row.duration * 60), // duration comes in as hours
           project: project.id,
           client: client?.id,
           contactId: contact.id,
-          timestamp: new Date().toISOString(),
+          timestamp: Date.now().toString(),
           input: reconstructTimeEntryInput({
             ...row,
             durationInHours: row.duration,
             project: project.fullCode,
           }),
-        }
+        })
       }).pipe(E.mapError(cause => new TimeEntryCsvParseError({ input, index, cause })))
     })
 

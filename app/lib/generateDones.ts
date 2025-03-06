@@ -1,14 +1,14 @@
+import { create } from "@dxos/react-client/echo"
 import type { LocalDate } from "@js-joda/core"
+import { dummyDones } from "data/dummyDones"
 import { isWeekend } from "lib/isWeekend"
+import { randomElement } from "lib/randomElement"
 import type { Contact } from "schema/Contact"
-import { type DoneEntry } from "schema/DoneEntry"
-import { randomElement } from "../../../../../lib/randomElement"
-import { dummyDones } from "../../../../../data/dummyDones"
+import { DoneEntry } from "schema/DoneEntry"
 
 export const generateDones = ({ today, weeks, productivity, enthusiasm, contacts }: params) => {
   const N = weeks * 7 * productivity * contacts.length
-  const result: Array<Omit<DoneEntry, "id">> = []
-  const now = new Date().toISOString()
+  const result: DoneEntry[] = []
   let percentComplete = 0
   for (let i = 0; i < N; i++) {
     const currentPercentComplete = Math.floor((i / N) * 10) * 10
@@ -20,7 +20,15 @@ export const generateDones = ({ today, weeks, productivity, enthusiasm, contacts
     const date = getRandomWorkday(today, weeks)
     const content = randomElement(dummyDones)
     const likes = contacts.filter(() => Math.random() < enthusiasm).map(({ id }) => id)
-    result.push({ content, date: date.toString(), contactId: id, likes, timestamp: now })
+    result.push(
+      create(DoneEntry, {
+        content,
+        date: date.toString(),
+        contactId: id,
+        likes,
+        timestamp: Date.now().toString(),
+      }),
+    )
   }
 
   return result
