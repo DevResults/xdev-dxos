@@ -38,6 +38,7 @@ jobs:
       - name: test
         id: test
         run: |
+          env
           pnpm test
           pnpm test:pw
 

@@ -10,8 +10,6 @@ export default defineConfig({
 
   /* tests fail if they take longer than this */
   timeout: 45_000,
-  /* individual actions fail if they take longer than this */
-  expect: { timeout: 20_000 },
 
   /* abort if we get several test failures (probably server isn't running or something) */
   maxFailures: 5,
@@ -73,7 +71,7 @@ export default defineConfig({
       []
     : [
         {
-          command: "cross-env DX_PERSIST=1 DX_SIGNAL=0 pnpm react-router dev --port 3001",
+          command: "pnpm react-router dev --port 3001",
           url: "http://localhost:3001",
           reuseExistingServer: false,
         },
