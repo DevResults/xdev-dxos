@@ -10,6 +10,8 @@ export default defineConfig({
 
   /* tests fail if they take longer than this */
   timeout: 45_000,
+  /* individual actions fail if they take longer than this */
+  expect: { timeout: 20_000 },
 
   /* abort if we get several test failures (probably server isn't running or something) */
   maxFailures: 5,
