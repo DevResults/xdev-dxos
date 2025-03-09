@@ -1,0 +1,7 @@
+DX_PERSIST:
+  path: runtime.client.storage.persistence
+  type: boolean
+
+DX_SIGNAL:
+  path: runtime.client.edgeFeatures.signaling
+  type: boolean

@@ -73,7 +73,7 @@ export default defineConfig({
       []
     : [
         {
-          command: "pnpm react-router dev --port 3001",
+          command: "cross-env DX_PERSIST=1 DX_SIGNAL=0 pnpm react-router dev --port 3001",
           url: "http://localhost:3001",
           reuseExistingServer: false,
         },
