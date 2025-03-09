@@ -30,7 +30,7 @@ jobs:
       - name: install dependencies
         run: |
           pnpm install
-          pnpm exec playwright install
+          pnpm exec playwright install --with-deps
 
       - name: lint
         run: pnpm lint
@@ -38,7 +38,6 @@ jobs:
       - name: test
         id: test
         run: |
-          env
           pnpm test
           pnpm test:pw
 
