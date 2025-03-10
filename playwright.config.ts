@@ -12,7 +12,7 @@ export default defineConfig({
   timeout: 45_000,
 
   /* abort if we get several test failures (probably server isn't running or something) */
-  maxFailures: 5,
+  maxFailures: 10,
 
   /* Run tests in files in parallel */
   fullyParallel: true,
