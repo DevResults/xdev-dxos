@@ -18,7 +18,10 @@ const pwaOptions: Partial<VitePWAOptions> = {
   filename: "sw.ts",
   registerType: "autoUpdate",
   strategies: "injectManifest",
-  injectManifest: { globPatterns: ["**/*.{js,css,html,ico,wasm}"] },
+  injectManifest: {
+    globPatterns: ["**/*.{js,css,html,ico,wasm}"],
+    maximumFileSizeToCacheInBytes: 3_000_000, // default is ~2MB but assets/services-5YMQXNOJ-DjwAKeGb.js is 2.1 MB (I think this is dxos?)
+  },
   manifest: {
     name: "XDev",
     short_name: "XDev",
@@ -53,18 +56,9 @@ const autoImportOptions: AutoImportOptions = {
 const isStorybook = process.argv[1].includes("storybook")
 
 export default defineConfig({
-  build: {
-    rollupOptions: {
-      input: {
-        main: resolve(import.meta.dirname, "./app/root.tsx"),
-        shell: resolve(import.meta.dirname, "./public/shell.html"),
-      },
-    },
-  },
   plugins: [
     !isStorybook && reactRouter(),
     tsconfigPaths(),
-    topLevelAwait(),
     wasm() as Plugin,
     ConfigPlugin(),
     vitePWA(pwaOptions),

@@ -42,7 +42,7 @@ const createWorker = () =>
 export default function App() {
   return (
     <ClientProvider
-      shell="./shell.html"
+      // shell="./shell.html"
       config={configProvider}
       createWorker={createWorker}
       types={[Contact, DoneEntry, TimeEntry, Client, Project]}
