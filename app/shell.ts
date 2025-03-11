@@ -1,10 +1,10 @@
-import { runShell } from "@dxos/shell"
+import { runShell } from "@dxos/shell/react"
 import "@dxos/shell/style.css"
 import { configProvider } from "./config"
 
 const main = async () => {
   const config = await configProvider()
-  await runShell(config) // eslint-disable-line @typescript-eslint/no-unsafe-call
+  await runShell(config)
 }
 
 void main()
