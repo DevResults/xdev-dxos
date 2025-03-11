@@ -40,7 +40,7 @@ const createWorker = () =>
   })
 
 const config = await configProvider()
-globalThis.dxosConfig = config.values
+;(globalThis as any).dxosConfig = config.values
 
 export default function App() {
   return (

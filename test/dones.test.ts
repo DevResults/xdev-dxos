@@ -8,7 +8,10 @@ const doneText = "Completed terabytes of coding and compiling"
 const setup = async (context: BrowserContext) => {
   const herb = await newBrowser(context)
   await herb.createTeam(userName, teamName)
-  const config = await herb.page.evaluate(() => window.dxosConfig)
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  const config = await herb.page.evaluate(() => {
+    return (window as any).dxosConfig // eslint-disable-line @typescript-eslint/no-unsafe-return
+  })
   expect(config).toMatchObject({
     runtime: {
       client: { edgeFeatures: { signaling: false }, storage: { persistent: true } },

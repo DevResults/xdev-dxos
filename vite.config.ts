@@ -1,4 +1,3 @@
-import { resolve } from "node:path"
 import { reactRouter } from "@react-router/dev/vite"
 import { type Plugin } from "vite"
 import { defineConfig } from "vitest/config"
