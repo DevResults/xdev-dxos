@@ -39,11 +39,14 @@ const createWorker = () =>
     name: "dxos-client-worker",
   })
 
+const config = await configProvider()
+globalThis.dxosConfig = config.values
+
 export default function App() {
   return (
     <ClientProvider
       shell="./shell.html"
-      config={configProvider}
+      config={config}
       createWorker={createWorker}
       types={[Contact, DoneEntry, TimeEntry, Client, Project]}
     >

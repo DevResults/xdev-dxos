@@ -8,6 +8,17 @@ const doneText = "Completed terabytes of coding and compiling"
 const setup = async (context: BrowserContext) => {
   const herb = await newBrowser(context)
   await herb.createTeam(userName, teamName)
+  const config = await herb.page.evaluate(() => window.dxosConfig)
+  expect(config).toMatchObject({
+    runtime: {
+      client: { edgeFeatures: { signaling: false }, storage: { persistent: true } },
+      services: {
+        edge: { url: "wss://edge-production.dxos.workers.dev/" },
+        iceProviders: [{ urls: "https://edge-production.dxos.workers.dev/ice" }],
+      },
+    },
+    version: 1,
+  })
   return { herb }
 }
 
