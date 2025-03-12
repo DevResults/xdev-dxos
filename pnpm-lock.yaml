@@ -16,10 +16,10 @@ importers:
         version: 0.7.4
       '@dxos/react-client':
         specifier: 0.7.4
-        version: 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(@phosphor-icons/react@2.1.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(effect@3.12.11)(postcss@8.5.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        version: 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(@phosphor-icons/react@2.1.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(effect@3.12.11)(postcss@8.5.3)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@dxos/shell':
         specifier: 0.7.4
-        version: 0.7.4(@dxos/react-client@0.7.4(@effect/schema@0.75.5(effect@3.12.11))(@phosphor-icons/react@2.1.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(effect@3.12.11)(postcss@8.5.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@effect/schema@0.75.5(effect@3.12.11))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(effect@3.12.11)(postcss@8.5.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        version: 0.7.4(@dxos/react-client@0.7.4(@effect/schema@0.75.5(effect@3.12.11))(@phosphor-icons/react@2.1.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(effect@3.12.11)(postcss@8.5.3)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@effect/schema@0.75.5(effect@3.12.11))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(effect@3.12.11)(postcss@8.5.3)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@dxos/util':
         specifier: 0.7.4
         version: 0.7.4
@@ -219,6 +219,9 @@ importers:
       '@types/react-dom':
         specifier: ^18.2.22
         version: 18.3.5(@types/react@18.3.18)
+      '@vitejs/plugin-react':
+        specifier: ^4.3.4
+        version: 4.3.4(vite@5.4.14(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0))
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
@@ -732,6 +735,18 @@ packages:
 
   '@babel/plugin-transform-property-literals@7.25.9':
     resolution: {integrity: sha512-IvIUeV5KrS/VPavfSM/Iu+RE6llrHrYIKY1yfCzyO/lMXHQ+p7uGhonmGVisv6tSBSVgWzMBohTcvkC9vQcQFA==}
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+
+  '@babel/plugin-transform-react-jsx-self@7.25.9':
+    resolution: {integrity: sha512-y8quW6p0WHkEhmErnfe58r7x0A70uKphQm8Sp8cV7tjNQwK56sNVK0M73LK3WuYmsuyrftut4xAkjjgU0twaMg==}
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+
+  '@babel/plugin-transform-react-jsx-source@7.25.9':
+    resolution: {integrity: sha512-+iqjT8xmXhhYv4/uiYd8FNQsraMFZIfxVSqxxVSZP0WbbSAWvBXAul0m/zu+7Vv4O/3WtApy9pmaTMiumEZgfg==}
     engines: {node: '>=6.9.0'}
     peerDependencies:
       '@babel/core': ^7.0.0-0
@@ -3211,6 +3226,12 @@ packages:
 
   '@ungap/structured-clone@1.3.0':
     resolution: {integrity: sha512-WmoN8qaIAo7WTYWbAZuG8PYEhn5fkz7dZrqTBZ7dtt//lL2Gwms1IcnQ5yHqjDfX8Ft5j4YzDM23f87zBfDe9g==}
+
+  '@vitejs/plugin-react@4.3.4':
+    resolution: {integrity: sha512-SCCPBJtYLdE8PX/7ZQAs1QAZ8Jqwih+0VBLum1EGqmCCQal+MIUqLCzj3ZUy8ufbC0cAM4LRlSTm7IQJwWT4ug==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    peerDependencies:
+      vite: ^4.2.0 || ^5.0.0 || ^6.0.0
 
   '@vitest/expect@2.0.5':
     resolution: {integrity: sha512-yHZtwuP7JZivj65Gxoi8upUN2OzHTi3zVfjwdpu2WrvCZPLwsJ2Ey5ILIPccoW23dd/zQBlJ4/dhi7DWNyXCpA==}
@@ -8195,6 +8216,16 @@ snapshots:
       '@babel/core': 7.26.8
       '@babel/helper-plugin-utils': 7.26.5
 
+  '@babel/plugin-transform-react-jsx-self@7.25.9(@babel/core@7.26.8)':
+    dependencies:
+      '@babel/core': 7.26.8
+      '@babel/helper-plugin-utils': 7.26.5
+
+  '@babel/plugin-transform-react-jsx-source@7.25.9(@babel/core@7.26.8)':
+    dependencies:
+      '@babel/core': 7.26.8
+      '@babel/helper-plugin-utils': 7.26.5
+
   '@babel/plugin-transform-regenerator@7.25.9(@babel/core@7.26.8)':
     dependencies:
       '@babel/core': 7.26.8
@@ -9045,7 +9076,7 @@ snapshots:
       '@ngneat/falso': 7.3.0
     optional: true
 
-  '@dxos/react-client@0.7.4(@effect/schema@0.75.5(effect@3.12.11))(@phosphor-icons/react@2.1.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(effect@3.12.11)(postcss@8.5.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+  '@dxos/react-client@0.7.4(@effect/schema@0.75.5(effect@3.12.11))(@phosphor-icons/react@2.1.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(effect@3.12.11)(postcss@8.5.3)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@dxos/async': 0.7.4
       '@dxos/client': 0.7.4(effect@3.12.11)
@@ -9065,8 +9096,8 @@ snapshots:
       react-error-boundary: 4.1.2(react@18.2.0)
     optionalDependencies:
       '@dxos/random': 0.7.4
-      '@dxos/react-ui': 0.7.4(@dxos/react-ui-theme@0.7.4(postcss@8.5.2))(@phosphor-icons/react@2.1.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@dxos/react-ui-theme': 0.7.4(postcss@8.5.2)
+      '@dxos/react-ui': 0.7.4(@dxos/react-ui-theme@0.7.4(postcss@8.5.3))(@phosphor-icons/react@2.1.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@dxos/react-ui-theme': 0.7.4(postcss@8.5.3)
     transitivePeerDependencies:
       - '@effect/schema'
       - '@phosphor-icons/react'
@@ -9121,7 +9152,7 @@ snapshots:
       - '@types/react-dom'
     optional: true
 
-  '@dxos/react-ui-theme@0.7.4(postcss@8.5.2)':
+  '@dxos/react-ui-theme@0.7.4(postcss@8.5.3)':
     dependencies:
       '@ch-ui/tailwind-tokens': 0.5.5(tailwindcss@3.4.17)
       '@ch-ui/tokens': 0.5.6
@@ -9130,7 +9161,7 @@ snapshots:
       '@fontsource-variable/jetbrains-mono': 5.0.21
       '@tailwindcss/container-queries': 0.1.1(tailwindcss@3.4.17)
       '@tailwindcss/forms': 0.5.10(tailwindcss@3.4.17)
-      autoprefixer: 10.4.21(postcss@8.5.2)
+      autoprefixer: 10.4.21(postcss@8.5.3)
       esbuild-style-plugin: 1.6.3
       glob: 7.2.3
       lodash.get: 4.4.2
@@ -9138,7 +9169,7 @@ snapshots:
       tailwind-merge: 2.6.0
       tailwind-scrollbar: 3.1.0(tailwindcss@3.4.17)
       tailwindcss: 3.4.17
-      tailwindcss-logical: 3.0.1(postcss@8.5.2)
+      tailwindcss-logical: 3.0.1(postcss@8.5.3)
       tailwindcss-radix: 2.9.0
     transitivePeerDependencies:
       - postcss
@@ -9147,14 +9178,14 @@ snapshots:
 
   '@dxos/react-ui-types@0.7.4': {}
 
-  '@dxos/react-ui@0.7.4(@dxos/react-ui-theme@0.7.4(postcss@8.5.2))(@phosphor-icons/react@2.1.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+  '@dxos/react-ui@0.7.4(@dxos/react-ui-theme@0.7.4(postcss@8.5.3))(@phosphor-icons/react@2.1.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@dxos/debug': 0.7.4
       '@dxos/log': 0.7.4
       '@dxos/react-hooks': 0.7.4(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@dxos/react-input': 0.7.4(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@dxos/react-list': 0.7.4(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@dxos/react-ui-theme': 0.7.4(postcss@8.5.2)
+      '@dxos/react-ui-theme': 0.7.4(postcss@8.5.3)
       '@dxos/react-ui-types': 0.7.4
       '@dxos/util': 0.7.4
       '@fluentui/react-tabster': 9.24.1(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -9225,7 +9256,7 @@ snapshots:
       - '@effect/schema'
       - effect
 
-  '@dxos/shell@0.7.4(@dxos/react-client@0.7.4(@effect/schema@0.75.5(effect@3.12.11))(@phosphor-icons/react@2.1.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(effect@3.12.11)(postcss@8.5.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@effect/schema@0.75.5(effect@3.12.11))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(effect@3.12.11)(postcss@8.5.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+  '@dxos/shell@0.7.4(@dxos/react-client@0.7.4(@effect/schema@0.75.5(effect@3.12.11))(@phosphor-icons/react@2.1.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(effect@3.12.11)(postcss@8.5.3)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@effect/schema@0.75.5(effect@3.12.11))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(effect@3.12.11)(postcss@8.5.3)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@dxos/async': 0.7.4
       '@dxos/client-protocol': 0.7.4(effect@3.12.11)
@@ -9235,7 +9266,7 @@ snapshots:
       '@dxos/invariant': 0.7.4
       '@dxos/log': 0.7.4
       '@dxos/protocols': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/react-client': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(@phosphor-icons/react@2.1.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(effect@3.12.11)(postcss@8.5.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@dxos/react-client': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(@phosphor-icons/react@2.1.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(effect@3.12.11)(postcss@8.5.3)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@dxos/react-ui-types': 0.7.4
       '@dxos/rpc': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
       '@dxos/rpc-tunnel': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
@@ -9256,8 +9287,8 @@ snapshots:
       url-join: 5.0.0
       xstate: 4.38.3
     optionalDependencies:
-      '@dxos/react-ui': 0.7.4(@dxos/react-ui-theme@0.7.4(postcss@8.5.2))(@phosphor-icons/react@2.1.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@dxos/react-ui-theme': 0.7.4(postcss@8.5.2)
+      '@dxos/react-ui': 0.7.4(@dxos/react-ui-theme@0.7.4(postcss@8.5.3))(@phosphor-icons/react@2.1.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@dxos/react-ui-theme': 0.7.4(postcss@8.5.3)
       '@phosphor-icons/react': 2.1.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
     transitivePeerDependencies:
       - '@effect/schema'
@@ -11608,6 +11639,17 @@ snapshots:
 
   '@ungap/structured-clone@1.3.0': {}
 
+  '@vitejs/plugin-react@4.3.4(vite@5.4.14(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0))':
+    dependencies:
+      '@babel/core': 7.26.8
+      '@babel/plugin-transform-react-jsx-self': 7.25.9(@babel/core@7.26.8)
+      '@babel/plugin-transform-react-jsx-source': 7.25.9(@babel/core@7.26.8)
+      '@types/babel__core': 7.20.5
+      react-refresh: 0.14.2
+      vite: 5.4.14(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0)
+    transitivePeerDependencies:
+      - supports-color
+
   '@vitest/expect@2.0.5':
     dependencies:
       '@vitest/spy': 2.0.5
@@ -11954,14 +11996,14 @@ snapshots:
 
   at-least-node@1.0.0: {}
 
-  autoprefixer@10.4.21(postcss@8.5.2):
+  autoprefixer@10.4.21(postcss@8.5.3):
     dependencies:
       browserslist: 4.24.4
       caniuse-lite: 1.0.30001703
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.1.1
-      postcss: 8.5.2
+      postcss: 8.5.3
       postcss-value-parser: 4.2.0
     optional: true
 
@@ -14519,9 +14561,9 @@ snapshots:
 
   possible-typed-array-names@1.1.0: {}
 
-  postcss-import@14.1.0(postcss@8.5.2):
+  postcss-import@14.1.0(postcss@8.5.3):
     dependencies:
-      postcss: 8.5.2
+      postcss: 8.5.3
       postcss-value-parser: 4.2.0
       read-cache: 1.0.0
       resolve: 1.22.10
@@ -14539,12 +14581,18 @@ snapshots:
       camelcase-css: 2.0.1
       postcss: 8.5.2
 
-  postcss-load-config@3.1.4(postcss@8.5.2):
+  postcss-js@4.0.1(postcss@8.5.3):
+    dependencies:
+      camelcase-css: 2.0.1
+      postcss: 8.5.3
+    optional: true
+
+  postcss-load-config@3.1.4(postcss@8.5.3):
     dependencies:
       lilconfig: 2.1.0
       yaml: 1.10.2
     optionalDependencies:
-      postcss: 8.5.2
+      postcss: 8.5.3
     optional: true
 
   postcss-load-config@4.0.2(postcss@8.5.2):
@@ -14592,9 +14640,9 @@ snapshots:
       string-hash: 1.1.3
     optional: true
 
-  postcss-nested@6.0.0(postcss@8.5.2):
+  postcss-nested@6.0.0(postcss@8.5.3):
     dependencies:
-      postcss: 8.5.2
+      postcss: 8.5.3
       postcss-selector-parser: 6.1.2
     optional: true
 
@@ -15573,9 +15621,9 @@ snapshots:
     dependencies:
       tailwindcss: 3.4.17
 
-  tailwindcss-logical@3.0.1(postcss@8.5.2):
+  tailwindcss-logical@3.0.1(postcss@8.5.3):
     dependencies:
-      tailwindcss: 3.3.1(postcss@8.5.2)
+      tailwindcss: 3.3.1(postcss@8.5.3)
     transitivePeerDependencies:
       - postcss
       - ts-node
@@ -15584,7 +15632,7 @@ snapshots:
   tailwindcss-radix@2.9.0:
     optional: true
 
-  tailwindcss@3.3.1(postcss@8.5.2):
+  tailwindcss@3.3.1(postcss@8.5.3):
     dependencies:
       arg: 5.0.2
       chokidar: 3.6.0
@@ -15600,11 +15648,11 @@ snapshots:
       normalize-path: 3.0.0
       object-hash: 3.0.0
       picocolors: 1.1.1
-      postcss: 8.5.2
-      postcss-import: 14.1.0(postcss@8.5.2)
-      postcss-js: 4.0.1(postcss@8.5.2)
-      postcss-load-config: 3.1.4(postcss@8.5.2)
-      postcss-nested: 6.0.0(postcss@8.5.2)
+      postcss: 8.5.3
+      postcss-import: 14.1.0(postcss@8.5.3)
+      postcss-js: 4.0.1(postcss@8.5.3)
+      postcss-load-config: 3.1.4(postcss@8.5.3)
+      postcss-nested: 6.0.0(postcss@8.5.3)
       postcss-selector-parser: 6.1.2
       postcss-value-parser: 4.2.0
       quick-lru: 5.1.1
