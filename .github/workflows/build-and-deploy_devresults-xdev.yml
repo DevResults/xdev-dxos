@@ -33,18 +33,19 @@ jobs:
       - name: lint
         run: pnpm lint
 
-      - name: test
-        id: test
-        run: |
-          pnpm test
-          pnpm test:pw
+      - name: unit tests
+        run: pnpm test
 
-      - name: Capture test output
-        if: ${{ failure() && steps.test.conclusion == 'failure' }}
+      - name: build
+        run: pnpm build
+
+      - name: playwright tests
+        id: playwright
+        run: pnpm test:pw
+
+      - name: Capture playwright output
+        if: ${{ failure() && steps.playwright.conclusion == 'failure' }}
         uses: actions/upload-artifact@v4
         with:
           name: playwright-test-results
           path: ./test-results
-
-      - name: build
-        run: pnpm build

@@ -67,8 +67,16 @@ export default defineConfig({
   ],
 
   webServer:
-    isPlaywrightUI ?
-      []
+    isPlaywrightUI ? []
+    : process.env.CI ?
+      // use the built website for testing in ci
+      [
+        {
+          command: "pnpm vite preview --port 3001",
+          url: "http://localhost:3001",
+          reuseExistingServer: false,
+        },
+      ]
     : [
         {
           command: "pnpm react-router dev --port 3001",
