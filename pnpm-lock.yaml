@@ -9,20 +9,20 @@ importers:
   .:
     dependencies:
       '@dxos/config':
-        specifier: ^0.7.5-feature-compute.4d9d99a
-        version: 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+        specifier: 0.7.4
+        version: 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
       '@dxos/echo-schema':
-        specifier: ^0.7.5-feature-compute.4d9d99a
-        version: 0.7.5-feature-compute.4d9d99a
+        specifier: 0.7.4
+        version: 0.7.4
       '@dxos/react-client':
-        specifier: ^0.7.5-feature-compute.4d9d99a
-        version: 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(@phosphor-icons/react@2.1.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(effect@3.12.11)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: 0.7.4
+        version: 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(@phosphor-icons/react@2.1.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(effect@3.12.11)(postcss@8.5.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@dxos/shell':
-        specifier: 0.7.5-feature-compute.4d9d99a
-        version: 0.7.5-feature-compute.4d9d99a(@dxos/react-client@0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(@phosphor-icons/react@2.1.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(effect@3.12.11)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@effect/schema@0.75.5(effect@3.12.11))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(effect@3.12.11)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: 0.7.4
+        version: 0.7.4(@dxos/react-client@0.7.4(@effect/schema@0.75.5(effect@3.12.11))(@phosphor-icons/react@2.1.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(effect@3.12.11)(postcss@8.5.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@effect/schema@0.75.5(effect@3.12.11))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(effect@3.12.11)(postcss@8.5.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@dxos/util':
-        specifier: 0.7.5-feature-compute.4d9d99a
-        version: 0.7.5-feature-compute.4d9d99a
+        specifier: 0.7.4
+        version: 0.7.4
       '@effect/schema':
         specifier: ^0.75.5
         version: 0.75.5(effect@3.12.11)
@@ -148,13 +148,13 @@ importers:
         version: 1.1.2(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       vite-plugin-pwa:
         specifier: ^0.21.1
-        version: 0.21.1(vite@5.4.14(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0))(workbox-build@7.3.0(@types/babel__core@7.20.5))(workbox-window@7.3.0)
+        version: 0.21.1(vite@5.4.14(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0))(workbox-build@7.3.0(@types/babel__core@7.20.5))(workbox-window@7.3.0)
       vite-plugin-top-level-await:
         specifier: ^1.4.4
-        version: 1.4.4(@swc/helpers@0.5.15)(rollup@2.79.2)(vite@5.4.14(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0))
+        version: 1.4.4(@swc/helpers@0.5.15)(rollup@2.79.2)(vite@5.4.14(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0))
       vite-plugin-wasm:
         specifier: ^3.4.1
-        version: 3.4.1(vite@5.4.14(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0))
+        version: 3.4.1(vite@5.4.14(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0))
       workbox-core:
         specifier: ^7.3.0
         version: 7.3.0
@@ -176,10 +176,10 @@ importers:
         version: 1.49.1
       '@react-router/dev':
         specifier: ^7.1.5
-        version: 7.1.5(@react-router/serve@7.1.5(react-router@7.1.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(typescript@5.7.3))(@types/node@20.17.18)(babel-plugin-macros@3.1.0)(react-router@7.1.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(sass@1.84.0)(terser@5.39.0)(typescript@5.7.3)(vite@5.4.14(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0))
+        version: 7.1.5(@react-router/serve@7.1.5(react-router@7.1.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(typescript@5.7.3))(@types/node@20.17.18)(babel-plugin-macros@3.1.0)(react-router@7.1.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(sass@1.85.1)(terser@5.39.0)(typescript@5.7.3)(vite@5.4.14(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0))
       '@react-router/remix-routes-option-adapter':
         specifier: ^7.1.5
-        version: 7.1.5(@react-router/dev@7.1.5(@react-router/serve@7.1.5(react-router@7.1.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(typescript@5.7.3))(@types/node@20.17.18)(babel-plugin-macros@3.1.0)(react-router@7.1.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(sass@1.84.0)(terser@5.39.0)(typescript@5.7.3)(vite@5.4.14(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0)))(typescript@5.7.3)
+        version: 7.1.5(@react-router/dev@7.1.5(@react-router/serve@7.1.5(react-router@7.1.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(typescript@5.7.3))(@types/node@20.17.18)(babel-plugin-macros@3.1.0)(react-router@7.1.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(sass@1.85.1)(terser@5.39.0)(typescript@5.7.3)(vite@5.4.14(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0)))(typescript@5.7.3)
       '@storybook/addon-essentials':
         specifier: ^8.5.8
         version: 8.5.8(@types/react@18.3.18)(storybook@8.5.8(prettier@3.5.1))
@@ -200,7 +200,7 @@ importers:
         version: 8.5.8(@storybook/test@8.5.8(storybook@8.5.8(prettier@3.5.1)))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(storybook@8.5.8(prettier@3.5.1))(typescript@5.7.3)
       '@storybook/react-vite':
         specifier: ^8.5.8
-        version: 8.5.8(@storybook/test@8.5.8(storybook@8.5.8(prettier@3.5.1)))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(rollup@2.79.2)(storybook@8.5.8(prettier@3.5.1))(typescript@5.7.3)(vite@5.4.14(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0))
+        version: 8.5.8(@storybook/test@8.5.8(storybook@8.5.8(prettier@3.5.1)))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(rollup@2.79.2)(storybook@8.5.8(prettier@3.5.1))(typescript@5.7.3)(vite@5.4.14(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0))
       '@storybook/test':
         specifier: ^8.5.8
         version: 8.5.8(storybook@8.5.8(prettier@3.5.1))
@@ -275,13 +275,13 @@ importers:
         version: 5.7.3
       vite:
         specifier: ^5.4.11
-        version: 5.4.14(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0)
+        version: 5.4.14(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0)
       vite-tsconfig-paths:
         specifier: ^5.1.4
-        version: 5.1.4(typescript@5.7.3)(vite@5.4.14(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0))
+        version: 5.1.4(typescript@5.7.3)(vite@5.4.14(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0))
       vitest:
         specifier: ^3.0.6
-        version: 3.0.6(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0)
+        version: 3.0.6(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0)
       xo:
         specifier: ^0.58.0
         version: 0.58.0(@types/eslint@9.6.1)(webpack@5.98.0(esbuild@0.21.5))
@@ -317,12 +317,6 @@ packages:
     peerDependencies:
       ajv: '>=8'
 
-  '@atlaskit/pragmatic-drag-and-drop-hitbox@1.0.3':
-    resolution: {integrity: sha512-/Sbu/HqN2VGLYBhnsG7SbRNg98XKkbF6L7XDdBi+izRybfaK1FeMfodPpm/xnBHPJzwYMdkE0qtLyv6afhgMUA==}
-
-  '@atlaskit/pragmatic-drag-and-drop@1.5.0':
-    resolution: {integrity: sha512-VnHcgOBALm+mbL9CoJPI6wBNQeB0is+CkejdfAlaP8RfBoELe+0sQtE8j4Z4fPRqDzo11OEqUYKHkmx4Ttzozg==}
-
   '@babel/code-frame@7.26.2':
     resolution: {integrity: sha512-RJlIHRueQgwWitWgF8OdFYGZX328Ax5BCemNGlqHfplnRT9ESi8JkFlvaVYbS+UubVY6dpv87Fs2u5M29iNFVQ==}
     engines: {node: '>=6.9.0'}
@@ -333,6 +327,10 @@ packages:
 
   '@babel/core@7.26.8':
     resolution: {integrity: sha512-l+lkXCHS6tQEc5oUpK28xBOZ6+HwaH7YwoYQbLFiYb4nS2/l1tKnZEtEWkD0GuiYdvArf9qBS0XlQGXzPMsNqQ==}
+    engines: {node: '>=6.9.0'}
+
+  '@babel/generator@7.26.10':
+    resolution: {integrity: sha512-rRHT8siFIXQrAYOYqZQVsAr8vJ+cBNqcVAY6m5V8/4QqzaPl+zDBe6cLEPRDuNOUf3ww8RfJVlOyQMoSI+5Ang==}
     engines: {node: '>=6.9.0'}
 
   '@babel/generator@7.26.8':
@@ -349,6 +347,12 @@ packages:
 
   '@babel/helper-create-class-features-plugin@7.25.9':
     resolution: {integrity: sha512-UTZQMvt0d/rSz6KI+qdu7GQze5TIajwTS++GUozlw8VBJDEOAqSXwm1WvmYEZwqdqSGQshRocPDqrt4HBZB3fQ==}
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0
+
+  '@babel/helper-create-class-features-plugin@7.26.9':
+    resolution: {integrity: sha512-ubbUqCofvxPRurw5L8WTsCLSkQiVpov4Qx0WMA+jUN+nXBK8ADPlJO1grkFw5CWKC5+sZSOfuGMdX1aI1iT9Sg==}
     engines: {node: '>=6.9.0'}
     peerDependencies:
       '@babel/core': ^7.0.0
@@ -421,6 +425,11 @@ packages:
   '@babel/helpers@7.26.7':
     resolution: {integrity: sha512-8NHiL98vsi0mbPQmYAGWwfcFaOy4j2HY49fXJCfuDcdE7fMIsH9a7GdaeXpIBsbT7307WU8KCMp5pUVDNL4f9A==}
     engines: {node: '>=6.9.0'}
+
+  '@babel/parser@7.26.10':
+    resolution: {integrity: sha512-6aQR2zGE/QFi8JpDLjUZEPYOs7+mhKXm86VaKFiLP35JQwQb6bwUE+XbvkH0EptsYhbNBSUGaUBLKqxH1xSgsA==}
+    engines: {node: '>=6.0.0'}
+    hasBin: true
 
   '@babel/parser@7.26.8':
     resolution: {integrity: sha512-TZIQ25pkSoaKEYYaHbbxkfL36GNsQ6iFiBbeuzAkLnXayKR1yP1zFe+NxuZWWsUyvt8icPU9CCq0sgWGXR1GEw==}
@@ -822,6 +831,10 @@ packages:
     peerDependencies:
       '@babel/core': ^7.0.0-0
 
+  '@babel/runtime@7.26.10':
+    resolution: {integrity: sha512-2WJMeRQPHKSPemqk/awGrAiuFfzBmOIPXKizAsVhWH9YJqLZ0H+HS4c8loHGgW6utJ3E/ejXQUsiGaQy2NZ9Fw==}
+    engines: {node: '>=6.9.0'}
+
   '@babel/runtime@7.26.7':
     resolution: {integrity: sha512-AOPI3D+a8dXnja+iwsUqGRjr1BbZIe771sXdapOtYI531gSqpi92vXivKcq2asu/DFpdl1ceFAKZyRzK2PCVcQ==}
     engines: {node: '>=6.9.0'}
@@ -830,8 +843,20 @@ packages:
     resolution: {integrity: sha512-iNKaX3ZebKIsCvJ+0jd6embf+Aulaa3vNBqZ41kM7iTWjx5qzWKXGHiJUW3+nTpQ18SG11hdF8OAzKrpXkb96Q==}
     engines: {node: '>=6.9.0'}
 
+  '@babel/template@7.26.9':
+    resolution: {integrity: sha512-qyRplbeIpNZhmzOysF/wFMuP9sctmh2cFzRAZOn1YapxBsE1i9bJIY586R/WBLfLcmcBlM8ROBiQURnnNy+zfA==}
+    engines: {node: '>=6.9.0'}
+
+  '@babel/traverse@7.26.10':
+    resolution: {integrity: sha512-k8NuDrxr0WrPH5Aupqb2LCVURP/S0vBEn5mK6iH+GIYob66U5EtoZvcdudR2jQ4cmTwhEwW1DLB+Yyas9zjF6A==}
+    engines: {node: '>=6.9.0'}
+
   '@babel/traverse@7.26.8':
     resolution: {integrity: sha512-nic9tRkjYH0oB2dzr/JoGIm+4Q6SuYeLEiIiZDwBscRMYFJ+tMAz98fuel9ZnbXViA2I0HVSSRRK8DW5fjXStA==}
+    engines: {node: '>=6.9.0'}
+
+  '@babel/types@7.26.10':
+    resolution: {integrity: sha512-emqcG3vHrpxUKTrxcblR36dcrcoRDvKmnL/dCL6ZsHaShW80qxCAcNhzQZrpeM765VzEos+xOi4s+r4IXzTwdQ==}
     engines: {node: '>=6.9.0'}
 
   '@babel/types@7.26.8':
@@ -871,212 +896,212 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@ch-ui/colors@1.0.0':
-    resolution: {integrity: sha512-qjk6z5ydz9fiXHBBl0S4xA0cZPFycsyYJqxSZAuiTmEvlVgYzBeJxWp188awcHZwJtpoew2LCtOkOdpMIEJGog==}
+  '@ch-ui/colors@0.5.1':
+    resolution: {integrity: sha512-/WceiMV3BaLYOaRuZ74BriXphSN8UtFTsrPMeydsmoiYnpUMwJezjKk3VM8YuLfyWhuH3PQGeau/VP+oHgKyEA==}
     engines: {node: '>=20.0.0'}
 
-  '@ch-ui/tailwind-tokens@1.1.0':
-    resolution: {integrity: sha512-WeI9mBz8Y+F5q25hHRZEUzAtRENq+2Ok1476+v1bgjor16EHHz+Uf2XO3gYr1JvJMZ2C4mQYPavGRTNZfJ0mjg==}
+  '@ch-ui/tailwind-tokens@0.5.5':
+    resolution: {integrity: sha512-Fbr/PzdhAjB2UAm/07QMJaWKZZ8ItccZL7uh3qVCKMmXibQ41LI8GIaI/1sqgpWYvj2FleA2Kj9m7HNvhWIBnQ==}
     engines: {node: '>=20.0.0'}
     peerDependencies:
       tailwindcss: 3.x.x
 
-  '@ch-ui/tokens@1.1.0':
-    resolution: {integrity: sha512-zCy8tWbtplHQBXszcwR43xtMPHQdQERP0G9aKa65dE0wETk7VDDPJW7EvL+DaUKDZTOc6VDa3QmEVRbof0p0Hg==}
+  '@ch-ui/tokens@0.5.6':
+    resolution: {integrity: sha512-L+DIoRYLAv1bhIC5e/S991VpQTeoarlaERJmvw46ZHQPWR+DGE4ZSTTsvgBjJ9WdyG0NmEjowZi3jMkYvA1TKg==}
     engines: {node: '>=20.0.0'}
 
-  '@dxos/async@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-izZYCH6O+q4L0j8mchEHRWVjVRzEjusCm8J37sM4tjF+EBqOCql3pmfi8T1SeSjIIGIfpZvG9FVwcZN9pMfccA==}
+  '@dxos/async@0.7.4':
+    resolution: {integrity: sha512-OVOD6AyZhAW7Q8hTsP/ZP5Gy17H1ABUYhvy2BHu+kwX7H6qF6rCmCp58Na2Ih0aLtqD/zwa4UUorbiFXGNe/bA==}
 
   '@dxos/automerge-wasm@0.17.2':
     resolution: {integrity: sha512-n41bQuWHUxLr6ChYpyhiqtbbUbas1mZu8j5HmjbTy/AMKeopiluULzfjnSD+eu5ye6Bl//Tj5fmKT/qb/7lNNQ==}
 
-  '@dxos/automerge@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-jLgLJfHMvZ69eN038xu0GawggI3hJHPleEuzv/pTLIwJw1zipuadew2qjeWj4F7fXO5iXGyPYn7ewin0HWW9Xg==}
+  '@dxos/automerge@0.7.4':
+    resolution: {integrity: sha512-KvUESlKeUtzgGUv1LogxvYI8yKb5qKsLhliEuf5XCHejCzvGbD/gNYI0MPH5bhD7JHIb+9mDjhymD1YuhN/O1w==}
 
-  '@dxos/client-protocol@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-asoUEwzwmFHnvE2z4+69375UVTQ9K+KvlcucB02jgnF99BlZr59Hh8AuR74m1YYHd8c9Q4h3xemMofsWrcXf8w==}
+  '@dxos/client-protocol@0.7.4':
+    resolution: {integrity: sha512-uFqC2xXzbcyHAnFnROjD5+SqN9RitCm/67P6G19UXA0icEvgr67kKbXSRQnAZh4aBJ1D/7TBh+jncgdH79r9eA==}
 
-  '@dxos/client-services@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-YSDR5/cuU7HkCkUTSQvjxqiauTv4TwfPVgsQJ7ECHG2kXwEkR5Fm3858RNHgKlENJfz30TmvoZUiUVm4Ej/9RQ==}
+  '@dxos/client-services@0.7.4':
+    resolution: {integrity: sha512-gTIdguPMzYsV/yRLZ548u5GyTsX7OGcg/EEyEctiwNF2aiisrWvrsUfgmI5sWzWIp5VeuGamQZx3x9n0ePcdBw==}
 
-  '@dxos/client@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-bujS32cuAX5fcVhg9FbfcvFqzs7SZq4mH4usPKFqunrXZlGwD64AYPlmit/4/Kcx5moJIyE4qfV1r4Zn4b1ajA==}
+  '@dxos/client@0.7.4':
+    resolution: {integrity: sha512-mSk2F8wm9tTexRwNws7pJQ4yL7rU4jU9kX8M7g+q5UqrsR3/kFSzuQWluRf7S3aLWiu7DQg1C/zCyA0AHVgeEw==}
     engines: {node: '>=12.0.0'}
 
-  '@dxos/codec-protobuf@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-34hUl0EGx/efpG/mA9fQAorZBi4/EHWDRFKJqyAo4cTzTguGnRsPjSzxJujlgO6CCn3ImHGnZSY7SoJCwjP8vA==}
+  '@dxos/codec-protobuf@0.7.4':
+    resolution: {integrity: sha512-yDQzCza66w19GngOLwiVEJz0d9W/eot2RE4Oye/oUU5rL8xsYQVS83cCDdcTWcixJsiWBExHVgc9nJND5Bcdjw==}
 
-  '@dxos/config@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-MLYy1z8G6B+EozBNQKaFZyGO12C76Z2Qqdw20YlhvUarhu/shByHVkDdIVrH48TAKuPY/FkFCV7aNhsUBNMrTQ==}
+  '@dxos/config@0.7.4':
+    resolution: {integrity: sha512-2+aVeBPHEeqBwfh+SEKzDz1W2tB/onpSNLHQQG5xelMjeZON1moLoGm6+Th1IXpjGLj9LyV56JLv8YxL1CMLPQ==}
 
-  '@dxos/context@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-Y2ZeA+HgiSiI39cQ+sdttAu9Y4LVwKlZ0QF0o0pLWYevdGyiPQM5X4gWJkgLXsloEcYBfSdlvDcV9aw/qsgAsg==}
+  '@dxos/context@0.7.4':
+    resolution: {integrity: sha512-bjUrcQ6D9gD6hbQklkwo7qEhG9rA1tyh6cyJGsycnHBFk7tAHtPPUgDZUnn4IhFBe4t+Rbnu3Xw2OsxvATnjqQ==}
 
-  '@dxos/credentials@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-cWSjaFkXunUPLC+ONP4bGMP11hXmcvcKEL8VgWq/5UEh0kuobtFl7t/p6lhoqjKrTxw3236JCsKe68VQarph2A==}
+  '@dxos/credentials@0.7.4':
+    resolution: {integrity: sha512-WoOMaEc6bm41LpA0Ra8zJ5zrGn4iLPJTUQwsD99bC9jEJqyM0nIsl/hOUpSuWpZWD+g4K+xvcnuIOgEfmrErHQ==}
 
-  '@dxos/crypto@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-oi/uD/tSr4In8Dbnjt3Ee6yNTRuDt82FpEkeJbr/GsYVgBk8ZOQPT7e7DjNahwpO5UAkfXEFGCP6MqtgGVCbug==}
+  '@dxos/crypto@0.7.4':
+    resolution: {integrity: sha512-5m9+IsK4qgAIgO7y4SBU3vsD4mD8V63NqgdDpfBubRZf6olUiGOWAcnNKQKxXYJhNT7Nk0cyoMj3VMNAvfhmDQ==}
 
-  '@dxos/debug@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-n6AUkTukGXghHPU+2ULWEjrv271A8m+kCmGD5CiX5yQ31LGSiAoL/cViypYH9SnuIaLONtkEkUErv0+66gwOEg==}
+  '@dxos/debug@0.7.4':
+    resolution: {integrity: sha512-crP5ejVxK/zTdkcHMmX/JCQXRFFBeo+CNDoeklya5iqGwn1X9Uux4/Jz2HU/OZp6X8G79C+eE4xhT4w5sln1DQ==}
 
-  '@dxos/display-name@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-5P1NzI2IYWS902XPa4tnA1pOlqE2tAjbRCg18DbZFydR/J9zJrWE/sdAy/ALIrMW4bq2oMXN8yOfX8HZ6NN/Rg==}
+  '@dxos/display-name@0.7.4':
+    resolution: {integrity: sha512-TDqNcJmCywIsfH4tqySxygwJxwckXfTFse6/s4vTkmV0VoE3hMiUWItRZR1DgMP9I3FXz00MoBlIdNMXHIbHaQ==}
 
-  '@dxos/echo-db@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-V83Em+DEU8llmmjGgry8HV6PvOGtwy3wqFANTJesxoCOGtwcWyT8IHspIB2kJzuzLU89m4MjjEGs5qcR0eOAUQ==}
+  '@dxos/echo-db@0.7.4':
+    resolution: {integrity: sha512-CDWbxpXZeZ/89tZAnSBeYfyfZ2IVZIF1OiBJzUagTm9nKBFQkmz31tFdSovlO+scRjzsbdfUHiCSu9a5PTEpXw==}
 
-  '@dxos/echo-pipeline@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-2MJQa+m6Z7PqUnzUpGBOv5xkIBEB3PpXD0A1uOtCtrqtkeIUb0z7XnLTKDZkdRP0cDdXZA/CcSwDi8PkqYa4RQ==}
+  '@dxos/echo-pipeline@0.7.4':
+    resolution: {integrity: sha512-IUYZZ41dah/GgvaEvzldumT0QXet246l135I7bvNPjJXgeNMZcif+jQeSlB+OZFIyDH5BL4xAkZ46fHFLK15GQ==}
 
-  '@dxos/echo-protocol@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-ung2RIf2qr5zOZ3CJySk9O7OjQ3GKbqmujVb33fkMvXwSRkV0z+2gEt1bfSxlwKYEbUxEnoR2h9w5EepR674Gg==}
+  '@dxos/echo-protocol@0.7.4':
+    resolution: {integrity: sha512-nQrGhSBzPWn2tnM/d69AEewwnDKZU8AsP/c5jv6iesBs6EVRasCxE1a8viUW7aHwSSqNX07NXiwpV/dsfSXxVA==}
 
-  '@dxos/echo-schema@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-AW4NUf0Eo/Zr0HLU+lPOViHm+D6D3LEXiWZDYmByoG7UKbhR06pS0U9Y4T/Df9rIzTEe6szJFO8y0DZyPfkZjA==}
+  '@dxos/echo-schema@0.7.4':
+    resolution: {integrity: sha512-w3ma0cMx2Ug9RD7VxuX3/bbbSPMLmFypVy7249VSZYcQ2FsXCa/jwrOcx1+F6uK6xaoRJHWna4X/6XRQ3AvAbQ==}
 
-  '@dxos/echo-signals@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-JL5n5YwMCI8vAxRBO9SlmDgImO6JFzN9Y47hnPnMerMTRK9Hrx2zJQUWOIw3u05L+oApbmQ8Sr6osenDaZKPIQ==}
+  '@dxos/echo-signals@0.7.4':
+    resolution: {integrity: sha512-5zmPxRxnGoy7NrAiBmAQaKUWHR1PWysNADW6CnDNQUeis83s+6+T2gx1q8Sy2FJZK8y5eZtbbhJOsZnAv7YDHA==}
 
-  '@dxos/edge-client@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-8uw96hdqx4MuNp2jxSrL5+CheodDsecCh286UDEx3+m4i2p2DGgSvMrXE1qpw5hxRCKxacpCKHjZCOPpQImPSw==}
+  '@dxos/edge-client@0.7.4':
+    resolution: {integrity: sha512-P9T7UAiyDWm5qwk2leO82wPid3czEB1H8b2MiQkBlDn8/jkQYcx41/fMrhbN43yzMCnlOjBPSXfroVNTI3o6NA==}
 
-  '@dxos/effect@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-xXRFIvXPzu4LXXF7TbRnaJJ1u3vF5KK3g7f6m0mwrB3jThiexlbujzoPGhZqO5yhR6TA4kQ4zsMnc1AkcT5egw==}
+  '@dxos/effect@0.7.4':
+    resolution: {integrity: sha512-NnfjBRC8/diAIOWqoye1oSh0ieeGCID3cDBSbwVQokWEj2+d4w3VAhwH5iLDI28xerwlrvBvzfBhYLsCqUahMQ==}
     peerDependencies:
       '@effect/schema': ^0.75.5
-      effect: ^3.12.3
+      effect: ^3.9.2
 
-  '@dxos/feed-store@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-oIXXek+VpaG4qNWfOpZvrHXGVUbO7lFJklY9tDDMj5Lz4PnxsYbd/624SneWK2r3Wtafnp9fdd/T60veE2DXug==}
+  '@dxos/feed-store@0.7.4':
+    resolution: {integrity: sha512-XnqFZD02m97hJSFXA9u8LDiSyMWVmm10g7M7kQvLTHYfTMdvp5WVoP2Yg37yiuBC3wUdybON8GLKQ5/4WTqBEA==}
 
-  '@dxos/hypercore@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-ylMrwKH18N9IX+R4H2bhGKR9vrxe+/YFaJiO1nCWniOzluKa+n9nAd27+ftOx0R3EfxhSOVWi3jmG+m+U/aX2w==}
+  '@dxos/hypercore@0.7.4':
+    resolution: {integrity: sha512-4Ayrvtf8c5hDWzetSTt3mQoB6bBtNW/UYwC1bJEul5xkIZyIjQqsaBWP1Pted1V2OajvT+afEa/QjobVK2oOxw==}
 
-  '@dxos/indexing@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-Xv2/cHDsyBPX35Cp0Rtoi698GGhh+cQlTs/77kp6vsTavBQnVVuDkeXttnE5nfNU9srigwsW1drOT7PhZZpIww==}
+  '@dxos/indexing@0.7.4':
+    resolution: {integrity: sha512-/tZ9uFzjFrUEwbvSUf1CvFxsdB2aW00AasKo2jCdGyQVW8QYqGQG/MzUJAKdA0onxe9ImG8LDC0Wqy8+VUybGw==}
 
-  '@dxos/invariant@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-syKdTJ7uu5Rk0IzVi9hODL4CoMzAVW2dw15pcpPd1afSH9eFOZyws4t2IXHFrNIsI2182AT4+B6KxC27iZBwuw==}
+  '@dxos/invariant@0.7.4':
+    resolution: {integrity: sha512-js6HNocsd6qAqlCmvKuiAL+Otjw84SKT3XvNwERCKHedvUGniKa/W9RmJTB35Hv87wAzn0Nwpn72qZaEuVCWCg==}
 
-  '@dxos/keyring@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-oEMCaI1OrLfbKtXGaZ2JpYe07jWDlXlPmqFt0tMnFGVnWJk/bLLmGza+4gNdwNmZAenBNMqOMVBDWUDjtOdh5A==}
+  '@dxos/keyring@0.7.4':
+    resolution: {integrity: sha512-vXEF6uSGtW4htMNM3ay411nfCz1W2F7SdM0OLWM8ahqeFSMkdWr84tSvzUSJXqPQEqnUqQuXrJv0GN9l1HtmQw==}
 
-  '@dxos/keys@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-QHaU9GRDeuEpskDRxcms3yP5FypFHjmgw4ZOORLe5U95NJW5VEqHlpOpvhB7hdzY3Wc8zOLt5I1PxLj187no2Q==}
+  '@dxos/keys@0.7.4':
+    resolution: {integrity: sha512-dIPBQVKa/U71jng5M3LIk10kBPlgIxYueG68li0IpwN3bY25bRx666YlhA50XBpvfgqw8dSEl7a62T4nDnt2vA==}
 
-  '@dxos/kv-store@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-xrhZx2+Rwvn9TnBfNXRsu+YWfMgTVBj0VlnzWfxYxAR8H0H29Wpwz2QCo2/QIxfp3iQRCgL4Q/1OGd+N+1LBmw==}
+  '@dxos/kv-store@0.7.4':
+    resolution: {integrity: sha512-0tu6LOQv67mU9nt6C8Vl/SvX1UXXabKGq6SPJFgHku/vHiIGrbgccJIWfdN7So+iuAQE5nUjfWF7csshIp6AcA==}
 
-  '@dxos/live-object@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-ygatQ6Llw4hszbESuAyqya8uSwzaf19pD3CEm6Ui2e60PseRg5RGQ7UF2QrNM658dRiRspvyPBnpVKmzJuDwhA==}
+  '@dxos/live-object@0.7.4':
+    resolution: {integrity: sha512-iT1xhtoRmGaxWFdNUPIMKZ+RdUfZL4dWxT8YTTFeiOoJCR47BUonj80rKi/NUMr3lFYY8hNFt+xjlgFe142NcQ==}
 
-  '@dxos/lock-file@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-zYMoxeeBQ8aA/YEqigDt19tPjbpOmC/D3HU4Jpg6d/DI26NeilrWDFoAl1SvjTKxJoIq+Buvd3UBiIJjl7TL1g==}
+  '@dxos/lock-file@0.7.4':
+    resolution: {integrity: sha512-dS99PHvlLbuhjb/vOfjzfQaSVF7fN2flKDn8XJ/aPAPGxlw6SvMLcuc3inRImTPLaNcEkqpM65RQe9cMrNRkEg==}
 
-  '@dxos/log@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-fv8ITSESl3OqlZNSK3Bfti/8z8CKqx8vrOMYxRGpMVQ9vZs2UbY78Pr32eCL8WKXpqJKJgfz4KqirMFMmKnxiQ==}
+  '@dxos/log@0.7.4':
+    resolution: {integrity: sha512-hClfXYOezeWjOOQ5IilJ2ezziN83kzjrYiwuZ/SQPwD5JycYjo6E0lNhoknQJjzn9rw1L47ItcIF49/3nU6lCg==}
 
-  '@dxos/messaging@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-cVz539yEt5GBjPVR2pwJhxZLS3Taiy+qYEIKGZAaUKpdSMN6jb9M2gejXoRM3dFNE4J4VAc0QSqx6yq5jJcxag==}
+  '@dxos/messaging@0.7.4':
+    resolution: {integrity: sha512-Fuq+lx3u6GqPJ5US++bqK9dHKIA9ExajPGK5GuH+gHwiO98lP2lehJ5piS9xgTP5DdV0swQBoqMgO60CfuTiDA==}
 
-  '@dxos/network-manager@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-MQ3ky92eAfYZhEVnrvI19VdT2dKY6H61DR5xsWzvwbOZzwN6+ivus8BGKVnYashTMzgMLMa7r8Qr9ViFBFaZnQ==}
+  '@dxos/network-manager@0.7.4':
+    resolution: {integrity: sha512-16FbghW7sfzAQ0Bdh9T8EjpNU6zSqVJ33MS8mq3Ury4DYeU3HXtP7ZqzmQuGazgAxv1QG/nyIal+BKJK9HRCMQ==}
 
-  '@dxos/node-std@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-LJSVEsHGfyxYldZEQanQg1wvXMaY9MjkVuxYpjD0eXPRI5m9nITybiCLjHOiaQrNCFS9KoN5KowgiJg3OGqwPg==}
+  '@dxos/node-std@0.7.4':
+    resolution: {integrity: sha512-UtJg47jM+unTxQMn7ut5MAr46pUEc8CmrV2tk4W6NKiqZ2hDjr3thgA/Gz/uq2d6+6wy6njdVOYgDaowUk0xsg==}
 
-  '@dxos/protocols@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-SzDCS5ellsupy5Setmk/+8V2GNkRMcXiozmUdxiWeaYqxnsL+gb5XtUEQfO3/RaC5V7UZsWUp8/67Bm6JLgLcg==}
+  '@dxos/protocols@0.7.4':
+    resolution: {integrity: sha512-XZSZbI/3Ez9d6SzKpKYtLfmVxkvpJzBW6YJlF1SnOHhtHfg5SvafekwR8xF8LgY8bvt+WpxQyeWiMwTE9DD/aA==}
 
-  '@dxos/random-access-storage@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-ycYjgIQbcmJDyDfKvnYWV+fGEG78me05/ITcm/QLQKBsrX+c+yXmTFZeNrmoYOtZ1uiwRQ92bI1T4xyARl15Fw==}
+  '@dxos/random-access-storage@0.7.4':
+    resolution: {integrity: sha512-ksXAYlg9BkdhCkmdk0dcCFIQb576701lTA49OVeKgskJgspNTIacmK8PEA+rEju9TbdclJiQJZ1C0njruz6QKQ==}
 
-  '@dxos/random@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-i+wQQaS4G1f4MWU7qTs8HbLeS1XPaI4MEphI4jepbbaSynJAUZjZv8Y1alN3dtw8ji1eCMwVE77TZXq/6GIy3w==}
+  '@dxos/random@0.7.4':
+    resolution: {integrity: sha512-NK4TjNbBIs3U58Qt1zVA0b2u80iRjfNBWIEz4gfGyzwLkAoK3GeJz/weHkE0PcbYTLJxWhK6f6V3VsMXr33g2A==}
 
-  '@dxos/react-client@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-YRtzjMMs3pwWcmmjB++xh7309P9uwMqa3qdzWNhFc8h/RA00g1XNspNS0DF9fWVSKaQrrk58tb6C5gu1HjzPtQ==}
+  '@dxos/react-client@0.7.4':
+    resolution: {integrity: sha512-WubPN5mGDBuYc0OMLEJZTZKWlqOrIZmZbSYtywXoNobWsq1V8vv4pTXPjhR8so95fwT2vk00G5tS4wC8b7tsJw==}
     peerDependencies:
       react: ~18.2.0
       react-dom: ~18.2.0
 
-  '@dxos/react-hooks@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-iiXlEbnQDDpL3V3yyxxT8RF5P6RshcixXZgx0qei8w5hFvz5oTYBD3hEPuq4SPmtMKKiDuO9nWHWC+BqRUnfUQ==}
+  '@dxos/react-hooks@0.7.4':
+    resolution: {integrity: sha512-vUCILl4p00bouIbYGPe8759OPL16g6JpKNb+ClcWtsHg9qw9iTcTF9xqAy6J9BeKAE5GrwEnkB8wY71T1OqT3Q==}
     peerDependencies:
       react: ~18.2.0
       react-dom: ~18.2.0
 
-  '@dxos/react-input@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-AhFTprePtTqBvqxIa8tpqvvYBGCOQG/4UFUslIqRmfbs+mC54L8jpyzlZwLekzphpWG/FujRzXqkML7K2CYAeg==}
+  '@dxos/react-input@0.7.4':
+    resolution: {integrity: sha512-69cJ0bPBmctxqxpYTSs4IXPDOTNLRPkkbRSvB+qsxtIqeLfwA1UXzZdWVmKrlHNpUc5KIieJ8nuWFyIQN3zgCg==}
     peerDependencies:
       react: ~18.2.0
       react-dom: ~18.2.0
 
-  '@dxos/react-list@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-MuRFapVsHBYzaDcypSPK8a6hYQRCzhbhteBCBwf22uf+kVbHghowI+DU/CMlzqI6MJAEjzgYMaEE5gbfdSiH5g==}
+  '@dxos/react-list@0.7.4':
+    resolution: {integrity: sha512-2cP7STgtno6QqnKcEu2a5SobkqgCgeDJrrndy9nQXMAfOQCFrQYC0CAHELyQhRclOXacMLVHCLSZtko9bGwrYg==}
     peerDependencies:
       react: ~18.2.0
       react-dom: ~18.2.0
 
-  '@dxos/react-ui-theme@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-EsDCDoyJ8MYFFt/SiCTjYJzf03xBUQgZUA+nQamYWcvcbn4XQw/y2jAHPik7m0DnAm3ItHSLNrrScUzM4kBdRg==}
+  '@dxos/react-ui-theme@0.7.4':
+    resolution: {integrity: sha512-Cc02IiSNFnekxNiJ0rdmBbBjqZcJaJwUNtp2LjTIqMQr3f0Spg2yJPfLmFcdqtkiMxgP5NzELOKtBb3lemnlMQ==}
 
-  '@dxos/react-ui-types@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-r1HWFiLtvbPFvGgbJSeD8eqZRkseP9eU4eqiA6i6J7DjRRvByZ4rcqThFkIY0V9/A6mjvN2WD+xvrC/tsh8NRQ==}
+  '@dxos/react-ui-types@0.7.4':
+    resolution: {integrity: sha512-SpcLb3wPXk873J8JqWSWFPHLejbblMx+D320jlO2xyIhqeQZNvzj1hTC2KI4748dAS4mTG14JdiIOCxHt7AeqQ==}
 
-  '@dxos/react-ui@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-1hFKRSqI80oLpBRVQQ1GLn54fXUXhqYkfmRYOXCCf8OvX8+xwlZ376foLblSk8C362i5CmcJtKDVWl+o2lSKAg==}
+  '@dxos/react-ui@0.7.4':
+    resolution: {integrity: sha512-ZUm/4vbe9LBDS3jOUH5EStvlVRh2DDaWzb9RjM2rfkhYbgvQMVO+lq39QvOYxTIMAuncSstz8TWRhsixXBI0Ag==}
     peerDependencies:
-      '@dxos/react-ui-theme': 0.7.5-feature-compute.4d9d99a
+      '@dxos/react-ui-theme': 0.7.4
       '@phosphor-icons/react': ^2.1.5
       react: ~18.2.0
       react-dom: ~18.2.0
 
-  '@dxos/rpc-tunnel@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-3ZNA7DpyVuPEOVmYAIGFq4bcCtKq19pWbm1zfcUJFzrs6biLHj8Y8TMtxXZOXp/0CFCfbZ57MEVbDpluhMwF2Q==}
+  '@dxos/rpc-tunnel@0.7.4':
+    resolution: {integrity: sha512-P54F7g9R0FO3mII2bYWG6Pt5J3OuY1BoGViPdqlLs6aGKedtx91ok7kTt0Lzxa/wrA54KZrMUtZYjW8LWx+zZg==}
 
-  '@dxos/rpc@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-f1GbZfUa8eUR9muW2cqQZyd6nzkbbPJc113vi70yLYEb1EjD6ajGFyn97HJhe4ZmiiDKPjMQNGcBfk3t+WLDxg==}
+  '@dxos/rpc@0.7.4':
+    resolution: {integrity: sha512-SXZLZrPJpRn+8wfTFpRf2obFcnOLvHTW0QtSPdl8cnoCVRw9atGZhthFMZ/7etwdDKJEObGf+lm8QdmppKAu/w==}
 
-  '@dxos/shell@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-0zyYWY/tGSmD7Wqor6ONlITKuNSce+emoKOP1qnclIK1W3ixd5t4fXt+RFlIecK1tRdq4dQpSxalSn0dxE7jlA==}
+  '@dxos/shell@0.7.4':
+    resolution: {integrity: sha512-z1namV7E55Cs2ia4t31i+Yf9GP8YJsfh5KMEeUkbgEjcvKT6cudh4W/amRji4jhQeF3b7yNbPlgSAvEebbSgng==}
     peerDependencies:
-      '@dxos/react-client': 0.7.5-feature-compute.4d9d99a
+      '@dxos/react-client': 0.7.4
       react: ~18.2.0
       react-dom: ~18.2.0
 
-  '@dxos/teleport-extension-automerge-replicator@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-dxQWycQYf1V+LVRtgjTBcr0bdCkIm9qZOqlvApL6/r7ZpFq/OWAudb7YHVCJ862TvmwVMk2hVmGwMHUxBLjgvg==}
+  '@dxos/teleport-extension-automerge-replicator@0.7.4':
+    resolution: {integrity: sha512-CwePPt0leSwLXPDSBJQ5Egprn89pupHYlhYepIoG6S44/UHW+0djyobjq/66UMOpbEehML92LOwBzQYIhaz95A==}
 
-  '@dxos/teleport-extension-gossip@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-FaxbUJHNYqs1OLpbb24ym+Gza94lwmRJVi4tFw5P/ygS0woM4+XPYPWK+soma3TBIDjfgAS/NemigalU5yagHA==}
+  '@dxos/teleport-extension-gossip@0.7.4':
+    resolution: {integrity: sha512-rkqEOpZJrxak1b6l6ayc1QGa8QZsw7MVYNOh6MMBHO7xzg5O9ueKX/2X/ajX7QQRFHMTBFNocA4HyKT6C0zIJQ==}
 
-  '@dxos/teleport-extension-object-sync@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-gB8wQdYSzBJliGaSF6lKAUE+HX3Re2JJqnXkZ4egu+fxQKSzg513amvLQq/5lSlwuwig1SCFE0IYd+oVq9nONw==}
+  '@dxos/teleport-extension-object-sync@0.7.4':
+    resolution: {integrity: sha512-+ynwpPdmh8PWVoO6N+NDIgIhYskMMCTz9ZiUYxXOw0PdxlVAkn1uYWP5MbuJ/w9o74zml4vjJqZtZ5vGiIYxDw==}
 
-  '@dxos/teleport-extension-replicator@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-Z1G2+hWXsU+XXF81+og/fJgRGZpZUqB8drLYsTiz5/5cfIr7TzH7jQBx8NfSVNA7P3ms4oMJMGp52M5jmM22aQ==}
+  '@dxos/teleport-extension-replicator@0.7.4':
+    resolution: {integrity: sha512-PpXmViMaRuSarlbBVY89OeoIKsol3vHBkErB1Vo1TuqRnDTKaej/qBDo3oHlTcgL0lpno4BLwXbAWoJYn7tycQ==}
 
-  '@dxos/teleport@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-VEKpZDFKooseDlTc9EGH5qqMRdqDOEXB7/XCwA9smhE+L7khdlAHcHFQsN+GKcAMH9NsQ0JwT1HZvqwS8aEjzg==}
+  '@dxos/teleport@0.7.4':
+    resolution: {integrity: sha512-zicQvO12G57izl9UexlhCNYm0MJiKhIsZXLFNkw2SpYzAkg0pSCG74iNP1mVjXBvAyTVTQWSJcEwgm9NUrrrEw==}
 
-  '@dxos/timeframe@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-DDuJOr4pu2z4Byn0l951r3yDF1+IdLc975FA8G2wSfzAi8it8/4jBuDZVREr9bxqRmCHUiTyvCByJLT4Lo8vqg==}
+  '@dxos/timeframe@0.7.4':
+    resolution: {integrity: sha512-RU1wgTUXepduUw3i7vT58aiYc9/HFILoengikjXXvEz300Usnx9ES8QOog4MMSHdukhX5dUEnULya447t9Ffmw==}
 
-  '@dxos/tracing@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-sWif2zq8xMgqEJucmiGhoe1XDrbvyoANjlWp3Qfla2e83qC7Z5V1T104bPqM0vu6GoHzkk0HgO9VwV/i/JQWgQ==}
+  '@dxos/tracing@0.7.4':
+    resolution: {integrity: sha512-oLgy5WqzS8QyvFg02zUlPi5HcnEmswCyX5P7jCXmblTOU0kU+KxpuMhu5SX9kxRU97m8D+/N9e7ZojKbuEzb4g==}
 
-  '@dxos/typings@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-AxMZUE2CqRWa6t7LseE3lTyD3gnAA11G0kLCDgFqHwPXJrhRhWsg3cLoOY5LcgX7snme/J5PuHgaMHIvLb19EA==}
+  '@dxos/typings@0.7.4':
+    resolution: {integrity: sha512-8+5xkY6wHrViy+p7BPVLGzsLX9H0fUNi8M9UylW2lYIzB6ZfXdAXV0rKQr7m3/vCIQm+iAZFeKnQk0aiFMPTdw==}
 
-  '@dxos/util@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-O1kUjZnt+5AvNFkUjY/XGFx1jlq6IH4FR4c2QMhVXWab16hm9tjuOdnYEKOMNnWPtFwTmQEnakziIxV3hHXzbQ==}
+  '@dxos/util@0.7.4':
+    resolution: {integrity: sha512-6eAi7bhk+tvo2YMwg7PhogIjzJXU5ms40/x/+Sv5oxdIaN3U9LahGUdfowXZp7m1ND6svu6Hnl4WJEzRwTQl1g==}
 
-  '@dxos/websocket-rpc@0.7.5-feature-compute.4d9d99a':
-    resolution: {integrity: sha512-5Vt+fNsWJ3ayi2Um92pR+iG1VcWDbE27r0cLuyv7h6jNHegxMPNVbmM9fhUHaaMn4sbmoJxz+c+VTBm1TO3rPQ==}
+  '@dxos/websocket-rpc@0.7.4':
+    resolution: {integrity: sha512-GXNchccBALeTY1sCtSwuJ+r4ZX3MFA6QGCQbVUHmQuRvAayO6Lu7mfxHBzVjHCFBicsMPpUl6QIUHOcAeqhxxA==}
 
   '@effect/schema@0.75.5':
     resolution: {integrity: sha512-TQInulTVCuF+9EIbJpyLP6dvxbQJMphrnRqgexm/Ze39rSjfhJuufF7XvU3SxTgg3HnL7B/kpORTJbHhlE6thw==}
@@ -1279,14 +1304,14 @@ packages:
   '@fluentui/keyboard-keys@9.0.8':
     resolution: {integrity: sha512-iUSJUUHAyTosnXK8O2Ilbfxma+ZyZPMua5vB028Ys96z80v+LFwntoehlFsdH3rMuPsA8GaC1RE7LMezwPBPdw==}
 
-  '@fluentui/react-shared-contexts@9.21.2':
-    resolution: {integrity: sha512-5hw9CfCmKaEbxmFi+ZF4EZzYWFKrfRLq9pXFIoJWprP1D3ZAds/ymtIOG/CsJzig8zQ1LQ3cNSUzNB75XWg6IQ==}
+  '@fluentui/react-shared-contexts@9.22.0':
+    resolution: {integrity: sha512-bElZ5019bIENCsa2oaiqOj1nAbcXnRDCk1p/TrotghGpnfLlxMiE0wgcmDoyVxxdmx3cCQYWBX7DJw8dK54c/g==}
     peerDependencies:
       '@types/react': '>=16.14.0 <19.0.0'
       react: '>=16.14.0 <19.0.0'
 
-  '@fluentui/react-tabster@9.23.3':
-    resolution: {integrity: sha512-sGLePr6QmUbYq/rGkaE6MUTRCFucY5HphKEvWoB8ec32btQmAsMlv9YT5BzJ+YQ2Byc39mm1Uthz/Pw5H+tCpA==}
+  '@fluentui/react-tabster@9.24.1':
+    resolution: {integrity: sha512-sDh6PCGcsZQsDgK8tstXnWmcQo4rhkAv3PC0GPBg0HkvFPZ+TwXGkuJ+9itVpRq+QljBMSgj/30swwg11aiJGA==}
     peerDependencies:
       '@types/react': '>=16.14.0 <19.0.0'
       '@types/react-dom': '>=16.9.0 <19.0.0'
@@ -1296,8 +1321,8 @@ packages:
   '@fluentui/react-theme@9.1.24':
     resolution: {integrity: sha512-OhVKYD7CMYHxzJEn4PtIszledj8hbQJNWBMfIZsp4Sytdp9vCi0txIQUx4BhS1WqtQPhNGCF16eW9Q3NRrnIrQ==}
 
-  '@fluentui/react-utilities@9.18.20':
-    resolution: {integrity: sha512-4uIgf4e4yP1HWAQapFQKNN88+L88NqbzXyQPf+NWE9lmP5xRyyMePKRX7i4PcJFdSt7lN4BYvwUxJ7DkQ/Npnw==}
+  '@fluentui/react-utilities@9.18.21':
+    resolution: {integrity: sha512-R7WDPhqfRyi0z9rhI5q9YGdS+kB2QGJwPHR5u0pkvO6uPVgd8TLFL9m3O97hm9ENy9jt007DJwUOyYIdlwhsEg==}
     peerDependencies:
       '@types/react': '>=16.14.0 <19.0.0'
       react: '>=16.14.0 <19.0.0'
@@ -3055,6 +3080,9 @@ packages:
   '@types/node@20.17.18':
     resolution: {integrity: sha512-9kS0opXVV3dJ+C7HPhXfDlOdMu4cjJSZhlSxlDK39IxVRxBbuiYjCkLYSO9d5UYqTd4DApxRK9T1xJiTAkfA0w==}
 
+  '@types/node@20.17.24':
+    resolution: {integrity: sha512-d7fGCyB96w9BnWQrOsJtpyiSaBcAYYr75bnK6ZRjDbql2cGLj/3GsL5OYmLPNq76l7Gf2q4Rv9J2o6h5CrD9sA==}
+
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
 
@@ -3312,6 +3340,11 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
+  acorn@8.14.1:
+    resolution: {integrity: sha512-OvQ/2pUDKmgfCg++xsTX1wGxfTaszcHVcTctW4UJB4hibJx2HXxxO5UmVgyjMa+ZDsiaf5wWLXYpRWMmBI0QHg==}
+    engines: {node: '>=0.4.0'}
+    hasBin: true
+
   aggregate-error@3.1.0:
     resolution: {integrity: sha512-4I7Td01quW/RpocfNayFdFVk1qSuoh0E7JrbRJ16nH01HhKFQ88INq9Sd+nd72zqRySlr9BmDA8xlEJ6vJMrYA==}
     engines: {node: '>=8'}
@@ -3457,8 +3490,8 @@ packages:
     resolution: {integrity: sha512-+q/t7Ekv1EDY2l6Gda6LLiX14rU9TV20Wa3ofeQmwPFZbOMo9DXrLbOjFaaclkXKWidIaopwAObQDqwWtGUjqg==}
     engines: {node: '>= 4.0.0'}
 
-  autoprefixer@10.4.20:
-    resolution: {integrity: sha512-XY25y5xSv/wEoqzDyXXME4AFfkZI0P23z6Fs3YgymDnKJkCGOnkL0iTxCa85UTqaSgfcqyf3UA6+c7wUvx/16g==}
+  autoprefixer@10.4.21:
+    resolution: {integrity: sha512-O+A6LWV5LDHSJD3LjHYoNi4VLsj/Whi7k6zG12xTYaU4cQ8oxQGckXNX8cRHK5yOZ/ppVHe0ZBXGzSV9jXdVbQ==}
     engines: {node: ^10 || ^12 || >=14}
     hasBin: true
     peerDependencies:
@@ -3499,11 +3532,11 @@ packages:
   bare-events@2.5.4:
     resolution: {integrity: sha512-+gFfDkR8pj4/TrWCGUGWmJIkBwuxPS5F+a5yWjOHQt2hHvNZd5YLzadjmDUtFmMM4y429bnKLa8bYBMHcYdnQA==}
 
-  base-x@3.0.10:
-    resolution: {integrity: sha512-7d0s06rR9rYaIWHkpfLIFICM/tkSVdoPC9qYAQRpxn9DdKNWNsKC0uk++akckyLq16Tx2WIinnZ6WRriAt6njQ==}
+  base-x@3.0.11:
+    resolution: {integrity: sha512-xz7wQ8xDhdyP7tQxwdteLYeFfS68tSMNCZ/Y37WJ4bhGfKPpqEIlmIyueQHqOyoPhE6xNUqjzRr8ra0eF9VRvA==}
 
-  base-x@4.0.0:
-    resolution: {integrity: sha512-FuwxlW4H5kh37X/oW59pwTzzTKRzfrrQwhmyspRM7swOEZcHtDZSCt45U6oKgtuFE+WYPblePMVIPR4RZrh/hw==}
+  base-x@4.0.1:
+    resolution: {integrity: sha512-uAZ8x6r6S3aUM9rbHGVOIsR15U/ZSc82b3ymnCPsT45Gk1DDvhDPdIgB5MrhirZWt+5K0EEPQH985kNqZgNPFw==}
 
   base64-js@1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
@@ -3519,9 +3552,6 @@ packages:
   binary-extensions@2.3.0:
     resolution: {integrity: sha512-Ceh+7ox5qe7LJuLHoY0feh3pHuUDHAcRUeyL2VYghZwfpkNIy/+8Ocg0a3UuSoYzavmylwuLWQOf3hl0jjMMIw==}
     engines: {node: '>=8'}
-
-  bind-event-listener@3.0.0:
-    resolution: {integrity: sha512-PJvH288AWQhKs2v9zyfYdPzlPqf5bXbGMmhmUIY9x4dAUGIWgomO771oBQNwJnMQSnUIXhKu6sgzpBRXTlvb8Q==}
 
   bip39@3.1.0:
     resolution: {integrity: sha512-c9kiwdk45Do5GL0vJMe7tS95VjCii65mYAH7DfWl3uW8AVzXKQVUm64i3hzVybBDMp9r7j9iNxR85+ul8MdN/A==}
@@ -3621,6 +3651,10 @@ packages:
     resolution: {integrity: sha512-YTd+6wGlNlPxSuri7Y6X8tY2dmm12UMH66RpKMhiX6rsk5wXXnYgbUcOt8kiS31/AjfoTOvCsE+w8nZQLQnzHA==}
     engines: {node: '>= 0.4'}
 
+  call-bound@1.0.4:
+    resolution: {integrity: sha512-+ys997U96po4Kx/ABpBCqhA9EuxJaQWDQg7295H4hBphv3IZg0boBKuwYpt4YXp6MZ5AmZQnU/tyMTlRpaSejg==}
+    engines: {node: '>= 0.4'}
+
   callsites@3.1.0:
     resolution: {integrity: sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==}
     engines: {node: '>=6'}
@@ -3635,6 +3669,9 @@ packages:
 
   caniuse-lite@1.0.30001699:
     resolution: {integrity: sha512-b+uH5BakXZ9Do9iK+CkDmctUSEqZl+SP056vc5usa0PL+ev5OHw003rZXcnjNDv3L8P5j6rwT6C0BPKSikW08w==}
+
+  caniuse-lite@1.0.30001703:
+    resolution: {integrity: sha512-kRlAGTRWgPsOj7oARC9m1okJEXdL/8fekFVcxA8Hl7GH4r/sN4OJn/i6Flde373T50KS7Y37oFbMwlE8+F42kQ==}
 
   catering@2.1.1:
     resolution: {integrity: sha512-K7Qy8O9p76sL3/3m7/zLKbRkyOlSZAgzEaLhyj2mXS8PsCud2Eo4hAb8aLtZqHh0QGqLcb9dlJSu6lHRVENm1w==}
@@ -3787,6 +3824,9 @@ packages:
 
   core-js-compat@3.40.0:
     resolution: {integrity: sha512-0XEDpr5y5mijvw8Lbc6E5AkjrHfp7eEoPlu36SWeAbcL8fn1G1ANe8DBlo2XoNN89oVpxWwOjYIPVzR4ZvsKCQ==}
+
+  core-js-compat@3.41.0:
+    resolution: {integrity: sha512-RFsU9LySVue9RTwdDVX/T0e2Y6jRYWXERKElIjpuEOEnxaXffI0X7RUwVzfYLfzuLXSNJDYoRYUAmRUcyln20A==}
 
   core-util-is@1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
@@ -4445,6 +4485,9 @@ packages:
   fastq@1.19.0:
     resolution: {integrity: sha512-7SFSRCNjBQIZH/xZR3iy5iQYR8aGBE0h3VG6/cwlbrpdciNYBMotQav8c1XI3HjHH+NikUpP53nPdlZSdWmFzA==}
 
+  fastq@1.19.1:
+    resolution: {integrity: sha512-GwLTyxkCXjXbxqIhTsMI2Nui8huMPtnxg7krajPJAjnEG/iiOS7i+zCtWGZR9G0NBKbXKh6X9m9UIsYX/N6vvQ==}
+
   fdir@6.4.3:
     resolution: {integrity: sha512-PMXmW2y1hDDfTSRc9gaXIuCCRpuoz3Kaz8cUelp3smouvfT632ozg2vrT6lJsHKKOF59YLbOGfAWGUcKEfRMQw==}
     peerDependencies:
@@ -4589,6 +4632,10 @@ packages:
 
   get-intrinsic@1.2.7:
     resolution: {integrity: sha512-VW6Pxhsrk0KAOqs3WEd0klDiF/+V7gQOpAvY1jVU/LHmaD/kQO4523aiJuikX/QAKYiW6x8Jh+RJej1almdtCA==}
+    engines: {node: '>= 0.4'}
+
+  get-intrinsic@1.3.0:
+    resolution: {integrity: sha512-9fSjSaos/fRIVIp+xSJlE6lfwhES7LNtKaCBIamHsjr2na1BiABJPo0mOjjz8GJDURarmCPGqaiVg5mfjb98CQ==}
     engines: {node: '>= 0.4'}
 
   get-nonce@1.0.1:
@@ -5112,6 +5159,11 @@ packages:
     engines: {node: '>=6'}
     hasBin: true
 
+  jsesc@3.1.0:
+    resolution: {integrity: sha512-/sM3dO2FOzXjKQhJuo0Q173wf2KOo8t4I8vHy6lF9poUp7bKT0/NHE8fPX23PwfhnykfqnC2xRxOnVw5XuGIaA==}
+    engines: {node: '>=6'}
+    hasBin: true
+
   json-buffer@3.0.1:
     resolution: {integrity: sha512-4bV5BfR2mqfQTJm+V5tPPdf+ZpuhiIvTuAB5g8kcrXOZpTT/QwwVRWBywX1ozr6lEuPdbHxwaJlm9G6mI2sfSQ==}
 
@@ -5293,8 +5345,8 @@ packages:
     resolution: {integrity: sha512-i24m8rpwhmPIS4zscNzK6MSEhk0DUWa/8iYQWxhffV8jkI4Phvs3F+quL5xvS0gdQR0FyTCMMH33Y78dDTzzIw==}
     engines: {node: '>=18'}
 
-  long@5.3.0:
-    resolution: {integrity: sha512-5vvY5yF1zF/kXk+L94FRiTDa1Znom46UjPCH6/XbSvS8zBKMFBHTJk8KDMqJ+2J6QezQFi7k1k8v21ClJYHPaw==}
+  long@5.3.1:
+    resolution: {integrity: sha512-ka87Jz3gcx/I7Hal94xaN2tZEOPoUOEVftkQqZx2EeQRN7LGdfLlI3FvZ+7WDplm+vK2Urx9ULrvSowtdCieng==}
 
   loose-envify@1.4.0:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
@@ -5461,8 +5513,8 @@ packages:
   mz@2.7.0:
     resolution: {integrity: sha512-z81GNO7nnYMEhrGh9LeymoE4+Yr0Wn5McHIZMK5cfQCl+NDX08sCZgUc9/6MHni9IWuFLm1Z3HTCXu2z9fN62Q==}
 
-  nan@2.22.0:
-    resolution: {integrity: sha512-nbajikzWTMwsW+eSsNm3QwlOs7het9gGJU5dDZzRTQGk03vyBOauxgI4VakDzE0PtsGTmXPsXTbbjVhRwR5mpw==}
+  nan@2.22.2:
+    resolution: {integrity: sha512-DANghxFkS1plDdRsX0X9pm0Z6SJNN6gBdtXfanwoZ8hooC5gosGFSBGRYHUVPz1asKA/kMRqDRdHrluZ61SpBQ==}
 
   nanoassert@2.0.0:
     resolution: {integrity: sha512-7vO7n28+aYO4J+8w96AzhmU8G+Y/xpPDJz/se19ICsqj/momRbb9mh9ZUtkoJ5X3nTnPdhEJyc0qnM6yAsHBaA==}
@@ -5475,6 +5527,11 @@ packages:
 
   nanoid@3.3.8:
     resolution: {integrity: sha512-WNLf5Sd8oZxOm+TzppcYk8gVOgP+l58xNy58D0nbUnOxOWRWvlcCV4kUF7ltmI6PsrLl/BgKEyS4mqsGChFN0w==}
+    engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
+    hasBin: true
+
+  nanoid@3.3.9:
+    resolution: {integrity: sha512-SppoicMGpZvbF1l3z4x7No3OlIjP7QJvC9XR7AhZr1kL133KHnKPztkKDc+Ir4aJ/1VhTySrtKhrsycmrMQfvg==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
@@ -5864,12 +5921,6 @@ packages:
     peerDependencies:
       postcss: ^8.0.0
 
-  postcss-import@16.1.0:
-    resolution: {integrity: sha512-7hsAZ4xGXl4MW+OKEWCnF6T5jqBw80/EE9aXg1r2yyn1RsVEU8EtKXbijEODa+rg7iih4bKf7vlvTGYR4CnPNg==}
-    engines: {node: '>=18.0.0'}
-    peerDependencies:
-      postcss: ^8.0.0
-
   postcss-js@4.0.1:
     resolution: {integrity: sha512-dDLF8pEO191hJMtlHFPRa8xsizHaM82MLfNkUHdUtVEV3tgTp5oj+8qbEqYM57SLfc74KSbw//4SeJma2LRVIw==}
     engines: {node: ^12 || ^14 || >= 16}
@@ -5956,8 +6007,12 @@ packages:
     resolution: {integrity: sha512-MjOadfU3Ys9KYoX0AdkBlFEF1Vx37uCCeN4ZHnmwm9FfpbsGWMZeBLMmmpY+6Ocqod7mkdZ0DT31OlbsFrLlkA==}
     engines: {node: ^10 || ^12 || >=14}
 
-  preact@10.25.4:
-    resolution: {integrity: sha512-jLdZDb+Q+odkHJ+MpW/9U5cODzqnB+fy2EiHSZES7ldV5LK7yjlVzTp7R8Xy6W6y75kfK8iWYtFVH7lvjwrCMA==}
+  postcss@8.5.3:
+    resolution: {integrity: sha512-dle9A3yYxlBSrt8Fu+IpjGT8SY8hN0mlaA6GY8t0P5PjIOZemULz/E2Bnm/2dcUOena75OTNkHI76uZBNUUq3A==}
+    engines: {node: ^10 || ^12 || >=14}
+
+  preact@10.26.4:
+    resolution: {integrity: sha512-KJhO7LBFTjP71d83trW+Ilnjbo+ySsaAgCfXOXUlmGzJ4ygYPWmysm77yg4emwfmoz3b22yvH5IsVFHbhUaH5w==}
 
   prebuild-install@7.1.3:
     resolution: {integrity: sha512-8Mf2cbV7x1cXPUILADGI3wuhfqWvtiLA1iclTDbFRZkgRQS0NqsPZphna9V+HyTEadheuPmjaJMsbzKQFOzLug==}
@@ -6125,9 +6180,6 @@ packages:
 
   race-as-promised@0.0.2:
     resolution: {integrity: sha512-7BLWiZMSVJDxMTT/QUuEEdd/f/pYDkusGvU0p3NUCDAc6HSlhPpvRS42/GmK79p3Kw4aDA+l+sD8wNpxQdOYTQ==}
-
-  raf-schd@4.0.3:
-    resolution: {integrity: sha512-tQkJl2GRWh83ui2DiPTJz9wEiMN20syf+5oKfB03yYP7ioZcJwsIK8FjrtLwH1m7C7e+Tt2yYBlrOpdT+dyeIQ==}
 
   random-access-file@2.2.1:
     resolution: {integrity: sha512-RGU0xmDqdOyEiynob1KYSeh8+9c9Td1MJ74GT1viMEYAn8SJ9oBtWCXLsYZukCF46yududHOdM449uRYbzBrZQ==}
@@ -6408,6 +6460,10 @@ packages:
     resolution: {integrity: sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==}
     engines: {iojs: '>=1.0.0', node: '>=0.10.0'}
 
+  reusify@1.1.0:
+    resolution: {integrity: sha512-g6QUff04oZpHs0eG5p83rFLhHeV00ug/Yf9nZM6fLeUrPguBTkTQOdpAWWspMh55TZfVQDPaN3NQJfbVRAxdIw==}
+    engines: {iojs: '>=1.0.0', node: '>=0.10.0'}
+
   rimraf@3.0.2:
     resolution: {integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==}
     deprecated: Rimraf versions prior to v4 are no longer supported
@@ -6453,8 +6509,8 @@ packages:
   safer-buffer@2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
 
-  sass@1.84.0:
-    resolution: {integrity: sha512-XDAbhEPJRxi7H0SxrnOpiXFQoUJHwkR2u3Zc4el+fK/Tt5Hpzw5kkQ59qVDfvdaUq6gCrEZIbySFBM2T9DNKHg==}
+  sass@1.85.1:
+    resolution: {integrity: sha512-Uk8WpxM5v+0cMR0XjX9KfRIacmSG86RH4DCCZjLU2rFh5tyutt9siAXJ7G+YfxQ99Q6wrRMbMlVl6KqUms71ag==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -6795,8 +6851,8 @@ packages:
   tabbable@6.2.0:
     resolution: {integrity: sha512-Cat63mxsVJlzYvN51JmVXIgNoUokrIaT2zLclCXjRd8boZ0004U4KCs/sToJ75C6sdlByWxpYnb5Boif1VSFew==}
 
-  tabster@8.4.1:
-    resolution: {integrity: sha512-jO4TlMZ4SdXDsHoJFeDa2zPFzrHQkVE0QOix5PbN6h7DpuUnlQjB6qUgZ5Rko4ATll1zLBpV3N9OitMNU8/AXA==}
+  tabster@8.5.1:
+    resolution: {integrity: sha512-lhiSbjQH1C3JIyWJdp1opMlkPp9xgvzsEU10ImzFHx3ghA1ELPPUXbU0v6Vuh/9EhHeGdq+w1cweqdM7dBB/OA==}
 
   tailwind-merge@2.6.0:
     resolution: {integrity: sha512-P+Vu1qXfzediirmHOC3xKGAYeZtPcV9g76X+xg2FD4tYgR71ewMA35Y3sCz3zhiN/dwefRpJX0yBcgwi1fXNQA==}
@@ -6853,8 +6909,8 @@ packages:
     resolution: {integrity: sha512-G13vtMYPT/J8A4X2SjdtBTphZlrp1gKv6hZiOjw14RCWg6GbHuQBGtjlx75xLbYV/wEc0D7G5K4rxKP/cXk8Bw==}
     engines: {node: '>=10'}
 
-  terser-webpack-plugin@5.3.11:
-    resolution: {integrity: sha512-RVCsMfuD0+cTt3EwX8hSl2Ks56EbFHWmhluwcqoPKtBnfjiT6olaq7PRIRfhyU8nnC2MrnDrBLfrD/RGE+cVXQ==}
+  terser-webpack-plugin@5.3.14:
+    resolution: {integrity: sha512-vkZjpUjb6OMS7dhV+tILUW6BhpDR7P2L/aQSAv+Uwk+m8KATX9EccViHTJR2qDtACKPIYndLGCyl3FMo+r2LMw==}
     engines: {node: '>= 10.13.0'}
     peerDependencies:
       '@swc/core': '*'
@@ -7534,6 +7590,18 @@ packages:
       utf-8-validate:
         optional: true
 
+  ws@8.18.1:
+    resolution: {integrity: sha512-RKW2aJZMXeMxVpnZ6bck+RswznaxmzdULiBr6KY7XkTnW8uvt0iT9H5DkHUChXrc+uurzwa0rVI16n/Xzjdz1w==}
+    engines: {node: '>=10.0.0'}
+    peerDependencies:
+      bufferutil: ^4.0.1
+      utf-8-validate: '>=5.0.2'
+    peerDependenciesMeta:
+      bufferutil:
+        optional: true
+      utf-8-validate:
+        optional: true
+
   xo@0.58.0:
     resolution: {integrity: sha512-0mTj/U2m+sTa5zh9WGfuHN09D38mj0jJfCs7Py2VGXkfK55ShclpWSYLEusciuBIlfaKaVxfSsqLnuzNTvsKHg==}
     engines: {node: '>=18'}
@@ -7624,19 +7692,6 @@ snapshots:
       jsonpointer: 5.0.1
       leven: 3.1.0
 
-  '@atlaskit/pragmatic-drag-and-drop-hitbox@1.0.3':
-    dependencies:
-      '@atlaskit/pragmatic-drag-and-drop': 1.5.0
-      '@babel/runtime': 7.26.7
-    optional: true
-
-  '@atlaskit/pragmatic-drag-and-drop@1.5.0':
-    dependencies:
-      '@babel/runtime': 7.26.7
-      bind-event-listener: 3.0.0
-      raf-schd: 4.0.3
-    optional: true
-
   '@babel/code-frame@7.26.2':
     dependencies:
       '@babel/helper-validator-identifier': 7.25.9
@@ -7665,6 +7720,14 @@ snapshots:
       semver: 6.3.1
     transitivePeerDependencies:
       - supports-color
+
+  '@babel/generator@7.26.10':
+    dependencies:
+      '@babel/parser': 7.26.10
+      '@babel/types': 7.26.10
+      '@jridgewell/gen-mapping': 0.3.8
+      '@jridgewell/trace-mapping': 0.3.25
+      jsesc: 3.1.0
 
   '@babel/generator@7.26.8':
     dependencies:
@@ -7695,6 +7758,19 @@ snapshots:
       '@babel/helper-replace-supers': 7.26.5(@babel/core@7.26.8)
       '@babel/helper-skip-transparent-expression-wrappers': 7.25.9
       '@babel/traverse': 7.26.8
+      semver: 6.3.1
+    transitivePeerDependencies:
+      - supports-color
+
+  '@babel/helper-create-class-features-plugin@7.26.9(@babel/core@7.26.8)':
+    dependencies:
+      '@babel/core': 7.26.8
+      '@babel/helper-annotate-as-pure': 7.25.9
+      '@babel/helper-member-expression-to-functions': 7.25.9
+      '@babel/helper-optimise-call-expression': 7.25.9
+      '@babel/helper-replace-supers': 7.26.5(@babel/core@7.26.8)
+      '@babel/helper-skip-transparent-expression-wrappers': 7.25.9
+      '@babel/traverse': 7.26.10
       semver: 6.3.1
     transitivePeerDependencies:
       - supports-color
@@ -7751,7 +7827,7 @@ snapshots:
       '@babel/core': 7.26.8
       '@babel/helper-annotate-as-pure': 7.25.9
       '@babel/helper-wrap-function': 7.25.9
-      '@babel/traverse': 7.26.8
+      '@babel/traverse': 7.26.10
     transitivePeerDependencies:
       - supports-color
 
@@ -7779,9 +7855,9 @@ snapshots:
 
   '@babel/helper-wrap-function@7.25.9':
     dependencies:
-      '@babel/template': 7.26.8
-      '@babel/traverse': 7.26.8
-      '@babel/types': 7.26.8
+      '@babel/template': 7.26.9
+      '@babel/traverse': 7.26.10
+      '@babel/types': 7.26.10
     transitivePeerDependencies:
       - supports-color
 
@@ -7789,6 +7865,10 @@ snapshots:
     dependencies:
       '@babel/template': 7.26.8
       '@babel/types': 7.26.8
+
+  '@babel/parser@7.26.10':
+    dependencies:
+      '@babel/types': 7.26.10
 
   '@babel/parser@7.26.8':
     dependencies:
@@ -7798,7 +7878,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.26.8
       '@babel/helper-plugin-utils': 7.26.5
-      '@babel/traverse': 7.26.8
+      '@babel/traverse': 7.26.10
     transitivePeerDependencies:
       - supports-color
 
@@ -7825,7 +7905,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.26.8
       '@babel/helper-plugin-utils': 7.26.5
-      '@babel/traverse': 7.26.8
+      '@babel/traverse': 7.26.10
     transitivePeerDependencies:
       - supports-color
 
@@ -7874,7 +7954,7 @@ snapshots:
       '@babel/core': 7.26.8
       '@babel/helper-plugin-utils': 7.26.5
       '@babel/helper-remap-async-to-generator': 7.25.9(@babel/core@7.26.8)
-      '@babel/traverse': 7.26.8
+      '@babel/traverse': 7.26.10
     transitivePeerDependencies:
       - supports-color
 
@@ -7900,7 +7980,7 @@ snapshots:
   '@babel/plugin-transform-class-properties@7.25.9(@babel/core@7.26.8)':
     dependencies:
       '@babel/core': 7.26.8
-      '@babel/helper-create-class-features-plugin': 7.25.9(@babel/core@7.26.8)
+      '@babel/helper-create-class-features-plugin': 7.26.9(@babel/core@7.26.8)
       '@babel/helper-plugin-utils': 7.26.5
     transitivePeerDependencies:
       - supports-color
@@ -7908,7 +7988,7 @@ snapshots:
   '@babel/plugin-transform-class-static-block@7.26.0(@babel/core@7.26.8)':
     dependencies:
       '@babel/core': 7.26.8
-      '@babel/helper-create-class-features-plugin': 7.25.9(@babel/core@7.26.8)
+      '@babel/helper-create-class-features-plugin': 7.26.9(@babel/core@7.26.8)
       '@babel/helper-plugin-utils': 7.26.5
     transitivePeerDependencies:
       - supports-color
@@ -7920,7 +8000,7 @@ snapshots:
       '@babel/helper-compilation-targets': 7.26.5
       '@babel/helper-plugin-utils': 7.26.5
       '@babel/helper-replace-supers': 7.26.5(@babel/core@7.26.8)
-      '@babel/traverse': 7.26.8
+      '@babel/traverse': 7.26.10
       globals: 11.12.0
     transitivePeerDependencies:
       - supports-color
@@ -7929,7 +8009,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.26.8
       '@babel/helper-plugin-utils': 7.26.5
-      '@babel/template': 7.26.8
+      '@babel/template': 7.26.9
 
   '@babel/plugin-transform-destructuring@7.25.9(@babel/core@7.26.8)':
     dependencies:
@@ -7981,7 +8061,7 @@ snapshots:
       '@babel/core': 7.26.8
       '@babel/helper-compilation-targets': 7.26.5
       '@babel/helper-plugin-utils': 7.26.5
-      '@babel/traverse': 7.26.8
+      '@babel/traverse': 7.26.10
     transitivePeerDependencies:
       - supports-color
 
@@ -8027,7 +8107,7 @@ snapshots:
       '@babel/helper-module-transforms': 7.26.0(@babel/core@7.26.8)
       '@babel/helper-plugin-utils': 7.26.5
       '@babel/helper-validator-identifier': 7.25.9
-      '@babel/traverse': 7.26.8
+      '@babel/traverse': 7.26.10
     transitivePeerDependencies:
       - supports-color
 
@@ -8096,7 +8176,7 @@ snapshots:
   '@babel/plugin-transform-private-methods@7.25.9(@babel/core@7.26.8)':
     dependencies:
       '@babel/core': 7.26.8
-      '@babel/helper-create-class-features-plugin': 7.25.9(@babel/core@7.26.8)
+      '@babel/helper-create-class-features-plugin': 7.26.9(@babel/core@7.26.8)
       '@babel/helper-plugin-utils': 7.26.5
     transitivePeerDependencies:
       - supports-color
@@ -8105,7 +8185,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.26.8
       '@babel/helper-annotate-as-pure': 7.25.9
-      '@babel/helper-create-class-features-plugin': 7.25.9(@babel/core@7.26.8)
+      '@babel/helper-create-class-features-plugin': 7.26.9(@babel/core@7.26.8)
       '@babel/helper-plugin-utils': 7.26.5
     transitivePeerDependencies:
       - supports-color
@@ -8264,7 +8344,7 @@ snapshots:
       babel-plugin-polyfill-corejs2: 0.4.12(@babel/core@7.26.8)
       babel-plugin-polyfill-corejs3: 0.11.1(@babel/core@7.26.8)
       babel-plugin-polyfill-regenerator: 0.6.3(@babel/core@7.26.8)
-      core-js-compat: 3.40.0
+      core-js-compat: 3.41.0
       semver: 6.3.1
     transitivePeerDependencies:
       - supports-color
@@ -8273,7 +8353,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.26.8
       '@babel/helper-plugin-utils': 7.26.5
-      '@babel/types': 7.26.8
+      '@babel/types': 7.26.10
       esutils: 2.0.3
 
   '@babel/preset-typescript@7.26.0(@babel/core@7.26.8)':
@@ -8287,6 +8367,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  '@babel/runtime@7.26.10':
+    dependencies:
+      regenerator-runtime: 0.14.1
+
   '@babel/runtime@7.26.7':
     dependencies:
       regenerator-runtime: 0.14.1
@@ -8296,6 +8380,24 @@ snapshots:
       '@babel/code-frame': 7.26.2
       '@babel/parser': 7.26.8
       '@babel/types': 7.26.8
+
+  '@babel/template@7.26.9':
+    dependencies:
+      '@babel/code-frame': 7.26.2
+      '@babel/parser': 7.26.10
+      '@babel/types': 7.26.10
+
+  '@babel/traverse@7.26.10':
+    dependencies:
+      '@babel/code-frame': 7.26.2
+      '@babel/generator': 7.26.10
+      '@babel/parser': 7.26.10
+      '@babel/template': 7.26.9
+      '@babel/types': 7.26.10
+      debug: 4.4.0
+      globals: 11.12.0
+    transitivePeerDependencies:
+      - supports-color
 
   '@babel/traverse@7.26.8':
     dependencies:
@@ -8308,6 +8410,11 @@ snapshots:
       globals: 11.12.0
     transitivePeerDependencies:
       - supports-color
+
+  '@babel/types@7.26.10':
+    dependencies:
+      '@babel/helper-string-parser': 7.25.9
+      '@babel/helper-validator-identifier': 7.25.9
 
   '@babel/types@7.26.8':
     dependencies:
@@ -8334,37 +8441,37 @@ snapshots:
   '@cbor-extract/cbor-extract-win32-x64@2.2.0':
     optional: true
 
-  '@ch-ui/colors@1.0.0':
+  '@ch-ui/colors@0.5.1':
     dependencies:
       colorjs: colorjs.io@0.5.2
     optional: true
 
-  '@ch-ui/tailwind-tokens@1.1.0(tailwindcss@3.4.17)':
+  '@ch-ui/tailwind-tokens@0.5.5(tailwindcss@3.4.17)':
     dependencies:
-      '@ch-ui/tokens': 1.1.0
+      '@ch-ui/tokens': 0.5.6
       tailwindcss: 3.4.17
     optional: true
 
-  '@ch-ui/tokens@1.1.0':
+  '@ch-ui/tokens@0.5.6':
     dependencies:
-      '@ch-ui/colors': 1.0.0
-      postcss: 8.5.2
+      '@ch-ui/colors': 0.5.1
+      postcss: 8.5.3
     optional: true
 
-  '@dxos/async@0.7.5-feature-compute.4d9d99a':
+  '@dxos/async@0.7.4':
     dependencies:
-      '@dxos/context': 0.7.5-feature-compute.4d9d99a
-      '@dxos/debug': 0.7.5-feature-compute.4d9d99a
-      '@dxos/invariant': 0.7.5-feature-compute.4d9d99a
-      '@dxos/log': 0.7.5-feature-compute.4d9d99a
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
-      '@dxos/util': 0.7.5-feature-compute.4d9d99a
+      '@dxos/context': 0.7.4
+      '@dxos/debug': 0.7.4
+      '@dxos/invariant': 0.7.4
+      '@dxos/log': 0.7.4
+      '@dxos/node-std': 0.7.4
+      '@dxos/util': 0.7.4
       zen-observable: 0.10.0
       zen-push: 0.3.1
 
   '@dxos/automerge-wasm@0.17.2': {}
 
-  '@dxos/automerge@0.7.5-feature-compute.4d9d99a':
+  '@dxos/automerge@0.7.4':
     dependencies:
       '@automerge/automerge-wasm': '@dxos/automerge-wasm@0.17.2'
       bs58check: 3.0.1
@@ -8372,73 +8479,73 @@ snapshots:
       debug: 4.4.0
       eventemitter3: 5.0.1
       fast-sha256: 1.3.0
-      isomorphic-ws: 5.0.0(ws@8.18.0)
+      isomorphic-ws: 5.0.0(ws@8.18.1)
       uuid: 9.0.1
-      ws: 8.18.0
+      ws: 8.18.1
       xstate: 5.19.2
     transitivePeerDependencies:
       - bufferutil
       - supports-color
       - utf-8-validate
 
-  '@dxos/client-protocol@0.7.5-feature-compute.4d9d99a(effect@3.12.11)':
+  '@dxos/client-protocol@0.7.4(effect@3.12.11)':
     dependencies:
-      '@dxos/async': 0.7.5-feature-compute.4d9d99a
-      '@dxos/config': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/context': 0.7.5-feature-compute.4d9d99a
-      '@dxos/credentials': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/echo-db': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))
-      '@dxos/echo-schema': 0.7.5-feature-compute.4d9d99a
-      '@dxos/invariant': 0.7.5-feature-compute.4d9d99a
-      '@dxos/keys': 0.7.5-feature-compute.4d9d99a
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
-      '@dxos/protocols': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/rpc': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/async': 0.7.4
+      '@dxos/config': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/context': 0.7.4
+      '@dxos/credentials': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/echo-db': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))
+      '@dxos/echo-schema': 0.7.4
+      '@dxos/invariant': 0.7.4
+      '@dxos/keys': 0.7.4
+      '@dxos/node-std': 0.7.4
+      '@dxos/protocols': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/rpc': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
       '@effect/schema': 0.75.5(effect@3.12.11)
-      base-x: 3.0.10
+      base-x: 3.0.11
     transitivePeerDependencies:
       - bufferutil
       - effect
       - supports-color
       - utf-8-validate
 
-  '@dxos/client-services@0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
+  '@dxos/client-services@0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
     dependencies:
-      '@dxos/async': 0.7.5-feature-compute.4d9d99a
-      '@dxos/automerge': 0.7.5-feature-compute.4d9d99a
-      '@dxos/client-protocol': 0.7.5-feature-compute.4d9d99a(effect@3.12.11)
-      '@dxos/codec-protobuf': 0.7.5-feature-compute.4d9d99a
-      '@dxos/config': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/context': 0.7.5-feature-compute.4d9d99a
-      '@dxos/credentials': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/crypto': 0.7.5-feature-compute.4d9d99a
-      '@dxos/debug': 0.7.5-feature-compute.4d9d99a
-      '@dxos/echo-db': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))
-      '@dxos/echo-pipeline': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/echo-protocol': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/echo-schema': 0.7.5-feature-compute.4d9d99a
-      '@dxos/edge-client': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/feed-store': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/indexing': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/invariant': 0.7.5-feature-compute.4d9d99a
-      '@dxos/keyring': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/keys': 0.7.5-feature-compute.4d9d99a
-      '@dxos/kv-store': 0.7.5-feature-compute.4d9d99a
-      '@dxos/lock-file': 0.7.5-feature-compute.4d9d99a
-      '@dxos/log': 0.7.5-feature-compute.4d9d99a
-      '@dxos/messaging': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/network-manager': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
-      '@dxos/protocols': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/random-access-storage': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/rpc': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/teleport': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/teleport-extension-gossip': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/teleport-extension-object-sync': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/timeframe': 0.7.5-feature-compute.4d9d99a
-      '@dxos/tracing': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/util': 0.7.5-feature-compute.4d9d99a
-      '@dxos/websocket-rpc': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/async': 0.7.4
+      '@dxos/automerge': 0.7.4
+      '@dxos/client-protocol': 0.7.4(effect@3.12.11)
+      '@dxos/codec-protobuf': 0.7.4
+      '@dxos/config': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/context': 0.7.4
+      '@dxos/credentials': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/crypto': 0.7.4
+      '@dxos/debug': 0.7.4
+      '@dxos/echo-db': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))
+      '@dxos/echo-pipeline': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/echo-protocol': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/echo-schema': 0.7.4
+      '@dxos/edge-client': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/feed-store': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/indexing': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/invariant': 0.7.4
+      '@dxos/keyring': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/keys': 0.7.4
+      '@dxos/kv-store': 0.7.4
+      '@dxos/lock-file': 0.7.4
+      '@dxos/log': 0.7.4
+      '@dxos/messaging': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/network-manager': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/node-std': 0.7.4
+      '@dxos/protocols': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/random-access-storage': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/rpc': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/teleport': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/teleport-extension-gossip': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/teleport-extension-object-sync': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/timeframe': 0.7.4
+      '@dxos/tracing': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/util': 0.7.4
+      '@dxos/websocket-rpc': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
       cbor-x: 1.6.0
       platform: 1.3.6
     transitivePeerDependencies:
@@ -8448,41 +8555,41 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@dxos/client@0.7.5-feature-compute.4d9d99a(effect@3.12.11)':
+  '@dxos/client@0.7.4(effect@3.12.11)':
     dependencies:
-      '@dxos/async': 0.7.5-feature-compute.4d9d99a
-      '@dxos/automerge': 0.7.5-feature-compute.4d9d99a
-      '@dxos/client-protocol': 0.7.5-feature-compute.4d9d99a(effect@3.12.11)
-      '@dxos/client-services': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/codec-protobuf': 0.7.5-feature-compute.4d9d99a
-      '@dxos/config': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/context': 0.7.5-feature-compute.4d9d99a
-      '@dxos/credentials': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/crypto': 0.7.5-feature-compute.4d9d99a
-      '@dxos/debug': 0.7.5-feature-compute.4d9d99a
-      '@dxos/echo-db': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))
-      '@dxos/echo-pipeline': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/echo-protocol': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/echo-schema': 0.7.5-feature-compute.4d9d99a
-      '@dxos/indexing': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/invariant': 0.7.5-feature-compute.4d9d99a
-      '@dxos/keys': 0.7.5-feature-compute.4d9d99a
-      '@dxos/kv-store': 0.7.5-feature-compute.4d9d99a
-      '@dxos/live-object': 0.7.5-feature-compute.4d9d99a
-      '@dxos/log': 0.7.5-feature-compute.4d9d99a
-      '@dxos/messaging': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/network-manager': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
-      '@dxos/protocols': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/random-access-storage': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/rpc': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/rpc-tunnel': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/timeframe': 0.7.5-feature-compute.4d9d99a
-      '@dxos/tracing': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/util': 0.7.5-feature-compute.4d9d99a
-      '@dxos/websocket-rpc': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/async': 0.7.4
+      '@dxos/automerge': 0.7.4
+      '@dxos/client-protocol': 0.7.4(effect@3.12.11)
+      '@dxos/client-services': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/codec-protobuf': 0.7.4
+      '@dxos/config': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/context': 0.7.4
+      '@dxos/credentials': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/crypto': 0.7.4
+      '@dxos/debug': 0.7.4
+      '@dxos/echo-db': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))
+      '@dxos/echo-pipeline': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/echo-protocol': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/echo-schema': 0.7.4
+      '@dxos/indexing': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/invariant': 0.7.4
+      '@dxos/keys': 0.7.4
+      '@dxos/kv-store': 0.7.4
+      '@dxos/live-object': 0.7.4
+      '@dxos/log': 0.7.4
+      '@dxos/messaging': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/network-manager': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/node-std': 0.7.4
+      '@dxos/protocols': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/random-access-storage': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/rpc': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/rpc-tunnel': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/timeframe': 0.7.4
+      '@dxos/tracing': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/util': 0.7.4
+      '@dxos/websocket-rpc': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
       '@effect/schema': 0.75.5(effect@3.12.11)
-      base-x: 3.0.10
+      base-x: 3.0.11
       jwt-decode: 4.0.0
       lodash.get: 4.4.2
       lodash.isequal: 4.5.0
@@ -8494,25 +8601,25 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@dxos/codec-protobuf@0.7.5-feature-compute.4d9d99a':
+  '@dxos/codec-protobuf@0.7.4':
     dependencies:
-      '@dxos/async': 0.7.5-feature-compute.4d9d99a
-      '@dxos/context': 0.7.5-feature-compute.4d9d99a
-      '@dxos/invariant': 0.7.5-feature-compute.4d9d99a
-      '@dxos/log': 0.7.5-feature-compute.4d9d99a
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
-      '@dxos/util': 0.7.5-feature-compute.4d9d99a
+      '@dxos/async': 0.7.4
+      '@dxos/context': 0.7.4
+      '@dxos/invariant': 0.7.4
+      '@dxos/log': 0.7.4
+      '@dxos/node-std': 0.7.4
+      '@dxos/util': 0.7.4
       compress-json: 2.1.3
       lodash.merge: 4.6.2
       protobufjs: 7.4.0
 
-  '@dxos/config@0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
+  '@dxos/config@0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
     dependencies:
-      '@dxos/log': 0.7.5-feature-compute.4d9d99a
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
-      '@dxos/protocols': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/tracing': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/util': 0.7.5-feature-compute.4d9d99a
+      '@dxos/log': 0.7.4
+      '@dxos/node-std': 0.7.4
+      '@dxos/protocols': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/tracing': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/util': 0.7.4
       boolean: 3.2.0
       js-yaml: 4.1.0
       localforage: 1.10.0
@@ -8523,68 +8630,68 @@ snapshots:
       - '@effect/schema'
       - effect
 
-  '@dxos/context@0.7.5-feature-compute.4d9d99a':
+  '@dxos/context@0.7.4':
     dependencies:
-      '@dxos/debug': 0.7.5-feature-compute.4d9d99a
-      '@dxos/log': 0.7.5-feature-compute.4d9d99a
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
-      '@dxos/util': 0.7.5-feature-compute.4d9d99a
+      '@dxos/debug': 0.7.4
+      '@dxos/log': 0.7.4
+      '@dxos/node-std': 0.7.4
+      '@dxos/util': 0.7.4
 
-  '@dxos/credentials@0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
+  '@dxos/credentials@0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
     dependencies:
-      '@dxos/async': 0.7.5-feature-compute.4d9d99a
-      '@dxos/context': 0.7.5-feature-compute.4d9d99a
-      '@dxos/crypto': 0.7.5-feature-compute.4d9d99a
-      '@dxos/invariant': 0.7.5-feature-compute.4d9d99a
-      '@dxos/keyring': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/keys': 0.7.5-feature-compute.4d9d99a
-      '@dxos/log': 0.7.5-feature-compute.4d9d99a
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
-      '@dxos/protocols': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/timeframe': 0.7.5-feature-compute.4d9d99a
-      '@dxos/util': 0.7.5-feature-compute.4d9d99a
+      '@dxos/async': 0.7.4
+      '@dxos/context': 0.7.4
+      '@dxos/crypto': 0.7.4
+      '@dxos/invariant': 0.7.4
+      '@dxos/keyring': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/keys': 0.7.4
+      '@dxos/log': 0.7.4
+      '@dxos/node-std': 0.7.4
+      '@dxos/protocols': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/timeframe': 0.7.4
+      '@dxos/util': 0.7.4
       bip39: 3.1.0
       json-stable-stringify: 1.2.1
     transitivePeerDependencies:
       - '@effect/schema'
       - effect
 
-  '@dxos/crypto@0.7.5-feature-compute.4d9d99a':
+  '@dxos/crypto@0.7.4':
     dependencies:
-      '@dxos/invariant': 0.7.5-feature-compute.4d9d99a
-      '@dxos/keys': 0.7.5-feature-compute.4d9d99a
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
+      '@dxos/invariant': 0.7.4
+      '@dxos/keys': 0.7.4
+      '@dxos/node-std': 0.7.4
       hypercore-crypto: 2.3.2
 
-  '@dxos/debug@0.7.5-feature-compute.4d9d99a':
+  '@dxos/debug@0.7.4':
     dependencies:
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
+      '@dxos/node-std': 0.7.4
 
-  '@dxos/display-name@0.7.5-feature-compute.4d9d99a': {}
+  '@dxos/display-name@0.7.4': {}
 
-  '@dxos/echo-db@0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))':
+  '@dxos/echo-db@0.7.4(@effect/schema@0.75.5(effect@3.12.11))':
     dependencies:
-      '@dxos/async': 0.7.5-feature-compute.4d9d99a
-      '@dxos/automerge': 0.7.5-feature-compute.4d9d99a
-      '@dxos/codec-protobuf': 0.7.5-feature-compute.4d9d99a
-      '@dxos/context': 0.7.5-feature-compute.4d9d99a
-      '@dxos/crypto': 0.7.5-feature-compute.4d9d99a
-      '@dxos/debug': 0.7.5-feature-compute.4d9d99a
-      '@dxos/echo-pipeline': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/echo-protocol': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/echo-schema': 0.7.5-feature-compute.4d9d99a
-      '@dxos/echo-signals': 0.7.5-feature-compute.4d9d99a
-      '@dxos/edge-client': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/invariant': 0.7.5-feature-compute.4d9d99a
-      '@dxos/keys': 0.7.5-feature-compute.4d9d99a
-      '@dxos/kv-store': 0.7.5-feature-compute.4d9d99a
-      '@dxos/live-object': 0.7.5-feature-compute.4d9d99a
-      '@dxos/log': 0.7.5-feature-compute.4d9d99a
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
-      '@dxos/protocols': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/teleport': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/tracing': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/util': 0.7.5-feature-compute.4d9d99a
+      '@dxos/async': 0.7.4
+      '@dxos/automerge': 0.7.4
+      '@dxos/codec-protobuf': 0.7.4
+      '@dxos/context': 0.7.4
+      '@dxos/crypto': 0.7.4
+      '@dxos/debug': 0.7.4
+      '@dxos/echo-pipeline': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/echo-protocol': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/echo-schema': 0.7.4
+      '@dxos/echo-signals': 0.7.4
+      '@dxos/edge-client': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/invariant': 0.7.4
+      '@dxos/keys': 0.7.4
+      '@dxos/kv-store': 0.7.4
+      '@dxos/live-object': 0.7.4
+      '@dxos/log': 0.7.4
+      '@dxos/node-std': 0.7.4
+      '@dxos/protocols': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/teleport': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/tracing': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/util': 0.7.4
       effect: 3.12.11
       eventemitter3: 5.0.1
       lodash.get: 4.4.2
@@ -8595,40 +8702,40 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@dxos/echo-pipeline@0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
+  '@dxos/echo-pipeline@0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
     dependencies:
-      '@dxos/async': 0.7.5-feature-compute.4d9d99a
-      '@dxos/automerge': 0.7.5-feature-compute.4d9d99a
-      '@dxos/codec-protobuf': 0.7.5-feature-compute.4d9d99a
-      '@dxos/context': 0.7.5-feature-compute.4d9d99a
-      '@dxos/credentials': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/crypto': 0.7.5-feature-compute.4d9d99a
-      '@dxos/debug': 0.7.5-feature-compute.4d9d99a
-      '@dxos/echo-protocol': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/echo-schema': 0.7.5-feature-compute.4d9d99a
-      '@dxos/edge-client': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/feed-store': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/hypercore': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/indexing': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/invariant': 0.7.5-feature-compute.4d9d99a
-      '@dxos/keyring': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/keys': 0.7.5-feature-compute.4d9d99a
-      '@dxos/kv-store': 0.7.5-feature-compute.4d9d99a
-      '@dxos/log': 0.7.5-feature-compute.4d9d99a
-      '@dxos/messaging': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/network-manager': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
-      '@dxos/protocols': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/random-access-storage': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/teleport': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/teleport-extension-automerge-replicator': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/teleport-extension-gossip': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/teleport-extension-object-sync': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/teleport-extension-replicator': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/timeframe': 0.7.5-feature-compute.4d9d99a
-      '@dxos/tracing': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/typings': 0.7.5-feature-compute.4d9d99a
-      '@dxos/util': 0.7.5-feature-compute.4d9d99a
+      '@dxos/async': 0.7.4
+      '@dxos/automerge': 0.7.4
+      '@dxos/codec-protobuf': 0.7.4
+      '@dxos/context': 0.7.4
+      '@dxos/credentials': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/crypto': 0.7.4
+      '@dxos/debug': 0.7.4
+      '@dxos/echo-protocol': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/echo-schema': 0.7.4
+      '@dxos/edge-client': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/feed-store': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/hypercore': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/indexing': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/invariant': 0.7.4
+      '@dxos/keyring': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/keys': 0.7.4
+      '@dxos/kv-store': 0.7.4
+      '@dxos/log': 0.7.4
+      '@dxos/messaging': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/network-manager': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/node-std': 0.7.4
+      '@dxos/protocols': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/random-access-storage': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/teleport': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/teleport-extension-automerge-replicator': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/teleport-extension-gossip': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/teleport-extension-object-sync': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/teleport-extension-replicator': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/timeframe': 0.7.4
+      '@dxos/tracing': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/typings': 0.7.4
+      '@dxos/util': 0.7.4
       crc-32: 1.2.2
       level-transcoder: 1.0.1
       lodash.isequal: 4.5.0
@@ -8639,107 +8746,106 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@dxos/echo-protocol@0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
+  '@dxos/echo-protocol@0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
     dependencies:
-      '@dxos/crypto': 0.7.5-feature-compute.4d9d99a
-      '@dxos/keys': 0.7.5-feature-compute.4d9d99a
-      '@dxos/protocols': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/util': 0.7.5-feature-compute.4d9d99a
+      '@dxos/crypto': 0.7.4
+      '@dxos/keys': 0.7.4
+      '@dxos/protocols': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/util': 0.7.4
     transitivePeerDependencies:
       - '@effect/schema'
       - effect
 
-  '@dxos/echo-schema@0.7.5-feature-compute.4d9d99a':
+  '@dxos/echo-schema@0.7.4':
     dependencies:
-      '@dxos/debug': 0.7.5-feature-compute.4d9d99a
-      '@dxos/echo-protocol': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/echo-signals': 0.7.5-feature-compute.4d9d99a
-      '@dxos/effect': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/invariant': 0.7.5-feature-compute.4d9d99a
-      '@dxos/keys': 0.7.5-feature-compute.4d9d99a
-      '@dxos/log': 0.7.5-feature-compute.4d9d99a
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
-      '@dxos/util': 0.7.5-feature-compute.4d9d99a
+      '@dxos/echo-protocol': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/echo-signals': 0.7.4
+      '@dxos/effect': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/invariant': 0.7.4
+      '@dxos/keys': 0.7.4
+      '@dxos/log': 0.7.4
+      '@dxos/node-std': 0.7.4
+      '@dxos/util': 0.7.4
       '@effect/schema': 0.75.5(effect@3.12.11)
       '@preact/signals-core': 1.8.0
       effect: 3.12.11
       ulidx: 2.4.1
 
-  '@dxos/echo-signals@0.7.5-feature-compute.4d9d99a':
+  '@dxos/echo-signals@0.7.4':
     dependencies:
-      '@preact/signals': 1.3.2(preact@10.25.4)
+      '@preact/signals': 1.3.2(preact@10.26.4)
       '@preact/signals-core': 1.8.0
       '@preact/signals-react': 1.3.8(react@18.2.0)
     optionalDependencies:
-      preact: 10.25.4
+      preact: 10.26.4
       react: 18.2.0
 
-  '@dxos/edge-client@0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
+  '@dxos/edge-client@0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
     dependencies:
-      '@dxos/async': 0.7.5-feature-compute.4d9d99a
-      '@dxos/context': 0.7.5-feature-compute.4d9d99a
-      '@dxos/credentials': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/crypto': 0.7.5-feature-compute.4d9d99a
-      '@dxos/debug': 0.7.5-feature-compute.4d9d99a
-      '@dxos/invariant': 0.7.5-feature-compute.4d9d99a
-      '@dxos/keyring': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/keys': 0.7.5-feature-compute.4d9d99a
-      '@dxos/log': 0.7.5-feature-compute.4d9d99a
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
-      '@dxos/protocols': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/util': 0.7.5-feature-compute.4d9d99a
-      isomorphic-ws: 5.0.0(ws@8.18.0)
-      ws: 8.18.0
+      '@dxos/async': 0.7.4
+      '@dxos/context': 0.7.4
+      '@dxos/credentials': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/crypto': 0.7.4
+      '@dxos/debug': 0.7.4
+      '@dxos/invariant': 0.7.4
+      '@dxos/keyring': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/keys': 0.7.4
+      '@dxos/log': 0.7.4
+      '@dxos/node-std': 0.7.4
+      '@dxos/protocols': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/util': 0.7.4
+      isomorphic-ws: 5.0.0(ws@8.18.1)
+      ws: 8.18.1
     transitivePeerDependencies:
       - '@effect/schema'
       - bufferutil
       - effect
       - utf-8-validate
 
-  '@dxos/effect@0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
+  '@dxos/effect@0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
     dependencies:
-      '@dxos/invariant': 0.7.5-feature-compute.4d9d99a
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
-      '@dxos/util': 0.7.5-feature-compute.4d9d99a
+      '@dxos/invariant': 0.7.4
+      '@dxos/node-std': 0.7.4
+      '@dxos/util': 0.7.4
       '@effect/schema': 0.75.5(effect@3.12.11)
       effect: 3.12.11
 
-  '@dxos/feed-store@0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
+  '@dxos/feed-store@0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
     dependencies:
-      '@dxos/async': 0.7.5-feature-compute.4d9d99a
-      '@dxos/codec-protobuf': 0.7.5-feature-compute.4d9d99a
-      '@dxos/context': 0.7.5-feature-compute.4d9d99a
-      '@dxos/crypto': 0.7.5-feature-compute.4d9d99a
-      '@dxos/debug': 0.7.5-feature-compute.4d9d99a
-      '@dxos/hypercore': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/invariant': 0.7.5-feature-compute.4d9d99a
-      '@dxos/keyring': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/keys': 0.7.5-feature-compute.4d9d99a
-      '@dxos/log': 0.7.5-feature-compute.4d9d99a
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
-      '@dxos/random-access-storage': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/util': 0.7.5-feature-compute.4d9d99a
+      '@dxos/async': 0.7.4
+      '@dxos/codec-protobuf': 0.7.4
+      '@dxos/context': 0.7.4
+      '@dxos/crypto': 0.7.4
+      '@dxos/debug': 0.7.4
+      '@dxos/hypercore': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/invariant': 0.7.4
+      '@dxos/keyring': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/keys': 0.7.4
+      '@dxos/log': 0.7.4
+      '@dxos/node-std': 0.7.4
+      '@dxos/random-access-storage': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/util': 0.7.4
       lodash.defaultsdeep: 4.6.1
       race-as-promised: 0.0.2
       streamx: 2.22.0
     optionalDependencies:
-      '@dxos/random': 0.7.5-feature-compute.4d9d99a
+      '@dxos/random': 0.7.4
     transitivePeerDependencies:
       - '@effect/schema'
       - effect
 
-  '@dxos/hypercore@0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
+  '@dxos/hypercore@0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
     dependencies:
-      '@dxos/async': 0.7.5-feature-compute.4d9d99a
-      '@dxos/codec-protobuf': 0.7.5-feature-compute.4d9d99a
-      '@dxos/crypto': 0.7.5-feature-compute.4d9d99a
-      '@dxos/debug': 0.7.5-feature-compute.4d9d99a
-      '@dxos/invariant': 0.7.5-feature-compute.4d9d99a
-      '@dxos/keys': 0.7.5-feature-compute.4d9d99a
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
-      '@dxos/random-access-storage': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/typings': 0.7.5-feature-compute.4d9d99a
-      '@dxos/util': 0.7.5-feature-compute.4d9d99a
+      '@dxos/async': 0.7.4
+      '@dxos/codec-protobuf': 0.7.4
+      '@dxos/crypto': 0.7.4
+      '@dxos/debug': 0.7.4
+      '@dxos/invariant': 0.7.4
+      '@dxos/keys': 0.7.4
+      '@dxos/node-std': 0.7.4
+      '@dxos/random-access-storage': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/typings': 0.7.4
+      '@dxos/util': 0.7.4
       readable-stream: 3.6.2
       sodium-native: 3.4.1
       sodium-universal: 3.1.0
@@ -8748,23 +8854,23 @@ snapshots:
       - '@effect/schema'
       - effect
 
-  '@dxos/indexing@0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
+  '@dxos/indexing@0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
     dependencies:
-      '@dxos/async': 0.7.5-feature-compute.4d9d99a
-      '@dxos/automerge': 0.7.5-feature-compute.4d9d99a
-      '@dxos/codec-protobuf': 0.7.5-feature-compute.4d9d99a
-      '@dxos/context': 0.7.5-feature-compute.4d9d99a
-      '@dxos/echo-protocol': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/echo-schema': 0.7.5-feature-compute.4d9d99a
-      '@dxos/invariant': 0.7.5-feature-compute.4d9d99a
-      '@dxos/keys': 0.7.5-feature-compute.4d9d99a
-      '@dxos/kv-store': 0.7.5-feature-compute.4d9d99a
-      '@dxos/log': 0.7.5-feature-compute.4d9d99a
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
-      '@dxos/protocols': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/random-access-storage': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/tracing': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/util': 0.7.5-feature-compute.4d9d99a
+      '@dxos/async': 0.7.4
+      '@dxos/automerge': 0.7.4
+      '@dxos/codec-protobuf': 0.7.4
+      '@dxos/context': 0.7.4
+      '@dxos/echo-protocol': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/echo-schema': 0.7.4
+      '@dxos/invariant': 0.7.4
+      '@dxos/keys': 0.7.4
+      '@dxos/kv-store': 0.7.4
+      '@dxos/log': 0.7.4
+      '@dxos/node-std': 0.7.4
+      '@dxos/protocols': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/random-access-storage': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/tracing': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/util': 0.7.4
       '@orama/orama': 2.1.1
       level-transcoder: 1.0.1
       lodash.isequal: 4.5.0
@@ -8775,114 +8881,113 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@dxos/invariant@0.7.5-feature-compute.4d9d99a': {}
+  '@dxos/invariant@0.7.4': {}
 
-  '@dxos/keyring@0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
+  '@dxos/keyring@0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
     dependencies:
-      '@dxos/async': 0.7.5-feature-compute.4d9d99a
-      '@dxos/codec-protobuf': 0.7.5-feature-compute.4d9d99a
-      '@dxos/crypto': 0.7.5-feature-compute.4d9d99a
-      '@dxos/debug': 0.7.5-feature-compute.4d9d99a
-      '@dxos/invariant': 0.7.5-feature-compute.4d9d99a
-      '@dxos/keys': 0.7.5-feature-compute.4d9d99a
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
-      '@dxos/protocols': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/random-access-storage': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/util': 0.7.5-feature-compute.4d9d99a
+      '@dxos/async': 0.7.4
+      '@dxos/codec-protobuf': 0.7.4
+      '@dxos/crypto': 0.7.4
+      '@dxos/debug': 0.7.4
+      '@dxos/invariant': 0.7.4
+      '@dxos/keys': 0.7.4
+      '@dxos/node-std': 0.7.4
+      '@dxos/protocols': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/random-access-storage': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/util': 0.7.4
     transitivePeerDependencies:
       - '@effect/schema'
       - effect
 
-  '@dxos/keys@0.7.5-feature-compute.4d9d99a':
+  '@dxos/keys@0.7.4':
     dependencies:
-      '@dxos/debug': 0.7.5-feature-compute.4d9d99a
-      '@dxos/invariant': 0.7.5-feature-compute.4d9d99a
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
+      '@dxos/debug': 0.7.4
+      '@dxos/invariant': 0.7.4
+      '@dxos/node-std': 0.7.4
 
-  '@dxos/kv-store@0.7.5-feature-compute.4d9d99a':
+  '@dxos/kv-store@0.7.4':
     dependencies:
-      '@dxos/keys': 0.7.5-feature-compute.4d9d99a
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
+      '@dxos/keys': 0.7.4
+      '@dxos/node-std': 0.7.4
       abstract-level: 1.0.4
       level: 8.0.1
 
-  '@dxos/live-object@0.7.5-feature-compute.4d9d99a':
+  '@dxos/live-object@0.7.4':
     dependencies:
-      '@dxos/echo-protocol': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/echo-schema': 0.7.5-feature-compute.4d9d99a
-      '@dxos/echo-signals': 0.7.5-feature-compute.4d9d99a
-      '@dxos/effect': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/invariant': 0.7.5-feature-compute.4d9d99a
-      '@dxos/keys': 0.7.5-feature-compute.4d9d99a
-      '@dxos/log': 0.7.5-feature-compute.4d9d99a
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
-      '@dxos/protocols': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/util': 0.7.5-feature-compute.4d9d99a
+      '@dxos/echo-protocol': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/echo-schema': 0.7.4
+      '@dxos/echo-signals': 0.7.4
+      '@dxos/effect': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/invariant': 0.7.4
+      '@dxos/keys': 0.7.4
+      '@dxos/log': 0.7.4
+      '@dxos/node-std': 0.7.4
+      '@dxos/util': 0.7.4
       '@effect/schema': 0.75.5(effect@3.12.11)
       '@preact/signals-core': 1.8.0
       effect: 3.12.11
       ulidx: 2.4.1
 
-  '@dxos/lock-file@0.7.5-feature-compute.4d9d99a':
+  '@dxos/lock-file@0.7.4':
     dependencies:
-      '@dxos/async': 0.7.5-feature-compute.4d9d99a
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
+      '@dxos/async': 0.7.4
+      '@dxos/node-std': 0.7.4
       fs-ext: 2.1.1
 
-  '@dxos/log@0.7.5-feature-compute.4d9d99a':
+  '@dxos/log@0.7.4':
     dependencies:
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
-      '@dxos/util': 0.7.5-feature-compute.4d9d99a
+      '@dxos/node-std': 0.7.4
+      '@dxos/util': 0.7.4
       chalk: 4.1.2
       js-yaml: 4.1.0
       lodash.defaultsdeep: 4.6.1
       lodash.omit: 4.5.0
 
-  '@dxos/messaging@0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
+  '@dxos/messaging@0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
     dependencies:
-      '@dxos/async': 0.7.5-feature-compute.4d9d99a
-      '@dxos/codec-protobuf': 0.7.5-feature-compute.4d9d99a
-      '@dxos/context': 0.7.5-feature-compute.4d9d99a
-      '@dxos/edge-client': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/invariant': 0.7.5-feature-compute.4d9d99a
-      '@dxos/keys': 0.7.5-feature-compute.4d9d99a
-      '@dxos/log': 0.7.5-feature-compute.4d9d99a
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
-      '@dxos/protocols': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/rpc': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/tracing': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/util': 0.7.5-feature-compute.4d9d99a
-      isomorphic-ws: 5.0.0(ws@8.18.0)
-      ws: 8.18.0
+      '@dxos/async': 0.7.4
+      '@dxos/codec-protobuf': 0.7.4
+      '@dxos/context': 0.7.4
+      '@dxos/edge-client': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/invariant': 0.7.4
+      '@dxos/keys': 0.7.4
+      '@dxos/log': 0.7.4
+      '@dxos/node-std': 0.7.4
+      '@dxos/protocols': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/rpc': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/tracing': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/util': 0.7.4
+      isomorphic-ws: 5.0.0(ws@8.18.1)
+      ws: 8.18.1
     transitivePeerDependencies:
       - '@effect/schema'
       - bufferutil
       - effect
       - utf-8-validate
 
-  '@dxos/network-manager@0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
+  '@dxos/network-manager@0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
     dependencies:
-      '@dxos/async': 0.7.5-feature-compute.4d9d99a
-      '@dxos/codec-protobuf': 0.7.5-feature-compute.4d9d99a
-      '@dxos/context': 0.7.5-feature-compute.4d9d99a
-      '@dxos/debug': 0.7.5-feature-compute.4d9d99a
-      '@dxos/invariant': 0.7.5-feature-compute.4d9d99a
-      '@dxos/keys': 0.7.5-feature-compute.4d9d99a
-      '@dxos/log': 0.7.5-feature-compute.4d9d99a
-      '@dxos/messaging': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
-      '@dxos/protocols': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/rpc': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/teleport': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/tracing': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/util': 0.7.5-feature-compute.4d9d99a
-      isomorphic-ws: 5.0.0(ws@8.18.0)
+      '@dxos/async': 0.7.4
+      '@dxos/codec-protobuf': 0.7.4
+      '@dxos/context': 0.7.4
+      '@dxos/debug': 0.7.4
+      '@dxos/invariant': 0.7.4
+      '@dxos/keys': 0.7.4
+      '@dxos/log': 0.7.4
+      '@dxos/messaging': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/node-std': 0.7.4
+      '@dxos/protocols': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/rpc': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/teleport': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/tracing': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/util': 0.7.4
+      isomorphic-ws: 5.0.0(ws@8.18.1)
       nanomessage-rpc: 3.2.0
       node-datachannel: 0.9.2
       p-defer: 3.0.0
       stream: 0.0.3
       tiny-invariant: 1.3.3
-      ws: 8.18.0
+      ws: 8.18.1
       xor-distance: 2.0.0
     transitivePeerDependencies:
       - '@effect/schema'
@@ -8890,7 +8995,7 @@ snapshots:
       - effect
       - utf-8-validate
 
-  '@dxos/node-std@0.7.5-feature-compute.4d9d99a':
+  '@dxos/node-std@0.7.4':
     dependencies:
       assert: 2.1.0
       events: 3.3.0
@@ -8898,28 +9003,28 @@ snapshots:
       readable-stream: 3.6.2
       util: 0.12.5
 
-  '@dxos/protocols@0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
+  '@dxos/protocols@0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
     dependencies:
       '@bufbuild/protobuf': 2.2.3
-      '@dxos/codec-protobuf': 0.7.5-feature-compute.4d9d99a
-      '@dxos/effect': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/invariant': 0.7.5-feature-compute.4d9d99a
-      '@dxos/keys': 0.7.5-feature-compute.4d9d99a
-      '@dxos/timeframe': 0.7.5-feature-compute.4d9d99a
-      '@dxos/util': 0.7.5-feature-compute.4d9d99a
+      '@dxos/codec-protobuf': 0.7.4
+      '@dxos/effect': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/invariant': 0.7.4
+      '@dxos/keys': 0.7.4
+      '@dxos/timeframe': 0.7.4
+      '@dxos/util': 0.7.4
     transitivePeerDependencies:
       - '@effect/schema'
       - effect
 
-  '@dxos/random-access-storage@0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
+  '@dxos/random-access-storage@0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
     dependencies:
-      '@dxos/async': 0.7.5-feature-compute.4d9d99a
-      '@dxos/debug': 0.7.5-feature-compute.4d9d99a
-      '@dxos/invariant': 0.7.5-feature-compute.4d9d99a
-      '@dxos/log': 0.7.5-feature-compute.4d9d99a
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
-      '@dxos/tracing': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/util': 0.7.5-feature-compute.4d9d99a
+      '@dxos/async': 0.7.4
+      '@dxos/debug': 0.7.4
+      '@dxos/invariant': 0.7.4
+      '@dxos/log': 0.7.4
+      '@dxos/node-std': 0.7.4
+      '@dxos/tracing': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/util': 0.7.4
       buffer-alloc: 1.2.0
       buffer-from: 0.1.2
       del: 5.1.0
@@ -8934,34 +9039,34 @@ snapshots:
       - '@effect/schema'
       - effect
 
-  '@dxos/random@0.7.5-feature-compute.4d9d99a':
+  '@dxos/random@0.7.4':
     dependencies:
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
+      '@dxos/node-std': 0.7.4
       '@ngneat/falso': 7.3.0
     optional: true
 
-  '@dxos/react-client@0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(@phosphor-icons/react@2.1.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(effect@3.12.11)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+  '@dxos/react-client@0.7.4(@effect/schema@0.75.5(effect@3.12.11))(@phosphor-icons/react@2.1.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(effect@3.12.11)(postcss@8.5.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@dxos/async': 0.7.5-feature-compute.4d9d99a
-      '@dxos/client': 0.7.5-feature-compute.4d9d99a(effect@3.12.11)
-      '@dxos/codec-protobuf': 0.7.5-feature-compute.4d9d99a
-      '@dxos/config': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/debug': 0.7.5-feature-compute.4d9d99a
-      '@dxos/echo-schema': 0.7.5-feature-compute.4d9d99a
-      '@dxos/echo-signals': 0.7.5-feature-compute.4d9d99a
-      '@dxos/invariant': 0.7.5-feature-compute.4d9d99a
-      '@dxos/log': 0.7.5-feature-compute.4d9d99a
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
-      '@dxos/protocols': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/react-hooks': 0.7.5-feature-compute.4d9d99a(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@dxos/util': 0.7.5-feature-compute.4d9d99a
+      '@dxos/async': 0.7.4
+      '@dxos/client': 0.7.4(effect@3.12.11)
+      '@dxos/codec-protobuf': 0.7.4
+      '@dxos/config': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/debug': 0.7.4
+      '@dxos/echo-schema': 0.7.4
+      '@dxos/echo-signals': 0.7.4
+      '@dxos/invariant': 0.7.4
+      '@dxos/log': 0.7.4
+      '@dxos/node-std': 0.7.4
+      '@dxos/protocols': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/react-hooks': 0.7.4(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@dxos/util': 0.7.4
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       react-error-boundary: 4.1.2(react@18.2.0)
     optionalDependencies:
-      '@dxos/random': 0.7.5-feature-compute.4d9d99a
-      '@dxos/react-ui': 0.7.5-feature-compute.4d9d99a(@dxos/react-ui-theme@0.7.5-feature-compute.4d9d99a)(@phosphor-icons/react@2.1.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@dxos/react-ui-theme': 0.7.5-feature-compute.4d9d99a
+      '@dxos/random': 0.7.4
+      '@dxos/react-ui': 0.7.4(@dxos/react-ui-theme@0.7.4(postcss@8.5.2))(@phosphor-icons/react@2.1.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@dxos/react-ui-theme': 0.7.4(postcss@8.5.2)
     transitivePeerDependencies:
       - '@effect/schema'
       - '@phosphor-icons/react'
@@ -8969,22 +9074,23 @@ snapshots:
       - '@types/react-dom'
       - bufferutil
       - effect
+      - postcss
       - react-native
       - supports-color
       - ts-node
       - utf-8-validate
 
-  '@dxos/react-hooks@0.7.5-feature-compute.4d9d99a(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+  '@dxos/react-hooks@0.7.4(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@dxos/async': 0.7.5-feature-compute.4d9d99a
-      '@dxos/log': 0.7.5-feature-compute.4d9d99a
+      '@dxos/async': 0.7.4
+      '@dxos/log': 0.7.4
       alea: 1.0.1
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  '@dxos/react-input@0.7.5-feature-compute.4d9d99a(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+  '@dxos/react-input@0.7.4(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@dxos/react-hooks': 0.7.5-feature-compute.4d9d99a(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@dxos/react-hooks': 0.7.4(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@radix-ui/react-compose-refs': 1.1.1(@types/react@18.3.18)(react@18.2.0)
       '@radix-ui/react-context': 1.1.1(@types/react@18.3.18)(react@18.2.0)
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -8999,9 +9105,9 @@ snapshots:
       - '@types/react-dom'
     optional: true
 
-  '@dxos/react-list@0.7.5-feature-compute.4d9d99a(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+  '@dxos/react-list@0.7.4(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@dxos/react-hooks': 0.7.5-feature-compute.4d9d99a(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@dxos/react-hooks': 0.7.4(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@radix-ui/react-collapsible': 1.1.3(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@radix-ui/react-context': 1.1.1(@types/react@18.3.18)(react@18.2.0)
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -9015,45 +9121,43 @@ snapshots:
       - '@types/react-dom'
     optional: true
 
-  '@dxos/react-ui-theme@0.7.5-feature-compute.4d9d99a':
+  '@dxos/react-ui-theme@0.7.4(postcss@8.5.2)':
     dependencies:
-      '@ch-ui/tailwind-tokens': 1.1.0(tailwindcss@3.4.17)
-      '@ch-ui/tokens': 1.1.0
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
+      '@ch-ui/tailwind-tokens': 0.5.5(tailwindcss@3.4.17)
+      '@ch-ui/tokens': 0.5.6
+      '@dxos/node-std': 0.7.4
       '@fontsource-variable/inter': 5.0.16
       '@fontsource-variable/jetbrains-mono': 5.0.21
       '@tailwindcss/container-queries': 0.1.1(tailwindcss@3.4.17)
       '@tailwindcss/forms': 0.5.10(tailwindcss@3.4.17)
-      autoprefixer: 10.4.20(postcss@8.5.2)
+      autoprefixer: 10.4.21(postcss@8.5.2)
       esbuild-style-plugin: 1.6.3
       glob: 7.2.3
       lodash.get: 4.4.2
       lodash.merge: 4.6.2
-      postcss: 8.5.2
-      postcss-import: 16.1.0(postcss@8.5.2)
       tailwind-merge: 2.6.0
       tailwind-scrollbar: 3.1.0(tailwindcss@3.4.17)
       tailwindcss: 3.4.17
       tailwindcss-logical: 3.0.1(postcss@8.5.2)
       tailwindcss-radix: 2.9.0
     transitivePeerDependencies:
+      - postcss
       - ts-node
     optional: true
 
-  '@dxos/react-ui-types@0.7.5-feature-compute.4d9d99a': {}
+  '@dxos/react-ui-types@0.7.4': {}
 
-  '@dxos/react-ui@0.7.5-feature-compute.4d9d99a(@dxos/react-ui-theme@0.7.5-feature-compute.4d9d99a)(@phosphor-icons/react@2.1.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+  '@dxos/react-ui@0.7.4(@dxos/react-ui-theme@0.7.4(postcss@8.5.2))(@phosphor-icons/react@2.1.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@atlaskit/pragmatic-drag-and-drop-hitbox': 1.0.3
-      '@dxos/debug': 0.7.5-feature-compute.4d9d99a
-      '@dxos/log': 0.7.5-feature-compute.4d9d99a
-      '@dxos/react-hooks': 0.7.5-feature-compute.4d9d99a(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@dxos/react-input': 0.7.5-feature-compute.4d9d99a(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@dxos/react-list': 0.7.5-feature-compute.4d9d99a(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@dxos/react-ui-theme': 0.7.5-feature-compute.4d9d99a
-      '@dxos/react-ui-types': 0.7.5-feature-compute.4d9d99a
-      '@dxos/util': 0.7.5-feature-compute.4d9d99a
-      '@fluentui/react-tabster': 9.23.3(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@dxos/debug': 0.7.4
+      '@dxos/log': 0.7.4
+      '@dxos/react-hooks': 0.7.4(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@dxos/react-input': 0.7.4(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@dxos/react-list': 0.7.4(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@dxos/react-ui-theme': 0.7.4(postcss@8.5.2)
+      '@dxos/react-ui-types': 0.7.4
+      '@dxos/util': 0.7.4
+      '@fluentui/react-tabster': 9.24.1(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@phosphor-icons/react': 2.1.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@radix-ui/primitive': 1.1.1
       '@radix-ui/react-alert-dialog': 1.1.6(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -9098,47 +9202,47 @@ snapshots:
       - react-native
     optional: true
 
-  '@dxos/rpc-tunnel@0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
+  '@dxos/rpc-tunnel@0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
     dependencies:
-      '@dxos/log': 0.7.5-feature-compute.4d9d99a
-      '@dxos/rpc': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/log': 0.7.4
+      '@dxos/rpc': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
       ua-parser-js: 1.0.40
     transitivePeerDependencies:
       - '@effect/schema'
       - effect
 
-  '@dxos/rpc@0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
+  '@dxos/rpc@0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
     dependencies:
-      '@dxos/async': 0.7.5-feature-compute.4d9d99a
-      '@dxos/codec-protobuf': 0.7.5-feature-compute.4d9d99a
-      '@dxos/debug': 0.7.5-feature-compute.4d9d99a
-      '@dxos/invariant': 0.7.5-feature-compute.4d9d99a
-      '@dxos/log': 0.7.5-feature-compute.4d9d99a
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
-      '@dxos/protocols': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/util': 0.7.5-feature-compute.4d9d99a
+      '@dxos/async': 0.7.4
+      '@dxos/codec-protobuf': 0.7.4
+      '@dxos/debug': 0.7.4
+      '@dxos/invariant': 0.7.4
+      '@dxos/log': 0.7.4
+      '@dxos/node-std': 0.7.4
+      '@dxos/protocols': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/util': 0.7.4
     transitivePeerDependencies:
       - '@effect/schema'
       - effect
 
-  '@dxos/shell@0.7.5-feature-compute.4d9d99a(@dxos/react-client@0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(@phosphor-icons/react@2.1.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(effect@3.12.11)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@effect/schema@0.75.5(effect@3.12.11))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(effect@3.12.11)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+  '@dxos/shell@0.7.4(@dxos/react-client@0.7.4(@effect/schema@0.75.5(effect@3.12.11))(@phosphor-icons/react@2.1.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(effect@3.12.11)(postcss@8.5.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@effect/schema@0.75.5(effect@3.12.11))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(effect@3.12.11)(postcss@8.5.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@dxos/async': 0.7.5-feature-compute.4d9d99a
-      '@dxos/client-protocol': 0.7.5-feature-compute.4d9d99a(effect@3.12.11)
-      '@dxos/client-services': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/debug': 0.7.5-feature-compute.4d9d99a
-      '@dxos/display-name': 0.7.5-feature-compute.4d9d99a
-      '@dxos/invariant': 0.7.5-feature-compute.4d9d99a
-      '@dxos/log': 0.7.5-feature-compute.4d9d99a
-      '@dxos/protocols': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/react-client': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(@phosphor-icons/react@2.1.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(effect@3.12.11)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@dxos/react-ui-types': 0.7.5-feature-compute.4d9d99a
-      '@dxos/rpc': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/rpc-tunnel': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/util': 0.7.5-feature-compute.4d9d99a
+      '@dxos/async': 0.7.4
+      '@dxos/client-protocol': 0.7.4(effect@3.12.11)
+      '@dxos/client-services': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/debug': 0.7.4
+      '@dxos/display-name': 0.7.4
+      '@dxos/invariant': 0.7.4
+      '@dxos/log': 0.7.4
+      '@dxos/protocols': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/react-client': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(@phosphor-icons/react@2.1.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(effect@3.12.11)(postcss@8.5.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@dxos/react-ui-types': 0.7.4
+      '@dxos/rpc': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/rpc-tunnel': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/util': 0.7.4
       '@emoji-mart/data': 1.2.1
       '@emoji-mart/react': 1.1.1(emoji-mart@5.6.0)(react@18.2.0)
-      '@fluentui/react-tabster': 9.23.3(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@fluentui/react-tabster': 9.24.1(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@radix-ui/react-accordion': 1.2.3(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@radix-ui/react-context': 1.1.1(@types/react@18.3.18)(react@18.2.0)
       '@radix-ui/react-radio-group': 1.2.3(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -9152,8 +9256,8 @@ snapshots:
       url-join: 5.0.0
       xstate: 4.38.3
     optionalDependencies:
-      '@dxos/react-ui': 0.7.5-feature-compute.4d9d99a(@dxos/react-ui-theme@0.7.5-feature-compute.4d9d99a)(@phosphor-icons/react@2.1.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@dxos/react-ui-theme': 0.7.5-feature-compute.4d9d99a
+      '@dxos/react-ui': 0.7.4(@dxos/react-ui-theme@0.7.4(postcss@8.5.2))(@phosphor-icons/react@2.1.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@dxos/react-ui-theme': 0.7.4(postcss@8.5.2)
       '@phosphor-icons/react': 2.1.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
     transitivePeerDependencies:
       - '@effect/schema'
@@ -9162,134 +9266,135 @@ snapshots:
       - '@xstate/fsm'
       - bufferutil
       - effect
+      - postcss
       - react-native
       - supports-color
       - ts-node
       - utf-8-validate
 
-  '@dxos/teleport-extension-automerge-replicator@0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
+  '@dxos/teleport-extension-automerge-replicator@0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
     dependencies:
-      '@dxos/async': 0.7.5-feature-compute.4d9d99a
-      '@dxos/invariant': 0.7.5-feature-compute.4d9d99a
-      '@dxos/keys': 0.7.5-feature-compute.4d9d99a
-      '@dxos/log': 0.7.5-feature-compute.4d9d99a
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
-      '@dxos/protocols': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/rpc': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/teleport': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/async': 0.7.4
+      '@dxos/invariant': 0.7.4
+      '@dxos/keys': 0.7.4
+      '@dxos/log': 0.7.4
+      '@dxos/node-std': 0.7.4
+      '@dxos/protocols': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/rpc': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/teleport': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
     transitivePeerDependencies:
       - '@effect/schema'
       - effect
 
-  '@dxos/teleport-extension-gossip@0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
+  '@dxos/teleport-extension-gossip@0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
     dependencies:
-      '@dxos/async': 0.7.5-feature-compute.4d9d99a
-      '@dxos/codec-protobuf': 0.7.5-feature-compute.4d9d99a
-      '@dxos/context': 0.7.5-feature-compute.4d9d99a
-      '@dxos/invariant': 0.7.5-feature-compute.4d9d99a
-      '@dxos/keys': 0.7.5-feature-compute.4d9d99a
-      '@dxos/log': 0.7.5-feature-compute.4d9d99a
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
-      '@dxos/protocols': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/rpc': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/teleport': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/util': 0.7.5-feature-compute.4d9d99a
+      '@dxos/async': 0.7.4
+      '@dxos/codec-protobuf': 0.7.4
+      '@dxos/context': 0.7.4
+      '@dxos/invariant': 0.7.4
+      '@dxos/keys': 0.7.4
+      '@dxos/log': 0.7.4
+      '@dxos/node-std': 0.7.4
+      '@dxos/protocols': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/rpc': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/teleport': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/util': 0.7.4
     transitivePeerDependencies:
       - '@effect/schema'
       - effect
 
-  '@dxos/teleport-extension-object-sync@0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
+  '@dxos/teleport-extension-object-sync@0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
     dependencies:
-      '@dxos/async': 0.7.5-feature-compute.4d9d99a
-      '@dxos/context': 0.7.5-feature-compute.4d9d99a
-      '@dxos/crypto': 0.7.5-feature-compute.4d9d99a
-      '@dxos/invariant': 0.7.5-feature-compute.4d9d99a
-      '@dxos/keys': 0.7.5-feature-compute.4d9d99a
-      '@dxos/log': 0.7.5-feature-compute.4d9d99a
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
-      '@dxos/protocols': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/random-access-storage': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/teleport': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/util': 0.7.5-feature-compute.4d9d99a
+      '@dxos/async': 0.7.4
+      '@dxos/context': 0.7.4
+      '@dxos/crypto': 0.7.4
+      '@dxos/invariant': 0.7.4
+      '@dxos/keys': 0.7.4
+      '@dxos/log': 0.7.4
+      '@dxos/node-std': 0.7.4
+      '@dxos/protocols': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/random-access-storage': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/teleport': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/util': 0.7.4
     transitivePeerDependencies:
       - '@effect/schema'
       - effect
 
-  '@dxos/teleport-extension-replicator@0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
+  '@dxos/teleport-extension-replicator@0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
     dependencies:
-      '@dxos/async': 0.7.5-feature-compute.4d9d99a
-      '@dxos/context': 0.7.5-feature-compute.4d9d99a
-      '@dxos/debug': 0.7.5-feature-compute.4d9d99a
-      '@dxos/feed-store': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/invariant': 0.7.5-feature-compute.4d9d99a
-      '@dxos/keys': 0.7.5-feature-compute.4d9d99a
-      '@dxos/log': 0.7.5-feature-compute.4d9d99a
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
-      '@dxos/protocols': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/rpc': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/teleport': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/util': 0.7.5-feature-compute.4d9d99a
+      '@dxos/async': 0.7.4
+      '@dxos/context': 0.7.4
+      '@dxos/debug': 0.7.4
+      '@dxos/feed-store': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/invariant': 0.7.4
+      '@dxos/keys': 0.7.4
+      '@dxos/log': 0.7.4
+      '@dxos/node-std': 0.7.4
+      '@dxos/protocols': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/rpc': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/teleport': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/util': 0.7.4
     transitivePeerDependencies:
       - '@effect/schema'
       - effect
 
-  '@dxos/teleport@0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
+  '@dxos/teleport@0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
     dependencies:
-      '@dxos/async': 0.7.5-feature-compute.4d9d99a
-      '@dxos/context': 0.7.5-feature-compute.4d9d99a
-      '@dxos/debug': 0.7.5-feature-compute.4d9d99a
-      '@dxos/invariant': 0.7.5-feature-compute.4d9d99a
-      '@dxos/keys': 0.7.5-feature-compute.4d9d99a
-      '@dxos/log': 0.7.5-feature-compute.4d9d99a
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
-      '@dxos/protocols': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/rpc': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/util': 0.7.5-feature-compute.4d9d99a
+      '@dxos/async': 0.7.4
+      '@dxos/context': 0.7.4
+      '@dxos/debug': 0.7.4
+      '@dxos/invariant': 0.7.4
+      '@dxos/keys': 0.7.4
+      '@dxos/log': 0.7.4
+      '@dxos/node-std': 0.7.4
+      '@dxos/protocols': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/rpc': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/util': 0.7.4
       randombytes: 2.1.0
     transitivePeerDependencies:
       - '@effect/schema'
       - effect
 
-  '@dxos/timeframe@0.7.5-feature-compute.4d9d99a':
+  '@dxos/timeframe@0.7.4':
     dependencies:
-      '@dxos/debug': 0.7.5-feature-compute.4d9d99a
-      '@dxos/keys': 0.7.5-feature-compute.4d9d99a
-      '@dxos/log': 0.7.5-feature-compute.4d9d99a
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
-      '@dxos/util': 0.7.5-feature-compute.4d9d99a
+      '@dxos/debug': 0.7.4
+      '@dxos/keys': 0.7.4
+      '@dxos/log': 0.7.4
+      '@dxos/node-std': 0.7.4
+      '@dxos/util': 0.7.4
 
-  '@dxos/tracing@0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
+  '@dxos/tracing@0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
     dependencies:
-      '@dxos/async': 0.7.5-feature-compute.4d9d99a
-      '@dxos/codec-protobuf': 0.7.5-feature-compute.4d9d99a
-      '@dxos/context': 0.7.5-feature-compute.4d9d99a
-      '@dxos/invariant': 0.7.5-feature-compute.4d9d99a
-      '@dxos/log': 0.7.5-feature-compute.4d9d99a
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
-      '@dxos/protocols': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/util': 0.7.5-feature-compute.4d9d99a
+      '@dxos/async': 0.7.4
+      '@dxos/codec-protobuf': 0.7.4
+      '@dxos/context': 0.7.4
+      '@dxos/invariant': 0.7.4
+      '@dxos/log': 0.7.4
+      '@dxos/node-std': 0.7.4
+      '@dxos/protocols': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/util': 0.7.4
     transitivePeerDependencies:
       - '@effect/schema'
       - effect
 
-  '@dxos/typings@0.7.5-feature-compute.4d9d99a': {}
+  '@dxos/typings@0.7.4': {}
 
-  '@dxos/util@0.7.5-feature-compute.4d9d99a':
+  '@dxos/util@0.7.4':
     dependencies:
-      '@dxos/debug': 0.7.5-feature-compute.4d9d99a
-      '@dxos/invariant': 0.7.5-feature-compute.4d9d99a
-      '@dxos/keys': 0.7.5-feature-compute.4d9d99a
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
+      '@dxos/debug': 0.7.4
+      '@dxos/invariant': 0.7.4
+      '@dxos/keys': 0.7.4
+      '@dxos/node-std': 0.7.4
 
-  '@dxos/websocket-rpc@0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
+  '@dxos/websocket-rpc@0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)':
     dependencies:
-      '@dxos/async': 0.7.5-feature-compute.4d9d99a
-      '@dxos/log': 0.7.5-feature-compute.4d9d99a
-      '@dxos/node-std': 0.7.5-feature-compute.4d9d99a
-      '@dxos/protocols': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      '@dxos/rpc': 0.7.5-feature-compute.4d9d99a(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
-      isomorphic-ws: 5.0.0(ws@8.18.0)
-      ws: 8.18.0
+      '@dxos/async': 0.7.4
+      '@dxos/log': 0.7.4
+      '@dxos/node-std': 0.7.4
+      '@dxos/protocols': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      '@dxos/rpc': 0.7.4(@effect/schema@0.75.5(effect@3.12.11))(effect@3.12.11)
+      isomorphic-ws: 5.0.0(ws@8.18.1)
+      ws: 8.18.1
     transitivePeerDependencies:
       - '@effect/schema'
       - bufferutil
@@ -9445,18 +9550,18 @@ snapshots:
     dependencies:
       '@swc/helpers': 0.5.15
 
-  '@fluentui/react-shared-contexts@9.21.2(@types/react@18.3.18)(react@18.2.0)':
+  '@fluentui/react-shared-contexts@9.22.0(@types/react@18.3.18)(react@18.2.0)':
     dependencies:
       '@fluentui/react-theme': 9.1.24
       '@swc/helpers': 0.5.15
       '@types/react': 18.3.18
       react: 18.2.0
 
-  '@fluentui/react-tabster@9.23.3(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+  '@fluentui/react-tabster@9.24.1(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@fluentui/react-shared-contexts': 9.21.2(@types/react@18.3.18)(react@18.2.0)
+      '@fluentui/react-shared-contexts': 9.22.0(@types/react@18.3.18)(react@18.2.0)
       '@fluentui/react-theme': 9.1.24
-      '@fluentui/react-utilities': 9.18.20(@types/react@18.3.18)(react@18.2.0)
+      '@fluentui/react-utilities': 9.18.21(@types/react@18.3.18)(react@18.2.0)
       '@griffel/react': 1.5.29(react@18.2.0)
       '@swc/helpers': 0.5.15
       '@types/react': 18.3.18
@@ -9464,17 +9569,17 @@ snapshots:
       keyborg: 2.6.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      tabster: 8.4.1
+      tabster: 8.5.1
 
   '@fluentui/react-theme@9.1.24':
     dependencies:
       '@fluentui/tokens': 1.0.0-alpha.21
       '@swc/helpers': 0.5.15
 
-  '@fluentui/react-utilities@9.18.20(@types/react@18.3.18)(react@18.2.0)':
+  '@fluentui/react-utilities@9.18.21(@types/react@18.3.18)(react@18.2.0)':
     dependencies:
       '@fluentui/keyboard-keys': 9.0.8
-      '@fluentui/react-shared-contexts': 9.21.2(@types/react@18.3.18)(react@18.2.0)
+      '@fluentui/react-shared-contexts': 9.22.0(@types/react@18.3.18)(react@18.2.0)
       '@swc/helpers': 0.5.15
       '@types/react': 18.3.18
       react: 18.2.0
@@ -9571,12 +9676,12 @@ snapshots:
       wrap-ansi: 8.1.0
       wrap-ansi-cjs: wrap-ansi@7.0.0
 
-  '@joshwooding/vite-plugin-react-docgen-typescript@0.5.0(typescript@5.7.3)(vite@5.4.14(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0))':
+  '@joshwooding/vite-plugin-react-docgen-typescript@0.5.0(typescript@5.7.3)(vite@5.4.14(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0))':
     dependencies:
       glob: 10.4.5
       magic-string: 0.27.0
       react-docgen-typescript: 2.2.2(typescript@5.7.3)
-      vite: 5.4.14(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0)
+      vite: 5.4.14(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0)
     optionalDependencies:
       typescript: 5.7.3
 
@@ -9770,10 +9875,10 @@ snapshots:
       react: 18.2.0
       use-sync-external-store: 1.4.0(react@18.2.0)
 
-  '@preact/signals@1.3.2(preact@10.25.4)':
+  '@preact/signals@1.3.2(preact@10.26.4)':
     dependencies:
       '@preact/signals-core': 1.8.0
-      preact: 10.25.4
+      preact: 10.26.4
 
   '@protobufjs/aspromise@1.1.2': {}
 
@@ -9800,7 +9905,7 @@ snapshots:
 
   '@radix-ui/number@1.0.1':
     dependencies:
-      '@babel/runtime': 7.26.7
+      '@babel/runtime': 7.26.10
     optional: true
 
   '@radix-ui/number@1.1.0':
@@ -9808,7 +9913,7 @@ snapshots:
 
   '@radix-ui/primitive@1.0.1':
     dependencies:
-      '@babel/runtime': 7.26.7
+      '@babel/runtime': 7.26.10
     optional: true
 
   '@radix-ui/primitive@1.1.1': {}
@@ -9847,7 +9952,7 @@ snapshots:
 
   '@radix-ui/react-arrow@1.0.3(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.26.7
+      '@babel/runtime': 7.26.10
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -9911,7 +10016,7 @@ snapshots:
 
   '@radix-ui/react-collection@1.0.3(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.26.7
+      '@babel/runtime': 7.26.10
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.3.18)(react@18.2.0)
       '@radix-ui/react-context': 1.0.1(@types/react@18.3.18)(react@18.2.0)
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -9937,7 +10042,7 @@ snapshots:
 
   '@radix-ui/react-compose-refs@1.0.1(@types/react@18.3.18)(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.26.7
+      '@babel/runtime': 7.26.10
       react: 18.2.0
     optionalDependencies:
       '@types/react': 18.3.18
@@ -9966,7 +10071,7 @@ snapshots:
 
   '@radix-ui/react-context@1.0.1(@types/react@18.3.18)(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.26.7
+      '@babel/runtime': 7.26.10
       react: 18.2.0
     optionalDependencies:
       '@types/react': 18.3.18
@@ -10002,7 +10107,7 @@ snapshots:
 
   '@radix-ui/react-direction@1.0.1(@types/react@18.3.18)(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.26.7
+      '@babel/runtime': 7.26.10
       react: 18.2.0
     optionalDependencies:
       '@types/react': 18.3.18
@@ -10016,7 +10121,7 @@ snapshots:
 
   '@radix-ui/react-dismissable-layer@1.0.4(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.26.7
+      '@babel/runtime': 7.26.10
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.3.18)(react@18.2.0)
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -10044,7 +10149,7 @@ snapshots:
 
   '@radix-ui/react-focus-guards@1.0.1(@types/react@18.3.18)(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.26.7
+      '@babel/runtime': 7.26.10
       react: 18.2.0
     optionalDependencies:
       '@types/react': 18.3.18
@@ -10058,7 +10163,7 @@ snapshots:
 
   '@radix-ui/react-focus-scope@1.0.3(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.26.7
+      '@babel/runtime': 7.26.10
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.3.18)(react@18.2.0)
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@radix-ui/react-use-callback-ref': 1.0.1(@types/react@18.3.18)(react@18.2.0)
@@ -10082,7 +10187,7 @@ snapshots:
 
   '@radix-ui/react-id@1.0.1(@types/react@18.3.18)(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.26.7
+      '@babel/runtime': 7.26.10
       '@radix-ui/react-use-layout-effect': 1.0.1(@types/react@18.3.18)(react@18.2.0)
       react: 18.2.0
     optionalDependencies:
@@ -10157,7 +10262,7 @@ snapshots:
 
   '@radix-ui/react-popper@1.1.2(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.26.7
+      '@babel/runtime': 7.26.10
       '@floating-ui/react-dom': 2.1.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@radix-ui/react-arrow': 1.0.3(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.3.18)(react@18.2.0)
@@ -10195,7 +10300,7 @@ snapshots:
 
   '@radix-ui/react-portal@1.0.3(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.26.7
+      '@babel/runtime': 7.26.10
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -10226,7 +10331,7 @@ snapshots:
 
   '@radix-ui/react-primitive@1.0.3(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.26.7
+      '@babel/runtime': 7.26.10
       '@radix-ui/react-slot': 1.0.2(@types/react@18.3.18)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -10299,7 +10404,7 @@ snapshots:
 
   '@radix-ui/react-select@1.2.2(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.26.7
+      '@babel/runtime': 7.26.10
       '@radix-ui/number': 1.0.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-collection': 1.0.3(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -10340,7 +10445,7 @@ snapshots:
 
   '@radix-ui/react-slot@1.0.2(@types/react@18.3.18)(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.26.7
+      '@babel/runtime': 7.26.10
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.3.18)(react@18.2.0)
       react: 18.2.0
     optionalDependencies:
@@ -10474,7 +10579,7 @@ snapshots:
 
   '@radix-ui/react-use-callback-ref@1.0.1(@types/react@18.3.18)(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.26.7
+      '@babel/runtime': 7.26.10
       react: 18.2.0
     optionalDependencies:
       '@types/react': 18.3.18
@@ -10488,7 +10593,7 @@ snapshots:
 
   '@radix-ui/react-use-controllable-state@1.0.1(@types/react@18.3.18)(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.26.7
+      '@babel/runtime': 7.26.10
       '@radix-ui/react-use-callback-ref': 1.0.1(@types/react@18.3.18)(react@18.2.0)
       react: 18.2.0
     optionalDependencies:
@@ -10504,7 +10609,7 @@ snapshots:
 
   '@radix-ui/react-use-escape-keydown@1.0.3(@types/react@18.3.18)(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.26.7
+      '@babel/runtime': 7.26.10
       '@radix-ui/react-use-callback-ref': 1.0.1(@types/react@18.3.18)(react@18.2.0)
       react: 18.2.0
     optionalDependencies:
@@ -10520,7 +10625,7 @@ snapshots:
 
   '@radix-ui/react-use-layout-effect@1.0.1(@types/react@18.3.18)(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.26.7
+      '@babel/runtime': 7.26.10
       react: 18.2.0
     optionalDependencies:
       '@types/react': 18.3.18
@@ -10534,7 +10639,7 @@ snapshots:
 
   '@radix-ui/react-use-previous@1.0.1(@types/react@18.3.18)(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.26.7
+      '@babel/runtime': 7.26.10
       react: 18.2.0
     optionalDependencies:
       '@types/react': 18.3.18
@@ -10548,7 +10653,7 @@ snapshots:
 
   '@radix-ui/react-use-rect@1.0.1(@types/react@18.3.18)(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.26.7
+      '@babel/runtime': 7.26.10
       '@radix-ui/rect': 1.0.1
       react: 18.2.0
     optionalDependencies:
@@ -10564,7 +10669,7 @@ snapshots:
 
   '@radix-ui/react-use-size@1.0.1(@types/react@18.3.18)(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.26.7
+      '@babel/runtime': 7.26.10
       '@radix-ui/react-use-layout-effect': 1.0.1(@types/react@18.3.18)(react@18.2.0)
       react: 18.2.0
     optionalDependencies:
@@ -10580,7 +10685,7 @@ snapshots:
 
   '@radix-ui/react-visually-hidden@1.0.3(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.26.7
+      '@babel/runtime': 7.26.10
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -10601,7 +10706,7 @@ snapshots:
 
   '@radix-ui/rect@1.0.1':
     dependencies:
-      '@babel/runtime': 7.26.7
+      '@babel/runtime': 7.26.10
     optional: true
 
   '@radix-ui/rect@1.1.0': {}
@@ -10640,7 +10745,7 @@ snapshots:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  '@react-router/dev@7.1.5(@react-router/serve@7.1.5(react-router@7.1.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(typescript@5.7.3))(@types/node@20.17.18)(babel-plugin-macros@3.1.0)(react-router@7.1.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(sass@1.84.0)(terser@5.39.0)(typescript@5.7.3)(vite@5.4.14(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0))':
+  '@react-router/dev@7.1.5(@react-router/serve@7.1.5(react-router@7.1.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(typescript@5.7.3))(@types/node@20.17.18)(babel-plugin-macros@3.1.0)(react-router@7.1.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(sass@1.85.1)(terser@5.39.0)(typescript@5.7.3)(vite@5.4.14(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0))':
     dependencies:
       '@babel/core': 7.26.8
       '@babel/generator': 7.26.8
@@ -10671,8 +10776,8 @@ snapshots:
       semver: 7.7.1
       set-cookie-parser: 2.7.1
       valibot: 0.41.0(typescript@5.7.3)
-      vite: 5.4.14(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0)
-      vite-node: 3.0.0-beta.2(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0)
+      vite: 5.4.14(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0)
+      vite-node: 3.0.0-beta.2(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0)
     optionalDependencies:
       '@react-router/serve': 7.1.5(react-router@7.1.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(typescript@5.7.3)
       typescript: 5.7.3
@@ -10707,9 +10812,9 @@ snapshots:
     optionalDependencies:
       typescript: 5.7.3
 
-  '@react-router/remix-routes-option-adapter@7.1.5(@react-router/dev@7.1.5(@react-router/serve@7.1.5(react-router@7.1.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(typescript@5.7.3))(@types/node@20.17.18)(babel-plugin-macros@3.1.0)(react-router@7.1.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(sass@1.84.0)(terser@5.39.0)(typescript@5.7.3)(vite@5.4.14(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0)))(typescript@5.7.3)':
+  '@react-router/remix-routes-option-adapter@7.1.5(@react-router/dev@7.1.5(@react-router/serve@7.1.5(react-router@7.1.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(typescript@5.7.3))(@types/node@20.17.18)(babel-plugin-macros@3.1.0)(react-router@7.1.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(sass@1.85.1)(terser@5.39.0)(typescript@5.7.3)(vite@5.4.14(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0)))(typescript@5.7.3)':
     dependencies:
-      '@react-router/dev': 7.1.5(@react-router/serve@7.1.5(react-router@7.1.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(typescript@5.7.3))(@types/node@20.17.18)(babel-plugin-macros@3.1.0)(react-router@7.1.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(sass@1.84.0)(terser@5.39.0)(typescript@5.7.3)(vite@5.4.14(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0))
+      '@react-router/dev': 7.1.5(@react-router/serve@7.1.5(react-router@7.1.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(typescript@5.7.3))(@types/node@20.17.18)(babel-plugin-macros@3.1.0)(react-router@7.1.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(sass@1.85.1)(terser@5.39.0)(typescript@5.7.3)(vite@5.4.14(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0))
     optionalDependencies:
       typescript: 5.7.3
 
@@ -10957,13 +11062,13 @@ snapshots:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  '@storybook/builder-vite@8.5.8(storybook@8.5.8(prettier@3.5.1))(vite@5.4.14(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0))':
+  '@storybook/builder-vite@8.5.8(storybook@8.5.8(prettier@3.5.1))(vite@5.4.14(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0))':
     dependencies:
       '@storybook/csf-plugin': 8.5.8(storybook@8.5.8(prettier@3.5.1))
       browser-assert: 1.2.1
       storybook: 8.5.8(prettier@3.5.1)
       ts-dedent: 2.2.0
-      vite: 5.4.14(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0)
+      vite: 5.4.14(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0)
 
   '@storybook/channels@8.5.8(storybook@8.5.8(prettier@3.5.1))':
     dependencies:
@@ -11037,11 +11142,11 @@ snapshots:
       react-dom: 18.2.0(react@18.2.0)
       storybook: 8.5.8(prettier@3.5.1)
 
-  '@storybook/react-vite@8.5.8(@storybook/test@8.5.8(storybook@8.5.8(prettier@3.5.1)))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(rollup@2.79.2)(storybook@8.5.8(prettier@3.5.1))(typescript@5.7.3)(vite@5.4.14(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0))':
+  '@storybook/react-vite@8.5.8(@storybook/test@8.5.8(storybook@8.5.8(prettier@3.5.1)))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(rollup@2.79.2)(storybook@8.5.8(prettier@3.5.1))(typescript@5.7.3)(vite@5.4.14(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0))':
     dependencies:
-      '@joshwooding/vite-plugin-react-docgen-typescript': 0.5.0(typescript@5.7.3)(vite@5.4.14(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0))
+      '@joshwooding/vite-plugin-react-docgen-typescript': 0.5.0(typescript@5.7.3)(vite@5.4.14(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0))
       '@rollup/pluginutils': 5.1.4(rollup@2.79.2)
-      '@storybook/builder-vite': 8.5.8(storybook@8.5.8(prettier@3.5.1))(vite@5.4.14(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0))
+      '@storybook/builder-vite': 8.5.8(storybook@8.5.8(prettier@3.5.1))(vite@5.4.14(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0))
       '@storybook/react': 8.5.8(@storybook/test@8.5.8(storybook@8.5.8(prettier@3.5.1)))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(storybook@8.5.8(prettier@3.5.1))(typescript@5.7.3)
       find-up: 5.0.0
       magic-string: 0.30.17
@@ -11051,7 +11156,7 @@ snapshots:
       resolve: 1.22.10
       storybook: 8.5.8(prettier@3.5.1)
       tsconfig-paths: 4.2.0
-      vite: 5.4.14(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0)
+      vite: 5.4.14(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0)
     optionalDependencies:
       '@storybook/test': 8.5.8(storybook@8.5.8(prettier@3.5.1))
     transitivePeerDependencies:
@@ -11340,6 +11445,10 @@ snapshots:
     dependencies:
       undici-types: 6.19.8
 
+  '@types/node@20.17.24':
+    dependencies:
+      undici-types: 6.19.8
+
   '@types/normalize-package-data@2.4.4': {}
 
   '@types/parse-json@4.0.2':
@@ -11362,7 +11471,7 @@ snapshots:
 
   '@types/sass@1.45.0':
     dependencies:
-      sass: 1.84.0
+      sass: 1.85.1
     optional: true
 
   '@types/stylus@0.48.43':
@@ -11513,13 +11622,13 @@ snapshots:
       chai: 5.2.0
       tinyrainbow: 2.0.0
 
-  '@vitest/mocker@3.0.6(vite@5.4.14(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0))':
+  '@vitest/mocker@3.0.6(vite@5.4.14(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0))':
     dependencies:
       '@vitest/spy': 3.0.6
       estree-walker: 3.0.3
       magic-string: 0.30.17
     optionalDependencies:
-      vite: 5.4.14(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0)
+      vite: 5.4.14(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0)
 
   '@vitest/pretty-format@2.0.5':
     dependencies:
@@ -11682,6 +11791,8 @@ snapshots:
 
   acorn@8.14.0: {}
 
+  acorn@8.14.1: {}
+
   aggregate-error@3.1.0:
     dependencies:
       clean-stack: 2.2.0
@@ -11843,10 +11954,10 @@ snapshots:
 
   at-least-node@1.0.0: {}
 
-  autoprefixer@10.4.20(postcss@8.5.2):
+  autoprefixer@10.4.21(postcss@8.5.2):
     dependencies:
       browserslist: 4.24.4
-      caniuse-lite: 1.0.30001699
+      caniuse-lite: 1.0.30001703
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.1.1
@@ -11871,7 +11982,7 @@ snapshots:
 
   babel-plugin-macros@3.1.0:
     dependencies:
-      '@babel/runtime': 7.26.7
+      '@babel/runtime': 7.26.10
       cosmiconfig: 7.1.0
       resolve: 1.22.10
     optional: true
@@ -11889,7 +12000,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.26.8
       '@babel/helper-define-polyfill-provider': 0.6.3(@babel/core@7.26.8)
-      core-js-compat: 3.40.0
+      core-js-compat: 3.41.0
     transitivePeerDependencies:
       - supports-color
 
@@ -11905,11 +12016,11 @@ snapshots:
   bare-events@2.5.4:
     optional: true
 
-  base-x@3.0.10:
+  base-x@3.0.11:
     dependencies:
       safe-buffer: 5.2.1
 
-  base-x@4.0.0: {}
+  base-x@4.0.1: {}
 
   base64-js@1.5.1: {}
 
@@ -11922,9 +12033,6 @@ snapshots:
       open: 8.4.2
 
   binary-extensions@2.3.0: {}
-
-  bind-event-listener@3.0.0:
-    optional: true
 
   bip39@3.1.0:
     dependencies:
@@ -12000,7 +12108,7 @@ snapshots:
 
   bs58@5.0.0:
     dependencies:
-      base-x: 4.0.0
+      base-x: 4.0.1
 
   bs58check@3.0.1:
     dependencies:
@@ -12057,6 +12165,11 @@ snapshots:
       call-bind-apply-helpers: 1.0.2
       get-intrinsic: 1.2.7
 
+  call-bound@1.0.4:
+    dependencies:
+      call-bind-apply-helpers: 1.0.2
+      get-intrinsic: 1.3.0
+
   callsites@3.1.0: {}
 
   camelcase-css@2.0.1: {}
@@ -12064,6 +12177,9 @@ snapshots:
   camelcase@6.3.0: {}
 
   caniuse-lite@1.0.30001699: {}
+
+  caniuse-lite@1.0.30001703:
+    optional: true
 
   catering@2.1.1: {}
 
@@ -12215,6 +12331,10 @@ snapshots:
   cookie@1.0.2: {}
 
   core-js-compat@3.40.0:
+    dependencies:
+      browserslist: 4.24.4
+
+  core-js-compat@3.41.0:
     dependencies:
       browserslist: 4.24.4
 
@@ -12562,8 +12682,8 @@ snapshots:
       '@types/sass': 1.45.0
       '@types/stylus': 0.48.43
       glob: 10.4.5
-      postcss: 8.5.2
-      postcss-modules: 6.0.1(postcss@8.5.2)
+      postcss: 8.5.3
+      postcss-modules: 6.0.1(postcss@8.5.3)
     optional: true
 
   esbuild@0.21.5:
@@ -13035,6 +13155,10 @@ snapshots:
     dependencies:
       reusify: 1.0.4
 
+  fastq@1.19.1:
+    dependencies:
+      reusify: 1.1.0
+
   fdir@6.4.3(picomatch@4.0.2):
     optionalDependencies:
       picomatch: 4.0.2
@@ -13127,7 +13251,7 @@ snapshots:
 
   fs-ext@2.1.1:
     dependencies:
-      nan: 2.22.0
+      nan: 2.22.2
 
   fs-extra@10.1.0:
     dependencies:
@@ -13179,6 +13303,19 @@ snapshots:
   get-east-asian-width@1.3.0: {}
 
   get-intrinsic@1.2.7:
+    dependencies:
+      call-bind-apply-helpers: 1.0.2
+      es-define-property: 1.0.1
+      es-errors: 1.3.0
+      es-object-atoms: 1.1.1
+      function-bind: 1.1.2
+      get-proto: 1.0.1
+      gopd: 1.2.0
+      has-symbols: 1.1.0
+      hasown: 2.0.2
+      math-intrinsics: 1.1.0
+
+  get-intrinsic@1.3.0:
     dependencies:
       call-bind-apply-helpers: 1.0.2
       es-define-property: 1.0.1
@@ -13392,7 +13529,7 @@ snapshots:
 
   i18next@21.10.0:
     dependencies:
-      '@babel/runtime': 7.26.7
+      '@babel/runtime': 7.26.10
     optional: true
 
   iconv-lite@0.4.24:
@@ -13403,9 +13540,9 @@ snapshots:
     dependencies:
       safer-buffer: 2.1.2
 
-  icss-utils@5.1.0(postcss@8.5.2):
+  icss-utils@5.1.0(postcss@8.5.3):
     dependencies:
-      postcss: 8.5.2
+      postcss: 8.5.3
     optional: true
 
   idb@7.1.1: {}
@@ -13658,9 +13795,9 @@ snapshots:
 
   isexe@2.0.0: {}
 
-  isomorphic-ws@5.0.0(ws@8.18.0):
+  isomorphic-ws@5.0.0(ws@8.18.1):
     dependencies:
-      ws: 8.18.0
+      ws: 8.18.1
 
   iterator.prototype@1.1.5:
     dependencies:
@@ -13686,7 +13823,7 @@ snapshots:
 
   jest-worker@27.5.1:
     dependencies:
-      '@types/node': 20.17.18
+      '@types/node': 20.17.24
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
@@ -13708,6 +13845,8 @@ snapshots:
 
   jsesc@3.0.2: {}
 
+  jsesc@3.1.0: {}
+
   json-buffer@3.0.1: {}
 
   json-parse-even-better-errors@2.3.1: {}
@@ -13725,7 +13864,7 @@ snapshots:
   json-stable-stringify@1.2.1:
     dependencies:
       call-bind: 1.0.8
-      call-bound: 1.0.3
+      call-bound: 1.0.4
       isarray: 2.0.5
       jsonify: 0.0.1
       object-keys: 1.1.1
@@ -13866,7 +14005,7 @@ snapshots:
       chalk: 5.4.1
       is-unicode-supported: 1.3.0
 
-  long@5.3.0: {}
+  long@5.3.1: {}
 
   loose-envify@1.4.0:
     dependencies:
@@ -14006,7 +14145,7 @@ snapshots:
       object-assign: 4.1.1
       thenify-all: 1.6.0
 
-  nan@2.22.0: {}
+  nan@2.22.2: {}
 
   nanoassert@2.0.0: {}
 
@@ -14017,6 +14156,9 @@ snapshots:
       quick-format-unescaped: 3.0.3
 
   nanoid@3.3.8: {}
+
+  nanoid@3.3.9:
+    optional: true
 
   nanomessage-rpc@3.2.0:
     dependencies:
@@ -14030,7 +14172,7 @@ snapshots:
 
   nanomessage@8.4.0:
     dependencies:
-      fastq: 1.19.0
+      fastq: 1.19.1
       nanocustomassert: 1.0.0
       nanoerror: 1.3.4
       nanoresource-promise: 2.0.0
@@ -14392,14 +14534,6 @@ snapshots:
       read-cache: 1.0.0
       resolve: 1.22.10
 
-  postcss-import@16.1.0(postcss@8.5.2):
-    dependencies:
-      postcss: 8.5.2
-      postcss-value-parser: 4.2.0
-      read-cache: 1.0.0
-      resolve: 1.22.10
-    optional: true
-
   postcss-js@4.0.1(postcss@8.5.2):
     dependencies:
       camelcase-css: 2.0.1
@@ -14420,41 +14554,41 @@ snapshots:
     optionalDependencies:
       postcss: 8.5.2
 
-  postcss-modules-extract-imports@3.1.0(postcss@8.5.2):
+  postcss-modules-extract-imports@3.1.0(postcss@8.5.3):
     dependencies:
-      postcss: 8.5.2
+      postcss: 8.5.3
     optional: true
 
-  postcss-modules-local-by-default@4.2.0(postcss@8.5.2):
+  postcss-modules-local-by-default@4.2.0(postcss@8.5.3):
     dependencies:
-      icss-utils: 5.1.0(postcss@8.5.2)
-      postcss: 8.5.2
+      icss-utils: 5.1.0(postcss@8.5.3)
+      postcss: 8.5.3
       postcss-selector-parser: 7.1.0
       postcss-value-parser: 4.2.0
     optional: true
 
-  postcss-modules-scope@3.2.1(postcss@8.5.2):
+  postcss-modules-scope@3.2.1(postcss@8.5.3):
     dependencies:
-      postcss: 8.5.2
+      postcss: 8.5.3
       postcss-selector-parser: 7.1.0
     optional: true
 
-  postcss-modules-values@4.0.0(postcss@8.5.2):
+  postcss-modules-values@4.0.0(postcss@8.5.3):
     dependencies:
-      icss-utils: 5.1.0(postcss@8.5.2)
-      postcss: 8.5.2
+      icss-utils: 5.1.0(postcss@8.5.3)
+      postcss: 8.5.3
     optional: true
 
-  postcss-modules@6.0.1(postcss@8.5.2):
+  postcss-modules@6.0.1(postcss@8.5.3):
     dependencies:
       generic-names: 4.0.0
-      icss-utils: 5.1.0(postcss@8.5.2)
+      icss-utils: 5.1.0(postcss@8.5.3)
       lodash.camelcase: 4.3.0
-      postcss: 8.5.2
-      postcss-modules-extract-imports: 3.1.0(postcss@8.5.2)
-      postcss-modules-local-by-default: 4.2.0(postcss@8.5.2)
-      postcss-modules-scope: 3.2.1(postcss@8.5.2)
-      postcss-modules-values: 4.0.0(postcss@8.5.2)
+      postcss: 8.5.3
+      postcss-modules-extract-imports: 3.1.0(postcss@8.5.3)
+      postcss-modules-local-by-default: 4.2.0(postcss@8.5.3)
+      postcss-modules-scope: 3.2.1(postcss@8.5.3)
+      postcss-modules-values: 4.0.0(postcss@8.5.3)
       string-hash: 1.1.3
     optional: true
 
@@ -14488,7 +14622,14 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
-  preact@10.25.4: {}
+  postcss@8.5.3:
+    dependencies:
+      nanoid: 3.3.9
+      picocolors: 1.1.1
+      source-map-js: 1.2.1
+    optional: true
+
+  preact@10.26.4: {}
 
   prebuild-install@7.1.3:
     dependencies:
@@ -14563,7 +14704,7 @@ snapshots:
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
       '@types/node': 20.17.18
-      long: 5.3.0
+      long: 5.3.1
 
   proxy-addr@2.0.7:
     dependencies:
@@ -14606,9 +14747,6 @@ snapshots:
     optional: true
 
   race-as-promised@0.0.2: {}
-
-  raf-schd@4.0.3:
-    optional: true
 
   random-access-file@2.2.1:
     dependencies:
@@ -14682,7 +14820,7 @@ snapshots:
 
   react-error-boundary@4.1.2(react@18.2.0):
     dependencies:
-      '@babel/runtime': 7.26.7
+      '@babel/runtime': 7.26.10
       react: 18.2.0
 
   react-hook-form@7.54.2(react@18.2.0):
@@ -14696,7 +14834,7 @@ snapshots:
 
   react-i18next@11.18.6(i18next@21.10.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
-      '@babel/runtime': 7.26.7
+      '@babel/runtime': 7.26.10
       html-parse-stringify: 3.0.1
       i18next: 21.10.0
       react: 18.2.0
@@ -14858,7 +14996,7 @@ snapshots:
 
   regenerator-transform@0.15.2:
     dependencies:
-      '@babel/runtime': 7.26.7
+      '@babel/runtime': 7.26.10
 
   regexp-tree@0.1.27: {}
 
@@ -14923,6 +15061,8 @@ snapshots:
 
   reusify@1.0.4: {}
 
+  reusify@1.1.0: {}
+
   rimraf@3.0.2:
     dependencies:
       glob: 7.2.3
@@ -14958,7 +15098,7 @@ snapshots:
 
   rtl-css-js@1.16.1:
     dependencies:
-      '@babel/runtime': 7.26.7
+      '@babel/runtime': 7.26.10
 
   run-parallel-limit@1.1.0:
     dependencies:
@@ -14993,7 +15133,7 @@ snapshots:
 
   safer-buffer@2.1.2: {}
 
-  sass@1.84.0:
+  sass@1.85.1:
     dependencies:
       chokidar: 4.0.3
       immutable: 5.0.3
@@ -15417,7 +15557,7 @@ snapshots:
 
   tabbable@6.2.0: {}
 
-  tabster@8.4.1:
+  tabster@8.5.1:
     dependencies:
       keyborg: 2.6.0
       tslib: 2.8.1
@@ -15529,7 +15669,7 @@ snapshots:
       type-fest: 0.16.0
       unique-string: 2.0.0
 
-  terser-webpack-plugin@5.3.11(esbuild@0.21.5)(webpack@5.98.0(esbuild@0.21.5)):
+  terser-webpack-plugin@5.3.14(esbuild@0.21.5)(webpack@5.98.0(esbuild@0.21.5)):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
       jest-worker: 27.5.1
@@ -15543,7 +15683,7 @@ snapshots:
   terser@5.39.0:
     dependencies:
       '@jridgewell/source-map': 0.3.6
-      acorn: 8.14.0
+      acorn: 8.14.1
       commander: 2.20.3
       source-map-support: 0.5.21
 
@@ -15917,13 +16057,13 @@ snapshots:
       - '@types/react'
       - '@types/react-dom'
 
-  vite-node@3.0.0-beta.2(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0):
+  vite-node@3.0.0-beta.2(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0):
     dependencies:
       cac: 6.7.14
       debug: 4.4.0
       es-module-lexer: 1.6.0
       pathe: 1.1.2
-      vite: 5.4.14(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0)
+      vite: 5.4.14(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -15935,13 +16075,13 @@ snapshots:
       - supports-color
       - terser
 
-  vite-node@3.0.6(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0):
+  vite-node@3.0.6(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0):
     dependencies:
       cac: 6.7.14
       debug: 4.4.0
       es-module-lexer: 1.6.0
       pathe: 2.0.3
-      vite: 5.4.14(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0)
+      vite: 5.4.14(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -15953,43 +16093,43 @@ snapshots:
       - supports-color
       - terser
 
-  vite-plugin-pwa@0.21.1(vite@5.4.14(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0))(workbox-build@7.3.0(@types/babel__core@7.20.5))(workbox-window@7.3.0):
+  vite-plugin-pwa@0.21.1(vite@5.4.14(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0))(workbox-build@7.3.0(@types/babel__core@7.20.5))(workbox-window@7.3.0):
     dependencies:
       debug: 4.4.0
       pretty-bytes: 6.1.1
       tinyglobby: 0.2.11
-      vite: 5.4.14(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0)
+      vite: 5.4.14(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0)
       workbox-build: 7.3.0(@types/babel__core@7.20.5)
       workbox-window: 7.3.0
     transitivePeerDependencies:
       - supports-color
 
-  vite-plugin-top-level-await@1.4.4(@swc/helpers@0.5.15)(rollup@2.79.2)(vite@5.4.14(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0)):
+  vite-plugin-top-level-await@1.4.4(@swc/helpers@0.5.15)(rollup@2.79.2)(vite@5.4.14(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0)):
     dependencies:
       '@rollup/plugin-virtual': 3.0.2(rollup@2.79.2)
       '@swc/core': 1.10.16(@swc/helpers@0.5.15)
       uuid: 10.0.0
-      vite: 5.4.14(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0)
+      vite: 5.4.14(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0)
     transitivePeerDependencies:
       - '@swc/helpers'
       - rollup
 
-  vite-plugin-wasm@3.4.1(vite@5.4.14(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0)):
+  vite-plugin-wasm@3.4.1(vite@5.4.14(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0)):
     dependencies:
-      vite: 5.4.14(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0)
+      vite: 5.4.14(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0)
 
-  vite-tsconfig-paths@5.1.4(typescript@5.7.3)(vite@5.4.14(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0)):
+  vite-tsconfig-paths@5.1.4(typescript@5.7.3)(vite@5.4.14(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0)):
     dependencies:
       debug: 4.4.0
       globrex: 0.1.2
       tsconfck: 3.1.5(typescript@5.7.3)
     optionalDependencies:
-      vite: 5.4.14(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0)
+      vite: 5.4.14(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0)
     transitivePeerDependencies:
       - supports-color
       - typescript
 
-  vite@5.4.14(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0):
+  vite@5.4.14(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.5.2
@@ -15997,13 +16137,13 @@ snapshots:
     optionalDependencies:
       '@types/node': 20.17.18
       fsevents: 2.3.3
-      sass: 1.84.0
+      sass: 1.85.1
       terser: 5.39.0
 
-  vitest@3.0.6(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0):
+  vitest@3.0.6(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0):
     dependencies:
       '@vitest/expect': 3.0.6
-      '@vitest/mocker': 3.0.6(vite@5.4.14(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0))
+      '@vitest/mocker': 3.0.6(vite@5.4.14(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0))
       '@vitest/pretty-format': 3.0.6
       '@vitest/runner': 3.0.6
       '@vitest/snapshot': 3.0.6
@@ -16019,8 +16159,8 @@ snapshots:
       tinyexec: 0.3.2
       tinypool: 1.0.2
       tinyrainbow: 2.0.0
-      vite: 5.4.14(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0)
-      vite-node: 3.0.6(@types/node@20.17.18)(sass@1.84.0)(terser@5.39.0)
+      vite: 5.4.14(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0)
+      vite-node: 3.0.6(@types/node@20.17.18)(sass@1.85.1)(terser@5.39.0)
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 20.17.18
@@ -16058,7 +16198,7 @@ snapshots:
       '@webassemblyjs/ast': 1.14.1
       '@webassemblyjs/wasm-edit': 1.14.1
       '@webassemblyjs/wasm-parser': 1.14.1
-      acorn: 8.14.0
+      acorn: 8.14.1
       browserslist: 4.24.4
       chrome-trace-event: 1.0.4
       enhanced-resolve: 5.18.1
@@ -16073,7 +16213,7 @@ snapshots:
       neo-async: 2.6.2
       schema-utils: 4.3.0
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.11(esbuild@0.21.5)(webpack@5.98.0(esbuild@0.21.5))
+      terser-webpack-plugin: 5.3.14(esbuild@0.21.5)(webpack@5.98.0(esbuild@0.21.5))
       watchpack: 2.4.2
       webpack-sources: 3.2.3
     transitivePeerDependencies:
@@ -16165,7 +16305,7 @@ snapshots:
       '@apideck/better-ajv-errors': 0.3.6(ajv@8.17.1)
       '@babel/core': 7.26.8
       '@babel/preset-env': 7.26.9(@babel/core@7.26.8)
-      '@babel/runtime': 7.26.7
+      '@babel/runtime': 7.26.10
       '@rollup/plugin-babel': 5.3.1(@babel/core@7.26.8)(@types/babel__core@7.20.5)(rollup@2.79.2)
       '@rollup/plugin-node-resolve': 15.3.1(rollup@2.79.2)
       '@rollup/plugin-replace': 2.4.2(rollup@2.79.2)
@@ -16279,6 +16419,8 @@ snapshots:
   wrappy@1.0.2: {}
 
   ws@8.18.0: {}
+
+  ws@8.18.1: {}
 
   xo@0.58.0(@types/eslint@9.6.1)(webpack@5.98.0(esbuild@0.21.5)):
     dependencies:

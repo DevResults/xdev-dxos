@@ -21,11 +21,11 @@
     "test:pw:ui": "cross-env PLAYWRIGHT_UI=1 run-p dev test:pw:exec:ui"
   },
   "dependencies": {
-    "@dxos/config": "^0.7.5-feature-compute.4d9d99a",
-    "@dxos/echo-schema": "^0.7.5-feature-compute.4d9d99a",
-    "@dxos/react-client": "^0.7.5-feature-compute.4d9d99a",
-    "@dxos/shell": "0.7.5-feature-compute.4d9d99a",
-    "@dxos/util": "0.7.5-feature-compute.4d9d99a",
+    "@dxos/config": "0.7.4",
+    "@dxos/echo-schema": "0.7.4",
+    "@dxos/react-client": "0.7.4",
+    "@dxos/shell": "0.7.4",
+    "@dxos/util": "0.7.4",
     "@effect/schema": "^0.75.5",
     "@headlessui/react": "^2.2.0",
     "@herbcaudill/random": "^1.0.5",
