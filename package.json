@@ -12,7 +12,7 @@
     "icon-types": "node ./scripts/generate-icon-types.js",
     "lint": "xo",
     "preinstall": "npx only-allow pnpm",
-    "start": "react-router-serve ./build/server/index.js",
+    "start": "vite preview --open",
     "start:storybook": "http-server storybook-static/ -os",
     "storybook": "storybook dev -p 6006",
     "test": "vitest",
