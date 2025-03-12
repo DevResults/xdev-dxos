@@ -52,7 +52,7 @@ export class App {
   }
 
   async reload() {
-    await pause(5000) // give storage etc. time to finish
+    await pause(1000) // give storage etc. time to finish
     await this.page.reload()
     return this
   }
