@@ -1,15 +1,13 @@
-import { chromium, type FullConfig } from "@playwright/test"
+import { chromium } from "@playwright/test"
 
 /**
  * Warms up Vite's dependency optimizer by loading the app in a browser.
  * This triggers dynamic imports and ensures all chunks are generated
  * before actual tests run.
  */
-export default async function globalSetup(config: FullConfig) {
+export default async function globalSetup() {
   // Skip warmup in CI (uses pre-built app) or Playwright UI mode
-  if (process.env.CI || process.env.PLAYWRIGHT_UI === "1") {
-    return
-  }
+  if (process.env.CI ?? process.env.PLAYWRIGHT_UI === "1") return
 
   console.log("Warming up Vite dependency cache...")
 
