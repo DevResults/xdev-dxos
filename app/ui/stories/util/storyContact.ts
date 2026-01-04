@@ -13,7 +13,7 @@ export function storyContact(
     contact: c,
     isSelf: self,
     isAdmin: admin,
-    identity: undefined, // todo
+    identity: undefined,
   })
 }
 
