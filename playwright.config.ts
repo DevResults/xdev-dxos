@@ -12,7 +12,7 @@ export default defineConfig({
   globalSetup: "./test/global-setup.ts",
 
   /* tests fail if they take longer than this */
-  timeout: 45_000,
+  timeout: 15_000,
 
   /* abort if we get several test failures (probably server isn't running or something) */
   maxFailures: 10,
@@ -27,7 +27,7 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
 
   /* Opt out of parallel tests */
-  workers: 1,
+  workers: process.env.CI ? 1 : 8,
 
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: "list",

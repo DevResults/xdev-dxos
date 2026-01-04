@@ -34,7 +34,8 @@ export class App {
     if (
       text.includes("has been externalized for browser compatibility") ||
       text.includes("React DevTools") ||
-      text.includes("Files in the public directory")
+      text.includes("Files in the public directory") ||
+      text.includes("[vite] connect")
     ) {
       return
     }
