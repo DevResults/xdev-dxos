@@ -34,7 +34,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 const createWorker = () =>
-  new SharedWorker(new URL("../public/shared-worker", import.meta.url), {
+  new SharedWorker(new URL("shared-worker.ts", import.meta.url), {
     type: "module",
     name: "dxos-client-worker",
   })

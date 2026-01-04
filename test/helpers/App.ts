@@ -30,6 +30,15 @@ export class App {
 
   log(msg: ConsoleMessage) {
     const text: string = msg.text().replaceAll(/(color: #([\dA-F]{6}))|(color: inherit)|%c/g, "")
+    // Filter out noise warnings from Vite/Node module externalization
+    if (
+      text.includes("has been externalized for browser compatibility") ||
+      text.includes("React DevTools") ||
+      text.includes("Files in the public directory")
+    ) {
+      return
+    }
+
     console.log(text)
   }
 

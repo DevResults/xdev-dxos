@@ -21,7 +21,7 @@ export function useRedirect({ from, to, condition = true, localState = undefined
       if (localState) update(localState)
       void navigate(newTo, { state })
     } else {
-      console.log("oops... don't know how to redirect", { from, to, pathname })
+      // nothing to do
     }
   }, [pathname, state, from, to, condition, navigate])
 }

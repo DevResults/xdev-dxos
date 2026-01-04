@@ -25,9 +25,8 @@ export default async function globalSetup() {
     // Reload to ensure everything is cached
     await page.reload({ waitUntil: "networkidle" })
     await page.waitForTimeout(1000)
-  } catch (error) {
-    console.log("Warmup encountered an error (this may be normal on first run):", error)
-    // Try once more after a delay
+  } catch {
+    // First load may fail while Vite optimizes dependencies - retry silently
     await page.waitForTimeout(3000)
     try {
       await page.goto("http://localhost:3001", { waitUntil: "networkidle" })
