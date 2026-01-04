@@ -34,7 +34,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 const createWorker = () =>
-  new SharedWorker(new URL("../public/shared-worker", import.meta.url), {
+  new SharedWorker(new URL("shared-worker.ts", import.meta.url), {
     type: "module",
     name: "dxos-client-worker",
   })
@@ -42,7 +42,7 @@ const createWorker = () =>
 export default function App() {
   return (
     <ClientProvider
-      // shell="./shell.html"
+      shell="./shell.html"
       config={configProvider}
       createWorker={createWorker}
       types={[Contact, DoneEntry, TimeEntry, Client, Project]}

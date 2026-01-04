@@ -30,6 +30,16 @@ export class App {
 
   log(msg: ConsoleMessage) {
     const text: string = msg.text().replaceAll(/(color: #([\dA-F]{6}))|(color: inherit)|%c/g, "")
+    // Filter out noise warnings from Vite/Node module externalization
+    if (
+      text.includes("has been externalized for browser compatibility") ||
+      text.includes("React DevTools") ||
+      text.includes("Files in the public directory") ||
+      text.includes("[vite] connect")
+    ) {
+      return
+    }
+
     console.log(text)
   }
 
@@ -52,7 +62,7 @@ export class App {
   }
 
   async reload() {
-    await pause(5000) // give storage etc. time to finish
+    await pause(1000) // give storage etc. time to finish
     await this.page.reload()
     return this
   }
