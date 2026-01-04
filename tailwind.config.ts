@@ -12,7 +12,7 @@ const { white, black, blue, zinc, green, orange, red } = tailwindColors
 
 const config: Config = {
   plugins: [tailwindAnimate],
-  content: ["./**/*.{html,tsx,ts}"],
+  content: ["./app/**/*.{html,tsx,ts}"],
   theme: {
     extend: {
       fontFamily: {
