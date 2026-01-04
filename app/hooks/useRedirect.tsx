@@ -12,12 +12,12 @@ export function useRedirect({ from, to, condition = true, localState = undefined
   useEffect(() => {
     if (!condition) return
     if (typeof from === "string" && pathname === from) {
-      console.log(`redirecting from ${from} to ${to}`)
+      // exact match
       if (localState) update(localState)
       void navigate(to, { state })
     } else if (from instanceof RegExp && from.test(pathname)) {
+      // regex match
       const newTo = pathname.replace(from, to)
-      console.log(`redirecting from ${from} to ${newTo}`)
       if (localState) update(localState)
       void navigate(newTo, { state })
     } else {
