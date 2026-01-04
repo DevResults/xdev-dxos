@@ -8,6 +8,9 @@ export default defineConfig({
   testDir: "./test",
   testMatch: "*.test.ts",
 
+  /* Warm up Vite's dependency cache before running tests */
+  globalSetup: "./test/global-setup.ts",
+
   /* tests fail if they take longer than this */
   timeout: 45_000,
 
