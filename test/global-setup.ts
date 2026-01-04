@@ -9,34 +9,18 @@ export default async function globalSetup() {
   // Skip warmup in CI (uses pre-built app) or Playwright UI mode
   if (process.env.CI ?? process.env.PLAYWRIGHT_UI === "1") return
 
-  console.log("Warming up Vite dependency cache...")
+  console.log("Warming up Vite dependency optimizer...")
 
   const browser = await chromium.launch()
   const page = await browser.newPage()
 
-  try {
-    // Navigate to the app and wait for it to fully load
-    // This triggers Vite's on-demand dependency optimization
-    await page.goto("http://localhost:3001", { waitUntil: "networkidle" })
+  // Navigate to the app and wait for it to fully load. This triggers Vite's on-demand dependency optimization
+  await page.goto("http://localhost:3001", { waitUntil: "networkidle" })
 
-    // Wait a bit for any async initialization
-    await page.waitForTimeout(2000)
+  // Reload to ensure everything is cached
+  await page.reload({ waitUntil: "networkidle" })
 
-    // Reload to ensure everything is cached
-    await page.reload({ waitUntil: "networkidle" })
-    await page.waitForTimeout(1000)
-  } catch {
-    // First load may fail while Vite optimizes dependencies - retry silently
-    await page.waitForTimeout(3000)
-    try {
-      await page.goto("http://localhost:3001", { waitUntil: "networkidle" })
-      await page.waitForTimeout(2000)
-    } catch {
-      // Ignore - the actual tests will report any real issues
-    }
-  } finally {
-    await browser.close()
-  }
+  await browser.close()
 
   console.log("Warmup complete")
 }
