@@ -1,10 +1,9 @@
 import { type LocalDate } from "@js-joda/core"
 import { useState } from "react"
-import { create } from "@dxos/react-client/echo"
 import { DoneEditable } from "./DoneEditable"
 import { DoneInput } from "./DoneInput"
 import { cx } from "~/lib/cx"
-import { DoneEntry } from "~/schema/DoneEntry"
+import { makeDoneEntry, type DoneEntry } from "~/schema/DoneEntry"
 import type { Contact } from "~/schema/Contact"
 
 /** Displays a single day of the current user's dones */
@@ -63,7 +62,7 @@ export const DailyDones = ({
             onFocusPrev={focusPrev}
             onDestroy={() => {}}
             onChange={content => {
-              const done = create(DoneEntry, {
+              const done = makeDoneEntry({
                 contactId: self.id,
                 content,
                 date: sDate,

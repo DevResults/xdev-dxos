@@ -1,9 +1,6 @@
-import { create } from "@dxos/react-client/echo"
-import { Client } from "../schema/Client"
+import { makeClient, type Client } from "../schema/Client"
 
-const sNow = new Date().toISOString()
-
-export const clients = `
+const clientCodes = `
 2scale
 aba
 abt
@@ -125,7 +122,26 @@ wri
 wvus
 wwb
 zam`
+
+const sNow = new Date().toISOString()
+
+/** Plain client data for use in tests */
+export const clients = clientCodes
   .trim()
   .split("\n")
   .filter(s => s.length)
-  .map(line => create(Client, { code: line.trim(), timestamp: sNow }))
+  .map(line => ({
+    id: line.trim(),
+    code: line.trim(),
+    timestamp: sNow,
+  })) as Client[]
+
+/** Create DXOS client objects lazily to avoid issues during SSR/prerender */
+export const createClients = () => {
+  const sNow = new Date().toISOString()
+  return clientCodes
+    .trim()
+    .split("\n")
+    .filter(s => s.length)
+    .map(line => makeClient({ code: line.trim(), timestamp: sNow }))
+}

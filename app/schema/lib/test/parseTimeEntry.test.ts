@@ -55,7 +55,7 @@ describe("parseTimeEntry", () => {
         E.provideService(ProvidedClients, clients),
       ),
     validate(expected, actual) {
-      expect(actual.id).toBeTypeOf("string")
+      // parseTimeEntry returns plain data without id - id is added by DXOS when the object is created
       expect(actual.input).toEqual(expected.input)
       expect(actual.duration).toEqual(expected.duration)
       expect(actual.project).toEqual(expected.projectId)

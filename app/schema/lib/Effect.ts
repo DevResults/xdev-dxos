@@ -1,6 +1,6 @@
 // Convenience wrapper of the Effect library with E, S aliases
 
-export { Schema as S, ParseResult } from "@effect/schema"
+// In Effect v3.12+, Schema was moved from @effect/schema into the main effect package
 export {
   Console,
   Clock,
@@ -9,7 +9,9 @@ export {
   Effect as E,
   Either,
   Option,
+  ParseResult,
   pipe,
+  Schema as S,
   Types,
   Array,
 } from "effect"

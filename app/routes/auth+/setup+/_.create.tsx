@@ -1,13 +1,12 @@
 import { useNavigate } from "react-router"
 import { useIdentity } from "@dxos/react-client/halo"
 import { type Client, useClient } from "@dxos/react-client"
-import { create } from "@dxos/react-client/echo"
 import { TeamNameForm } from "ui/TeamNameForm"
 import { useLocalState } from "~/hooks/useLocalState"
 import { useRedirect } from "~/hooks/useRedirect"
-import { Contact } from "~/schema/Contact"
-import { projects } from "~/data/projects"
-import { clients } from "~/data/clients"
+import { makeContact } from "~/schema/Contact"
+import { createProjects } from "~/data/projects"
+import { createClients } from "~/data/clients"
 
 export default function AuthCreatePage() {
   const identity = useIdentity()
@@ -38,7 +37,7 @@ export default function AuthCreatePage() {
         await space.waitUntilReady()
 
         // build a contact for yourself
-        const contact = create(Contact, {
+        const contact = makeContact({
           identityId: identity!.identityKey.toString(),
           avatarUrl: "",
           firstName: identity!.profile!.displayName!,
@@ -48,8 +47,8 @@ export default function AuthCreatePage() {
         space.db.add(contact)
 
         // seed projects and clients
-        for (const project of projects) space.db.add(project)
-        for (const client of clients) space.db.add(client)
+        for (const project of createProjects()) space.db.add(project)
+        for (const c of createClients()) space.db.add(c)
 
         // Navigate to the app
         void navigate("/")

@@ -1,9 +1,6 @@
 import tailwindColors from "tailwindcss/colors"
-import { create } from "@dxos/react-client/echo"
 import { unique } from "../lib/unique"
-import { makeFullCode, Project } from "~/schema/Project"
-
-const sNow = new Date().toISOString()
+import { makeFullCode, makeProject, type Project } from "~/schema/Project"
 
 const projectList = `
 Business:Contracts	yes	Contract negotiation & other back-and-forth
@@ -114,14 +111,32 @@ const codeColor = (code: string) => {
   return colors[index % colors.length]
 }
 
-export const projects = projectList.map(({ code, subCode, requiresClient, description }) =>
-  create(Project, {
-    code,
-    subCode,
-    fullCode: makeFullCode(code, subCode),
-    description,
-    requiresClient,
-    color: codeColor(code),
-    timestamp: sNow,
-  }),
-)
+const sNow = new Date().toISOString()
+
+/** Plain project data for use in tests */
+export const projects = projectList.map(({ code, subCode, requiresClient, description }) => ({
+  id: `${code}-${subCode ?? ""}`.toLowerCase(),
+  code,
+  subCode,
+  fullCode: makeFullCode(code, subCode),
+  description,
+  requiresClient,
+  color: codeColor(code),
+  timestamp: sNow,
+})) as Project[]
+
+/** Create DXOS project objects lazily to avoid issues during SSR/prerender */
+export const createProjects = () => {
+  const sNow = new Date().toISOString()
+  return projectList.map(({ code, subCode, requiresClient, description }) =>
+    makeProject({
+      code,
+      subCode,
+      fullCode: makeFullCode(code, subCode),
+      description,
+      requiresClient,
+      color: codeColor(code),
+      timestamp: sNow,
+    }),
+  )
+}

@@ -6,7 +6,7 @@ import { AutocompleteTextarea } from "./AutocompleteTextarea"
 import { NO_OP } from "~/lib/constants"
 import { cx } from "~/lib/cx"
 import { Keys } from "~/lib/keys"
-import { TimeEntry } from "~/schema/TimeEntry"
+import { parseTimeEntries, type TimeEntry } from "~/schema/TimeEntry"
 import type { Project } from "~/schema/Project"
 import type { Client } from "~/schema/Client"
 import type { Contact } from "~/schema/Contact"
@@ -95,7 +95,7 @@ export const TimeEntryInput = ({
       onDestroy()
     } else {
       // process each line as a separate entry
-      const [errors, parsedEntries] = TimeEntry.parseMany({
+      const [errors, parsedEntries] = parseTimeEntries({
         input: content,
         contactId: self.id,
         date: date.toString(),

@@ -9,11 +9,11 @@ import { Contact } from "~/schema/Contact"
 export const useDatabase = () => {
   const { spaceKey } = useLocalState()
   const space = useSpace(spaceKey)
-  const contacts = useQuery(space, Filter.schema(Contact))
-  const clients = useQuery(space, Filter.schema(Client))
-  const doneEntries = useQuery(space, Filter.schema(DoneEntry))
-  const projects = useQuery(space, Filter.schema(Project))
-  const timeEntries = useQuery(space, Filter.schema(TimeEntry))
+  const contacts = useQuery(space, Filter.type(Contact))
+  const clients = useQuery(space, Filter.type(Client))
+  const doneEntries = useQuery(space, Filter.type(DoneEntry))
+  const projects = useQuery(space, Filter.type(Project))
+  const timeEntries = useQuery(space, Filter.type(TimeEntry))
 
   return {
     clients,

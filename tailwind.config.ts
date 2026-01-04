@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss"
 import tailwindAnimate from "tailwindcss-animate"
+import tailwindLogical from "tailwindcss-logical"
 import tailwindColors from "tailwindcss/colors"
 
 const emoji = "Segoe UI Emoji"
@@ -11,7 +12,7 @@ const serif = "IBM Plex Serif"
 const { white, black, blue, zinc, green, orange, red } = tailwindColors
 
 const config: Config = {
-  plugins: [tailwindAnimate],
+  plugins: [tailwindAnimate, tailwindLogical],
   content: ["./app/**/*.{html,tsx,ts}"],
   theme: {
     extend: {

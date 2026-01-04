@@ -2,11 +2,10 @@ import { useNavigate, useParams } from "react-router"
 import { useState } from "react"
 import { useShell } from "@dxos/react-client"
 import { useIdentity } from "@dxos/react-client/halo"
-import { create } from "@dxos/react-client/echo"
 import { InvitationForm } from "ui/InvitationForm"
 import { useLocalState } from "~/hooks/useLocalState"
 import { useRedirect } from "~/hooks/useRedirect"
-import { Contact } from "~/schema/Contact"
+import { makeContact } from "~/schema/Contact"
 
 export default function AuthJoinPage() {
   const identity = useIdentity()
@@ -36,7 +35,7 @@ export default function AuthJoinPage() {
 
       await space.waitUntilReady()
       // build a contact for yourself
-      const contact = create(Contact, {
+      const contact = makeContact({
         identityId: identity!.identityKey.toString(),
         avatarUrl: "",
         firstName: identity!.profile!.displayName!,

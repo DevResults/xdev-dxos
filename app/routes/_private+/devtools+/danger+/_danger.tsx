@@ -1,13 +1,13 @@
 import { Alert, AlertDescription } from "@ui/alert"
-import { create, useSpace, type ReactiveEchoObject } from "@dxos/react-client/echo"
+import { useSpace, type ReactiveEchoObject } from "@dxos/react-client/echo"
 import type { BaseObject } from "@dxos/echo-schema"
 import { DoneEntryGenerator } from "ui/DoneEntryGenerator"
 import { DoneEntryImporter } from "ui/DoneEntryImporter"
 import { TimeEntryGenerator } from "ui/TimeEntryGenerator"
 import { TimeEntryImporter } from "ui/TimeEntryImporter"
 import { useLocalState } from "~/hooks/useLocalState"
-import { DoneEntry } from "~/schema/DoneEntry"
-import { TimeEntry } from "~/schema/TimeEntry"
+import { makeDoneEntry, type DoneEntry } from "~/schema/DoneEntry"
+import { makeTimeEntry, type TimeEntry } from "~/schema/TimeEntry"
 import { useDatabase } from "~/hooks/useDatabase"
 
 export default function DangerPage() {
@@ -15,9 +15,9 @@ export default function DangerPage() {
   const space = useSpace(spaceKey)
   const { clients, contacts, doneEntries, projects, timeEntries } = useDatabase()
 
-  const addDone = (done: Omit<DoneEntry, "id">) => space?.db.add(create(DoneEntry, done))
+  const addDone = (done: Omit<DoneEntry, "id">) => space?.db.add(makeDoneEntry(done))
   const addTimeEntries = (timeEntries: Array<Omit<TimeEntry, "id">>) => {
-    for (const timeEntry of timeEntries) space?.db.add(create(TimeEntry, timeEntry))
+    for (const timeEntry of timeEntries) space?.db.add(makeTimeEntry(timeEntry))
   }
 
   function destroyAll<T extends ReactiveEchoObject<U>, U extends BaseObject>(list: T[]) {

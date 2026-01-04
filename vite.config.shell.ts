@@ -37,6 +37,11 @@ export default defineConfig({
       input: "./public/shell.html",
     },
   },
+  css: {
+    postcss: {
+      plugins: [],
+    },
+  },
   plugins: [
     ConfigPlugin(),
     topLevelAwait(),

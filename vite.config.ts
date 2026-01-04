@@ -19,7 +19,7 @@ const pwaOptions: Partial<VitePWAOptions> = {
   strategies: "injectManifest",
   injectManifest: {
     globPatterns: ["**/*.{js,css,html,ico,wasm}"],
-    maximumFileSizeToCacheInBytes: 3_000_000, // default is ~2MB but assets/services-5YMQXNOJ-DjwAKeGb.js is 2.1 MB (I think this is dxos?)
+    maximumFileSizeToCacheInBytes: 5_000_000, // default is ~2MB but DXOS 0.8.x bundles are larger
   },
   manifest: {
     name: "XDev",
@@ -63,7 +63,26 @@ export default defineConfig({
     vitePWA(pwaOptions),
     autoImport(autoImportOptions) as Plugin,
     icons({ compiler: "jsx", jsx: "react" }),
+    topLevelAwait(), // needed for DXOS WASM modules
+    // Skip PostCSS for DXOS CSS files that use their own Tailwind classes
+    {
+      name: "skip-postcss-for-dxos",
+      enforce: "pre",
+      transform(code, id) {
+        if (id.includes("node_modules/@dxos") && id.endsWith(".pcss")) {
+          // Return raw CSS without @apply transforms
+          return {
+            code: code.replaceAll(/@apply\s+[^;]+;/g, "/* skipped @apply */"),
+            map: null,
+          }
+        }
+      },
+    },
   ],
+  // DXOS 0.8.x requires modern browser targets for top-level await support
+  build: {
+    target: "esnext",
+  },
   worker: {
     format: "es",
     plugins: () => [topLevelAwait(), wasm() as Plugin],

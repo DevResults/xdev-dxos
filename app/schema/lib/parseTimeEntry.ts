@@ -1,5 +1,4 @@
-import { create } from "@dxos/react-client/echo"
-import { TimeEntry, type TimeEntryInput } from "../TimeEntry"
+import { makeTimeEntry, type TimeEntryInput } from "../TimeEntry"
 import type { Project } from "../Project"
 import { Data, E } from "./Effect"
 import { parseClient } from "./parseClient"
@@ -8,6 +7,7 @@ import { parseProject } from "./parseProject"
 
 /**
  * Takes a string input like "1h #out doctor" and parses it into a TimeEntry object.
+ * Returns a reactive DXOS object that can be directly added to the database.
  */
 export const parseTimeEntry = ({ input, contactId, date }: TimeEntryInput) =>
   E.gen(function* (_) {
@@ -27,7 +27,7 @@ export const parseTimeEntry = ({ input, contactId, date }: TimeEntryInput) =>
         .replace(clientText, ""),
     )
 
-    return create(TimeEntry, {
+    return makeTimeEntry({
       contactId,
       date,
       duration,

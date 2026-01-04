@@ -1,26 +1,22 @@
-import { TypedObject } from "@dxos/echo-schema"
+import { Obj, Type } from "@dxos/echo"
 import { pipe, S } from "./lib/Effect"
-import { stripUndefined } from "./lib/stripUndefined"
 import { Cuid } from "./Cuid"
-import { withDefaultId } from "./lib/withDefault"
 
 export const ClientId = pipe(Cuid, S.brand("ClientId"))
 export type ClientId = typeof ClientId.Type
 
-export class Client extends TypedObject({
-  typename: "devresults.com/type/Client",
-  version: "0.1.0",
-})({
-  id: withDefaultId(ClientId),
+export const Client = S.Struct({
   code: S.String,
   description: S.optional(S.String),
   timestamp: S.String,
-}) {
-  static decode = S.decodeSync(Client)
-  static encode = (client: Client) =>
-    pipe(
-      client, //
-      S.encodeSync(Client),
-      stripUndefined,
-    )
-}
+}).pipe(
+  Type.Obj({
+    typename: "devresults.com/type/Client",
+    version: "0.1.0",
+  }),
+)
+
+export type Client = S.Schema.Type<typeof Client>
+
+/** Create a new Client object */
+export const makeClient = (props: Omit<Client, "id">) => Obj.make(Client, props)
