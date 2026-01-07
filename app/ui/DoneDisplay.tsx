@@ -4,9 +4,11 @@ import type { DoneEntry } from "schema/DoneEntry"
 import type { Contact } from "schema/Contact"
 import { Likes } from "ui/Likes"
 
+// We're using withTrackSignals for reactivity as per [this conversation](https://discord.com/channels/837138313172353095/1340003933757902908/1458261445677678664).
+// When DXOS releases`useObject` or similar, we can switch to that.
+
 /**
  * Displays a read-only DoneEntry along with the Like button.
- * Wrapped with withTrackSignals for DXOS Echo reactivity.
  */
 export const DoneDisplay = withTrackSignals(({ className = "", done, self, contacts }: Props) => {
   const { content, likes } = done
