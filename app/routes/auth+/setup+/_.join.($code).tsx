@@ -19,23 +19,32 @@ export default function AuthJoinPage() {
   const { spaceKey, invitationCode: savedInvitationCode, update } = useLocalState()
   const invitationCodeFromUrl = useParams().code
 
-  const invitationRef = useRef<AuthenticatingInvitationObservable | undefined>()
+  // Store invitation in state so changes trigger re-renders for useInvitationStatus
+  const [invitation, setInvitation] = useState<AuthenticatingInvitationObservable | undefined>()
   const [errorMessage, setErrorMessage] = useState<string | undefined>()
 
   const invitationCode = invitationCodeFromUrl ?? savedInvitationCode
 
   // Hooks ↑
 
-  useRedirect({
-    from: /.*/,
-    to: "/auth/begin",
-    condition: !identity,
-    localState: { invitationCode },
-  })
+  useRedirect(
+    invitationCode ?
+      {
+        from: /.*/,
+        to: "/auth/begin",
+        condition: !identity,
+        localState: { invitationCode },
+      }
+    : {
+        from: /.*/,
+        to: "/auth/begin",
+        condition: !identity,
+      },
+  )
   useRedirect({ from: /.*/, to: "/", condition: Boolean(spaceKey) })
 
   // Get invitation status from the hook
-  const invitationStatus = useInvitationStatus(invitationRef.current)
+  const invitationStatus = useInvitationStatus(invitation)
 
   // Handle successful join
   useEffect(() => {
@@ -81,37 +90,87 @@ export default function AuthJoinPage() {
     navigate,
   ])
 
-  // Handle errors
+  // Track the latest status in a ref so we can check it asynchronously
+  const latestStatusRef = useRef(invitationStatus.status)
+  latestStatusRef.current = invitationStatus.status
+
+  // Track if we've ever reached a connecting state (to distinguish real cancellation from cached state)
+  const hasConnectedRef = useRef(false)
+  if (
+    invitationStatus.status === Invitation.State.CONNECTING ||
+    invitationStatus.status === Invitation.State.CONNECTED ||
+    invitationStatus.status === Invitation.State.READY_FOR_AUTHENTICATION ||
+    invitationStatus.status === Invitation.State.AUTHENTICATING ||
+    invitationStatus.status === Invitation.State.SUCCESS
+  ) {
+    hasConnectedRef.current = true
+  }
+
+  // Handle errors - but delay to avoid showing transient CANCELLED states
+  // (can happen due to cached invitation state from DXOS InvitationsProxy)
   useEffect(() => {
-    switch (invitationStatus.status) {
-      case Invitation.State.ERROR: {
-        setErrorMessage("Something went wrong while joining. Please try again.")
+    // Clear any previous error when we move to a connecting/progress state
+    if (
+      invitationStatus.status === Invitation.State.CONNECTING ||
+      invitationStatus.status === Invitation.State.CONNECTED ||
+      invitationStatus.status === Invitation.State.READY_FOR_AUTHENTICATION ||
+      invitationStatus.status === Invitation.State.AUTHENTICATING
+    ) {
+      setErrorMessage(undefined)
+      return
+    }
 
-        break
-      }
+    // For error states, wait to see if we recover
+    // This handles the case where CANCELLED is emitted briefly due to cached state
+    if (
+      invitationStatus.status === Invitation.State.ERROR ||
+      invitationStatus.status === Invitation.State.TIMEOUT ||
+      invitationStatus.status === Invitation.State.CANCELLED
+    ) {
+      const timeout = setTimeout(() => {
+        // Re-check the CURRENT status via ref (not stale closure value)
+        const currentStatus = latestStatusRef.current
 
-      case Invitation.State.TIMEOUT: {
-        setErrorMessage("The invitation timed out. Please try again.")
+        // If we've recovered to a good state, don't show error
+        if (
+          currentStatus === Invitation.State.CONNECTING ||
+          currentStatus === Invitation.State.CONNECTED ||
+          currentStatus === Invitation.State.READY_FOR_AUTHENTICATION ||
+          currentStatus === Invitation.State.AUTHENTICATING ||
+          currentStatus === Invitation.State.SUCCESS
+        ) {
+          return
+        }
 
-        break
-      }
+        switch (currentStatus) {
+          case Invitation.State.ERROR: {
+            setErrorMessage("Something went wrong while joining. Please try again.")
+            break
+          }
 
-      case Invitation.State.CANCELLED: {
-        setErrorMessage("The invitation was cancelled.")
+          case Invitation.State.TIMEOUT: {
+            setErrorMessage("The invitation timed out. Please try again.")
+            break
+          }
 
-        break
-      }
+          case Invitation.State.CANCELLED: {
+            // Only show cancelled if we had actually connected before
+            // (otherwise it's likely just cached state from a previous attempt)
+            if (hasConnectedRef.current) {
+              setErrorMessage("The invitation was cancelled.")
+            }
 
-      case Invitation.State.INIT:
-      case Invitation.State.CONNECTING:
-      case Invitation.State.CONNECTED:
-      case Invitation.State.READY_FOR_AUTHENTICATION:
-      case Invitation.State.AUTHENTICATING:
-      case Invitation.State.SUCCESS:
-      case Invitation.State.EXPIRED: {
-        // These states don't set error messages
-        break
-      }
+            break
+          }
+
+          case Invitation.State.INIT:
+          case Invitation.State.EXPIRED: {
+            // These states don't need error messages in this context
+            break
+          }
+        }
+      }, 1000) // Wait 1s to see if state improves
+      return () => clearTimeout(timeout)
     }
   }, [invitationStatus.status])
 
@@ -120,7 +179,7 @@ export default function AuthJoinPage() {
       setErrorMessage(undefined)
       try {
         // Join returns an AuthenticatingInvitation
-        invitationRef.current = client.spaces.join(code)
+        setInvitation(client.spaces.join(code))
       } catch {
         setErrorMessage("Invalid invitation code. Please check and try again.")
       }
@@ -142,7 +201,7 @@ export default function AuthJoinPage() {
 
   const handleCancel = useCallback(() => {
     invitationStatus.cancel()
-    invitationRef.current = undefined
+    setInvitation(undefined)
     void navigate("/")
   }, [invitationStatus, navigate])
 

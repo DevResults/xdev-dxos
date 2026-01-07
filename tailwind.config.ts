@@ -11,8 +11,8 @@ const serif = "IBM Plex Serif"
 
 const { white, black, blue, zinc, green, orange, red } = tailwindColors
 
-const config: Config = {
-  plugins: [tailwindAnimate, tailwindLogical] as Config["plugins"],
+const config = {
+  plugins: [tailwindAnimate, tailwindLogical],
   content: ["./app/**/*.{html,tsx,ts}"],
   theme: {
     extend: {
@@ -97,7 +97,7 @@ const config: Config = {
   },
 }
 
-export default config
+export default config satisfies Config
 
 function withDefaults(colors: ColorDefinition) {
   return Object.fromEntries(
