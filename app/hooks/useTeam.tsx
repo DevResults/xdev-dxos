@@ -12,8 +12,10 @@ import { useLocalState } from "./useLocalState"
 import { Contact, ExtendedContact } from "~/schema/Contact"
 
 // Create a stable empty observable for when space.members is undefined
+// The empty array must be cached (same reference) to avoid infinite re-render loops
+const EMPTY_MEMBERS: SpaceMember[] = []
 const createEmptyObservable = () => ({
-  get: () => [] as SpaceMember[],
+  get: () => EMPTY_MEMBERS,
   subscribe: () => ({ unsubscribe() {} }),
 })
 
