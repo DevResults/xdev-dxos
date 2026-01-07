@@ -2,6 +2,9 @@
   "name": "my-react-router-app",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": "22.21.1"
+  },
   "scripts": {
     "benchmark": "vitest bench",
     "build": "run-s build:reactrouter build:shell",
