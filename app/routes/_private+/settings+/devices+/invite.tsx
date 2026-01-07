@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router"
-import { useCallback, useEffect, useRef } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { useClient } from "@dxos/react-client"
 import {
   type CancellableInvitationObservable,
@@ -11,29 +11,30 @@ export default function DevicesInvitePage() {
   const navigate = useNavigate()
   const client = useClient()
 
-  // Store the invitation observable in a ref so it persists across renders
-  const invitationRef = useRef<CancellableInvitationObservable | undefined>()
+  // Store the invitation observable in state so changes trigger re-renders
+  const [invitation, setInvitation] = useState<CancellableInvitationObservable | undefined>()
 
   // Create a device/halo invitation when the component mounts
   useEffect(() => {
-    if (invitationRef.current) {
+    if (invitation) {
       return
     }
 
-    invitationRef.current = client.halo.share()
+    const newInvitation = client.halo.share()
+    setInvitation(newInvitation)
 
     return () => {
-      void invitationRef.current?.cancel()
+      void newInvitation.cancel()
     }
-  }, [client])
+  }, [client, invitation])
 
   // Use the hook to track invitation status
-  const { invitationCode, authCode } = useInvitationStatus(invitationRef.current)
+  const { invitationCode, authCode } = useInvitationStatus(invitation)
 
   const handleClose = useCallback(() => {
-    void invitationRef.current?.cancel()
+    void invitation?.cancel()
     void navigate("..")
-  }, [navigate])
+  }, [invitation, navigate])
 
   return (
     <InviteDeviceDialog

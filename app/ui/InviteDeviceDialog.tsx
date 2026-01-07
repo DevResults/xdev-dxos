@@ -92,6 +92,6 @@ export function InviteDeviceDialog({
 export type Props = {
   onClose: () => void
   invitationCode: string | undefined
-  authCode?: string
+  authCode?: string | undefined
   defaultOpen?: boolean
 }

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router"
-import { useCallback, useEffect, useRef } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { useSpace } from "@dxos/react-client/echo"
 import {
   type CancellableInvitationObservable,
@@ -14,34 +14,35 @@ export default function MembersInvitePage() {
   const { spaceKey } = useLocalState()
   const space = useSpace(spaceKey)
 
-  // Store the invitation observable in a ref so it persists across renders
-  const invitationRef = useRef<CancellableInvitationObservable | undefined>()
+  // Store the invitation observable in state so changes trigger re-renders
+  const [invitation, setInvitation] = useState<CancellableInvitationObservable | undefined>()
 
-  // Create an invitation when the component mounts
+  // Create an invitation when the space becomes available
   useEffect(() => {
-    if (!space || invitationRef.current) {
+    if (!space || invitation) {
       return
     }
 
-    invitationRef.current = space.share({
+    const newInvitation = space.share({
       type: Invitation.Type.INTERACTIVE,
       authMethod: Invitation.AuthMethod.SHARED_SECRET,
       multiUse: false,
     })
+    setInvitation(newInvitation)
 
     return () => {
       // Cancel the invitation when the dialog closes
-      void invitationRef.current?.cancel()
+      void newInvitation.cancel()
     }
-  }, [space])
+  }, [space, invitation])
 
   // Use the hook to track invitation status
-  const { invitationCode, authCode } = useInvitationStatus(invitationRef.current)
+  const { invitationCode, authCode } = useInvitationStatus(invitation)
 
   const handleClose = useCallback(() => {
-    void invitationRef.current?.cancel()
+    void invitation?.cancel()
     void navigate("..")
-  }, [navigate])
+  }, [invitation, navigate])
 
   return (
     <InviteMemberDialog
