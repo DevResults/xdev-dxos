@@ -100,6 +100,7 @@
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.23",
     "cross-env": "^7.0.3",
     "eslint": "^8.57.0",
     "eslint-config-xo": "^0.45.0",
