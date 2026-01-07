@@ -1,8 +1,13 @@
 import { useNavigate, useParams } from "react-router"
-import { useState } from "react"
-import { useShell } from "@dxos/react-client"
+import { useCallback, useEffect, useRef, useState } from "react"
+import { useClient } from "@dxos/react-client"
 import { useIdentity } from "@dxos/react-client/halo"
-import { InvitationForm } from "ui/InvitationForm"
+import {
+  type AuthenticatingInvitationObservable,
+  Invitation,
+  useInvitationStatus,
+} from "@dxos/react-client/invitations"
+import { JoinSpaceForm } from "ui/JoinSpaceForm"
 import { useLocalState } from "~/hooks/useLocalState"
 import { useRedirect } from "~/hooks/useRedirect"
 import { makeContact } from "~/schema/Contact"
@@ -10,14 +15,16 @@ import { makeContact } from "~/schema/Contact"
 export default function AuthJoinPage() {
   const identity = useIdentity()
   const navigate = useNavigate()
+  const client = useClient()
   const { spaceKey, invitationCode: savedInvitationCode, update } = useLocalState()
   const invitationCodeFromUrl = useParams().code
-  const [error, setError] = useState<string | undefined>(undefined)
-  const shell = useShell()
+
+  const invitationRef = useRef<AuthenticatingInvitationObservable | undefined>()
+  const [errorMessage, setErrorMessage] = useState<string | undefined>()
 
   const invitationCode = invitationCodeFromUrl ?? savedInvitationCode
 
-  // hooks ↑
+  // Hooks ↑
 
   useRedirect({
     from: /.*/,
@@ -27,14 +34,32 @@ export default function AuthJoinPage() {
   })
   useRedirect({ from: /.*/, to: "/", condition: Boolean(spaceKey) })
 
-  const joinWithCode = async (invitationCode: string) => {
-    const { space } = await shell.joinSpace({ invitationCode })
-    if (space) {
-      // Save our user info etc. to local storage
-      update({ spaceKey: space.id, invitationCode: "" })
+  // Get invitation status from the hook
+  const invitationStatus = useInvitationStatus(invitationRef.current)
 
-      await space.waitUntilReady()
-      // build a contact for yourself
+  // Handle successful join
+  useEffect(() => {
+    if (invitationStatus.status !== Invitation.State.SUCCESS) {
+      return
+    }
+
+    if (!invitationStatus.result.spaceKey) {
+      return
+    }
+
+    const spaceId = invitationStatus.result.spaceKey.toHex()
+    const space = client.spaces.get().find(s => s.id === spaceId)
+
+    if (!space) {
+      setErrorMessage("Failed to find space after joining")
+      return
+    }
+
+    // Save our user info etc. to local storage
+    update({ spaceKey: space.id, invitationCode: "" })
+
+    // Build a contact for yourself
+    void space.waitUntilReady().then(() => {
       const contact = makeContact({
         identityId: identity!.identityKey.toString(),
         avatarUrl: "",
@@ -43,26 +68,81 @@ export default function AuthJoinPage() {
         userName: identity!.profile!.displayName!,
       })
       space.db.add(contact)
-      void navigate(`/`)
-    } else {
-      setError("Something went wrong... I don't know what")
-    }
-  }
+      void navigate("/")
+    })
+  }, [
+    invitationStatus.status,
+    invitationStatus.result.spaceKey,
+    client,
+    identity,
+    update,
+    navigate,
+  ])
 
-  return invitationCode ?
-      // Take invitation code from URL & confirm
-      <InvitationForm
-        heading="Join a team"
-        error={error}
-        invitationCode={invitationCode}
-        readOnly={true}
-        onSubmit={async () => joinWithCode(invitationCode)}
-      /> // Show input for entering invitation code
-    : <InvitationForm
-        heading="Join a team"
-        error={error}
-        onSubmit={async ({ invitationCode: enteredInvitationCode }) =>
-          joinWithCode(enteredInvitationCode)
-        }
-      />
+  // Handle errors
+  useEffect(() => {
+    switch (invitationStatus.status) {
+      case Invitation.State.ERROR: {
+        setErrorMessage("Something went wrong while joining. Please try again.")
+
+        break
+      }
+
+      case Invitation.State.TIMEOUT: {
+        setErrorMessage("The invitation timed out. Please try again.")
+
+        break
+      }
+
+      case Invitation.State.CANCELLED: {
+        setErrorMessage("The invitation was cancelled.")
+
+        break
+      }
+      // No default
+    }
+  }, [invitationStatus.status])
+
+  const handleJoin = useCallback(
+    (code: string) => {
+      setErrorMessage(undefined)
+      try {
+        // Join returns an AuthenticatingInvitation
+        invitationRef.current = client.spaces.join(code)
+      } catch {
+        setErrorMessage("Invalid invitation code. Please check and try again.")
+      }
+    },
+    [client],
+  )
+
+  const handleAuthenticate = useCallback(
+    async (authCode: string) => {
+      setErrorMessage(undefined)
+      try {
+        await invitationStatus.authenticate(authCode)
+      } catch {
+        setErrorMessage("Invalid verification code. Please check and try again.")
+      }
+    },
+    [invitationStatus],
+  )
+
+  const handleCancel = useCallback(() => {
+    invitationStatus.cancel()
+    invitationRef.current = undefined
+    void navigate("/")
+  }, [invitationStatus, navigate])
+
+  return (
+    <JoinSpaceForm
+      heading="Join a team"
+      invitationCode={invitationCode}
+      status={invitationStatus.status}
+      error={errorMessage}
+      onJoin={handleJoin}
+      onAuthenticate={handleAuthenticate}
+      onCancel={handleCancel}
+    />
+  )
 }

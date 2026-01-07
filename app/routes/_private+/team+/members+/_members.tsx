@@ -1,16 +1,10 @@
-import { Outlet } from "react-router"
-import { useSpace } from "@dxos/react-client/echo"
-import { useShell } from "@dxos/react-client"
+import { Outlet, useNavigate } from "react-router"
 import { Members } from "ui/Members"
 import { useTeam } from "~/hooks/useTeam"
-import { useLocalState } from "~/hooks/useLocalState"
 
 export default function MembersPage() {
   const { contacts, self } = useTeam()
-
-  const shell = useShell()
-  const { spaceKey } = useLocalState()
-  const space = useSpace(spaceKey)
+  const navigate = useNavigate()
 
   return (
     <>
@@ -21,7 +15,7 @@ export default function MembersPage() {
         onDemote={() => {}}
         onRemove={() => {}}
         onInvite={() => {
-          void shell.shareSpace({ spaceId: space!.id })
+          void navigate("/team/members/invite")
         }}
         onRevokeInvitation={() => {}}
       />

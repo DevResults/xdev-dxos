@@ -1,26 +1,54 @@
-import { useLocation, useNavigate } from "react-router"
+import { useNavigate } from "react-router"
+import { useCallback, useEffect, useRef } from "react"
+import { useSpace } from "@dxos/react-client/echo"
+import {
+  type CancellableInvitationObservable,
+  Invitation,
+  useInvitationStatus,
+} from "@dxos/react-client/invitations"
 import { InviteMemberDialog } from "ui/InviteMemberDialog"
-import type { ContactId } from "~/schema/Contact"
+import { useLocalState } from "~/hooks/useLocalState"
 
 export default function MembersInvitePage() {
-  // the userId of the contact we're inviting is passed in the location state
-  const { userId } = useLocation().state as { userId: ContactId }
   const navigate = useNavigate()
+  const { spaceKey } = useLocalState()
+  const space = useSpace(spaceKey)
 
-  // look up the contact information for the user we're inviting
-  const contact = { userId }
+  // Store the invitation observable in a ref so it persists across renders
+  const invitationRef = useRef<CancellableInvitationObservable | undefined>()
 
-  // generate an invitation code for the contact
-  const invitationCode = "hello"
+  // Create an invitation when the component mounts
+  useEffect(() => {
+    if (!space || invitationRef.current) {
+      return
+    }
 
-  // ↑ hooks
+    invitationRef.current = space.share({
+      type: Invitation.Type.INTERACTIVE,
+      authMethod: Invitation.AuthMethod.SHARED_SECRET,
+      multiUse: false,
+    })
+
+    return () => {
+      // Cancel the invitation when the dialog closes
+      void invitationRef.current?.cancel()
+    }
+  }, [space])
+
+  // Use the hook to track invitation status
+  const { invitationCode, authCode } = useInvitationStatus(invitationRef.current)
+
+  const handleClose = useCallback(() => {
+    void invitationRef.current?.cancel()
+    void navigate("..")
+  }, [navigate])
 
   return (
     <InviteMemberDialog
       defaultOpen={true}
-      onClose={async () => navigate("..")}
-      contact={contact}
+      onClose={handleClose}
       invitationCode={invitationCode}
+      authCode={authCode}
     />
   )
 }
