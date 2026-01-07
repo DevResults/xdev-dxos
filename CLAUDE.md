@@ -36,12 +36,12 @@ test/                    # Playwright E2E tests
 
 ## Key Files
 
-| File | Purpose |
-|------|---------|
-| [root.tsx](app/root.tsx) | Root layout, DXOS ClientProvider, schema registration |
-| [useDatabase.tsx](app/hooks/useDatabase.tsx) | Main hook for querying DXOS space |
-| [schema/](app/schema/) | Data models with Effect/Schema validation |
-| [vite.config.ts](vite.config.ts) | Build config with PWA, icons, WASM |
+| File                                         | Purpose                                               |
+| -------------------------------------------- | ----------------------------------------------------- |
+| [root.tsx](app/root.tsx)                     | Root layout, DXOS ClientProvider, schema registration |
+| [useDatabase.tsx](app/hooks/useDatabase.tsx) | Main hook for querying DXOS space                     |
+| [schema/](app/schema/)                       | Data models with Effect/Schema validation             |
+| [vite.config.ts](vite.config.ts)             | Build config with PWA, icons, WASM                    |
 
 ## Commands
 
@@ -77,3 +77,5 @@ pnpm lint         # XO linter
 - Query data via `useQuery()` from `@dxos/react-client/echo`
 - Space accessed via `useDatabase()` hook
 - Objects are reactive (CRDT-backed)
+
+When debugging dxos-related things, you can reference the local copy of the dxos monorepo at ~/code/dxos/dxos
