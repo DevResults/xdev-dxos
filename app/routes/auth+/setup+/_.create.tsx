@@ -55,6 +55,9 @@ export default function AuthCreatePage() {
           space.db.add(c)
         }
 
+        // Ensure data is queryable before navigating
+        await space.db.flush()
+
         // Navigate to the app
         void navigate("/")
       }}

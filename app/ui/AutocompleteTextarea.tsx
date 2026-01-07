@@ -44,7 +44,9 @@ export const AutocompleteTextarea = forwardRef<HTMLTextAreaElement, Props>(
 
     // If the first or only autocomplete item is the current query, we've either typed out a valid
     // item by hand, or we just selected it. In either case, we should not show the autocomplete.
-    const justAutocompleted = autocompleteItems[0].toLowerCase() === queryState?.query.toLowerCase()
+    const justAutocompleted =
+      autocompleteItems.length > 0 &&
+      autocompleteItems[0].toLowerCase() === queryState?.query.toLowerCase()
 
     // Show the autocomplete if the user is typing a query and there are items to show
     const showAutocomplete =

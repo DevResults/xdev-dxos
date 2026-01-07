@@ -1,7 +1,21 @@
 import { DeviceKind, useDevices, useIdentity } from "@dxos/react-client/halo"
-import { HaloSpaceMember, Filter, useMembers, useQuery, useSpace } from "@dxos/react-client/echo"
+import {
+  HaloSpaceMember,
+  Filter,
+  useQuery,
+  useSpace,
+  type SpaceMember,
+} from "@dxos/react-client/echo"
+import { useMulticastObservable } from "@dxos/react-client"
+import { useMemo } from "react"
 import { useLocalState } from "./useLocalState"
 import { Contact, ExtendedContact } from "~/schema/Contact"
+
+// Create a stable empty observable for when space.members is undefined
+const createEmptyObservable = () => ({
+  get: () => [] as SpaceMember[],
+  subscribe: () => ({ unsubscribe() {} }),
+})
 
 /**
  * Takes our auth state and builds a bunch of useful derived state about the user and team.
@@ -10,8 +24,15 @@ export const useTeam = () => {
   const identity = useIdentity()
   const { spaceKey } = useLocalState()
   const space = useSpace(spaceKey)
-  const members = useMembers(space?.id)
-  const contacts = useQuery(space, Filter.type(Contact)).map(c => {
+  // Use space.members directly instead of useMembers hook which has issues finding the space
+  const emptyObservable = useMemo(createEmptyObservable, [])
+  // Cast needed because our minimal observable doesn't have all MulticastObservable properties,
+  // but useMulticastObservable only uses get() and subscribe()
+  const members: SpaceMember[] =
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+    useMulticastObservable((space?.members ?? emptyObservable) as any) ?? []
+  const rawContacts = useQuery(space, Filter.type(Contact))
+  const contacts = rawContacts.map(c => {
     const member = members.find(m => m.identity.identityKey.toString() === c.identityId)
     const isAdmin = member?.role === HaloSpaceMember.Role.OWNER
     const isSelf = member?.identity.identityKey.toString() === identity?.identityKey.toString()

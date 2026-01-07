@@ -69,6 +69,7 @@ export default function AuthJoinPage() {
         userName: identity!.profile!.displayName!,
       })
       space.db.add(contact)
+      await space.db.flush()
       void navigate("/")
     })()
   }, [

@@ -138,10 +138,11 @@ export class App {
   async createTeam(userName: string, teamName: string) {
     await this.enterFirstName(userName)
     await this.pressButton("Continue")
-    await this.pressButton("Create")
+    await this.pressButton("Create a team")
     await this.enterTeamName(teamName)
     await this.pressButton("Continue")
-    await this.page.getByRole("heading", { name: "Dones" }).isVisible()
+    // Wait for the myweek page to fully load (shows h3 "Dones" in the MyWeek component)
+    await expect(this.page.getByRole("heading", { name: "Dones" })).toBeVisible({ timeout: 30_000 })
   }
 
   async linkDevice(userName: string, invitationDeviceCode: string) {
@@ -150,7 +151,8 @@ export class App {
     await this.pressButton("Link this device")
     await this.enterInvitationDeviceCode(invitationDeviceCode)
     await this.pressButton("Join team")
-    await this.page.getByRole("heading", { name: "Dones" }).isVisible()
+    // Wait for the myweek page to fully load (shows h3 "Dones" in the MyWeek component)
+    await expect(this.page.getByRole("heading", { name: "Dones" })).toBeVisible({ timeout: 30_000 })
   }
 
   async signOut() {
