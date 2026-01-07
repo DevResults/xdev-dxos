@@ -58,10 +58,10 @@ export default defineConfig({
   plugins: [
     !isStorybook && reactRouter(),
     tsconfigPaths(),
-    wasm() as Plugin,
+    wasm(),
     ConfigPlugin(),
     vitePWA(pwaOptions),
-    autoImport(autoImportOptions) as Plugin,
+    autoImport(autoImportOptions),
     icons({ compiler: "jsx", jsx: "react" }),
     topLevelAwait(), // needed for DXOS WASM modules
     // Skip PostCSS for DXOS CSS files that use their own Tailwind classes
@@ -78,7 +78,7 @@ export default defineConfig({
         }
       },
     },
-  ],
+  ] as Plugin[],
   // DXOS 0.8.x requires modern browser targets for top-level await support
   build: {
     target: "esnext",

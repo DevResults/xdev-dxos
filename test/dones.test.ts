@@ -74,8 +74,7 @@ test("shows dones in team view", async ({ context }) => {
   await expect(herb.page.locator("main")).toContainText(doneText)
 })
 
-// Skip: likes functionality needs investigation after DXOS 0.8.x upgrade
-test.skip("likes a done", async ({ context }) => {
+test("likes a done", async ({ context }) => {
   const { herb } = await setup(context)
 
   await herb.createDone(doneText)

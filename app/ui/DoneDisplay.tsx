@@ -1,3 +1,4 @@
+import { withTrackSignals } from "@preact-signals/safe-react/manual"
 import { cx } from "lib/cx"
 import type { DoneEntry } from "schema/DoneEntry"
 import type { Contact } from "schema/Contact"
@@ -5,8 +6,9 @@ import { Likes } from "ui/Likes"
 
 /**
  * Displays a read-only DoneEntry along with the Like button.
+ * Wrapped with withTrackSignals for DXOS Echo reactivity.
  */
-export function DoneDisplay({ className = "", done, self, contacts }: Props) {
+export const DoneDisplay = withTrackSignals(({ className = "", done, self, contacts }: Props) => {
   const { content, likes } = done
   return (
     <li className="rounded-md bg-neutral-50 p-2">
@@ -22,7 +24,7 @@ export function DoneDisplay({ className = "", done, self, contacts }: Props) {
       />
     </li>
   )
-}
+})
 
 type Props = {
   className?: string

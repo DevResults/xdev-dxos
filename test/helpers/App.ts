@@ -19,10 +19,12 @@ export const newBrowser = async (context: BrowserContext) => {
 }
 
 export class App {
+  // eslint-disable-next-line @typescript-eslint/parameter-properties -- Node's strip-only mode doesn't support parameter properties
+  readonly page: Page
   userName?: string
   teamName?: string
 
-  constructor(readonly page: Page) {
+  constructor(page: Page) {
     this.page = page
   }
 
