@@ -7,7 +7,7 @@ export class ProvidedContacts extends Context.Tag("ProvidedContacts")<
 >() {}
 
 export class ContactNotFoundError //
-  extends (new Data.TaggedError("ContactCollection/ContactNotFound"))<{ userName: string }>
+  extends Data.TaggedError("ContactCollection/ContactNotFound")<{ userName: string }>
 {
   message = `There is no contact with username "${this.userName}"`
 }

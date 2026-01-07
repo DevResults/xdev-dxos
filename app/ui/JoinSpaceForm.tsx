@@ -63,7 +63,14 @@ export function JoinSpaceForm({
 
         break
       }
-      // No default
+
+      case Invitation.State.INIT:
+      case Invitation.State.CONNECTING:
+      case Invitation.State.CONNECTED:
+      case Invitation.State.EXPIRED: {
+        // These states don't require phase/submitting changes
+        break
+      }
     }
   }, [status])
 
@@ -110,7 +117,11 @@ export function JoinSpaceForm({
         return "Joined! Redirecting..."
       }
 
-      default: {
+      case Invitation.State.INIT:
+      case Invitation.State.CANCELLED:
+      case Invitation.State.TIMEOUT:
+      case Invitation.State.ERROR:
+      case Invitation.State.EXPIRED: {
         return undefined
       }
     }

@@ -54,7 +54,7 @@ describe("DoneEntry", () => {
 
     const encoded = encodeDoneEntry(decoded)
 
-    expectTypeOf(encoded).toMatchTypeOf<DoneEntryEncoded>()
+    expectTypeOf(encoded).toExtend<DoneEntryEncoded>()
 
     // Round trip
     const decodedAgain = decodeDoneEntry(encoded)

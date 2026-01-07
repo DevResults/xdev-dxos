@@ -39,6 +39,7 @@ export default [
       "unicorn/no-array-reduce": OFF, // Sometimes I like to reduce
       "unicorn/no-this-assignment": OFF, // With generator functions in class methods, `const _this=this` is the cleanest approach
       "unicorn/prevent-abbreviations": OFF, // Gets mad about "numLikes" etc.
+      "unicorn/throw-new-error": OFF, // False positive for `extends Data.TaggedError(...)` pattern
 
       // MODIFIED RULES
 

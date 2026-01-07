@@ -59,7 +59,8 @@ export default function AuthJoinPage() {
     update({ spaceKey: space.id, invitationCode: "" })
 
     // Build a contact for yourself
-    void space.waitUntilReady().then(() => {
+    void (async () => {
+      await space.waitUntilReady()
       const contact = makeContact({
         identityId: identity!.identityKey.toString(),
         avatarUrl: "",
@@ -69,7 +70,7 @@ export default function AuthJoinPage() {
       })
       space.db.add(contact)
       void navigate("/")
-    })
+    })()
   }, [
     invitationStatus.status,
     invitationStatus.result.spaceKey,
@@ -99,7 +100,17 @@ export default function AuthJoinPage() {
 
         break
       }
-      // No default
+
+      case Invitation.State.INIT:
+      case Invitation.State.CONNECTING:
+      case Invitation.State.CONNECTED:
+      case Invitation.State.READY_FOR_AUTHENTICATION:
+      case Invitation.State.AUTHENTICATING:
+      case Invitation.State.SUCCESS:
+      case Invitation.State.EXPIRED: {
+        // These states don't set error messages
+        break
+      }
     }
   }, [invitationStatus.status])
 

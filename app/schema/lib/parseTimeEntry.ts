@@ -43,7 +43,7 @@ export const parseTimeEntry = ({ input, contactId, date }: TimeEntryInput) =>
 const collapseWhitespace = (s: string) => s.replaceAll(/\s+/g, " ").trim()
 
 export class ProjectRequiresClientError //
-  extends (new Data.TaggedError("parseTimeEntry/ProjectRequiresClient"))<{
+  extends Data.TaggedError("parseTimeEntry/ProjectRequiresClient")<{
     input: string
     project: Project
   }>

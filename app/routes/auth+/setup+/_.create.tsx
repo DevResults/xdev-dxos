@@ -33,7 +33,7 @@ export default function AuthCreatePage() {
       onSubmit={async ({ teamName }) => {
         // Create a space with the team name
         const space = await client.spaces.create({ name: teamName })
-        update({ spaceKey: space.key })
+        update({ spaceKey: space.id })
         await space.waitUntilReady()
 
         // Build a contact for yourself

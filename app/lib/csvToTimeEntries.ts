@@ -1,6 +1,6 @@
 import { LocalDate } from "@js-joda/core"
 import { reconstructTimeEntryInput } from "./reconstructTimeEntryInput"
-import { csvToSchema } from "./parseCsv"
+import { type CsvParseError, csvToSchema } from "./parseCsv"
 import { Data, E, S } from "~/schema/lib/Effect"
 import { ClientNotFoundError, ProvidedClients } from "~/schema/ClientCollection"
 import { ContactNotFoundError, ProvidedContacts } from "~/schema/ContactCollection"
@@ -70,9 +70,12 @@ export const csvToTimeEntries = (csvData: string) =>
     })
 
     const allErrors = [
-      ...upstreamErrors.map(cause => {
-        const { input, index } = cause
-        return new TimeEntryCsvParseError({ input, index, cause })
+      ...upstreamErrors.map((error: CsvParseError) => {
+        return new TimeEntryCsvParseError({
+          input: error.input,
+          index: error.index,
+          cause: error.cause,
+        })
       }),
       ...errors,
     ]
@@ -81,13 +84,15 @@ export const csvToTimeEntries = (csvData: string) =>
   })
 
 export class TimeEntryCsvParseError //
-  extends (new Data.TaggedError("TimeEntryCsvParseError"))<{
+  extends Data.TaggedError("TimeEntryCsvParseError")<{
     input: string
     index: number
     cause: Error
   }>
 {
-  message = `Couldn't parse row ${this.index + 1}. ${adaptError(this.cause)}`
+  get message() {
+    return `Couldn't parse row ${this.index + 1}. ${adaptError(this.cause)}`
+  }
 }
 
 const adaptError = (error: Error) => {

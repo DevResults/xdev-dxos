@@ -28,7 +28,7 @@ export function RadioGroup<T extends string | number | boolean>({
           const option = typeof o === "string" ? { value: o, label: o, title: undefined } : o
           const { value, label = value.toString(), title } = option
           return (
-            <Headless.RadioGroup.Option
+            <Headless.Radio
               key={i}
               value={value}
               className={({ checked }) =>
@@ -53,7 +53,7 @@ export function RadioGroup<T extends string | number | boolean>({
               title={title}
             >
               {label}
-            </Headless.RadioGroup.Option>
+            </Headless.Radio>
           )
         })}
       </div>

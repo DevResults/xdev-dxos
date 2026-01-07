@@ -79,7 +79,7 @@ for (const testCase of testCases) {
     if ("error" in testCase) {
       const [actualError] = errors
       assert(errors.length > 0)
-      assert(testCase.error, `expected success but got error ${actualError.toString()}`)
+      assert(testCase.error, `expected success but got error ${actualError.message}`)
       expect(actualError.message).toContain(testCase.error)
     } else {
       assert("entries" in testCase)

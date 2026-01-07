@@ -60,13 +60,13 @@ export const parseClient = (input: string) =>
   })
 
 export class MultipleClientsError //
-  extends (new Data.TaggedError("parseClient/MultipleClients"))<{ input: string }>
+  extends Data.TaggedError("parseClient/MultipleClients")<{ input: string }>
 {
   message = "An entry can only include one @client code."
 }
 
 export class ClientCodeNotFoundError //
-  extends (new Data.TaggedError("parseClient/ClientCodeNotFound"))<{ input: string; code: string }>
+  extends Data.TaggedError("parseClient/ClientCodeNotFound")<{ input: string; code: string }>
 {
   message = "Client code not found."
 }

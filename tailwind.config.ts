@@ -12,7 +12,7 @@ const serif = "IBM Plex Serif"
 const { white, black, blue, zinc, green, orange, red } = tailwindColors
 
 const config: Config = {
-  plugins: [tailwindAnimate, tailwindLogical],
+  plugins: [tailwindAnimate, tailwindLogical] as Config["plugins"],
   content: ["./app/**/*.{html,tsx,ts}"],
   theme: {
     extend: {

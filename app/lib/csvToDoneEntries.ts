@@ -2,7 +2,7 @@ import { LocalDate } from "@js-joda/core"
 import { Data, E, S } from "schema/lib/Effect"
 import { type ContactId } from "schema/Contact"
 import { ContactNotFoundError, ProvidedContacts } from "schema/ContactCollection"
-import { csvToSchema } from "./parseCsv"
+import { type CsvParseError, csvToSchema } from "./parseCsv"
 
 class DoneEntryCsvRow extends S.Class<DoneEntryCsvRow>("DoneEntryCsvRow")({
   userName: S.String,
@@ -56,9 +56,12 @@ export const csvToDoneEntries = (csvData: string) =>
       }).pipe(E.mapError(cause => new DoneEntryCsvParseError({ input, index, cause })))
     })
     const allErrors = [
-      ...upstreamErrors.map(cause => {
-        const { input, index } = cause
-        return new DoneEntryCsvParseError({ input, index, cause })
+      ...upstreamErrors.map((error: CsvParseError) => {
+        return new DoneEntryCsvParseError({
+          input: error.input,
+          index: error.index,
+          cause: error.cause,
+        })
       }),
       ...errors,
     ]
@@ -66,13 +69,15 @@ export const csvToDoneEntries = (csvData: string) =>
   })
 
 export class DoneEntryCsvParseError //
-  extends (new Data.TaggedError("DoneEntryCsvParseError"))<{
+  extends Data.TaggedError("DoneEntryCsvParseError")<{
     input: string
     index: number
     cause: Error
   }>
 {
-  message = `Couldn't parse row ${this.index + 1}. ${adaptError(this.cause)}`
+  get message() {
+    return `Couldn't parse row ${this.index + 1}. ${adaptError(this.cause)}`
+  }
 }
 
 const adaptError = (error: Error) => {

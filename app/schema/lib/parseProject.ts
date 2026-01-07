@@ -100,28 +100,30 @@ export const parseProject = (input: string) =>
   })
 
 class MultipleProjectsError //
-  extends (new Data.TaggedError("parseProject/MultipleProjects"))<{ input: string }>
+  extends Data.TaggedError("parseProject/MultipleProjects")<{ input: string }>
 {
   message = "An entry can only have one project code."
 }
 
 export class NoProjectError //
-  extends (new Data.TaggedError("parseProject/NoProject"))<{ input: string }>
+  extends Data.TaggedError("parseProject/NoProject")<{ input: string }>
 {
   message = "You need to include a project code."
 }
 
 export class ProjectCodeNotFoundError //
-  extends (new Data.TaggedError("parseProject/CodeNotFound"))<{ input: string }>
+  extends Data.TaggedError("parseProject/CodeNotFound")<{ input: string }>
 {
   message = `There is no project with code "${this.input}"`
 }
 
 export class AmbiguousProjectCodeError //
-  extends (new Data.TaggedError("parseProject/AmbiguousProjectCode"))<{
+  extends Data.TaggedError("parseProject/AmbiguousProjectCode")<{
     input: string
     matches: string[]
   }>
 {
-  message = `The project code "${this.input}" could match any of these: ${this.matches.join(",")}`
+  get message() {
+    return `The project code "${this.input}" could match any of these: ${this.matches.join(",")}`
+  }
 }

@@ -80,13 +80,13 @@ export const parseDuration = (input: string) => {
 }
 
 export class MultipleDurationsError //
-  extends (new Data.TaggedError("parseDuration/MultipleDurations"))<{ input: string }>
+  extends Data.TaggedError("parseDuration/MultipleDurations")<{ input: string }>
 {
   message = "More than one duration was found."
 }
 
 export class NoDurationError //
-  extends (new Data.TaggedError("parseDuration/NoDuration"))<{ input: string }>
+  extends Data.TaggedError("parseDuration/NoDuration")<{ input: string }>
 {
   message = "No duration found."
 }
