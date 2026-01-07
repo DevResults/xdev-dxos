@@ -21,7 +21,7 @@
     "test": "vitest",
     "test:run": "vitest --run",
     "test:all": "run-s typecheck lint test:run test:pw",
-    "test:pw": "cross-env PERSIST=1 SIGNAL=0 DEBUG=localfirst* pnpm playwright test --project=chromium",
+    "test:pw": "cross-env PERSIST=1 SIGNAL=0 DEBUG=dxos* pnpm playwright test --project=chromium",
     "test:pw:exec:ui": "pnpm playwright test --project=chromium --ui",
     "test:pw:ui": "cross-env PLAYWRIGHT_UI=1 run-p dev test:pw:exec:ui"
   },
