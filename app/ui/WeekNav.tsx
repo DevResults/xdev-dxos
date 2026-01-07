@@ -11,11 +11,11 @@ export const WeekNav = () => {
   const { date = "" } = useParams()
 
   const current = pathname.replace(date, getSunday().toString())
-  const prev = pathname.replace(date, start.minusWeeks(1).toString())
+  const previous = pathname.replace(date, start.minusWeeks(1).toString())
   const next = pathname.replace(date, start.plusWeeks(1).toString())
 
   useNavigationHotkey("t", current)
-  useNavigationHotkey("p,j,pageup", prev)
+  useNavigationHotkey("p,j,pageup", previous)
   useNavigationHotkey("n,k,pagedown", next)
 
   return (
@@ -29,7 +29,7 @@ export const WeekNav = () => {
           className="border-r px-3 py-1"
           title="Previous week (p)"
           relative="path"
-          to={prev}
+          to={previous}
           children={<IconCaretLeftFilled className="size-4" />}
         />
         <Link

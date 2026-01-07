@@ -15,15 +15,23 @@ export const AutocompleteMenu = ({ items, onSelect, id }: Props) => {
       e.preventDefault() // Prevent form submission
       e.stopImmediatePropagation()
       const key = keys.join("")
-      if (key === enter) onSelect(items[selectedIndex])
-      if (key === up) setSelectedIndex(i => Math.max(i - 1, 0))
-      if (key === down) setSelectedIndex(i => Math.min(i + 1, items.length - 1))
+      if (key === enter) {
+        onSelect(items[selectedIndex])
+      }
+
+      if (key === up) {
+        setSelectedIndex(i => Math.max(i - 1, 0))
+      }
+
+      if (key === down) {
+        setSelectedIndex(i => Math.min(i + 1, items.length - 1))
+      }
     },
     { enableOnFormTags: true },
   )
 
   return (
-    <div role="listbox" id={id} aria-label={`Suggestions`}>
+    <div role="listbox" id={id} aria-label={"Suggestions"}>
       {items.map((item, index) => (
         <div
           key={item}
@@ -67,20 +75,31 @@ export const findAutocompleteQuery = (
 ): AutocompleteState | undefined => {
   // Find start of current word
   let start = position
-  while (start > 0 && !/\s/.test(text[start - 1])) start--
+  while (start > 0 && !/\s/.test(text[start - 1])) {
+    start--
+  }
 
   // Find end of current word
   let end = position
-  while (end < text.length && !/\s/.test(text[end])) end++
+  while (end < text.length && !/\s/.test(text[end])) {
+    end++
+  }
 
   // Extract word at cursor
   const word = text.slice(start, end)
 
-  for (const { type, trigger } of triggers)
+  for (const { type, trigger } of triggers) {
     if (word.startsWith(trigger)) {
-      const query = word.slice(1) // remove the trigger character at the beginning
-      return { type, trigger, start, end, query }
+      const query = word.slice(1) // Remove the trigger character at the beginning
+      return {
+        type,
+        trigger,
+        start,
+        end,
+        query,
+      }
     }
+  }
 }
 
 /**
@@ -92,7 +111,9 @@ export const getAutocompleteItems = <Item extends CollectionItem>(
   autocompleteModes: Array<AutocompleteMode<Item>>,
 ) => {
   const mode = autocompleteModes.find(m => m.trigger === trigger)
-  if (!mode) return []
+  if (!mode) {
+    return []
+  }
 
   const { collection, property } = mode
 
@@ -100,11 +121,17 @@ export const getAutocompleteItems = <Item extends CollectionItem>(
     .map(item => String(item[property]))
     .filter(value => value.toLowerCase().includes(query.toLowerCase()))
     .sort((a, b) => {
-      // list matches that start with the query first, otherwise sort alphabetically
+      // List matches that start with the query first, otherwise sort alphabetically
       const aStartsWith = a.toLowerCase().startsWith(query.toLowerCase())
       const bStartsWith = b.toLowerCase().startsWith(query.toLowerCase())
-      if (aStartsWith && !bStartsWith) return -1
-      if (!aStartsWith && bStartsWith) return 1
+      if (aStartsWith && !bStartsWith) {
+        return -1
+      }
+
+      if (!aStartsWith && bStartsWith) {
+        return 1
+      }
+
       return a.localeCompare(b)
     })
 }

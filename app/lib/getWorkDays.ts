@@ -8,8 +8,13 @@ export function getWorkDays(weekCount: number, startDate: LocalDate = LocalDate.
   let date = getSunday(startDate)
   while (weeks < weekCount) {
     date = date.plusDays(1)
-    if (!isWeekend(date)) dates.push(date)
-    if (date.dayOfWeek() === DayOfWeek.SATURDAY) weeks++
+    if (!isWeekend(date)) {
+      dates.push(date)
+    }
+
+    if (date.dayOfWeek() === DayOfWeek.SATURDAY) {
+      weeks++
+    }
   }
 
   return dates

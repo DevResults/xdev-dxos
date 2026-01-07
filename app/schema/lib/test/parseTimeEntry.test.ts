@@ -12,7 +12,7 @@ import { E } from "~/schema/lib/Effect"
 
 describe("parseTimeEntry", () => {
   const testCases = [
-    // failure
+    // Failure
     { input: "#Support: Ongoing @aba ", error: "NoDuration" },
     { input: "1h 30mn #Support: Ongoing @aba", error: "MultipleDurations" },
     { input: "1h", error: "NoProject" },
@@ -21,7 +21,7 @@ describe("parseTimeEntry", () => {
     { input: "1h #Support: Ongoing @aba @chemonics", error: "MultipleClients" },
     { input: "1h #Support: Setup update geography", error: "ProjectRequiresClient" },
 
-    // success
+    // Success
     {
       input: "#out 1:15",
       duration: 75,
@@ -48,20 +48,23 @@ describe("parseTimeEntry", () => {
     decoder: (input: string) =>
       parseTimeEntry({
         contactId: "1234" as ContactId,
-        date: `2021-01-01`,
+        date: "2021-01-01",
         input,
       }).pipe(
         E.provideService(ProvidedProjects, projects),
         E.provideService(ProvidedClients, clients),
       ),
     validate(expected, actual) {
-      // parseTimeEntry returns plain data without id - id is added by DXOS when the object is created
+      // ParseTimeEntry returns plain data without id - id is added by DXOS when the object is created
       expect(actual.input).toEqual(expected.input)
       expect(actual.duration).toEqual(expected.duration)
       expect(actual.project).toEqual(expected.projectId)
       expect(actual.timestamp).toEqual(expect.any(String))
-      if (expected.clientId) expect(actual.client).toEqual(expected.clientId)
-      else expect(actual.client).toBeUndefined()
+      if (expected.clientId) {
+        expect(actual.client).toEqual(expected.clientId)
+      } else {
+        expect(actual.client).toBeUndefined()
+      }
     },
   })
 })

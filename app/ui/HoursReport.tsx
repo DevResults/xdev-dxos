@@ -51,8 +51,8 @@ export const HoursReport = ({ year, contacts, timeEntries }: Props) => {
         weeks.map(week => {
           const totalMinutes = sum(
             entries
-              .filter(({ date }) => getSunday(LocalDate.parse(date)).equals(week)) // for this week
-              .filter(({ contactId }) => contactId === id) // for this contact
+              .filter(({ date }) => getSunday(LocalDate.parse(date)).equals(week)) // For this week
+              .filter(({ contactId }) => contactId === id) // For this contact
               .map(entry => entry.duration),
           )
           return [String(week), totalMinutes]
@@ -94,14 +94,14 @@ export const HoursReport = ({ year, contacts, timeEntries }: Props) => {
     <div
       className={cx(
         "grid text-sm",
-        "*:flex *:min-h-8 *:items-center *:border-b *:py-1", // shared styles for all grid cells
+        "*:flex *:min-h-8 *:items-center *:border-b *:py-1", // Shared styles for all grid cells
       )}
       style={{
         gridTemplateColumns: [
-          "minmax(auto,4em)", // completion %
-          "minmax(auto,4em)", // badge
-          "minmax(6em,10em)", // avatar & name
-          `repeat(${weeks.length}, minmax(.8em,1.3em))`, // weeks
+          "minmax(auto,4em)", // Completion %
+          "minmax(auto,4em)", // Badge
+          "minmax(6em,10em)", // Avatar & name
+          `repeat(${weeks.length}, minmax(.8em,1.3em))`, // Weeks
         ].join(" "),
       }}
     >

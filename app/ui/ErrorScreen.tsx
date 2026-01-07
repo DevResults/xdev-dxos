@@ -2,9 +2,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@ui/card"
 import type { ErrorResponse } from "react-router"
 import { CenteredLayout } from "./layouts/CenteredLayout"
 
-const isRouteErrorResponse = (e: Error | ErrorResponse): e is ErrorResponse => {
-  return "status" in e && "statusText" in e && "data" in e
-}
+const isRouteErrorResponse = (e: Error | ErrorResponse): e is ErrorResponse =>
+  "status" in e && "statusText" in e && "data" in e
 
 export function ErrorScreen({ error, isDevelopment = false }: Props) {
   const isRouteError = isRouteErrorResponse(error)
@@ -19,7 +18,7 @@ export function ErrorScreen({ error, isDevelopment = false }: Props) {
       case 404: {
         return (
           <>
-            Sorry, couldn't find <strong>{window.location.pathname}</strong>.
+            Sorry, couldn't find <strong>{globalThis.location.pathname}</strong>.
           </>
         )
       }
@@ -73,7 +72,10 @@ export function ErrorScreen({ error, isDevelopment = false }: Props) {
 
 /** Trims the first N rows from an error stack () */
 const trimStack = (stack: string | undefined, rows = 1) => {
-  if (!stack) return ""
+  if (!stack) {
+    return ""
+  }
+
   return (
     stack
       ?.split("\n")

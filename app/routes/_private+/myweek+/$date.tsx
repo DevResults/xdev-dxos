@@ -29,7 +29,12 @@ export default function MyWeek$DatePage() {
           <h1 className="grow">My week</h1>
           <WeekNav />
           <div className="flex items-center space-x-1">
-            <Checkbox id="ShowWeekends" onCheckedChange={e => setShowWeekends(e === true)} />
+            <Checkbox
+              id="ShowWeekends"
+              onCheckedChange={e => {
+                setShowWeekends(e === true)
+              }}
+            />
             <div className="grid gap-1 leading-none">
               <label
                 htmlFor="ShowWeekends"

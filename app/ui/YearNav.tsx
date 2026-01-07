@@ -19,15 +19,15 @@ export const YearNav = ({
   useRedirect({ from: pathname, to: changeYearTo(maxYear), condition: year > maxYear })
   useRedirect({ from: pathname, to: changeYearTo(minYear), condition: year < minYear })
 
-  const canGoPrev = year > minYear
+  const canGoPrevious = year > minYear
   const canGoNext = year < maxYear
 
   const current = pathname.replace(String(year), String(currentYear))
-  const prev = canGoPrev ? changeYearTo(year - 1) : ""
+  const previous = canGoPrevious ? changeYearTo(year - 1) : ""
   const next = canGoNext ? changeYearTo(year + 1) : ""
 
   useNavigationHotkey("t", current)
-  useNavigationHotkey("p,j,pageup", prev)
+  useNavigationHotkey("p,j,pageup", previous)
   useNavigationHotkey("n,k,pagedown", next)
 
   return (
@@ -35,12 +35,12 @@ export const YearNav = ({
       <span className="mx-2 whitespace-nowrap font-serif tracking-tight">{year}</span>
       <div className="flex flex-row items-center gap-2 rounded-lg border">
         <Link
-          className={cx("border-r px-3 py-1", !canGoPrev && "cursor-default text-neutral-100")}
-          title={canGoPrev ? "Previous year (p)" : ""}
+          className={cx("border-r px-3 py-1", !canGoPrevious && "cursor-default text-neutral-100")}
+          title={canGoPrevious ? "Previous year (p)" : ""}
           relative="path"
-          to={prev}
+          to={previous}
           children={<IconCaretLeftFilled className="size-4" />}
-          aria-disabled={!canGoPrev}
+          aria-disabled={!canGoPrevious}
         />
         <Link
           className={cx("border-r px-3 py-1")}

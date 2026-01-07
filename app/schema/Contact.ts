@@ -28,7 +28,7 @@ export const makeContact = (props: Omit<Contact, "id">) => Obj.make(Contact, pro
 
 type EncodedContact = S.Schema.Encoded<typeof Contact>
 
-// unable to extend dxos objects the same way, so we'll do it naively
+// Unable to extend dxos objects the same way, so we'll do it naively
 
 export class ExtendedContact implements EncodedContact {
   readonly contact: Contact

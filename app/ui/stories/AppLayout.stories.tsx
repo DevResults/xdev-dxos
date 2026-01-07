@@ -26,8 +26,8 @@ export const WithTopNav: Story = {
             heading="Test"
             parent="foo"
             items={[
-              { to: `/one`, label: "One" },
-              { to: `/two`, label: "Two" },
+              { to: "/one", label: "One" },
+              { to: "/two", label: "Two" },
             ]}
           />
         }

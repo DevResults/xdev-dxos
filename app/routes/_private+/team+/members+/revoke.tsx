@@ -16,7 +16,9 @@ export default function RevokeInvitationPage() {
   // ----- ↑ hooks
 
   // Only existing invitations can be revoked
-  if (!invitation) return null
+  if (!invitation) {
+    return null
+  }
 
   return (
     <RevokeInvitationDialog

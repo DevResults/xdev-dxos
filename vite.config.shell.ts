@@ -17,22 +17,22 @@ const combineShellWithApp = () => ({
       return
     }
 
-    // copy the shell file
+    // Copy the shell file
     fs.renameSync(path.join(dist, "public", "shell.html"), path.join(build, "shell.html"))
 
-    // copy all the assets
+    // Copy all the assets
     for (const asset of fs.readdirSync(path.join(dist, "assets"))) {
       fs.renameSync(path.join(dist, "assets", asset), path.join(build, "assets", asset))
     }
 
-    // remove the remaining
+    // Remove the remaining
     fs.rmSync(dist, { recursive: true, force: true })
   },
 })
 
 export default defineConfig({
   build: {
-    copyPublicDir: false, // those files are for xdev, not the shell
+    copyPublicDir: false, // Those files are for xdev, not the shell
     rollupOptions: {
       input: "./public/shell.html",
     },
@@ -54,7 +54,7 @@ export default defineConfig({
     plugins: () => [topLevelAwait(), wasm() as Plugin],
   },
   optimizeDeps: {
-    // use route files as entry points when crawling for dependencies
+    // Use route files as entry points when crawling for dependencies
     entries: ["**/routes/**/*.tsx"],
   },
   test: { include: ["app/**/*.test.ts"] },

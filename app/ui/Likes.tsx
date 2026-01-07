@@ -4,33 +4,42 @@ import { likesDescription } from "~/lib/likesDescription"
 import type { Contact } from "~/schema/Contact"
 
 export function Likes({ likes = [], self, onToggle }: Props) {
-  const numLikes = likes.length ?? 0
+  const numberLikes = likes.length ?? 0
   const likedByMe = likes.includes(self)
   const readonly = onToggle === undefined
 
   const [animateLike, setAnimateLike] = useState(false)
   const [animateUnlike, setAnimateUnlike] = useState(false)
 
-  if (readonly && numLikes === 0) return null
+  if (readonly && numberLikes === 0) {
+    return null
+  }
 
   return (
     <button
       className="flex min-h-[1.5em] cursor-pointer flex-row items-center gap-1 py-px font-sans text-xs text-neutral-400"
       onClick={() => {
-        if (readonly) return
+        if (readonly) {
+          return
+        }
+
         if (likedByMe) {
           setAnimateUnlike(true)
-          setTimeout(() => setAnimateUnlike(false), 200)
+          setTimeout(() => {
+            setAnimateUnlike(false)
+          }, 200)
         } else {
           setAnimateLike(true)
-          setTimeout(() => setAnimateLike(false), 200)
+          setTimeout(() => {
+            setAnimateLike(false)
+          }, 200)
         }
 
         onToggle()
       }}
-      title={numLikes === 0 ? "Click to like" : likesDescription(likes, self)}
+      title={numberLikes === 0 ? "Click to like" : likesDescription(likes, self)}
     >
-      {numLikes === 0 ?
+      {numberLikes === 0 ?
         <IconHeart
           className={cx(
             "size-[1em]", //
@@ -46,7 +55,7 @@ export function Likes({ likes = [], self, onToggle }: Props) {
               animateUnlike && "animate-shortshake",
             )}
           />
-          {numLikes}
+          {numberLikes}
         </>
       }
     </button>

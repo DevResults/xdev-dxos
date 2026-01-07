@@ -8,7 +8,7 @@ export type ProjectId = typeof ProjectId.Type
 export const Project = S.Struct({
   code: S.String,
   subCode: S.optional(S.String),
-  fullCode: S.String, // ideally calculated fields would not need to be on the defined schema
+  fullCode: S.String, // Ideally calculated fields would not need to be on the defined schema
   description: S.optional(S.String),
   requiresClient: S.Boolean,
   color: S.optional(S.String),

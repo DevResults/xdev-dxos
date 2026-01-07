@@ -12,7 +12,7 @@ const getMatchingIcon =
   ) =>
   (deviceInfo: Device) => {
     const text = accessor(deviceInfo) ?? ""
-    const key = Object.keys(lookup).find(val => text.toLocaleLowerCase().includes(val))
+    const key = Object.keys(lookup).find(value => text.toLocaleLowerCase().includes(value))
     return key ? lookup[key] : fallback
   }
 

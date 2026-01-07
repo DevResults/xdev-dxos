@@ -1,8 +1,8 @@
 import { expect as _expect, type Page } from "@playwright/test"
 import { type App } from "./App"
 
-export const expect = (app: App) => {
-  return _expect.extend({
+export const expect = (app: App) =>
+  _expect.extend({
     async toSeeContact(page: Page, name: string) {
       const members = await app.contacts()
       try {
@@ -13,7 +13,7 @@ export const expect = (app: App) => {
         }
       } catch {
         return {
-          message: () => `contact is not visible`,
+          message: () => "contact is not visible",
           pass: false,
         }
       }
@@ -28,7 +28,7 @@ export const expect = (app: App) => {
         }
       } catch {
         return {
-          message: () => `user is not logged in`,
+          message: () => "user is not logged in",
           pass: false,
         }
       }
@@ -43,10 +43,9 @@ export const expect = (app: App) => {
         }
       } catch {
         return {
-          message: () => `user is logged in`,
+          message: () => "user is logged in",
           pass: false,
         }
       }
     },
   })
-}

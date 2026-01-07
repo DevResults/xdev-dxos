@@ -22,15 +22,14 @@ const meta: Meta<typeof TeamDones> = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-const generateDonesForContacts = (contacts: Contact[]) => {
-  return generateDones({
+const generateDonesForContacts = (contacts: Contact[]) =>
+  generateDones({
     today: LocalDate.parse("2024-11-08"),
     weeks: 1,
     productivity: 0.75,
     enthusiasm: 0.05,
     contacts,
   })
-}
 
 export const Empty: Story = {
   args: {

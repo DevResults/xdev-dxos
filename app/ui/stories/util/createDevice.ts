@@ -3,7 +3,7 @@ import type { PublicKey } from "@dxos/react-client"
 import { Device, DeviceKind, DeviceType } from "@dxos/react-client/halo"
 
 export const createDevice = (ua: string) => {
-  // based on dxos identity-manager https://github.com/DevResults/dxos/blob/5d1ad0f/packages/sdk/client-services/src/packlets/identity/identity-manager.ts
+  // Based on dxos identity-manager https://github.com/DevResults/dxos/blob/5d1ad0f/packages/sdk/client-services/src/packlets/identity/identity-manager.ts
   const platform = parse(ua)
   const type =
     platform.name && (platform.name.startsWith("iOS") || platform.name.startsWith("Android")) ?

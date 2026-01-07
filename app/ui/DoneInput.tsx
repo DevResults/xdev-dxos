@@ -20,20 +20,23 @@ export const DoneInput = ({
   onDestroy,
   onChange,
 }: Props) => {
-  // editing mode
+  // Editing mode
   const [editing, setEditing] = useState(false)
 
-  // the content of the done while editing
+  // The content of the done while editing
   const [newContent, setNewContent] = useState(content)
 
   const input = useHotkeys<HTMLTextAreaElement>(
     [enter, escape, up, down, left, right],
     (e, { keys = [] }) => {
-      if (!input.current) return
+      if (!input.current) {
+        return
+      }
+
       const { value, selectionStart } = input.current
       const [key] = keys
       if (key === escape) {
-        setNewContent(content) // restore the original content
+        setNewContent(content) // Restore the original content
         setEditing(false)
       } else if (key === up && selectionStart === 0) {
         onFocusPrev()
@@ -48,19 +51,23 @@ export const DoneInput = ({
     { enableOnFormTags: true },
   )
 
-  // handle entering and exiting edit mode
+  // Handle entering and exiting edit mode
   useEffect(() => {
-    if (!editing) input.current?.blur() // blur when leaving editing mode
+    if (!editing) {
+      input.current?.blur()
+    } // Blur when leaving editing mode
   }, [editing, input])
 
-  // update the input when the content of the done is modified from elsewhere
+  // Update the input when the content of the done is modified from elsewhere
   useEffect(() => {
     setNewContent(content)
   }, [content, input])
 
-  // focus the input when isFocused is true
+  // Focus the input when isFocused is true
   useEffect(() => {
-    if (isFocused) input.current?.focus()
+    if (isFocused) {
+      input.current?.focus()
+    }
   }, [isFocused, input])
 
   return (
@@ -77,14 +84,20 @@ export const DoneInput = ({
       onBlur={e => {
         const newContent = e.target.value.trim()
 
-        // if user has removed all the content of the done, delete it
-        if (newContent.length === 0) onDestroy()
-        // otherwise, update the content
-        else onChange(newContent)
+        // If user has removed all the content of the done, delete it
+        if (newContent.length === 0) {
+          onDestroy()
+        }
+        // Otherwise, update the content
+        else {
+          onChange(newContent)
+        }
 
         setEditing(false)
       }}
-      onChange={e => setNewContent(e.target.value)}
+      onChange={e => {
+        setNewContent(e.target.value)
+      }}
     />
   )
 }

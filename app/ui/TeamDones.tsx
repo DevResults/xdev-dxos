@@ -5,7 +5,7 @@ import type { DoneEntry } from "~/schema/DoneEntry"
 import type { Contact } from "~/schema/Contact"
 
 export const TeamDones = ({ dones, contacts, self }: Props) => {
-  if (dones.length === 0)
+  if (dones.length === 0) {
     return (
       <CenteredLayout>
         <p className="flex flex-col items-center">
@@ -17,10 +17,15 @@ export const TeamDones = ({ dones, contacts, self }: Props) => {
         </p>
       </CenteredLayout>
     )
+  }
 
   const donesByContact = dones.reduce<Record<string, DoneEntry[]>>((userDones, doneData) => {
-    if (userDones[doneData.contactId]) userDones[doneData.contactId].push(doneData)
-    else userDones[doneData.contactId] = [doneData]
+    if (userDones[doneData.contactId]) {
+      userDones[doneData.contactId].push(doneData)
+    } else {
+      userDones[doneData.contactId] = [doneData]
+    }
+
     return userDones
   }, {})
   return (
@@ -37,9 +42,9 @@ export const TeamDones = ({ dones, contacts, self }: Props) => {
               </h3>
               {/* user's dones */}
               <ul className="flex flex-col gap-1 font-normal text-neutral-700">
-                {contactDones?.map(done => {
-                  return <DoneDisplay key={done.id} done={done} self={self} contacts={contacts} />
-                })}
+                {contactDones?.map(done => (
+                  <DoneDisplay key={done.id} done={done} self={self} contacts={contacts} />
+                ))}
               </ul>
             </div>
           : null

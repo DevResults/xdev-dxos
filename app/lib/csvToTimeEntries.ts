@@ -55,7 +55,7 @@ export const csvToTimeEntries = (csvData: string) =>
         return {
           ...row,
           date,
-          duration: Math.floor(row.duration * 60), // duration comes in as hours
+          duration: Math.floor(row.duration * 60), // Duration comes in as hours
           project: project.id,
           client: client?.id,
           contactId: contact.id,
@@ -81,7 +81,7 @@ export const csvToTimeEntries = (csvData: string) =>
   })
 
 export class TimeEntryCsvParseError //
-  extends Data.TaggedError("TimeEntryCsvParseError")<{
+  extends (new Data.TaggedError("TimeEntryCsvParseError"))<{
     input: string
     index: number
     cause: Error

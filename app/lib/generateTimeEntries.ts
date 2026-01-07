@@ -35,9 +35,9 @@ export function generateTimeEntries({
   // Group workdays into weeks
   const workDays = getWorkDays(weekCount, startDate)
   const weeks = workDays.reduce<LocalDate[][]>((acc, date, i) => {
-    const weekNum = Math.floor(i / 5)
-    acc[weekNum] ||= []
-    acc[weekNum].push(date)
+    const weekNumber = Math.floor(i / 5)
+    acc[weekNumber] ||= []
+    acc[weekNumber].push(date)
     return acc
   }, [])
 
@@ -91,15 +91,19 @@ export function generateTimeEntries({
 
   // For each contact, generate entries based on their style
   for (const contact of contacts) {
-    if (omit.includes(contact.firstName)) continue
+    if (omit.includes(contact.firstName)) {
+      continue
+    }
 
     const { weeksDelay, gapProbability } = contactStyles[contact.id]
 
     for (const week of weeks) {
-      const procrastinating = weeks.indexOf(week) > weeks.length - weeksDelay // procrastinators will be missing recent weeks
+      const procrastinating = weeks.indexOf(week) > weeks.length - weeksDelay // Procrastinators will be missing recent weeks
       const recencyFalloff = 2 ** (weeks.indexOf(week) / weeks.length)
       const skipWeek = random.probability(gapProbability * recencyFalloff)
-      if (skipWeek || procrastinating) continue
+      if (skipWeek || procrastinating) {
+        continue
+      }
 
       for (const date of week) {
         const sDate = date.toString()

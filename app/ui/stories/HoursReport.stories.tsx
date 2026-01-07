@@ -61,14 +61,12 @@ const makeStory = ({
   entries?: TimeEntry[]
   weekCount?: number
   procrastinators?: string[]
-}): Story => {
-  return {
-    args: {
-      timeEntries: entries,
-    },
-    decorators: [setDate(today)],
-  }
-}
+}): Story => ({
+  args: {
+    timeEntries: entries,
+  },
+  decorators: [setDate(today)],
+})
 
 export const Empty = makeStory({ today: LocalDate.now().toString(), entries: [] })
 

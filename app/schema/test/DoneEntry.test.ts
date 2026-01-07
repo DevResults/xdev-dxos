@@ -1,9 +1,15 @@
 import { describe, expect, expectTypeOf, it } from "vitest"
 import { type ContactId } from "../Contact"
-import { decodeDoneEntry, encodeDoneEntry, makeDoneEntry, type DoneEntry, type DoneEntryEncoded } from "../DoneEntry"
+import {
+  decodeDoneEntry,
+  encodeDoneEntry,
+  makeDoneEntry,
+  type DoneEntry,
+  type DoneEntryEncoded,
+} from "../DoneEntry"
 
 describe("DoneEntry", () => {
-  // it("constructs a DoneEntry", () => {
+  // It("constructs a DoneEntry", () => {
   //   const decoded = {
   //     contactId: "0001" as ContactId,
   //     date: LocalDate.parse("2024-06-10"),
@@ -50,7 +56,7 @@ describe("DoneEntry", () => {
 
     expectTypeOf(encoded).toMatchTypeOf<DoneEntryEncoded>()
 
-    // round trip
+    // Round trip
     const decodedAgain = decodeDoneEntry(encoded)
     expect(decodedAgain).toEqual(decoded)
   })

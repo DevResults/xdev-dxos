@@ -90,7 +90,7 @@ const config: Config = {
         shake: "500ms shake",
         shortshake: "100ms shake",
 
-        /** use for icons in a button confirming an action, e.g. checkmark on a `Copy` button */
+        /** Use for icons in a button confirming an action, e.g. checkmark on a `Copy` button */
         celebrate: "200ms celebrate linear",
       },
     },

@@ -6,7 +6,9 @@ export function RemoveMemberDialog({
   remove = () => {},
   defaultOpen = false,
 }: Props) {
-  if (!contact) return null
+  if (!contact) {
+    return null
+  }
 
   return (
     <ConfirmDialog

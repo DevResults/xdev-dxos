@@ -13,7 +13,7 @@ type Story = StoryObj<typeof meta>
 
 export const RouteError: Story = {
   args: {
-    // fake React Router ErrorResponse
+    // Fake React Router ErrorResponse
     error: {
       status: 404,
       statusText: "Not Found",
@@ -24,7 +24,7 @@ export const RouteError: Story = {
 
 export const RuntimeError: Story = {
   args: {
-    // fake TypeError
+    // Fake TypeError
     error: {
       name: "TypeError",
       message: "Cannot read properties of undefined (reading 'pizza')",

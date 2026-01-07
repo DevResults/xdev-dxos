@@ -1,18 +1,18 @@
-import fs from "fs"
-import path from "path"
-import * as prettier from "prettier"
+import fs from 'node:fs';
+import path from 'node:path';
+import * as prettier from 'prettier';
 
-const __dirname = path.dirname(new URL(import.meta.url).pathname)
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
-const inputFile = path.join(__dirname, "..", "node_modules/@iconify-json/tabler/icons.json")
-const outputFile = path.join(__dirname, "..", "app/types/icons.d.ts")
+const inputFile = path.join(__dirname, '..', 'node_modules/@iconify-json/tabler/icons.json');
+const outputFile = path.join(__dirname, '..', 'app/types/icons.d.ts');
 
 // Read and parse the icons.json file
-const iconsJson = fs.readFileSync(inputFile, "utf-8")
-const icons = JSON.parse(iconsJson).icons
+const iconsJson = fs.readFileSync(inputFile, 'utf8');
+const {icons} = JSON.parse(iconsJson);
 
 // Initialize typings string
-let typings = `
+const typings = `
     /* eslint-disable */
     // @ts-nocheck
 
@@ -24,23 +24,19 @@ let typings = `
     declare global {
       ${Object.keys(icons)
         .map(iconName => `const Icon${toPascalCase(iconName)}: Icon`)
-        .join("\n")}
-    }`
+        .join('\n')}
+    }`;
 
 // Write typings to a .ts file
-fs.writeFileSync(outputFile, await format(typings))
+fs.writeFileSync(outputFile, await format(typings));
 
-function toPascalCase(str) {
-  return str
-    .replace(/-([a-z0-9])/gi, function (match, letter) {
-      return letter.toUpperCase()
-    })
-    .replace(/^(.)/, function (match, letter) {
-      return letter.toUpperCase()
-    })
+function toPascalCase(string_) {
+  return string_
+    .replaceAll(/-([a-z\d])/gi, (match, letter) => letter.toUpperCase())
+    .replace(/^(.)/, (match, letter) => letter.toUpperCase());
 }
 
-// format with Prettier
-function format(str) {
-  return prettier.format(str, { parser: "typescript" })
+// Format with Prettier
+function format(string_) {
+  return prettier.format(string_, {parser: 'typescript'});
 }

@@ -6,14 +6,19 @@ import { parseTimeEntry } from "schema/lib/parseTimeEntry"
 import { ProvidedProjects } from "schema/ProjectCollection"
 import { describe, expect, it } from "vitest"
 import type { ContactId } from "../Contact"
-import { decodeTimeEntry, encodeTimeEntry, type TimeEntry, type TimeEntryEncoded } from "../TimeEntry"
+import {
+  decodeTimeEntry,
+  encodeTimeEntry,
+  type TimeEntry,
+  type TimeEntryEncoded,
+} from "../TimeEntry"
 import { E, pipe } from "~/schema/lib/Effect"
 
 describe("TimeEntry", () => {
   const parse = (input: string) =>
     pipe(
       input,
-      input => ({ contactId: "1234" as ContactId, date: `2024-06-10`, input }), // this stuff is provided by the app when an entry is made
+      input => ({ contactId: "1234" as ContactId, date: "2024-06-10", input }), // This stuff is provided by the app when an entry is made
       parseTimeEntry,
       E.provideService(ProvidedProjects, projects),
       E.provideService(ProvidedClients, clients),
@@ -31,10 +36,10 @@ describe("TimeEntry", () => {
     const projectId = projects.find(p => p.fullCode === "Support:Ongoing")?.id
     const clientId = clients.find(c => c.code === "aba")?.id
 
-    // parseTimeEntry now returns a reactive DXOS object with id
+    // ParseTimeEntry now returns a reactive DXOS object with id
     expect(timeEntry).toMatchObject({
       contactId: "1234",
-      date: "2024-06-10", // string
+      date: "2024-06-10", // String
       project: projectId,
       client: clientId,
       duration: 60,
@@ -43,7 +48,7 @@ describe("TimeEntry", () => {
       timestamp: expect.any(String),
     })
 
-    // with current DXOS limitations, the parsed value is no different from the encoded value
+    // With current DXOS limitations, the parsed value is no different from the encoded value
     // see https://discord.com/channels/837138313172353095/1340003933757902908/1342464555791552598
 
     // expect(timeEntry).toEqual({

@@ -36,7 +36,10 @@ export const DoneEntryGenerator = ({ destroyAll = NO_OP, add = () => {}, contact
       enthusiasm,
       contacts,
     })
-    for (const done of dones) add(done)
+    for (const done of dones) {
+      add(done)
+    }
+
     setSuccessMessage(`Generated ${dones.length} dones`)
   }
 
@@ -46,19 +49,25 @@ export const DoneEntryGenerator = ({ destroyAll = NO_OP, add = () => {}, contact
         <RadioGroup
           label="Weeks"
           initialValue={weeks.toString()}
-          onChange={v => setWeeks(Number(v))}
+          onChange={v => {
+            setWeeks(Number(v))
+          }}
           options={weekOptions}
         />
         <RadioGroup
           label="Productivity"
           initialValue={productivity.toString()}
-          onChange={v => setProductivity(Number(v))}
+          onChange={v => {
+            setProductivity(Number(v))
+          }}
           options={productivityOptions}
         />
         <RadioGroup
           label="Enthusiasm"
           initialValue={enthusiasm.toString()}
-          onChange={v => setEnthusiasm(Number(v))}
+          onChange={v => {
+            setEnthusiasm(Number(v))
+          }}
           options={enthusiasmOptions}
         />
       </div>

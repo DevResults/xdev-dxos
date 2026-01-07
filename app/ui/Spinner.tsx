@@ -7,7 +7,7 @@ export function Spinner({ className = "", onDark = false }: Props = {}) {
   return (
     <span
       className={cx(
-        `inline-block size-[1em] animate-spin rounded-full border-[0.15em] border-solid px-1`,
+        "inline-block size-[1em] animate-spin rounded-full border-[0.15em] border-solid px-1",
         borderColors,
         className,
       )}

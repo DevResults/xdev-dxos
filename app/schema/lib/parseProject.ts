@@ -20,18 +20,22 @@ const validCodeCharacters = choiceOf(alphanumeric, "&")
  * - You can look up a project by its subcode, e.g. `Training` or `Project X` as long as there is only one project with that subcode
  */
 export const findByCode = (input: string, projects: Project[]) => {
-  if (input.length === 0) return E.fail(new ProjectCodeNotFoundError({ input }))
+  if (input.length === 0) {
+    return E.fail(new ProjectCodeNotFoundError({ input }))
+  }
 
   return E.gen(function* () {
     const [code, subCode] = input.split(/:\s*/gi).map(s => s.trim().replaceAll(/\s+/g, "-"))
 
-    // see if the code matches a unique fullCode, e.g. `Feature: API` or `Out`
+    // See if the code matches a unique fullCode, e.g. `Feature: API` or `Out`
     const fullCode = makeFullCode(code, subCode)
     const fullCodeMatches = projects.find(d => d.fullCode.toLowerCase() === fullCode.toLowerCase())
-    if (fullCodeMatches) return fullCodeMatches
+    if (fullCodeMatches) {
+      return fullCodeMatches
+    }
 
     if (!subCode) {
-      // see if the code matches a unique subcode, e.g. `Training` or `Project X`
+      // See if the code matches a unique subcode, e.g. `Training` or `Project X`
       const subCodeMatches = projects.filter(d => d.subCode?.toLowerCase() === code.toLowerCase())
 
       if (subCodeMatches.length === 0) {
@@ -62,13 +66,13 @@ export const parseProject = (input: string) =>
             "#",
             capture(
               [
-                oneOrMore(validCodeCharacters), // code
-                optional([":", zeroOrMore(whitespace), oneOrMore(validCodeCharacters)]), // subCode
+                oneOrMore(validCodeCharacters), // Code
+                optional([":", zeroOrMore(whitespace), oneOrMore(validCodeCharacters)]), // SubCode
               ],
-              { name: "code" }, // code doesn't include the #
+              { name: "code" }, // Code doesn't include the #
             ),
           ],
-          { name: "text" }, // text includes the #
+          { name: "text" }, // Text includes the #
         ),
         endWord,
       ],
@@ -78,8 +82,13 @@ export const parseProject = (input: string) =>
     const results = matches.map(match => match.groups as { text: string; code: string })
 
     // Input must contain exactly one project code
-    if (results.length > 1) return yield* E.fail(new MultipleProjectsError({ input }))
-    if (results.length === 0) return yield* E.fail(new NoProjectError({ input }))
+    if (results.length > 1) {
+      return yield* E.fail(new MultipleProjectsError({ input }))
+    }
+
+    if (results.length === 0) {
+      return yield* E.fail(new NoProjectError({ input }))
+    }
 
     const { code, text } = results[0]
     const project = yield* findByCode(code, projects)
@@ -91,25 +100,25 @@ export const parseProject = (input: string) =>
   })
 
 class MultipleProjectsError //
-  extends Data.TaggedError("parseProject/MultipleProjects")<{ input: string }>
+  extends (new Data.TaggedError("parseProject/MultipleProjects"))<{ input: string }>
 {
-  message = `An entry can only have one project code.`
+  message = "An entry can only have one project code."
 }
 
 export class NoProjectError //
-  extends Data.TaggedError("parseProject/NoProject")<{ input: string }>
+  extends (new Data.TaggedError("parseProject/NoProject"))<{ input: string }>
 {
-  message = `You need to include a project code.`
+  message = "You need to include a project code."
 }
 
 export class ProjectCodeNotFoundError //
-  extends Data.TaggedError("parseProject/CodeNotFound")<{ input: string }>
+  extends (new Data.TaggedError("parseProject/CodeNotFound"))<{ input: string }>
 {
   message = `There is no project with code "${this.input}"`
 }
 
 export class AmbiguousProjectCodeError //
-  extends Data.TaggedError("parseProject/AmbiguousProjectCode")<{
+  extends (new Data.TaggedError("parseProject/AmbiguousProjectCode"))<{
     input: string
     matches: string[]
   }>

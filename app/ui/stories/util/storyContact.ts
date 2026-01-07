@@ -6,7 +6,7 @@ export function storyContact(
   {
     admin = false, //
     self = false,
-  }: Params = {},
+  }: Parameters_ = {},
 ): ExtendedContact {
   const c = contacts.find(c => c.id === firstName.toLowerCase())!
   return new ExtendedContact({
@@ -17,7 +17,7 @@ export function storyContact(
   })
 }
 
-type Params = {
+type Parameters_ = {
   admin?: boolean
   self?: boolean
 }

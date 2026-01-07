@@ -14,7 +14,10 @@ export const Members = ({
 }: Props) => {
   const adminIcon = <IconCircleKey className="size-5 text-primary-500" />
 
-  if (!self || !contacts) return null
+  if (!self || !contacts) {
+    return null
+  }
+
   return (
     <>
       <h2 className="flex-1">Members</h2>
@@ -42,15 +45,18 @@ export const Members = ({
                     <button
                       disabled={!self.isAdmin || contact.isSelf}
                       onClick={() => {
-                        if (contact.isAdmin) onDemote(contact.id)
-                        else onPromote(contact.id)
+                        if (contact.isAdmin) {
+                          onDemote(contact.id)
+                        } else {
+                          onPromote(contact.id)
+                        }
                       }}
                       title={
                         contact.isAdmin ?
                           "Team admin (click to remove)"
                         : "Click to make team admin"
                       }
-                      className={cx(`mx-auto cursor-pointer hover:opacity-25`, {
+                      className={cx("mx-auto cursor-pointer hover:opacity-25", {
                         "opacity-100": contact.isAdmin,
                         "opacity-0 disabled:opacity-0": !contact.isAdmin,
                       })}

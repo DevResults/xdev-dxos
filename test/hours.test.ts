@@ -31,7 +31,7 @@ test("creates two time entries (using enter key)", async ({ context }) => {
   await expect(herb.hoursForDay(0)).toContainText("1:00")
   await expect(herb.hoursForDay(0)).toContainText("Out")
 
-  // the second entry is created in the same day
+  // The second entry is created in the same day
   await expect(herb.hoursForDay(0)).toContainText("2:00")
   await expect(herb.hoursForDay(0)).toContainText("Overhead")
 })
@@ -49,7 +49,7 @@ test("creates two time entries (using tab key)", async ({ context }) => {
   await expect(herb.hoursForDay(0)).toContainText("1:00")
   await expect(herb.hoursForDay(0)).toContainText("Out")
 
-  // the second entry is created in the next day
+  // The second entry is created in the next day
   await expect(herb.hoursForDay(1)).toContainText("2:00")
   await expect(herb.hoursForDay(1)).toContainText("Overhead")
 })
@@ -70,67 +70,67 @@ test("creates two time entries at once", async ({ context }) => {
 test("rejects a time entry containing no duration", async ({ context }) => {
   const { herb } = await setup(context)
 
-  // try to create an invalid time entry with no duration
+  // Try to create an invalid time entry with no duration
   await herb.createTimeEntry("#out")
 
-  // the input is invalid
+  // The input is invalid
   const input = herb.firstTimeEntryInput()
   await expect(input).toHaveAttribute("aria-invalid", "true")
 
-  // the input is still focused
+  // The input is still focused
   await expect(input).toBeFocused()
 
-  // the error message is displayed
+  // The error message is displayed
   const errorMessageId = await input.getAttribute("aria-errormessage")
   const errorMessage = herb.page.locator(`#${errorMessageId}`)
   await expect(errorMessage).toContainText("No duration found")
 
-  // the entry wasn't created
+  // The entry wasn't created
   await expect(herb.hoursForDay(0)).not.toContainText("Out")
 })
 
 test("accepts a time entry once mistakes have been corrected", async ({ context }) => {
   const { herb } = await setup(context)
 
-  // try to create an invalid time entry with no duration
+  // Try to create an invalid time entry with no duration
   const input = herb.firstTimeEntryInput()
   await input.click()
   await herb.page.keyboard.type("#out ")
   await herb.page.keyboard.press("Enter")
 
-  // the input is invalid
+  // The input is invalid
   await expect(input).toHaveAttribute("aria-invalid", "true")
   const errorMessageId = await input.getAttribute("aria-errormessage")
   const errorMessage = herb.page.locator(`#${errorMessageId}`)
   await expect(errorMessage).toContainText("No duration found")
 
-  // the entry wasn't created
+  // The entry wasn't created
   await expect(herb.hoursForDay(0)).not.toContainText("Out")
 
-  // correct the mistake
+  // Correct the mistake
   await herb.page.keyboard.type(" 1h")
   await herb.page.keyboard.press("Enter")
 
-  // the error is no longer visible
+  // The error is no longer visible
   await expect(errorMessage).not.toBeVisible()
 
-  // the entry was created
+  // The entry was created
   await expect(herb.hoursForDay(0)).toContainText("1:00")
   await expect(herb.hoursForDay(0)).toContainText("Out")
 })
 
 test("entries are committed on blur", async ({ context }) => {
-  // we need this since we're using focus/blur to control whether it's editable or not
+  // We need this since we're using focus/blur to control whether it's editable or not
   const { herb } = await setup(context)
 
   const input = herb.firstTimeEntryInput()
   await input.click()
   await herb.page.keyboard.type("90min #out ")
 
-  // click away from the input
+  // Click away from the input
   await herb.page.locator("header").click()
 
-  // the entry is committed
+  // The entry is committed
   await expect(herb.hoursForDay(0)).toContainText("1:30")
   await expect(herb.hoursForDay(0)).toContainText("Out")
 })
@@ -144,18 +144,18 @@ test("edits a time entry", async ({ context }) => {
   await expect(timeEntry).toContainText("1:30")
   await expect(timeEntry).toContainText("Out")
 
-  // click to edit
+  // Click to edit
   await timeEntry.click()
 
-  // change the text
+  // Change the text
   await herb.page.keyboard.type("2h #overhead ")
   await herb.page.keyboard.press("Enter")
 
-  // the entry is updated
+  // The entry is updated
   await expect(timeEntry).toContainText("2:00")
   await expect(timeEntry).toContainText("Overhead")
 
-  // the previous entry is gone
+  // The previous entry is gone
   await expect(herb.hoursForDay(0)).not.toContainText("1:30")
   await expect(herb.hoursForDay(0)).not.toContainText("Out")
 })
@@ -168,15 +168,15 @@ test("deletes a time entry by clearing its text", async ({ context }) => {
   await expect(herb.hoursForDay(0)).toContainText("1:30")
   await expect(herb.hoursForDay(0)).toContainText("Out")
 
-  // edit the entry
+  // Edit the entry
   const timeEntry = herb.firstTimeEntry()
   await timeEntry.click()
 
-  // remove the text
+  // Remove the text
   await herb.page.keyboard.press("Delete")
   await herb.page.keyboard.press("Enter")
 
-  // the time entry is gone
+  // The time entry is gone
   await expect(herb.hoursForDay(0)).not.toContainText("1:30")
   await expect(herb.hoursForDay(0)).not.toContainText("Out")
 })
@@ -190,14 +190,14 @@ test("cancels an edit using the escape key", async ({ context }) => {
   await expect(timeEntry).toContainText("1:30")
   await expect(timeEntry).toContainText("Out")
 
-  // click to edit
+  // Click to edit
   await timeEntry.click()
 
-  // change the text
+  // Change the text
   await herb.page.keyboard.type("2h #overhead")
   await herb.page.keyboard.press("Escape")
 
-  // the entry is unchanged
+  // The entry is unchanged
   await expect(timeEntry).toContainText("1:30")
   await expect(timeEntry).toContainText("Out")
 })
@@ -205,7 +205,7 @@ test("cancels an edit using the escape key", async ({ context }) => {
 test("uses keyboard to navigate time entries", async ({ context }) => {
   const { herb } = await setup(context)
 
-  // create a few time entries
+  // Create a few time entries
   await herb.createTimeEntry(`
     1h #out doctor
     1h #out dentist
@@ -215,12 +215,12 @@ test("uses keyboard to navigate time entries", async ({ context }) => {
     1h #out polio
     `)
 
-  // focus the first entry
+  // Focus the first entry
   const firstEntry = herb.firstTimeEntry()
   await firstEntry.click()
   await expect(herb.page.locator(":focus")).toContainText("doctor")
 
-  // use the down arrow key
+  // Use the down arrow key
   await herb.page.keyboard.press("End")
   await herb.page.keyboard.press("ArrowDown")
   await expect(herb.page.locator(":focus")).toContainText("dentist")
@@ -228,7 +228,7 @@ test("uses keyboard to navigate time entries", async ({ context }) => {
   await herb.page.keyboard.press("ArrowDown")
   await expect(herb.page.locator(":focus")).toContainText("car repair")
 
-  // use the up arrow key
+  // Use the up arrow key
   await herb.page.keyboard.press("Home")
   await herb.page.keyboard.press("ArrowUp")
   await expect(herb.page.locator(":focus")).toContainText("dentist")
@@ -236,13 +236,13 @@ test("uses keyboard to navigate time entries", async ({ context }) => {
   await herb.page.keyboard.press("ArrowUp")
   await expect(herb.page.locator(":focus")).toContainText("doctor")
 
-  // use the tab key
+  // Use the tab key
   await herb.page.keyboard.press("Tab")
   await expect(herb.page.locator(":focus")).toContainText("dentist")
   await herb.page.keyboard.press("Tab")
   await expect(herb.page.locator(":focus")).toContainText("car repair")
 
-  // use the shift+tab key
+  // Use the shift+tab key
   await herb.page.keyboard.press("Shift+Tab")
   await expect(herb.page.locator(":focus")).toContainText("dentist")
   await herb.page.keyboard.press("Shift+Tab")
@@ -257,11 +257,11 @@ test("deletes a time entry", async ({ context }) => {
   await expect(herb.hoursForDay(0)).toContainText("1:30")
   await expect(herb.hoursForDay(0)).toContainText("Out")
 
-  // delete the entry
+  // Delete the entry
   const deleteButton = herb.firstTimeEntry().getByTitle("Delete")
   await deleteButton.click()
 
-  // the time entry is gone
+  // The time entry is gone
   await expect(herb.hoursForDay(0)).not.toContainText("1:30")
   await expect(herb.hoursForDay(0)).not.toContainText("Out")
 })
@@ -273,10 +273,10 @@ test("persists a time entry", async ({ context }) => {
   await expect(herb.hoursForDay(0)).toContainText("1:30")
   await expect(herb.hoursForDay(0)).toContainText("Out")
 
-  // reload the page
+  // Reload the page
   await herb.reload()
 
-  // the entry is still there
+  // The entry is still there
   await expect(herb.hoursForDay(0)).toContainText("1:30")
   await expect(herb.hoursForDay(0)).toContainText("Out")
 })
@@ -288,7 +288,7 @@ test("persists edits", async ({ context }) => {
   await expect(herb.hoursForDay(0)).toContainText("1:30")
   await expect(herb.hoursForDay(0)).toContainText("Out")
 
-  // edit the entry
+  // Edit the entry
   const timeEntry = herb.firstTimeEntry()
   await timeEntry.click()
   await herb.page.keyboard.type("2h #overhead ")
@@ -296,10 +296,10 @@ test("persists edits", async ({ context }) => {
   await expect(timeEntry).toContainText("2:00")
   await expect(timeEntry).toContainText("Overhead")
 
-  // reload the page
+  // Reload the page
   await herb.reload()
 
-  // the modified entry is still there
+  // The modified entry is still there
   await expect(herb.hoursForDay(0)).toContainText("2:00")
   await expect(herb.hoursForDay(0)).toContainText("Overhead")
 })
@@ -311,16 +311,16 @@ test("persists deletion", async ({ context }) => {
   await expect(herb.hoursForDay(0)).toContainText("1:30")
   await expect(herb.hoursForDay(0)).toContainText("Out")
 
-  // delete the entry
+  // Delete the entry
   const deleteButton = herb.firstTimeEntry().getByTitle("Delete")
   await deleteButton.click()
   await expect(herb.hoursForDay(0)).not.toContainText("1:30")
   await expect(herb.hoursForDay(0)).not.toContainText("Out")
 
-  // reload the page
+  // Reload the page
   await herb.reload()
 
-  // the entry is still gone
+  // The entry is still gone
   await expect(herb.hoursForDay(0)).not.toContainText("1:30")
   await expect(herb.hoursForDay(0)).not.toContainText("Out")
 })
@@ -330,21 +330,21 @@ test("autocompletes a project", async ({ context }) => {
 
   const timeEntry = herb.firstTimeEntryInput()
 
-  //  no autocomplete menu is visible
+  //  No autocomplete menu is visible
   await expect(timeEntry).toHaveAttribute("aria-expanded", "false")
 
   await timeEntry.click()
   await herb.page.keyboard.type("1h #bus")
 
-  // the autocomplete menu is visible
+  // The autocomplete menu is visible
   await expect(timeEntry).toHaveAttribute("aria-expanded", "true")
 
-  // find the autocomplete menu using aria properties
+  // Find the autocomplete menu using aria properties
   const autocompleteId = await timeEntry.getAttribute("aria-controls")
   const autocompleteMenu = herb.page.locator(`#${autocompleteId}`)
   await expect(autocompleteMenu).toBeVisible()
 
-  // confirm the expected options are present
+  // Confirm the expected options are present
   const options = await autocompleteMenu.locator("[role=option]").all()
   const optionsText = await Promise.all(options.map(async option => option.textContent()))
   expect(optionsText).toEqual([
@@ -354,14 +354,14 @@ test("autocompletes a project", async ({ context }) => {
     "Business:Proposals",
   ])
 
-  // select an option
+  // Select an option
   await options[1].click()
 
-  // the menu is hidden
+  // The menu is hidden
   await expect(autocompleteMenu).not.toBeVisible()
   await expect(timeEntry).toHaveAttribute("aria-expanded", "false")
 
-  // the option is selected
+  // The option is selected
   await expect(timeEntry).toContainText("#Business:Marketing")
 })
 
@@ -373,10 +373,10 @@ test("autocompletes a client", async ({ context }) => {
   await timeEntry.click()
   await herb.page.keyboard.type("1h @chem")
 
-  // select the first option
+  // Select the first option
   await herb.page.keyboard.press("ArrowDown")
   await herb.page.keyboard.press("Enter")
 
-  // the option is selected
+  // The option is selected
   await expect(timeEntry).toContainText("@chemonics")
 })

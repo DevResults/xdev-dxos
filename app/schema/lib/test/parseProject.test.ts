@@ -10,27 +10,42 @@ describe("parseProject", () => {
     testCases: [
       // INVALID
 
-      { input: "", error: "NoProject" }, // empty
-      { input: "Support", error: "NoProject" }, // no #
-      { input: "#Support", error: "CodeNotFound" }, // no subcode
-      { input: "Ongoing", error: "NoProject" }, // no #
-      { input: "#Supppport: Ongoing", error: "CodeNotFound" }, // typo
-      { input: "#DevOps: Azure migration", error: "CodeNotFound" }, // multiple words need to be separated by dashes
-      { input: "#API", error: "AmbiguousProjectCode" }, // multiple subcode matches
+      { input: "", error: "NoProject" }, // Empty
+      { input: "Support", error: "NoProject" }, // No #
+      { input: "#Support", error: "CodeNotFound" }, // No subcode
+      { input: "Ongoing", error: "NoProject" }, // No #
+      { input: "#Supppport: Ongoing", error: "CodeNotFound" }, // Typo
+      { input: "#DevOps: Azure migration", error: "CodeNotFound" }, // Multiple words need to be separated by dashes
+      { input: "#API", error: "AmbiguousProjectCode" }, // Multiple subcode matches
       { input: "#Out #Overhead", error: "MultipleProjects" },
 
       // VALID
 
-      { input: "#Support: Ongoing", code: "Support", subCode: "Ongoing" }, // one space after colon
-      { input: "#Support:Ongoing", code: "Support", subCode: "Ongoing" }, // no space
-      { input: "#Support:    Ongoing", code: "Support", subCode: "Ongoing" }, // multiple spaces
+      { input: "#Support: Ongoing", code: "Support", subCode: "Ongoing" }, // One space after colon
+      { input: "#Support:Ongoing", code: "Support", subCode: "Ongoing" }, // No space
+      { input: "#Support:    Ongoing", code: "Support", subCode: "Ongoing" }, // Multiple spaces
 
-      { input: "#DevOps: Azure-migration", code: "DevOps", subCode: "Azure-migration" }, // multiple words need to be separated by dashes
+      { input: "#DevOps: Azure-migration", code: "DevOps", subCode: "Azure-migration" }, // Multiple words need to be separated by dashes
 
-      { input: "#Feature: API", code: "Feature", subCode: "API", text: "#Feature: API" },
+      {
+        input: "#Feature: API",
+        code: "Feature",
+        subCode: "API",
+        text: "#Feature: API",
+      },
 
-      { input: "1h #Ongoing", code: "Support", subCode: "Ongoing", text: "#Ongoing" },
-      { input: "1h #onGoiNG", code: "Support", subCode: "Ongoing", text: "#onGoiNG" }, // case doesn't matter
+      {
+        input: "1h #Ongoing",
+        code: "Support",
+        subCode: "Ongoing",
+        text: "#Ongoing",
+      },
+      {
+        input: "1h #onGoiNG",
+        code: "Support",
+        subCode: "Ongoing",
+        text: "#onGoiNG",
+      }, // Case doesn't matter
 
       { input: "8h #out vacation day", code: "Out", text: "#out" },
     ] as TestCase[],
@@ -45,7 +60,9 @@ describe("parseProject", () => {
     validate(expected, actual) {
       expect(actual.project.code).toEqual(expected.code)
       expect(actual.project.subCode).toEqual(expected.subCode)
-      if (expected.text) expect(actual.text).toEqual(expected.text)
+      if (expected.text) {
+        expect(actual.text).toEqual(expected.text)
+      }
     },
   })
 })

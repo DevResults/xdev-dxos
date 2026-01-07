@@ -17,7 +17,10 @@ export const DoneEditable = ({
   contacts,
   ...passthruProps
 }: Props) => {
-  if (done === undefined) return null
+  if (done === undefined) {
+    return null
+  }
+
   const { content, likes = [] } = done
 
   return (

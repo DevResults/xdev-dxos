@@ -23,15 +23,19 @@ export const csvToDoneEntries = (csvData: string) =>
       return E.gen(function* () {
         const contacts = yield* ProvidedContacts
         const contact = contacts.find(({ userName }) => userName.toLowerCase() === row.userName)
-        if (contact === undefined)
+        if (contact === undefined) {
           return yield* E.fail(new ContactNotFoundError({ userName: row.userName }))
+        }
 
         // `likes` comes in as as serialized array of user names; need to convert that to contactIDs
         const likesUserNames = JSON.parse(row.likes) as string[]
         const likes = [] as ContactId[]
         for (const userName of likesUserNames) {
           const contact = contacts.find(d => d.userName.toLowerCase() === userName)
-          if (contact === undefined) return yield* E.fail(new ContactNotFoundError({ userName }))
+          if (contact === undefined) {
+            return yield* E.fail(new ContactNotFoundError({ userName }))
+          }
+
           likes.push(contact.id)
         }
 
@@ -62,7 +66,7 @@ export const csvToDoneEntries = (csvData: string) =>
   })
 
 export class DoneEntryCsvParseError //
-  extends Data.TaggedError("DoneEntryCsvParseError")<{
+  extends (new Data.TaggedError("DoneEntryCsvParseError"))<{
     input: string
     index: number
     cause: Error

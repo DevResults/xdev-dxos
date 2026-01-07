@@ -22,7 +22,9 @@ export function InvitationForm({
   const { setError, formState } = form
 
   useEffect(() => {
-    if (_error) setError("invitationCode", { type: "custom", message: _error })
+    if (_error) {
+      setError("invitationCode", { type: "custom", message: _error })
+    }
   })
 
   return (

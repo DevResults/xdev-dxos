@@ -17,7 +17,9 @@ export default function Private() {
   const signOut = useSignOut()
 
   useEffect(() => {
-    if (!identity) void navigate("/auth/begin")
+    if (!identity) {
+      void navigate("/auth/begin")
+    }
   }, [identity, navigate])
 
   useEffect(() => {

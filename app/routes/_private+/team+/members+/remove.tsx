@@ -16,10 +16,14 @@ export default function RemovePage() {
   // ----- ↑ hooks
 
   // Only admins can remove members
-  if (!self?.isAdmin) return null
+  if (!self?.isAdmin) {
+    return null
+  }
 
   const contact = contacts.find(({ id }) => id === userId)
-  if (!contact?.identityKey) return null
+  if (!contact?.identityKey) {
+    return null
+  }
 
   return (
     <RemoveMemberDialog
@@ -27,12 +31,12 @@ export default function RemovePage() {
       onClose={async () => navigate("..")}
       contact={contact}
       remove={async () => {
-        // remove from space
+        // Remove from space
         await space?.updateMemberRole({
           memberKey: contact.identityKey!,
           newRole: HaloSpaceMember.Role.REMOVED,
         })
-        // remove contact from contacts list
+        // Remove contact from contacts list
         space?.db.remove(contact.contact)
       }}
     />

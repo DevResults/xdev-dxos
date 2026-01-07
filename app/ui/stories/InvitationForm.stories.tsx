@@ -13,7 +13,7 @@ const meta: Meta<typeof InvitationForm> = {
   decorators: [CenteredDecorator],
 }
 
-// adding this to a story submits the form to trigger validation
+// Adding this to a story submits the form to trigger validation
 const submit = async ({ canvasElement }: { canvasElement: HTMLElement }) =>
   userEvent.click(within(canvasElement).getByRole("button"))
 
@@ -75,5 +75,7 @@ export const SubmittingForever: Story = {
 
 const pause = async (t = 0) =>
   new Promise<void>(resolve => {
-    setTimeout(() => resolve(), t)
+    setTimeout(() => {
+      resolve()
+    }, t)
   })

@@ -20,7 +20,10 @@ export const DoneDisplay = withTrackSignals(({ className = "", done, self, conta
         self={self}
         onToggle={() => {
           const newLikes = new Set(likes ?? [])
-          if (!newLikes.delete(self.id)) newLikes.add(self.id)
+          if (!newLikes.delete(self.id)) {
+            newLikes.add(self.id)
+          }
+
           done.likes = [...newLikes]
         }}
       />

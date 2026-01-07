@@ -5,7 +5,9 @@ import { useSpaces } from "@dxos/react-client/echo"
 
 export default function InspectorPage() {
   const spaces = useSpaces()
-  if (!spaces) return null
+  if (!spaces) {
+    return null
+  }
 
   const styles = {
     ...defaultStyles,
@@ -20,14 +22,12 @@ export default function InspectorPage() {
       <Tabs defaultValue={spaces[0].id} className="flex grow flex-col">
         <div>
           <TabsList className="">
-            {spaces.map(space => {
-              return (
-                <TabsTrigger key={space.id} value={space.id}>
-                  <span className="mr-1">{space.id}</span>
-                  {/* <span className="text-xs font-light text-neutral-400">({count})</span> */}
-                </TabsTrigger>
-              )
-            })}
+            {spaces.map(space => (
+              <TabsTrigger key={space.id} value={space.id}>
+                <span className="mr-1">{space.id}</span>
+                {/* <span className="text-xs font-light text-neutral-400">({count})</span> */}
+              </TabsTrigger>
+            ))}
           </TabsList>
         </div>
         <div className="grow overflow-scroll">

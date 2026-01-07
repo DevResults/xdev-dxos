@@ -6,7 +6,7 @@ import { UserNameForm } from "ui/UserNameForm"
 
 export default function Begin() {
   const identity = useIdentity()
-  const client = useClient() as Client
+  const client = useClient()
   const navigate = useNavigate()
 
   useEffect(() => {

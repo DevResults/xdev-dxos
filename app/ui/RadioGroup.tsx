@@ -34,19 +34,19 @@ export function RadioGroup<T extends string | number | boolean>({
               className={({ checked }) =>
                 cx([
                   "relative inline-flex cursor-pointer items-center border px-3 py-1 text-sm text-neutral-700",
-                  // focused
+                  // Focused
                   "focus:z-20 focus:border-primary-700 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-primary-700",
-                  // first item
+                  // First item
                   { "rounded-r-md": i === options.length - 1 },
-                  // items after the first
+                  // Items after the first
                   { "-ml-px": i > 0 },
-                  // last item
+                  // Last item
                   { "rounded-l-md": i === 0 },
-                  // selected
+                  // Selected
                   { "z-10 border-primary-500 bg-primary-100 font-medium text-black": checked },
-                  // unselected
+                  // Unselected
                   { "border-neutral-300": !checked },
-                  // unselected (hover)
+                  // Unselected (hover)
                   { "hover:bg-neutral-50 hover:text-black": !checked },
                 ])
               }

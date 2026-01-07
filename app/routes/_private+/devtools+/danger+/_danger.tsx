@@ -17,11 +17,15 @@ export default function DangerPage() {
 
   const addDone = (done: Omit<DoneEntry, "id">) => space?.db.add(makeDoneEntry(done))
   const addTimeEntries = (timeEntries: Array<Omit<TimeEntry, "id">>) => {
-    for (const timeEntry of timeEntries) space?.db.add(makeTimeEntry(timeEntry))
+    for (const timeEntry of timeEntries) {
+      space?.db.add(makeTimeEntry(timeEntry))
+    }
   }
 
   function destroyAll<T extends ReactiveEchoObject<U>, U extends BaseObject>(list: T[]) {
-    for (const item of list) space?.db.remove(item)
+    for (const item of list) {
+      space?.db.remove(item)
+    }
   }
 
   return (
@@ -43,7 +47,9 @@ export default function DangerPage() {
                   <DoneEntryGenerator
                     contacts={contacts}
                     add={addDone}
-                    destroyAll={() => destroyAll(doneEntries)}
+                    destroyAll={() => {
+                      destroyAll(doneEntries)
+                    }}
                   />
                 </div>
               ),
@@ -54,7 +60,9 @@ export default function DangerPage() {
                 <DoneEntryImporter
                   contacts={contacts}
                   add={addDone}
-                  destroyAll={() => destroyAll(doneEntries)}
+                  destroyAll={() => {
+                    destroyAll(doneEntries)
+                  }}
                 />
               ),
             },
@@ -67,7 +75,9 @@ export default function DangerPage() {
                     clients={clients}
                     projects={projects}
                     add={addTimeEntries}
-                    destroyAll={() => destroyAll(timeEntries)}
+                    destroyAll={() => {
+                      destroyAll(timeEntries)
+                    }}
                   />
                 </div>
               ),
@@ -78,7 +88,9 @@ export default function DangerPage() {
                 <div>
                   <TimeEntryImporter
                     defaultOpen={true}
-                    destroyAll={() => destroyAll(timeEntries)}
+                    destroyAll={() => {
+                      destroyAll(timeEntries)
+                    }}
                     add={addTimeEntries}
                     contacts={contacts}
                     clients={clients}

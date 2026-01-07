@@ -7,12 +7,11 @@ export function Munge({ children }: { children: string }) {
   return <span dangerouslySetInnerHTML={{ __html: munge(children, magicWords) }} />
 }
 
-const munge = (text: string, words: string[]) => {
-  return words.reduce(
+const munge = (text: string, words: string[]) =>
+  words.reduce(
     (result, word) =>
       result.replaceAll(new RegExp(word, "gi"), (word: string) =>
         [...word].join("&ZeroWidthSpace;"),
       ),
     text,
   )
-}

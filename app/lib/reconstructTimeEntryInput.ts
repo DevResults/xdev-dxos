@@ -18,8 +18,8 @@ export const reconstructTimeEntryInput = ({
   description?: string
 }) =>
   [
-    `${formatDuration(durationInHours * 60)}`, // duration in hours
-    `#${project}`, // project code
+    `${formatDuration(durationInHours * 60)}`, // Duration in hours
+    `#${project}`, // Project code
     client ? `@${client}` : undefined, // (maybe) client code
     description,
   ]

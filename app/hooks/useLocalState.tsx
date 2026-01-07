@@ -11,7 +11,11 @@ export function useLocalState() {
     spaceKey,
     invitationCode,
 
-    update: (s: Partial<LocalState>) => setState({ ...state, ...s }),
-    reset: () => setState(initialState),
+    update(s: Partial<LocalState>) {
+      setState({ ...state, ...s })
+    },
+    reset() {
+      setState(initialState)
+    },
   }
 }

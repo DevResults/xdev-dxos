@@ -22,14 +22,14 @@ const testCases = [
     error: "The field `content` is required",
   },
   {
-    input: `herb,2024-05-42,something something,"[""reid"",""leslie"",""fred""]",1709913601023`,
+    input: 'herb,2024-05-42,something something,"[""reid"",""leslie"",""fred""]",1709913601023',
     error: "Invalid date",
   },
 
   {
     input: join(
-      `herb, 2024-05-30, "quoted content`, //
-      `continued on next line"`,
+      'herb, 2024-05-30, "quoted content', //
+      'continued on next line"',
     ),
     error: "Quote Not Closed",
   },

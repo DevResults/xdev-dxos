@@ -72,7 +72,7 @@ export const parseTimeEntries = ({
   return pipe(
     multilineInput,
     s => s.split("\n"),
-    E.partition(parse), // try to parse each line
+    E.partition(parse), // Try to parse each line
     E.runSync,
   )
 }

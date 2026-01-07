@@ -27,41 +27,46 @@ export const TimeEntryInput = ({
   clients,
   onFocus = NO_OP,
   onFocusNext = NO_OP,
-  onFocusPrev = NO_OP,
+  onFocusPrev: onFocusPrevious = NO_OP,
   onDestroy = NO_OP,
   onCommit = NO_OP,
   onDiscard = NO_OP,
 }: Props) => {
-  // the content of the entry while editing
+  // The content of the entry while editing
   const [newContent, setNewContent] = useState(content)
 
-  // errors detected in the input
+  // Errors detected in the input
   const [errors, setErrors] = useState<Error[]>([])
   const showError = errors.length > 0
   const errorMessageId = `time-entry-error-${date.toString()}`
 
-  // bind textarea to hotkeys
+  // Bind textarea to hotkeys
   const textareaRef = useHotkeys<HTMLTextAreaElement>(
     [enter, escape, up, down, left, right],
     (e, { keys = [] }) => {
       const textarea = textareaRef.current
-      if (!textarea) return
+      if (!textarea) {
+        return
+      }
+
       const { value, textContent, selectionStart } = textarea
 
       const key = keys.join("")
       if (key === escape) {
-        setNewContent(content) // restore the original content
+        setNewContent(content) // Restore the original content
         setErrors([])
         onDiscard()
-        // yield a tick to let the content be restored, and then blur
-        setTimeout(() => textarea.blur(), 1)
+        // Yield a tick to let the content be restored, and then blur
+        setTimeout(() => {
+          textarea.blur()
+        }, 1)
       } else if (key === enter) {
         e.preventDefault()
         commit(textContent ?? "")
       } else if (!autocompleteOpen) {
-        // only handle arrow keys if we're not in an autocomplete query
+        // Only handle arrow keys if we're not in an autocomplete query
         if (key === up && selectionStart === 0) {
-          onFocusPrev()
+          onFocusPrevious()
         } else if (key === down && selectionStart === value.length) {
           onFocusNext()
         }
@@ -71,12 +76,14 @@ export const TimeEntryInput = ({
   )
 
   useEffect(() => {
-    // select the content when entering focus
-    if (isFocused) textareaRef.current?.select()
+    // Select the content when entering focus
+    if (isFocused) {
+      textareaRef.current?.select()
+    }
   }, [isFocused, textareaRef])
 
   useEffect(() => {
-    // update the input when the content of the time entry is modified from elsewhere
+    // Update the input when the content of the time entry is modified from elsewhere
     setNewContent(content)
   }, [content])
 
@@ -90,11 +97,11 @@ export const TimeEntryInput = ({
   const commit = (content: string) => {
     content = content.trim()
 
-    // empty content means the entry should be removed
+    // Empty content means the entry should be removed
     if (content.length === 0) {
       onDestroy()
     } else {
-      // process each line as a separate entry
+      // Process each line as a separate entry
       const [errors, parsedEntries] = parseTimeEntries({
         input: content,
         contactId: self.id,
@@ -103,10 +110,10 @@ export const TimeEntryInput = ({
         clients,
       })
 
-      // errors will be displayed in the popover
+      // Errors will be displayed in the popover
       setErrors(errors)
 
-      // only commit if there are no errors
+      // Only commit if there are no errors
       if (errors.length === 0) {
         for (const entry of parsedEntries) {
           onCommit(entry)
@@ -131,26 +138,46 @@ export const TimeEntryInput = ({
           value={newContent}
           modes={
             [
-              { type: "PROJECT", trigger: "#", collection: projects, property: "fullCode" },
-              { type: "CLIENT", trigger: "@", collection: clients, property: "code" },
+              {
+                type: "PROJECT",
+                trigger: "#",
+                collection: projects,
+                property: "fullCode",
+              },
+              {
+                type: "CLIENT",
+                trigger: "@",
+                collection: clients,
+                property: "code",
+              },
             ] as const
           }
           aria-invalid={showError}
           aria-errormessage={errorMessageId}
-          onFocus={() => onFocus(index)}
-          onBlur={e => commit(e.target.value)}
+          onFocus={() => {
+            onFocus(index)
+          }}
+          onBlur={e => {
+            commit(e.target.value)
+          }}
           onChange={(value: string) => {
-            setErrors([]) // don't keep errors around if the user starts typing again
+            setErrors([]) // Don't keep errors around if the user starts typing again
             setNewContent(value)
           }}
-          onOpen={() => setAutocompleteOpen(true)}
-          onClose={() => setAutocompleteOpen(false)}
+          onOpen={() => {
+            setAutocompleteOpen(true)
+          }}
+          onClose={() => {
+            setAutocompleteOpen(false)
+          }}
         />
       </PopoverAnchor>
       <PopoverContent
         asChild
         side={showError ? "top" : "bottom"}
-        onOpenAutoFocus={e => e.preventDefault()}
+        onOpenAutoFocus={e => {
+          e.preventDefault()
+        }}
       >
         {/* ERRORS */}
         {showError ?

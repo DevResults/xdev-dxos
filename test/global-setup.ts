@@ -7,7 +7,9 @@ import { chromium } from "@playwright/test"
  */
 export default async function globalSetup() {
   // Skip warmup in CI (uses pre-built app) or Playwright UI mode
-  if (process.env.CI ?? process.env.PLAYWRIGHT_UI === "1") return
+  if (process.env.CI ?? process.env.PLAYWRIGHT_UI === "1") {
+    return
+  }
 
   console.log("Warming up Vite dependency optimizer...")
 

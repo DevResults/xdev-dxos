@@ -30,22 +30,20 @@ const createStory = ({
   year: number
   minYear?: number
   maxYear?: number
-}): Story => {
-  return {
-    args: { minYear, maxYear },
-    parameters: {
-      reactRouter: reactRouterParameters({
-        location: {
-          pathParams: { year: year.toString() },
-        },
-        routing: {
-          path: "/hours/:year",
-          handle() {},
-        },
-      }),
-    },
-  }
-}
+}): Story => ({
+  args: { minYear, maxYear },
+  parameters: {
+    reactRouter: reactRouterParameters({
+      location: {
+        pathParams: { year: year.toString() },
+      },
+      routing: {
+        path: "/hours/:year",
+        handle() {},
+      },
+    }),
+  },
+})
 
 export const NoLimits: Story = createStory({
   year: currentYear + 99,
@@ -61,13 +59,13 @@ export const AtMaxLimit: Story = createStory({
   maxYear: currentYear,
 })
 
-// should redirect to current year
+// Should redirect to current year
 export const BeforeLimits: Story = createStory({
   year: currentYear - 7,
   minYear: currentYear,
 })
 
-// should redirect to current year
+// Should redirect to current year
 export const AfterLimits: Story = createStory({
   year: currentYear + 7,
   maxYear: currentYear,

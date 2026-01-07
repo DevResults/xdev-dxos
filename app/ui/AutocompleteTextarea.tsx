@@ -36,7 +36,7 @@ export const AutocompleteTextarea = forwardRef<HTMLTextAreaElement, Props>(
 
     const autocompleteMenuId = `${id}-autocomplete-menu`
 
-    // if the user is currently typing an autocomplete query, this will contain
+    // If the user is currently typing an autocomplete query, this will contain
     // the query and information about what to do with it
     const [queryState, setQueryState] = useState<AutocompleteState | undefined>()
     const autocompleteItems = queryState ? getAutocompleteItems(queryState, modes) : []
@@ -44,19 +44,20 @@ export const AutocompleteTextarea = forwardRef<HTMLTextAreaElement, Props>(
 
     // If the first or only autocomplete item is the current query, we've either typed out a valid
     // item by hand, or we just selected it. In either case, we should not show the autocomplete.
-    const justAutocompleted =
-      queryState !== undefined &&
-      autocompleteItems[0].toLowerCase() === queryState.query.toLowerCase()
+    const justAutocompleted = autocompleteItems[0].toLowerCase() === queryState?.query.toLowerCase()
 
-    // show the autocomplete if the user is typing a query and there are items to show
+    // Show the autocomplete if the user is typing a query and there are items to show
     const showAutocomplete =
       queryState !== undefined && //
       isFocused &&
       !justAutocompleted
 
     useEffect(() => {
-      if (showAutocomplete) onOpen()
-      else onClose()
+      if (showAutocomplete) {
+        onOpen()
+      } else {
+        onClose()
+      }
     }, [showAutocomplete])
 
     return (
@@ -67,16 +68,22 @@ export const AutocompleteTextarea = forwardRef<HTMLTextAreaElement, Props>(
             value={value}
             onFocus={e => {
               setIsFocused(true)
-              if (onFocus) onFocus(e)
+              if (onFocus) {
+                onFocus(e)
+              }
             }}
             onBlur={e => {
               setIsFocused(false)
 
               // Interaction with the autocomplete causes the textarea to lose focus. We only want
               // to blur if the user is actually leaving the textarea
-              if (onBlur && !showAutocomplete) onBlur(e)
+              if (onBlur && !showAutocomplete) {
+                onBlur(e)
+              }
             }}
-            onChange={e => onChange(e.target.value)}
+            onChange={e => {
+              onChange(e.target.value)
+            }}
             onInput={e => {
               const textarea = e.target as HTMLTextAreaElement
               const { value, selectionStart } = textarea
@@ -102,7 +109,9 @@ export const AutocompleteTextarea = forwardRef<HTMLTextAreaElement, Props>(
         <PopoverContent
           asChild
           side={"bottom"}
-          onOpenAutoFocus={e => e.preventDefault()} // don't steal focus
+          onOpenAutoFocus={e => {
+            e.preventDefault()
+          }} // Don't steal focus
         >
           {showAutocomplete ?
             <>

@@ -22,11 +22,11 @@ describe("generateTimeEntries", () => {
     expect(distinctContacts).toHaveLength(1)
     const totalHours = Math.ceil(entries.reduce((total, entry) => total + entry.duration, 0))
     expect(totalHours).toBeGreaterThanOrEqual(
-      60 * // mins per hour
-        5.5 * // hours per day (lower bound in generator)
-        5 * // days per week
-        1 * // weeks
-        1, // contacts
+      60 * // Mins per hour
+        5.5 * // Hours per day (lower bound in generator)
+        5 * // Days per week
+        1 * // Weeks
+        1, // Contacts
     )
   })
 
@@ -44,11 +44,11 @@ describe("generateTimeEntries", () => {
     expect(distinctContacts).toHaveLength(5)
     const totalMins = Math.ceil(entries.reduce((total, entry) => total + entry.duration, 0))
     expect(totalMins).toBeGreaterThanOrEqual(
-      60 * // mins per hour
-        5.5 * // hours per day (lower bound in generator)
-        5 * // days per week
-        6 * // weeks
-        5, // contacts
+      60 * // Mins per hour
+        5.5 * // Hours per day (lower bound in generator)
+        5 * // Days per week
+        6 * // Weeks
+        5, // Contacts
     )
   })
 
@@ -66,11 +66,11 @@ describe("generateTimeEntries", () => {
     expect(distinctContacts).toHaveLength(10)
     const totalMins = Math.ceil(entries.reduce((total, entry) => total + entry.duration, 0))
     expect(totalMins).toBeGreaterThanOrEqual(
-      60 * // mins per hour
-        5.5 * // hours per day (lower bound in generator)
-        5 * // days per week
-        104 * // weeks
-        10, // contacts
+      60 * // Mins per hour
+        5.5 * // Hours per day (lower bound in generator)
+        5 * // Days per week
+        104 * // Weeks
+        10, // Contacts
     )
   })
 })

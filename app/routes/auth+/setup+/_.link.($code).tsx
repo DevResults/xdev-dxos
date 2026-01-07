@@ -9,11 +9,11 @@ export default function AuthLinkPage() {
   const [error] = useState<string | undefined>(undefined)
   const shell = useShell()
 
-  // hooks ↑
+  // Hooks ↑
 
   const joinWithCode = async (invitationCode: string) => {
     await shell.joinIdentity({ invitationCode })
-    // do something with the identity? error handling?
+    // Do something with the identity? error handling?
     void navigate("/")
   }
 

@@ -9,8 +9,8 @@ describe("Duration", () => {
     { input: "#proposals", error: "NoDuration" },
     { input: "@aba", error: "NoDuration" },
 
-    { input: "#out -:45", error: "NoDuration" }, // the minus sign keeps it from seeing this as a duration
-    { input: "#out, 1.25min", error: "NoDuration" }, // can't have decimal minutes
+    { input: "#out -:45", error: "NoDuration" }, // The minus sign keeps it from seeing this as a duration
+    { input: "#out, 1.25min", error: "NoDuration" }, // Can't have decimal minutes
     { input: "#out 1", error: "NoDuration" },
     { input: "#out 1.", error: "NoDuration" },
     { input: "#out 0:00", error: "NoDuration" },
@@ -25,7 +25,7 @@ describe("Duration", () => {
     { input: "#out 1:15:30", error: "NoDuration" },
     { input: "#out2hrs", error: "NoDuration" },
 
-    { input: "#out 1hr 30min", error: "MultipleDurations" }, // the space causes it to see this as two durations
+    { input: "#out 1hr 30min", error: "MultipleDurations" }, // The space causes it to see this as two durations
     { input: "#out 1:30 and 1:31", error: "MultipleDurations" },
     { input: "#out 1:01 25min", error: "MultipleDurations" },
     { input: "#out 1:30 1:31", error: "MultipleDurations" },

@@ -11,10 +11,10 @@ import { createClients } from "~/data/clients"
 export default function AuthCreatePage() {
   const identity = useIdentity()
   const navigate = useNavigate()
-  const client = useClient() as Client
+  const client = useClient()
   const { spaceKey, update } = useLocalState()
 
-  // hooks ↑
+  // Hooks ↑
 
   useRedirect({
     from: "/auth/setup/create",
@@ -22,7 +22,7 @@ export default function AuthCreatePage() {
     condition: !identity?.profile?.displayName,
   })
 
-  // already have a team
+  // Already have a team
   useRedirect({ from: "/auth/setup/create", to: "/", condition: Boolean(spaceKey) })
 
   const defaultTeamName = "DevResults"
@@ -31,12 +31,12 @@ export default function AuthCreatePage() {
     <TeamNameForm
       teamName={defaultTeamName}
       onSubmit={async ({ teamName }) => {
-        // create a space with the team name
+        // Create a space with the team name
         const space = await client.spaces.create({ name: teamName })
         update({ spaceKey: space.key })
         await space.waitUntilReady()
 
-        // build a contact for yourself
+        // Build a contact for yourself
         const contact = makeContact({
           identityId: identity!.identityKey.toString(),
           avatarUrl: "",
@@ -46,9 +46,14 @@ export default function AuthCreatePage() {
         })
         space.db.add(contact)
 
-        // seed projects and clients
-        for (const project of createProjects()) space.db.add(project)
-        for (const c of createClients()) space.db.add(c)
+        // Seed projects and clients
+        for (const project of createProjects()) {
+          space.db.add(project)
+        }
+
+        for (const c of createClients()) {
+          space.db.add(c)
+        }
 
         // Navigate to the app
         void navigate("/")

@@ -19,7 +19,7 @@ const pwaOptions: Partial<VitePWAOptions> = {
   strategies: "injectManifest",
   injectManifest: {
     globPatterns: ["**/*.{js,css,html,ico,wasm}"],
-    maximumFileSizeToCacheInBytes: 5_000_000, // default is ~2MB but DXOS 0.8.x bundles are larger
+    maximumFileSizeToCacheInBytes: 5_000_000, // Default is ~2MB but DXOS 0.8.x bundles are larger
   },
   manifest: {
     name: "XDev",
@@ -37,7 +37,7 @@ const pwaOptions: Partial<VitePWAOptions> = {
   },
 }
 
-// auto-import setup for icons
+// Auto-import setup for icons
 const autoImportOptions: AutoImportOptions = {
   dts: false,
   resolvers: [
@@ -63,7 +63,7 @@ export default defineConfig({
     vitePWA(pwaOptions),
     autoImport(autoImportOptions),
     icons({ compiler: "jsx", jsx: "react" }),
-    topLevelAwait(), // needed for DXOS WASM modules
+    topLevelAwait(), // Needed for DXOS WASM modules
     // Skip PostCSS for DXOS CSS files that use their own Tailwind classes
     {
       name: "skip-postcss-for-dxos",
@@ -88,9 +88,9 @@ export default defineConfig({
     plugins: () => [topLevelAwait(), wasm() as Plugin],
   },
   optimizeDeps: {
-    // use route files as entry points when crawling for dependencies
+    // Use route files as entry points when crawling for dependencies
     entries: ["**/routes/**/*.tsx"],
-    // force DXOS packages to be pre-bundled upfront to avoid race conditions
+    // Force DXOS packages to be pre-bundled upfront to avoid race conditions
     // during test startup where dynamic imports fail with 404
     include: [
       "@dxos/react-client",

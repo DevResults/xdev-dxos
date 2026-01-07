@@ -10,7 +10,9 @@ import type { Contact } from "~/schema/Contact"
  * Displays a read-only TimeEntry
  */
 export function TimeEntryDisplay({ className = "", timeEntry, projects, clients }: Props) {
-  if (timeEntry === undefined) return null
+  if (timeEntry === undefined) {
+    return null
+  }
 
   const { input, client: clientId, project: projectId, duration, description } = timeEntry
   const project = projects.find(d => d.id === projectId)
@@ -41,7 +43,7 @@ export function TimeEntryDisplay({ className = "", timeEntry, projects, clients 
         <Badge
           className="text-white"
           style={{ backgroundColor: project?.color }}
-          // icon={<IconHash />}
+          // Icon={<IconHash />}
         >
           #<span className="font-bold">{project?.code}</span>
           {project?.subCode ?

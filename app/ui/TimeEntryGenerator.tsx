@@ -41,7 +41,9 @@ export const TimeEntryGenerator = ({
         <RadioGroup
           label="Weeks"
           initialValue={weeks.toString()}
-          onChange={v => setWeeks(Number(v))}
+          onChange={v => {
+            setWeeks(Number(v))
+          }}
           options={weekOptions}
         />
       </div>

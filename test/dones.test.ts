@@ -80,19 +80,19 @@ test("likes a done", async ({ context }) => {
   await herb.createDone(doneText)
 
   {
-    // herb goes to the team dones page
+    // Herb goes to the team dones page
     await herb.navigateTo("Dones")
 
-    // the done is visible and has no likes
+    // The done is visible and has no likes
     const done = herb.page.locator("li").filter({ hasText: doneText })
     await expect(done).toBeVisible()
     await expect(done).not.toContainText("1")
 
-    // they like the done
+    // They like the done
     const likeButton = done.getByRole("button", { name: "Click to like" }).first()
     await likeButton.click()
 
-    // the done now has 1 like and herb can see that they liked it
+    // The done now has 1 like and herb can see that they liked it
     await expect(done).toContainText("1")
     await expect(done.getByTitle("you liked this")).toBeVisible()
   }

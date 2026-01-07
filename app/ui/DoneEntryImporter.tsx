@@ -28,7 +28,10 @@ export const DoneEntryImporter = ({ add = NO_OP, destroyAll = NO_OP, contacts = 
 
   const onImport = () => {
     destroyAll()
-    for (const d of doneEntries) add(d)
+    for (const d of doneEntries) {
+      add(d)
+    }
+
     setSuccessMessage(`Imported ${doneEntries.length} dones`)
   }
 

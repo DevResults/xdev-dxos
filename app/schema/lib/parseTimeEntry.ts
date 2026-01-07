@@ -16,8 +16,9 @@ export const parseTimeEntry = ({ input, contactId, date }: TimeEntryInput) =>
     const { client, text: clientText = "" } = yield* parseClient(input)
 
     // Check if this project requires a client to be specified
-    if (project.requiresClient && !client)
+    if (project.requiresClient && !client) {
       return yield* E.fail(new ProjectRequiresClientError({ input, project }))
+    }
 
     // The description is the remaining text after we've removed the duration, project, and client
     const description = collapseWhitespace(
@@ -42,7 +43,7 @@ export const parseTimeEntry = ({ input, contactId, date }: TimeEntryInput) =>
 const collapseWhitespace = (s: string) => s.replaceAll(/\s+/g, " ").trim()
 
 export class ProjectRequiresClientError //
-  extends Data.TaggedError("parseTimeEntry/ProjectRequiresClient")<{
+  extends (new Data.TaggedError("parseTimeEntry/ProjectRequiresClient"))<{
     input: string
     project: Project
   }>

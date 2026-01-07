@@ -11,10 +11,10 @@ export default defineConfig({
   /* Warm up Vite's dependency cache before running tests */
   globalSetup: "./test/global-setup.ts",
 
-  /* tests fail if they take longer than this */
+  /* Tests fail if they take longer than this */
   timeout: 15_000,
 
-  /* abort if we get several test failures (probably server isn't running or something) */
+  /* Abort if we get several test failures (probably server isn't running or something) */
   maxFailures: 10,
 
   /* Run tests in files in parallel */
@@ -72,7 +72,7 @@ export default defineConfig({
   webServer:
     isPlaywrightUI ? []
     : process.env.CI ?
-      // use the built website for testing in ci
+      // Use the built website for testing in ci
       [
         {
           command: "pnpm vite preview --port 3001",

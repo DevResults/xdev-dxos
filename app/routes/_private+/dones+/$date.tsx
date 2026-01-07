@@ -10,7 +10,7 @@ export default function Dones$DatePage() {
   const { start, end } = useSelectedWeek()
   const { self, contacts } = useTeam()
 
-  // get dones for a week
+  // Get dones for a week
   const sStart = start.toString()
   const sEnd = end.toString()
   const dones = doneEntries.filter(d => d.date >= sStart && d.date <= sEnd)

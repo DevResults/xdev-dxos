@@ -10,13 +10,13 @@ describe("getPreviousSunday", () => {
 
   describe("returns correct value", () => {
     test.each([
-      /* wed */ ["2023-02-01", false],
-      /* thu */ ["2023-02-02", false],
-      /* fri */ ["2023-02-03", false],
+      /* Wed */ ["2023-02-01", false],
+      /* Thu */ ["2023-02-02", false],
+      /* Fri */ ["2023-02-03", false],
       /* SAT */ ["2023-02-04", true],
       /* SUN */ ["2023-02-05", true],
-      /* mon */ ["2023-02-06", false],
-      /* tue */ ["2023-02-07", false],
+      /* Mon */ ["2023-02-06", false],
+      /* Tue */ ["2023-02-07", false],
     ])("%s", testCase)
   })
 })

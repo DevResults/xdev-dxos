@@ -18,21 +18,19 @@ const meta: Meta<typeof WeekNav> = {
 export default meta
 type Story = StoryObj<typeof WeekNav>
 
-const createStory = (date: string): Story => {
-  return {
-    parameters: {
-      reactRouter: reactRouterParameters({
-        location: {
-          pathParams: { date },
-        },
-        routing: {
-          path: "/myweek/:date",
-          handle() {},
-        },
-      }),
-    },
-  }
-}
+const createStory = (date: string): Story => ({
+  parameters: {
+    reactRouter: reactRouterParameters({
+      location: {
+        pathParams: { date },
+      },
+      routing: {
+        path: "/myweek/:date",
+        handle() {},
+      },
+    }),
+  },
+})
 
 const today = LocalDate.now()
 

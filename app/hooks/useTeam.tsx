@@ -15,7 +15,12 @@ export const useTeam = () => {
     const member = members.find(m => m.identity.identityKey.toString() === c.identityId)
     const isAdmin = member?.role === HaloSpaceMember.Role.OWNER
     const isSelf = member?.identity.identityKey.toString() === identity?.identityKey.toString()
-    return new ExtendedContact({ contact: c, isAdmin, isSelf, identity: member?.identity })
+    return new ExtendedContact({
+      contact: c,
+      isAdmin,
+      isSelf,
+      identity: member?.identity,
+    })
   })
   const devices = useDevices()
   const device = devices.find(d => d.kind === DeviceKind.CURRENT)

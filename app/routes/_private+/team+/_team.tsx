@@ -9,9 +9,9 @@ export default function TeamLayout() {
         <SecondaryNav
           heading="Team"
           items={[
-            { to: `members`, label: "Members" },
-            { to: `clients`, label: "Clients" },
-            { to: `projects`, label: "Projects" },
+            { to: "members", label: "Members" },
+            { to: "clients", label: "Clients" },
+            { to: "projects", label: "Projects" },
           ]}
           parent="team"
         />

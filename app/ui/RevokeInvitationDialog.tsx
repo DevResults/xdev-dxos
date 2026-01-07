@@ -7,7 +7,9 @@ export function RevokeInvitationDialog({
   revoke = () => {},
   defaultOpen = false,
 }: Props) {
-  if (!invitation) return null
+  if (!invitation) {
+    return null
+  }
 
   return (
     <ConfirmDialog

@@ -29,8 +29,8 @@ export const parseClient = (input: string) =>
       [
         startWord,
         capture(
-          ["@", capture(oneOrMore(alphanumeric), { name: "code" })], // code doesn't include the @
-          { name: "text" }, // text includes the @
+          ["@", capture(oneOrMore(alphanumeric), { name: "code" })], // Code doesn't include the @
+          { name: "text" }, // Text includes the @
         ),
         endWord,
       ],
@@ -41,25 +41,32 @@ export const parseClient = (input: string) =>
     const results = matches.map(match => match.groups as { text: string; code: string })
 
     // Input must contain exactly one project code
-    if (results.length > 1) return yield* E.fail(new MultipleClientsError({ input }))
-    if (results.length === 0) return { client: undefined, text: "" }
+    if (results.length > 1) {
+      return yield* E.fail(new MultipleClientsError({ input }))
+    }
+
+    if (results.length === 0) {
+      return { client: undefined, text: "" }
+    }
 
     const { code, text } = results[0]
     const client = clients.find(d => d.code.toLowerCase() === code.toLowerCase())
 
-    if (!client) return yield* E.fail(new ClientCodeNotFoundError({ input, code }))
+    if (!client) {
+      return yield* E.fail(new ClientCodeNotFoundError({ input, code }))
+    }
 
     return { text, client }
   })
 
 export class MultipleClientsError //
-  extends Data.TaggedError("parseClient/MultipleClients")<{ input: string }>
+  extends (new Data.TaggedError("parseClient/MultipleClients"))<{ input: string }>
 {
   message = "An entry can only include one @client code."
 }
 
 export class ClientCodeNotFoundError //
-  extends Data.TaggedError("parseClient/ClientCodeNotFound")<{ input: string; code: string }>
+  extends (new Data.TaggedError("parseClient/ClientCodeNotFound"))<{ input: string; code: string }>
 {
   message = "Client code not found."
 }

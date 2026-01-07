@@ -15,7 +15,11 @@ const doWork = (years: number) => {
   })
 }
 
-bench("1 year", async () => doWork(1))
-bench("5 years", async () => doWork(5))
-// bench("10 years", async () => doWork(10))
+bench("1 year", async () => {
+  doWork(1)
+})
+bench("5 years", async () => {
+  doWork(5)
+})
+// Bench("10 years", async () => doWork(10))
 // bench("20 years", async () => doWork(20))

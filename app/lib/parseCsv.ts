@@ -52,7 +52,7 @@ export const csvToSchema = <
   })
 
 export class CsvParseError //
-  extends Data.TaggedError("CsvParseError")<{ input: string; index: number; cause: Error }>
+  extends (new Data.TaggedError("CsvParseError"))<{ input: string; index: number; cause: Error }>
 {
   message = `Couldn't parse CSV: \n${this.cause.message}`
 }

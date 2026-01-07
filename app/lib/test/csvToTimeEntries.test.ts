@@ -48,7 +48,7 @@ const testCases = [
   },
   {
     input: "leslie,2024-05-30,1,Support: Ongoing,qrs,tickets",
-    error: `There is no client with code "qrs"`,
+    error: 'There is no client with code "qrs"',
   },
 
   // VALID
@@ -78,7 +78,9 @@ const label = ({ label, input }: TestCase) =>
 
 const errorPadding = Math.max(...testCases.filter(tc => tc.error).map(tc => label(tc).length))
 
-for (const testCase of testCases) testCsvToTimeEntries(testCase)
+for (const testCase of testCases) {
+  testCsvToTimeEntries(testCase)
+}
 
 function decode(csv: string) {
   return pipe(

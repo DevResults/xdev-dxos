@@ -44,7 +44,7 @@ export const MyWeek = ({
 
   const weeklyTotal = sum(Object.values(dailyTotals))
 
-  // find the longest day to set the height of the time entries
+  // Find the longest day to set the height of the time entries
   const longestDay = Math.max(...Object.values(dailyTotals))
 
   const weekendShading = (date: LocalDate) => cx(isWeekend(date) && "bg-neutral-100")
@@ -52,15 +52,15 @@ export const MyWeek = ({
   return (
     <div
       className={cx(
-        // mobile
+        // Mobile
         "grid-flow-col grid-cols-[auto_1fr_1fr]",
         { "grid-rows-7": showWeekends },
         { "grid-rows-5": !showWeekends },
-        // desktop
+        // Desktop
         "sm:grid-flow-row sm:grid-rows-[auto_auto_1fr_auto_auto_1fr]",
         { "sm:grid-cols-7": showWeekends },
         { "sm:grid-cols-5": !showWeekends },
-        // common
+        // Common
         "grid h-full w-full",
       )}
     >
@@ -73,9 +73,9 @@ export const MyWeek = ({
             key={date.toString()}
             className={cx(
               "items-center p-2 text-center tracking-tight",
-              // mobile: dark line to right, day & date horizontal
+              // Mobile: dark line to right, day & date horizontal
               "flex border-b border-r border-r-black",
-              // desktop: dark line below, day & date vertical
+              // Desktop: dark line below, day & date vertical
               "sm:flex-col sm:border-r-0 sm:border-b-black",
               weekendShading(date),
             )}
@@ -149,15 +149,20 @@ export const MyWeek = ({
         <IconClipboardCheck />
         Dones
       </h3>
-      {days.map(date => {
-        return (
-          <div key={date.toString()} className={cx("overflow-auto", weekendShading(date))}>
-            <DailyDones
-              {...{ doneEntries, date, self, contacts, onAdd: onAddDone, onRemove: onRemoveDone }}
-            />
-          </div>
-        )
-      })}
+      {days.map(date => (
+        <div key={date.toString()} className={cx("overflow-auto", weekendShading(date))}>
+          <DailyDones
+            {...{
+              doneEntries,
+              date,
+              self,
+              contacts,
+              onAdd: onAddDone,
+              onRemove: onRemoveDone,
+            }}
+          />
+        </div>
+      ))}
     </div>
   )
 }

@@ -9,7 +9,9 @@ import { expect as customExpect } from "./expect"
 
 const pause = async (t = 0) =>
   new Promise<void>(resolve => {
-    setTimeout(() => resolve(), t)
+    setTimeout(() => {
+      resolve()
+    }, t)
   })
 
 export const newBrowser = async (context: BrowserContext) => {
@@ -30,8 +32,10 @@ export class App {
 
   // GENERAL
 
-  log(msg: ConsoleMessage) {
-    const text: string = msg.text().replaceAll(/(color: #([\dA-F]{6}))|(color: inherit)|%c/g, "")
+  log(message: ConsoleMessage) {
+    const text: string = message
+      .text()
+      .replaceAll(/(color: #([\dA-F]{6}))|(color: inherit)|%c/g, "")
     // Filter out noise warnings from Vite/Node module externalization
     if (
       text.includes("Lit is in dev mode") ||
@@ -51,12 +55,14 @@ export class App {
 
     const debug = process.env.DEBUG
     if (debug) {
-      // feed browser logs to test output
-      this.page.on("console", msg => this.log(msg))
+      // Feed browser logs to test output
+      this.page.on("console", message => {
+        this.log(message)
+      })
 
-      // enable debug logging
+      // Enable debug logging
       await this.page.evaluate(`window.localStorage.setItem('debug', '${debug}')`)
-      // reload so these take effect
+      // Reload so these take effect
       await pause(500)
       await this.page.reload()
     }
@@ -65,7 +71,7 @@ export class App {
   }
 
   async reload() {
-    await pause(1000) // give storage etc. time to finish
+    await pause(1000) // Give storage etc. time to finish
     await this.page.reload()
     return this
   }
@@ -204,7 +210,7 @@ export class App {
   }
 
   firstDoneEntryInput() {
-    // finds the first textarea after the "Dones" heading
+    // Finds the first textarea after the "Dones" heading
     return this.donesArea().locator("textarea").first()
   }
 
@@ -226,19 +232,19 @@ export class App {
   }
 
   firstTimeEntryInput() {
-    // locates the first textarea after the "Hours" heading
+    // Locates the first textarea after the "Hours" heading
     return this.hoursForDay(0).getByRole("combobox").first()
   }
 
   firstTimeEntry() {
-    // locates the first list item after the "Hours" heading
+    // Locates the first list item after the "Hours" heading
     return this.hoursForDay(0).getByRole("listitem").first()
   }
 
   async createTimeEntry(timeEntryText: string) {
     const timeEntry = this.firstTimeEntryInput()
     await timeEntry.fill(timeEntryText)
-    await this.page.keyboard.press("Space") // clear autocomplete
+    await this.page.keyboard.press("Space") // Clear autocomplete
     await this.page.keyboard.press("Enter")
   }
 }

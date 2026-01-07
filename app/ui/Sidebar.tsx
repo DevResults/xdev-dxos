@@ -24,7 +24,7 @@ export function Sidebar({ self, close }: Props) {
       <header
         className={cx(
           "flex flex-row items-center border-b px-2",
-          "h-12", // matches height of nav in PageLayout
+          "h-12", // Matches height of nav in PageLayout
         )}
       >
         <span className="w-11">
@@ -44,33 +44,31 @@ export function Sidebar({ self, close }: Props) {
   )
 }
 
-const NavLinks = ({ items, close }: { items: NavItem[]; close: undefined | (() => void) }) => {
-  return (
-    <nav>
-      <ul role="list" className="flex-col gap-y-2">
-        {items.map(item => (
-          <li key={item.to} className="py-2">
-            <NavLink
-              onClick={close}
-              to={item.to}
-              className={({ isActive }) =>
-                cx("flex items-center border-l-4 px-2 text-sm leading-6", {
-                  "border-l-primary-500 bg-neutral-50 font-bold text-black": isActive,
-                  "border-l-transparent text-neutral-500 hover:border-l-neutral-500": !isActive,
-                })
-              }
-            >
-              <div className="w-10">
-                <item.icon className="mx-auto h-5 w-5" aria-hidden="true" />
-              </div>
-              <div>{item.name}</div>
-            </NavLink>
-          </li>
-        ))}
-      </ul>
-    </nav>
-  )
-}
+const NavLinks = ({ items, close }: { items: NavItem[]; close: undefined | (() => void) }) => (
+  <nav>
+    <ul role="list" className="flex-col gap-y-2">
+      {items.map(item => (
+        <li key={item.to} className="py-2">
+          <NavLink
+            onClick={close}
+            to={item.to}
+            className={({ isActive }) =>
+              cx("flex items-center border-l-4 px-2 text-sm leading-6", {
+                "border-l-primary-500 bg-neutral-50 font-bold text-black": isActive,
+                "border-l-transparent text-neutral-500 hover:border-l-neutral-500": !isActive,
+              })
+            }
+          >
+            <div className="w-10">
+              <item.icon className="mx-auto h-5 w-5" aria-hidden="true" />
+            </div>
+            <div>{item.name}</div>
+          </NavLink>
+        </li>
+      ))}
+    </ul>
+  </nav>
+)
 
 type Props = {
   self: Contact

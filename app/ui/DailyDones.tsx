@@ -15,13 +15,18 @@ export const DailyDones = ({
   onAdd = () => {},
   onRemove = () => {},
 }: Props) => {
-  const [focus, setFocus] = useState<number>(-1) // nothing focused by default
+  const [focus, setFocus] = useState<number>(-1) // Nothing focused by default
 
   const sDate = date.toString()
   const dones = doneEntries.filter(d => d.date === sDate && d.contactId === self.id)
 
-  const focusNext = () => setFocus((f: number) => Math.min(f + 1, dones.length + 1))
-  const focusPrev = () => setFocus((f: number) => Math.max(f - 1, 0))
+  const focusNext = () => {
+    setFocus((f: number) => Math.min(f + 1, dones.length + 1))
+  }
+
+  const focusPrevious = () => {
+    setFocus((f: number) => Math.max(f - 1, 0))
+  }
 
   return (
     <>
@@ -35,11 +40,13 @@ export const DailyDones = ({
               onUpdate={content => {
                 done.content = content
               }}
-              onDestroy={() => onRemove(done)}
+              onDestroy={() => {
+                onRemove(done)
+              }}
               isFocused={focus === index}
               onFocus={setFocus}
               onFocusNext={focusNext}
-              onFocusPrev={focusPrev}
+              onFocusPrev={focusPrevious}
               self={self}
               contacts={contacts}
             />
@@ -53,13 +60,13 @@ export const DailyDones = ({
           )}
         >
           <DoneInput
-            key={dones.length} // this way we get a new instance after adding a done
+            key={dones.length} // This way we get a new instance after adding a done
             content=""
             isFocused={focus === dones.length}
             index={dones.length}
             onFocus={setFocus}
             onFocusNext={focusNext}
-            onFocusPrev={focusPrev}
+            onFocusPrev={focusPrevious}
             onDestroy={() => {}}
             onChange={content => {
               const done = makeDoneEntry({
