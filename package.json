@@ -14,6 +14,7 @@
     "dev": "react-router dev --open",
     "icon-types": "node ./scripts/generate-icon-types.js",
     "lint": "xo",
+    "lint:fix": "xo --fix",
     "preinstall": "npx only-allow pnpm",
     "start": "vite preview --open",
     "start:storybook": "http-server storybook-static/ -os",
