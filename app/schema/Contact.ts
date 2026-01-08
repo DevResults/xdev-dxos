@@ -24,12 +24,11 @@ export const Contact = S.Struct({
 export type Contact = S.Schema.Type<typeof Contact>
 
 /** Create a new Contact object */
-export const makeContact = (props: Omit<Contact, "id">) => Obj.make(Contact, props)
+export const makeContact = (props: Omit<EncodedContact, "id">) => Obj.make(Contact, props)
 
 type EncodedContact = S.Schema.Encoded<typeof Contact>
 
 // Unable to extend dxos objects the same way, so we'll do it naively
-
 export class ExtendedContact implements EncodedContact {
   readonly contact: Contact
   readonly isSelf: boolean
