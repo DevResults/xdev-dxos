@@ -1,10 +1,10 @@
-import { zodResolver } from "@hookform/resolvers/zod"
+import { effectTsResolver } from "@hookform/resolvers/effect-ts"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@ui/card"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@ui/form"
 import { Input } from "@ui/input"
 import { useEffect } from "react"
 import { useForm, type SubmitHandler } from "react-hook-form"
-import { z } from "zod"
+import { S } from "~/schema/lib/Effect"
 import { SubmitButton } from "./SubmitButton"
 
 export function InvitationForm({
@@ -16,7 +16,7 @@ export function InvitationForm({
   error: _error,
 }: Props) {
   const form = useForm<Schema>({
-    resolver: zodResolver(schema),
+    resolver: effectTsResolver(schema),
     defaultValues: { invitationCode },
   })
   const { setError, formState } = form
@@ -76,14 +76,15 @@ export function InvitationForm({
   )
 }
 
-const schema = z.object({
-  invitationCode: z
-    .string()
-    .trim()
-    .min(8, { message: "Code must be at least 8 characters." })
-    .regex(/^[a-zA-Z\d]+$/, { message: "An invitation code can only have letters and numbers." }),
+const schema = S.Struct({
+  invitationCode: S.Trim.pipe(
+    S.minLength(8, { message: () => "Code must be at least 8 characters." }),
+    S.pattern(/^[a-zA-Z\d]+$/, {
+      message: () => "An invitation code can only have letters and numbers.",
+    }),
+  ),
 })
-type Schema = z.infer<typeof schema>
+type Schema = S.Schema.Type<typeof schema>
 
 type Props = {
   heading: React.ReactNode

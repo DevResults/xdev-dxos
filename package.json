@@ -80,8 +80,7 @@
     "vite-plugin-wasm": "^3.4.1",
     "workbox-core": "^7.3.0",
     "workbox-precaching": "^7.3.0",
-    "workbox-routing": "^7.3.0",
-    "zod": "^3.24.1"
+    "workbox-routing": "^7.3.0"
   },
   "devDependencies": {
     "@iconify-json/tabler": "^1.2.16",

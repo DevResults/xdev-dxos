@@ -1,4 +1,4 @@
-import { zodResolver } from "@hookform/resolvers/zod"
+import { effectTsResolver } from "@hookform/resolvers/effect-ts"
 import { Button } from "@ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@ui/card"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@ui/form"
@@ -6,7 +6,7 @@ import { Input } from "@ui/input"
 import { Invitation } from "@dxos/react-client/invitations"
 import { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
-import { z } from "zod"
+import { S } from "~/schema/lib/Effect"
 import { SubmitButton } from "./SubmitButton"
 
 export function JoinSpaceForm({
@@ -24,13 +24,13 @@ export function JoinSpaceForm({
 
   // Form for invitation code
   const invitationForm = useForm<InvitationSchema>({
-    resolver: zodResolver(invitationSchema),
+    resolver: effectTsResolver(invitationSchema),
     defaultValues: { invitationCode: initialInvitationCode },
   })
 
   // Form for auth code
   const authForm = useForm<AuthSchema>({
-    resolver: zodResolver(authSchema),
+    resolver: effectTsResolver(authSchema),
     defaultValues: { authCode: "" },
   })
 
@@ -225,19 +225,18 @@ export function JoinSpaceForm({
   )
 }
 
-const invitationSchema = z.object({
-  invitationCode: z
-    .string()
-    .trim()
-    .min(8, { message: "Code must be at least 8 characters." })
-    .regex(/^[a-zA-Z\d]+$/, { message: "An invitation code can only have letters and numbers." }),
+const invitationSchema = S.Struct({
+  invitationCode: S.Trim.pipe(
+    S.minLength(8, { message: () => "Code must be at least 8 characters." }),
+    S.pattern(/^[a-zA-Z\d]+$/, { message: () => "An invitation code can only have letters and numbers." }),
+  ),
 })
-type InvitationSchema = z.infer<typeof invitationSchema>
+type InvitationSchema = S.Schema.Type<typeof invitationSchema>
 
-const authSchema = z.object({
-  authCode: z.string().trim().min(1, { message: "Please enter the verification code." }),
+const authSchema = S.Struct({
+  authCode: S.Trim.pipe(S.minLength(1, { message: () => "Please enter the verification code." })),
 })
-type AuthSchema = z.infer<typeof authSchema>
+type AuthSchema = S.Schema.Type<typeof authSchema>
 
 type Props = {
   heading: React.ReactNode

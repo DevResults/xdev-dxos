@@ -173,9 +173,6 @@ importers:
       workbox-routing:
         specifier: ^7.3.0
         version: 7.4.0
-      zod:
-        specifier: ^3.24.1
-        version: 3.25.76
     devDependencies:
       '@iconify-json/tabler':
         specifier: ^1.2.16
@@ -8318,9 +8315,6 @@ packages:
 
   zen-push@0.3.1:
     resolution: {integrity: sha512-6XNTSVz8Z/5+8BzOQFQr+HOr/j7K+ZJfc4tdCCmuiq8y2Ph+aODqagZnXKbKIFZrQ3nSIcdek9gAuEe+p3zJUg==}
-
-  zod@3.25.76:
-    resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
 
 snapshots:
 
@@ -17751,5 +17745,3 @@ snapshots:
   zen-push@0.3.1:
     dependencies:
       zen-observable: 0.9.0
-
-  zod@3.25.76: {}

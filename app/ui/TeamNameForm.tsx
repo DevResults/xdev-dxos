@@ -1,14 +1,14 @@
-import { zodResolver } from "@hookform/resolvers/zod"
+import { effectTsResolver } from "@hookform/resolvers/effect-ts"
 import { Button } from "@ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@ui/card"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@ui/form"
 import { Input } from "@ui/input"
 import { useForm, type SubmitHandler } from "react-hook-form"
-import { z } from "zod"
+import { S } from "~/schema/lib/Effect"
 
 export const TeamNameForm = ({ teamName = "", onSubmit }: Props) => {
   const form = useForm<Schema>({
-    resolver: zodResolver(schema),
+    resolver: effectTsResolver(schema),
     defaultValues: { teamName },
   })
 
@@ -46,12 +46,10 @@ export const TeamNameForm = ({ teamName = "", onSubmit }: Props) => {
   )
 }
 
-const schema = z.object({
-  teamName: z.string().min(2, {
-    message: "Team name must be at least 2 characters.",
-  }),
+const schema = S.Struct({
+  teamName: S.String.pipe(S.minLength(2, { message: () => "Team name must be at least 2 characters." })),
 })
-type Schema = z.infer<typeof schema>
+type Schema = S.Schema.Type<typeof schema>
 
 type Props = {
   teamName?: string
