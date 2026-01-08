@@ -380,3 +380,242 @@ test("autocompletes a client", async ({ context }) => {
   // The option is selected
   await expect(timeEntry).toContainText("@chemonics")
 })
+
+// Validation error tests
+
+test("rejects a time entry containing multiple durations", async ({ context }) => {
+  const { herb } = await setup(context)
+
+  await herb.createTimeEntry("1h 2h #out")
+
+  // The input is invalid
+  const input = herb.firstTimeEntryInput()
+  await expect(input).toHaveAttribute("aria-invalid", "true")
+
+  // The error message is displayed
+  const errorMessageId = await input.getAttribute("aria-errormessage")
+  const errorMessage = herb.page.locator(`#${errorMessageId}`)
+  await expect(errorMessage).toContainText("More than one duration was found")
+
+  // The entry wasn't created
+  await expect(herb.hoursForDay(0)).not.toContainText("Out")
+})
+
+test("rejects a time entry without a project code", async ({ context }) => {
+  const { herb } = await setup(context)
+
+  await herb.createTimeEntry("1h")
+
+  // The input is invalid
+  const input = herb.firstTimeEntryInput()
+  await expect(input).toHaveAttribute("aria-invalid", "true")
+
+  // The error message is displayed
+  const errorMessageId = await input.getAttribute("aria-errormessage")
+  const errorMessage = herb.page.locator(`#${errorMessageId}`)
+  await expect(errorMessage).toContainText("You need to include a project code")
+})
+
+test("rejects a time entry with multiple project codes", async ({ context }) => {
+  const { herb } = await setup(context)
+
+  await herb.createTimeEntry("1h #out #overhead")
+
+  // The input is invalid
+  const input = herb.firstTimeEntryInput()
+  await expect(input).toHaveAttribute("aria-invalid", "true")
+
+  // The error message is displayed
+  const errorMessageId = await input.getAttribute("aria-errormessage")
+  const errorMessage = herb.page.locator(`#${errorMessageId}`)
+  await expect(errorMessage).toContainText("An entry can only have one project code")
+})
+
+test("rejects a time entry with an unknown project code", async ({ context }) => {
+  const { herb } = await setup(context)
+
+  await herb.createTimeEntry("1h #nonexistent")
+
+  // The input is invalid
+  const input = herb.firstTimeEntryInput()
+  await expect(input).toHaveAttribute("aria-invalid", "true")
+
+  // The error message is displayed
+  const errorMessageId = await input.getAttribute("aria-errormessage")
+  const errorMessage = herb.page.locator(`#${errorMessageId}`)
+  await expect(errorMessage).toContainText('There is no project with code "nonexistent"')
+})
+
+test("rejects a time entry with multiple client codes", async ({ context }) => {
+  const { herb } = await setup(context)
+
+  await herb.createTimeEntry("1h #out @chemonics @aba")
+
+  // The input is invalid
+  const input = herb.firstTimeEntryInput()
+  await expect(input).toHaveAttribute("aria-invalid", "true")
+
+  // The error message is displayed
+  const errorMessageId = await input.getAttribute("aria-errormessage")
+  const errorMessage = herb.page.locator(`#${errorMessageId}`)
+  await expect(errorMessage).toContainText("An entry can only include one @client code")
+})
+
+test("rejects a time entry with an unknown client code", async ({ context }) => {
+  const { herb } = await setup(context)
+
+  await herb.createTimeEntry("1h #out @unknownclient")
+
+  // The input is invalid
+  const input = herb.firstTimeEntryInput()
+  await expect(input).toHaveAttribute("aria-invalid", "true")
+
+  // The error message is displayed
+  const errorMessageId = await input.getAttribute("aria-errormessage")
+  const errorMessage = herb.page.locator(`#${errorMessageId}`)
+  await expect(errorMessage).toContainText("Client code not found")
+})
+
+test("rejects a time entry when project requires a client but none provided", async ({
+  context,
+}) => {
+  const { herb } = await setup(context)
+
+  // Business:Contracts requires a client
+  await herb.createTimeEntry("1h #Business:Contracts")
+
+  // The input is invalid
+  const input = herb.firstTimeEntryInput()
+  await expect(input).toHaveAttribute("aria-invalid", "true")
+
+  // The error message is displayed
+  const errorMessageId = await input.getAttribute("aria-errormessage")
+  const errorMessage = herb.page.locator(`#${errorMessageId}`)
+  await expect(errorMessage).toContainText("you need to specify a client")
+})
+
+test("accepts a time entry when project requires a client and client is provided", async ({
+  context,
+}) => {
+  const { herb } = await setup(context)
+
+  // Business:Contracts requires a client - provide one
+  await herb.createTimeEntry("1h #Business:Contracts @chemonics")
+
+  // The entry was created
+  await expect(herb.hoursForDay(0)).toContainText("1:00")
+  await expect(herb.hoursForDay(0)).toContainText("Business:Contracts")
+})
+
+// Duration format tests
+
+test("parses HH:MM duration format", async ({ context }) => {
+  const { herb } = await setup(context)
+
+  await herb.createTimeEntry("1:30 #out")
+  await expect(herb.hoursForDay(0)).toContainText("1:30")
+  await expect(herb.hoursForDay(0)).toContainText("Out")
+})
+
+test("parses :MM duration format (minutes only)", async ({ context }) => {
+  const { herb } = await setup(context)
+
+  await herb.createTimeEntry(":45 #out")
+  await expect(herb.hoursForDay(0)).toContainText("0:45")
+  await expect(herb.hoursForDay(0)).toContainText("Out")
+})
+
+test("parses decimal hours format", async ({ context }) => {
+  const { herb } = await setup(context)
+
+  await herb.createTimeEntry("1.5 #out")
+  await expect(herb.hoursForDay(0)).toContainText("1:30")
+  await expect(herb.hoursForDay(0)).toContainText("Out")
+})
+
+test("parses decimal hours format with leading dot", async ({ context }) => {
+  const { herb } = await setup(context)
+
+  await herb.createTimeEntry(".25 #out")
+  await expect(herb.hoursForDay(0)).toContainText("0:15")
+  await expect(herb.hoursForDay(0)).toContainText("Out")
+})
+
+test("parses hour abbreviation format", async ({ context }) => {
+  const { herb } = await setup(context)
+
+  await herb.createTimeEntry("2hr #out")
+  await expect(herb.hoursForDay(0)).toContainText("2:00")
+  await expect(herb.hoursForDay(0)).toContainText("Out")
+})
+
+test("parses minute abbreviation format", async ({ context }) => {
+  const { herb } = await setup(context)
+
+  await herb.createTimeEntry("45min #out")
+  await expect(herb.hoursForDay(0)).toContainText("0:45")
+  await expect(herb.hoursForDay(0)).toContainText("Out")
+})
+
+test("parses combined hour and minute format", async ({ context }) => {
+  const { herb } = await setup(context)
+
+  await herb.createTimeEntry("1h30m #out")
+  await expect(herb.hoursForDay(0)).toContainText("1:30")
+  await expect(herb.hoursForDay(0)).toContainText("Out")
+})
+
+test("parses duration case-insensitively", async ({ context }) => {
+  const { herb } = await setup(context)
+
+  await herb.createTimeEntry("1HR30MIN #out")
+  await expect(herb.hoursForDay(0)).toContainText("1:30")
+  await expect(herb.hoursForDay(0)).toContainText("Out")
+})
+
+// Project code tests
+
+test("parses project code with subcode", async ({ context }) => {
+  const { herb } = await setup(context)
+
+  await herb.createTimeEntry("1h #Feature:API")
+  await expect(herb.hoursForDay(0)).toContainText("1:00")
+  await expect(herb.hoursForDay(0)).toContainText("Feature:API")
+})
+
+test("parses project code case-insensitively", async ({ context }) => {
+  const { herb } = await setup(context)
+
+  await herb.createTimeEntry("1h #OUT")
+  await expect(herb.hoursForDay(0)).toContainText("1:00")
+  await expect(herb.hoursForDay(0)).toContainText("Out")
+})
+
+test("parses project code with spaces in subcode using dash", async ({ context }) => {
+  const { herb } = await setup(context)
+
+  // Project X has a space, should be matched via dash
+  await herb.createTimeEntry("1h #Feature:Project-X")
+  await expect(herb.hoursForDay(0)).toContainText("1:00")
+  await expect(herb.hoursForDay(0)).toContainText("Feature:Project-X")
+})
+
+// Description tests
+
+test("captures description text", async ({ context }) => {
+  const { herb } = await setup(context)
+
+  await herb.createTimeEntry("1h #out doctor appointment")
+  await expect(herb.hoursForDay(0)).toContainText("1:00")
+  await expect(herb.hoursForDay(0)).toContainText("Out")
+  await expect(herb.hoursForDay(0)).toContainText("doctor appointment")
+})
+
+test("captures description with client and project", async ({ context }) => {
+  const { herb } = await setup(context)
+
+  await herb.createTimeEntry("1h #Support:Ongoing @chemonics fixing login issue")
+  await expect(herb.hoursForDay(0)).toContainText("1:00")
+  await expect(herb.hoursForDay(0)).toContainText("Support:Ongoing")
+  await expect(herb.hoursForDay(0)).toContainText("fixing login issue")
+})
