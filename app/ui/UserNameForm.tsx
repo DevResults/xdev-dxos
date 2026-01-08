@@ -4,8 +4,8 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@ui/form"
 import { Input } from "@ui/input"
 import { useForm, type SubmitHandler } from "react-hook-form"
-import { S } from "~/schema/lib/Effect"
 import { Munge } from "./Munge"
+import { S } from "~/schema/lib/Effect"
 
 export const UserNameForm = ({ userName = "", onSubmit }: Props) => {
   const form = useForm<Schema>({

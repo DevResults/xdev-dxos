@@ -4,8 +4,8 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@ui/input"
 import { useEffect } from "react"
 import { useForm, type SubmitHandler } from "react-hook-form"
-import { S } from "~/schema/lib/Effect"
 import { SubmitButton } from "./SubmitButton"
+import { S } from "~/schema/lib/Effect"
 
 export function InvitationForm({
   heading,

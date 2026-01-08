@@ -47,7 +47,9 @@ export const TeamNameForm = ({ teamName = "", onSubmit }: Props) => {
 }
 
 const schema = S.Struct({
-  teamName: S.String.pipe(S.minLength(2, { message: () => "Team name must be at least 2 characters." })),
+  teamName: S.String.pipe(
+    S.minLength(2, { message: () => "Team name must be at least 2 characters." }),
+  ),
 })
 type Schema = S.Schema.Type<typeof schema>
 

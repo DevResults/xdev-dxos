@@ -6,8 +6,8 @@ import { Input } from "@ui/input"
 import { Invitation } from "@dxos/react-client/invitations"
 import { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
-import { S } from "~/schema/lib/Effect"
 import { SubmitButton } from "./SubmitButton"
+import { S } from "~/schema/lib/Effect"
 
 export function JoinSpaceForm({
   heading,
@@ -228,7 +228,9 @@ export function JoinSpaceForm({
 const invitationSchema = S.Struct({
   invitationCode: S.Trim.pipe(
     S.minLength(8, { message: () => "Code must be at least 8 characters." }),
-    S.pattern(/^[a-zA-Z\d]+$/, { message: () => "An invitation code can only have letters and numbers." }),
+    S.pattern(/^[a-zA-Z\d]+$/, {
+      message: () => "An invitation code can only have letters and numbers.",
+    }),
   ),
 })
 type InvitationSchema = S.Schema.Type<typeof invitationSchema>
