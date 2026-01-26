@@ -17,19 +17,19 @@ export const CopyCode = ({ label = "Copy", labelAfter = "Copied", code }: Props)
     <div
       title={label}
       className={cx(
-        "flex cursor-pointer flex-row rounded-md",
+        "flex cursor-pointer flex-row overflow-hidden rounded-md",
         "has-[:focus]:ring-2 has-[:focus]:ring-neutral-100 has-[:focus]:ring-offset-0",
       )}
       onClick={handleCopy}
     >
       <pre
         className={cx(
-          "flex-grow overflow-hidden whitespace-nowrap",
+          "min-w-0 flex-grow",
           "rounded-md rounded-r-none border border-r-0 border-neutral-300 bg-neutral-100",
-          "flex items-center p-2 text-xs text-black",
+          "p-2 text-xs text-black",
         )}
       >
-        {code}
+        <span className="block overflow-hidden text-ellipsis whitespace-nowrap">{code}</span>
       </pre>
       <Button
         type="button"
