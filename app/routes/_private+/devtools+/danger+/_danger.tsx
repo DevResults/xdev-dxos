@@ -15,10 +15,11 @@ export default function DangerPage() {
   const space = useSpace(spaceKey)
   const { clients, contacts, doneEntries, projects, timeEntries } = useDatabase()
 
-  const addDone = (done: Omit<DoneEntry, "id">) => space?.db.add(makeDoneEntry(done))
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+  const addDone = (done: Omit<DoneEntry, "id">) => space?.db.add(makeDoneEntry(done) as DoneEntry)
   const addTimeEntries = (timeEntries: Array<Omit<TimeEntry, "id">>) => {
     for (const timeEntry of timeEntries) {
-      space?.db.add(makeTimeEntry(timeEntry))
+      space?.db.add(makeTimeEntry(timeEntry) as TimeEntry)
     }
   }
 
