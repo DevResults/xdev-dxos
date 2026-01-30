@@ -1,6 +1,6 @@
 import { Alert, AlertDescription } from "@ui/alert"
-import { useSpace, type ReactiveEchoObject } from "@dxos/react-client/echo"
-import type { BaseObject } from "@dxos/echo-schema"
+import { useSpace } from "@dxos/react-client/echo"
+import type { Obj } from "@dxos/echo"
 import { DoneEntryGenerator } from "ui/DoneEntryGenerator"
 import { DoneEntryImporter } from "ui/DoneEntryImporter"
 import { TimeEntryGenerator } from "ui/TimeEntryGenerator"
@@ -22,7 +22,7 @@ export default function DangerPage() {
     }
   }
 
-  function destroyAll<T extends ReactiveEchoObject<U>, U extends BaseObject>(list: T[]) {
+  function destroyAll(list: Obj.Any[]) {
     for (const item of list) {
       space?.db.remove(item)
     }
