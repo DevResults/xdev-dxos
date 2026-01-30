@@ -94,18 +94,6 @@ export default function AuthJoinPage() {
   const latestStatusRef = useRef(invitationStatus.status)
   latestStatusRef.current = invitationStatus.status
 
-  // Track if we've ever reached a connecting state (to distinguish real cancellation from cached state)
-  const hasConnectedRef = useRef(false)
-  if (
-    invitationStatus.status === Invitation.State.CONNECTING ||
-    invitationStatus.status === Invitation.State.CONNECTED ||
-    invitationStatus.status === Invitation.State.READY_FOR_AUTHENTICATION ||
-    invitationStatus.status === Invitation.State.AUTHENTICATING ||
-    invitationStatus.status === Invitation.State.SUCCESS
-  ) {
-    hasConnectedRef.current = true
-  }
-
   // Handle errors - but delay to avoid showing transient CANCELLED states
   // (can happen due to cached invitation state from DXOS InvitationsProxy)
   useEffect(() => {
@@ -154,12 +142,7 @@ export default function AuthJoinPage() {
           }
 
           case Invitation.State.CANCELLED: {
-            // Only show cancelled if we had actually connected before
-            // (otherwise it's likely just cached state from a previous attempt)
-            if (hasConnectedRef.current) {
-              setErrorMessage("The invitation was cancelled.")
-            }
-
+            setErrorMessage("The invitation was cancelled or is no longer valid.")
             break
           }
 
@@ -178,7 +161,6 @@ export default function AuthJoinPage() {
     (code: string) => {
       setErrorMessage(undefined)
       try {
-        // Join returns an AuthenticatingInvitation
         setInvitation(client.spaces.join(code))
       } catch {
         setErrorMessage("Invalid invitation code. Please check and try again.")

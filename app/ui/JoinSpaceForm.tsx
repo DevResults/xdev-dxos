@@ -149,7 +149,8 @@ export function JoinSpaceForm({
                       <Input
                         autoFocus
                         {...field}
-                        disabled={isSubmitting || Boolean(initialInvitationCode)}
+                        readOnly={Boolean(initialInvitationCode)}
+                        disabled={isSubmitting}
                       />
                     </FormControl>
                     <FormMessage />

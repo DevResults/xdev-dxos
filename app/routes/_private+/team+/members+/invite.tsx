@@ -14,12 +14,16 @@ export default function MembersInvitePage() {
   const { spaceKey } = useLocalState()
   const space = useSpace(spaceKey)
 
-  // Store the invitation observable in state so changes trigger re-renders
+  /** The invitation observable; stored in state so changes trigger re-renders. */
   const [invitation, setInvitation] = useState<CancellableInvitationObservable | undefined>()
-  // Ref for cleanup access
+
+  /** Ref so the creation effect can check whether an invitation already exists. */
   const invitationRef = useRef<CancellableInvitationObservable | undefined>()
 
-  // Create an invitation when the space becomes available
+  // Create an invitation when the space becomes available.
+  // We intentionally do NOT cancel on unmount — DXOS invitations have a built-in
+  // timeout (3 min) and lifetime (7 days), so they expire naturally. Cancelling on
+  // unmount caused problems with React StrictMode's double-mount cycle.
   useEffect(() => {
     if (!space) {
       return
@@ -45,15 +49,6 @@ export default function MembersInvitePage() {
     invitationRef.current = newInvitation
     setInvitation(newInvitation)
   }, [space])
-
-  // Cancel invitation only when component unmounts
-  useEffect(() => {
-    return () => {
-      if (invitationRef.current) {
-        void invitationRef.current.cancel()
-      }
-    }
-  }, [])
 
   // Use the hook to track invitation status
   const { invitationCode, authCode } = useInvitationStatus(invitation)
