@@ -76,8 +76,11 @@ test.describe("P2P invitation flow", () => {
 
     await ritika.pressButton("Verify")
 
-    // Should show "Joined! Redirecting..." indicating the invitation completed
+    // Should show "Joined! Redirecting..." then navigate to the app
     await expect(ritika.page.getByText("Joined! Redirecting...")).toBeVisible({ timeout: 30_000 })
+
+    // Should land on the app (private layout shows "Dones" in the nav)
+    await expect(ritika.page.getByRole("link", { name: "Dones" })).toBeVisible({ timeout: 30_000 })
   })
 })
 
