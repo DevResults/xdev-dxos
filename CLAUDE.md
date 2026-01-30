@@ -80,3 +80,29 @@ pnpm lint:fix     # Auto-fix lint issues (run after every change)
 - Objects are reactive (CRDT-backed)
 
 When debugging dxos-related things, you can reference the local copy of the dxos monorepo at ~/code/dxos/dxos
+
+### DXOS debug logs
+
+Enable debug logging in the browser console:
+
+```js
+localStorage.dxlog = '{ "filter": "debug" }'
+```
+
+Then refresh the page. To filter to specific modules, use pattern matching:
+
+```js
+// Debug for echo-related code, info for everything else
+localStorage.dxlog = '{ "filter": "echo:debug,info" }'
+
+// Multiple patterns
+localStorage.dxlog = '{ "filter": "client:debug,mesh:debug,info" }'
+```
+
+To turn it off:
+
+```js
+delete localStorage.dxlog
+```
+
+The filter patterns match against file paths, so `echo` matches any source file with "echo" in its path.
