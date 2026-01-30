@@ -36,7 +36,7 @@ const DialogContent = React.forwardRef<
     <DialogPrimitive.Content
       ref={ref}
       className={cx(
-        "fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 overflow-hidden",
+        "fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4",
         "border border-neutral-200 bg-white p-6 shadow-lg",
         "duration-200",
         "data-[state=open]:animate-in data-[state=closed]:animate-out",
@@ -102,7 +102,7 @@ const DialogDescription = React.forwardRef<
 DialogDescription.displayName = DialogPrimitive.Description.displayName
 
 const DialogBody = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cx("pt-4", className)} {...props} />
+  <div className={cx("min-w-0 pt-4", className)} {...props} />
 )
 DialogBody.displayName = DialogPrimitive.Description.displayName
 
