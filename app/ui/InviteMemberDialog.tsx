@@ -44,7 +44,7 @@ export function InviteMemberDialog({
           <DialogTitle>Invite member</DialogTitle>
         </DialogHeader>
         <DialogBody>
-          <div className="flex flex-col space-y-4">
+          <div className="flex min-w-0 flex-col space-y-4 overflow-hidden">
             <p className="text-sm text-neutral-600">
               Share this QR code or link with the person you want to invite.
             </p>

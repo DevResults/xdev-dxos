@@ -44,7 +44,7 @@ export function InviteDeviceDialog({
           <DialogTitle>Link another device</DialogTitle>
         </DialogHeader>
         <DialogBody>
-          <div className="flex flex-col space-y-4">
+          <div className="flex min-w-0 flex-col space-y-4 overflow-hidden">
             <p className="text-sm text-neutral-600">
               Scan this QR code on your other device to link it to your account.
             </p>
