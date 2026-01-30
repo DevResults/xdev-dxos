@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@ui/form"
 import { Input } from "@ui/input"
 import { Invitation } from "@dxos/react-client/invitations"
-import { useEffect, useState } from "react"
+import { type FormEvent, useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
 import { SubmitButton } from "./SubmitButton"
 import { S } from "~/schema/lib/Effect"
@@ -22,17 +22,16 @@ export function JoinSpaceForm({
   const [phase, setPhase] = useState<"invitation" | "auth">("invitation")
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  // Form for invitation code
+  // Form for invitation code (uses react-hook-form for validation)
   const invitationForm = useForm<InvitationSchema>({
     resolver: effectTsResolver(invitationSchema),
     defaultValues: { invitationCode: initialInvitationCode },
   })
 
-  // Form for auth code
-  const authForm = useForm<AuthSchema>({
-    resolver: effectTsResolver(authSchema),
-    defaultValues: { authCode: "" },
-  })
+  // Auth code uses plain state — react-hook-form's Controller doesn't reliably
+  // update when the parent re-renders rapidly (e.g. from DXOS status updates).
+  const [authCode, setAuthCode] = useState("")
+  const [authError, setAuthError] = useState<string | undefined>()
 
   // Update phase based on invitation status
   useEffect(() => {
@@ -80,19 +79,27 @@ export function JoinSpaceForm({
       if (phase === "invitation") {
         invitationForm.setError("invitationCode", { type: "custom", message: error })
       } else {
-        authForm.setError("authCode", { type: "custom", message: error })
+        setAuthError(error)
       }
     }
-  }, [error, phase, invitationForm, authForm])
+  }, [error, phase, invitationForm])
 
   const handleInvitationSubmit = async (data: InvitationSchema) => {
     setIsSubmitting(true)
     onJoin(data.invitationCode)
   }
 
-  const handleAuthSubmit = async (data: AuthSchema) => {
+  const handleAuthSubmit = async (e: FormEvent) => {
+    e.preventDefault()
+    const trimmed = authCode.trim()
+    if (trimmed.length === 0) {
+      setAuthError("Please enter the verification code.")
+      return
+    }
+
+    setAuthError(undefined)
     setIsSubmitting(true)
-    await onAuthenticate(data.authCode)
+    await onAuthenticate(trimmed)
   }
 
   const getStatusMessage = () => {
@@ -182,46 +189,45 @@ export function JoinSpaceForm({
   // Auth phase
   return (
     <Card className="w-full max-w-xl">
-      <Form {...authForm}>
-        <form onSubmit={authForm.handleSubmit(handleAuthSubmit)}>
-          <CardHeader>
-            <CardTitle>{heading}</CardTitle>
-            <CardDescription>
-              Enter the verification code shown on the host's device
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <FormField
-              control={authForm.control}
-              name="authCode"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Verification code</FormLabel>
-                  <FormControl>
-                    <Input autoFocus {...field} disabled={isSubmitting} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
+      <form onSubmit={handleAuthSubmit}>
+        <CardHeader>
+          <CardTitle>{heading}</CardTitle>
+          <CardDescription>Enter the verification code shown on the host's device</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-2">
+            <label htmlFor="authCode" className="text-sm font-medium leading-none">
+              Verification code
+            </label>
+            <Input
+              id="authCode"
+              autoFocus
+              value={authCode}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setAuthCode(e.target.value)
+                setAuthError(undefined)
+              }}
+              disabled={isSubmitting}
             />
-            {statusMessage && <p className="mt-4 text-sm text-neutral-500">{statusMessage}</p>}
-          </CardContent>
-          <CardFooter className="gap-2">
-            <SubmitButton
-              intent="primary"
-              size="md"
-              className="grow justify-center"
-              submittingText="Verifying..."
-              isSubmitting={isSubmitting}
-            >
-              Verify
-            </SubmitButton>
-            <Button type="button" intent="neutral" size="md" onClick={onCancel}>
-              Cancel
-            </Button>
-          </CardFooter>
-        </form>
-      </Form>
+            {authError && <p className="text-sm font-medium text-red-500">{authError}</p>}
+          </div>
+          {statusMessage && <p className="mt-4 text-sm text-neutral-500">{statusMessage}</p>}
+        </CardContent>
+        <CardFooter className="gap-2">
+          <SubmitButton
+            intent="primary"
+            size="md"
+            className="grow justify-center"
+            submittingText="Verifying..."
+            isSubmitting={isSubmitting}
+          >
+            Verify
+          </SubmitButton>
+          <Button type="button" intent="neutral" size="md" onClick={onCancel}>
+            Cancel
+          </Button>
+        </CardFooter>
+      </form>
     </Card>
   )
 }
@@ -235,11 +241,6 @@ const invitationSchema = S.Struct({
   ),
 })
 type InvitationSchema = S.Schema.Type<typeof invitationSchema>
-
-const authSchema = S.Struct({
-  authCode: S.Trim.pipe(S.minLength(1, { message: () => "Please enter the verification code." })),
-})
-type AuthSchema = S.Schema.Type<typeof authSchema>
 
 type Props = {
   heading: React.ReactNode

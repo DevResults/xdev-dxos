@@ -2,8 +2,8 @@ import { expect, test } from "@playwright/test"
 import { newBrowser } from "./helpers/App"
 
 test.describe("P2P invitation flow", () => {
-  // P2P connections need more time for signaling and swarm handshake
-  test.setTimeout(60_000)
+  // P2P connections need more time for signaling, swarm handshake, and auth
+  test.setTimeout(120_000)
 
   test("invited member can join via invitation link", async ({ context }) => {
     // ---- Herb creates a team and generates an invitation ----
@@ -25,7 +25,6 @@ test.describe("P2P invitation flow", () => {
     await expect(copyLinkButton).toBeVisible({ timeout: 15_000 })
     await copyLinkButton.click()
     const joinUrl = await herb.getClipboard()
-    console.log("Join URL:", joinUrl)
 
     // Extract the invitation code from the URL
     const invitationCode = joinUrl.split("/").pop()!
@@ -34,8 +33,6 @@ test.describe("P2P invitation flow", () => {
     // ---- Ritika joins using the invitation link ----
 
     const ritika = await newBrowser(context)
-
-    // Navigate to the join URL
     await ritika.page.goto(joinUrl)
 
     // She should be redirected to auth/begin since she has no identity
@@ -49,19 +46,38 @@ test.describe("P2P invitation flow", () => {
     await expect(ritika.page.getByRole("heading", { name: "Join a team" })).toBeVisible({
       timeout: 10_000,
     })
-
-    // The invitation code should be pre-filled in the input
     const invitationInput = ritika.page.getByRole("textbox", { name: "Invitation code" })
-    await expect(invitationInput).toBeVisible()
     await expect(invitationInput).toHaveValue(invitationCode)
 
-    // Click "Join team" — this should now work (not silently fail)
+    // Click "Join team"
     await ritika.pressButton("Join team")
 
-    // Should show "Connecting..." status (invitation is no longer prematurely cancelled)
+    // Should show "Connecting..." status
     await expect(
       ritika.page.getByText("Connecting...").or(ritika.page.getByText("Verification code")),
     ).toBeVisible({ timeout: 30_000 })
+
+    // ---- Herb copies the verification code from his dialog ----
+
+    const herbAuthCode = herb.page
+      .locator("text=Verification code")
+      .locator("..")
+      .locator("pre span")
+    await expect(herbAuthCode).toBeVisible({ timeout: 30_000 })
+    const authCode = await herbAuthCode.textContent()
+    expect(authCode).toBeTruthy()
+
+    // ---- Ritika enters the verification code ----
+
+    const authInput = ritika.page.getByRole("textbox", { name: "Verification code" })
+    await expect(authInput).toBeVisible({ timeout: 30_000 })
+    await expect(authInput).toBeEnabled()
+    await authInput.fill(authCode!)
+
+    await ritika.pressButton("Verify")
+
+    // Should show "Joined! Redirecting..." indicating the invitation completed
+    await expect(ritika.page.getByText("Joined! Redirecting...")).toBeVisible({ timeout: 30_000 })
   })
 })
 
