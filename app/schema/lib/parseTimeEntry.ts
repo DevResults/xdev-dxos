@@ -1,4 +1,4 @@
-import { makeTimeEntry, type TimeEntryInput } from "../TimeEntry"
+import { make as makeTimeEntry, type TimeEntryInput } from "../TimeEntry"
 import type { Project } from "../Project"
 import { Data, E } from "./Effect"
 import { parseClient } from "./parseClient"

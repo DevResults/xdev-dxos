@@ -3,7 +3,7 @@ import { useState } from "react"
 import { DoneEditable } from "./DoneEditable"
 import { DoneInput } from "./DoneInput"
 import { cx } from "~/lib/cx"
-import { makeDoneEntry, type DoneEntry } from "~/schema/DoneEntry"
+import { make as makeDoneEntry, type DoneEntry } from "~/schema/DoneEntry"
 import type { Contact } from "~/schema/Contact"
 
 /** Displays a single day of the current user's dones */

@@ -4,7 +4,7 @@ import { type Client, useClient } from "@dxos/react-client"
 import { TeamNameForm } from "ui/TeamNameForm"
 import { useLocalState } from "~/hooks/useLocalState"
 import { useRedirect } from "~/hooks/useRedirect"
-import { makeContact } from "~/schema/Contact"
+import { make as makeContact } from "~/schema/Contact"
 import { createProjects } from "~/data/projects"
 import { createClients } from "~/data/clients"
 

@@ -11,7 +11,7 @@ import {
 import { JoinSpaceForm } from "ui/JoinSpaceForm"
 import { useLocalState } from "~/hooks/useLocalState"
 import { useRedirect } from "~/hooks/useRedirect"
-import { makeContact } from "~/schema/Contact"
+import { make as makeContact } from "~/schema/Contact"
 
 export default function AuthJoinPage() {
   const identity = useIdentity()

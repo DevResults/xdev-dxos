@@ -3,7 +3,7 @@ import { type ContactId } from "../Contact"
 import {
   decodeDoneEntry,
   encodeDoneEntry,
-  makeDoneEntry,
+  make as makeDoneEntry,
   type DoneEntry,
   type DoneEntryEncoded,
 } from "../DoneEntry"

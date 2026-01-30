@@ -24,7 +24,7 @@ export const Contact = S.Struct({
 export type Contact = S.Schema.Type<typeof Contact>
 
 /** Create a new Contact object */
-export const makeContact = (props: Omit<EncodedContact, "id">) => Obj.make(Contact, props)
+export const make = (props: Omit<EncodedContact, "id">) => Obj.make(Contact, props)
 
 type EncodedContact = S.Schema.Encoded<typeof Contact>
 

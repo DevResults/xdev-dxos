@@ -6,8 +6,8 @@ import { DoneEntryImporter } from "ui/DoneEntryImporter"
 import { TimeEntryGenerator } from "ui/TimeEntryGenerator"
 import { TimeEntryImporter } from "ui/TimeEntryImporter"
 import { useLocalState } from "~/hooks/useLocalState"
-import { makeDoneEntry, type DoneEntry } from "~/schema/DoneEntry"
-import { makeTimeEntry, type TimeEntry } from "~/schema/TimeEntry"
+import { make as makeDoneEntry, type DoneEntry } from "~/schema/DoneEntry"
+import { make as makeTimeEntry, type TimeEntry } from "~/schema/TimeEntry"
 import { useDatabase } from "~/hooks/useDatabase"
 
 export default function DangerPage() {

@@ -37,7 +37,7 @@ export type TimeEntry = S.Schema.Type<typeof TimeEntry>
 export type TimeEntryEncoded = S.Schema.Encoded<typeof TimeEntry>
 
 /** Create a new TimeEntry object */
-export const makeTimeEntry = (props: Omit<TimeEntry, "id">) => Obj.make(TimeEntry, props)
+export const make = (props: Omit<TimeEntry, "id">) => Obj.make(TimeEntry, props)
 
 /** Decode a TimeEntry from encoded form */
 export const decodeTimeEntry = (encoded: TimeEntryEncoded) =>

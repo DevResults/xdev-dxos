@@ -23,7 +23,7 @@ export const Project = S.Struct({
 export type Project = S.Schema.Type<typeof Project>
 
 /** Create a new Project object */
-export const makeProject = (props: Omit<Project, "id">) => Obj.make(Project, props)
+export const make = (props: Omit<Project, "id">) => Obj.make(Project, props)
 
 export const makeFullCode = (code: string, subCode?: string) =>
   subCode ? `${code}:${subCode}` : code

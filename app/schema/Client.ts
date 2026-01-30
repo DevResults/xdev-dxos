@@ -19,4 +19,4 @@ export const Client = S.Struct({
 export type Client = S.Schema.Type<typeof Client>
 
 /** Create a new Client object */
-export const makeClient = (props: Omit<Client, "id">) => Obj.make(Client, props)
+export const make = (props: Omit<Client, "id">) => Obj.make(Client, props)
