@@ -24,7 +24,7 @@ app/
 │   │   ├── myweek+/     # Weekly view
 │   │   ├── team+/       # Team management
 │   │   └── settings+/   # User settings
-├── schema/              # DXOS data models (TimeEntry, DoneEntry, Contact, Project, Client)
+├── schema/              # DXOS data models (TimeEntry, DoneEntry, Contact, Project, Client, Invitation)
 ├── ui/                  # React components
 │   └── shadcn/          # shadcn/ui primitives
 ├── hooks/               # Custom hooks (useDatabase, useTeam, useLocalState, etc.)
