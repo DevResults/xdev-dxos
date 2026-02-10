@@ -8,6 +8,7 @@ import { TimeEntry } from "./schema/TimeEntry"
 import { Contact } from "./schema/Contact"
 import { Loading } from "./ui/Loading"
 import { Client } from "./schema/Client"
+import { Invitation } from "./schema/Invitation"
 import { Project } from "./schema/Project"
 
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -45,7 +46,7 @@ export default function App() {
       shell="./shell.html"
       config={configProvider}
       createWorker={createWorker}
-      types={[Contact, DoneEntry, TimeEntry, Client, Project]}
+      types={[Client, Contact, DoneEntry, Invitation, Project, TimeEntry]}
     >
       <Outlet />
     </ClientProvider>
