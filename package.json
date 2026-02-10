@@ -24,7 +24,8 @@
     "test:all": "run-s typecheck lint test:run test:pw",
     "test:pw": "cross-env PERSIST=1 SIGNAL=1 pnpm playwright test --project=chromium",
     "test:pw:exec:ui": "pnpm playwright test --project=chromium --ui",
-    "test:pw:ui": "cross-env PLAYWRIGHT_UI=1 run-p dev test:pw:exec:ui"
+    "test:pw:ui": "cross-env PLAYWRIGHT_UI=1 run-p dev test:pw:exec:ui",
+    "ralph": "ralph"
   },
   "dependencies": {
     "@dxos/config": "^0.8.3",
@@ -119,6 +120,7 @@
     "vite": "^5.4.11",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.0.6",
-    "xo": "^1.2.3"
+    "xo": "^1.2.3",
+    "@herbcaudill/ralph": "link:../../herbcaudill/ralph/packages/cli"
   }
 }
