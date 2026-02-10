@@ -3,13 +3,15 @@ import type { Identity } from "@dxos/react-client/halo"
 import type { PublicKey } from "@dxos/react-client"
 import { pipe, S } from "./lib/Effect"
 import { Cuid } from "./Cuid"
+import type { Invitation } from "./Invitation"
 
 export const ContactId = pipe(Cuid, S.brand("ContactId"))
 export type ContactId = typeof ContactId.Type
 
 /** A contact's record, including staff directory type information */
 export const Contact = S.Struct({
-  identityId: S.String,
+  /** The DXOS identity ID - populated after the contact joins the team */
+  identityId: S.optional(S.String),
   userName: S.String,
   firstName: S.String,
   lastName: S.String,
@@ -34,17 +36,18 @@ export class ExtendedContact implements EncodedContact {
   readonly isSelf: boolean
   readonly isAdmin: boolean
   readonly identityKey: PublicKey | undefined
-  readonly invitationStatus?: string
+  readonly invitation?: Invitation
 
-  constructor({ contact, isSelf, isAdmin, identity }: ExtendedContactProps) {
+  constructor({ contact, isSelf, isAdmin, identity, invitation }: ExtendedContactProps) {
     this.contact = contact
     this.isSelf = isSelf
     this.isAdmin = isAdmin
     this.identityKey = identity?.identityKey
+    this.invitation = invitation
   }
 
   get isMember() {
-    return true
+    return Boolean(this.contact.identityId)
   }
 
   get id() {
@@ -77,4 +80,5 @@ type ExtendedContactProps = {
   isSelf: boolean
   isAdmin: boolean
   identity: Identity | undefined
+  invitation?: Invitation
 }
