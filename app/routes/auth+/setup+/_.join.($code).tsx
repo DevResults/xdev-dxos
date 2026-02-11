@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router"
 import { useCallback, useEffect, useRef, useState } from "react"
 import { useClient } from "@dxos/react-client"
-import { useSpaces } from "@dxos/react-client/echo"
+import { Filter, useQuery, useSpace, useSpaces } from "@dxos/react-client/echo"
 import { useIdentity } from "@dxos/react-client/halo"
 import {
   type AuthenticatingInvitationObservable,
@@ -9,9 +9,11 @@ import {
   useInvitationStatus,
 } from "@dxos/react-client/invitations"
 import { JoinSpaceForm } from "ui/JoinSpaceForm"
+import { getInvitationForJoin } from "./getInvitationForJoin"
 import { useLocalState } from "~/hooks/useLocalState"
 import { useRedirect } from "~/hooks/useRedirect"
-import { make as makeContact } from "~/schema/Contact"
+import { Contact, make as makeContact } from "~/schema/Contact"
+import { Invitation as InvitationRecord } from "~/schema/Invitation"
 
 export default function AuthJoinPage() {
   const identity = useIdentity()
@@ -27,8 +29,14 @@ export default function AuthJoinPage() {
 
   /** The space ID we're waiting for after a successful invitation. */
   const [joinedSpaceId, setJoinedSpaceId] = useState<string | undefined>()
+  /** Invitation code used for join lookup when code was entered manually. */
+  const [submittedInvitationCode, setSubmittedInvitationCode] = useState<string | undefined>()
 
   const invitationCode = invitationCodeFromUrl ?? savedInvitationCode
+  const invitationCodeForLookup = submittedInvitationCode ?? invitationCode
+  const joinedSpace = useSpace(joinedSpaceId)
+  const joinedContacts = useQuery(joinedSpace, Filter.type(Contact))
+  const joinedInvitations = useQuery(joinedSpace, Filter.type(InvitationRecord))
 
   // Hooks ↑
 
@@ -64,28 +72,34 @@ export default function AuthJoinPage() {
     setJoinedSpaceId(invitationStatus.result.spaceKey.toHex())
   }, [invitationStatus.status, invitationStatus.result.spaceKey])
 
-  // Reactively watch for the joined space to appear in the spaces list.
-  // useSpaces() re-renders when the list changes, so we don't need to poll.
-  const contactCreatedRef = useRef(false)
+  // Reconcile invitation/contact records once the joined space is available.
+  const joinReconciledRef = useRef(false)
   useEffect(() => {
-    if (!joinedSpaceId || !identity) {
+    if (!joinedSpaceId || !identity || !joinedSpace) {
       return
     }
 
-    const space = spaces.find(s => s.id === joinedSpaceId)
-    if (!space) {
+    if (joinReconciledRef.current) {
       return
     }
 
-    // Save space key to local storage — this triggers useRedirect to navigate to /
-    update({ spaceKey: space.id, invitationCode: "" })
+    joinReconciledRef.current = true
+    void (async () => {
+      try {
+        await joinedSpace.waitUntilReady()
 
-    // Build a contact for yourself in the background (only once)
-    if (!contactCreatedRef.current) {
-      contactCreatedRef.current = true
-      void (async () => {
-        try {
-          await space.waitUntilReady()
+        const invitationRecord = getInvitationForJoin(invitationCodeForLookup, joinedInvitations)
+        const matchedContact =
+          invitationRecord ?
+            joinedContacts.find(contact => contact.id === invitationRecord.contactId)
+          : undefined
+
+        if (matchedContact) {
+          matchedContact.identityId = identity.identityKey.toString()
+          invitationRecord!.status = "accepted"
+          invitationRecord!.acceptedAt = new Date().toISOString()
+        } else {
+          // Backward compatibility for spaces that don't have pre-created contacts.
           const contact = makeContact({
             identityId: identity.identityKey.toString(),
             avatarUrl: "",
@@ -93,16 +107,27 @@ export default function AuthJoinPage() {
             lastName: "",
             userName: identity.profile!.displayName!,
           })
-          space.db.add(contact)
-          await space.db.flush()
-        } catch (error) {
-          console.error("[JOIN] Error creating contact:", error)
+          joinedSpace.db.add(contact)
         }
-      })()
-    }
 
-    void navigate("/")
-  }, [joinedSpaceId, spaces, identity, update, navigate])
+        await joinedSpace.db.flush()
+        update({ spaceKey: joinedSpace.id, invitationCode: "" })
+        void navigate("/")
+      } catch (error) {
+        joinReconciledRef.current = false
+        console.error("[JOIN] Error reconciling joined contact:", error)
+      }
+    })()
+  }, [
+    identity,
+    invitationCodeForLookup,
+    joinedContacts,
+    joinedInvitations,
+    joinedSpace,
+    joinedSpaceId,
+    navigate,
+    update,
+  ])
 
   // Track the latest status in a ref so we can check it asynchronously
   const latestStatusRef = useRef(invitationStatus.status)
@@ -174,6 +199,7 @@ export default function AuthJoinPage() {
   const handleJoin = useCallback(
     (code: string) => {
       setErrorMessage(undefined)
+      setSubmittedInvitationCode(code)
       try {
         setInvitation(client.spaces.join(code))
       } catch {
