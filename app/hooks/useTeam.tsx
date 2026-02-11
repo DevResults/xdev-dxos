@@ -8,8 +8,11 @@ import {
 } from "@dxos/react-client/echo"
 import { useMulticastObservable } from "@dxos/react-client"
 import { useMemo } from "react"
+import { getContactInvitation } from "./getContactInvitation"
+import { getInvitationStatus } from "./getInvitationStatus"
 import { useLocalState } from "./useLocalState"
 import { Contact, ExtendedContact } from "~/schema/Contact"
+import { Invitation } from "~/schema/Invitation"
 
 // Create a stable empty observable for when space.members is undefined
 // The empty array must be cached (same reference) to avoid infinite re-render loops
@@ -34,15 +37,19 @@ export const useTeam = () => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     useMulticastObservable((space?.members ?? emptyObservable) as any) ?? []
   const rawContacts = useQuery(space, Filter.type(Contact))
+  const invitations = useQuery(space, Filter.type(Invitation))
   const contacts = rawContacts.map(c => {
     const member = members.find(m => m.identity.identityKey.toString() === c.identityId)
     const isAdmin = member?.role === HaloSpaceMember.Role.OWNER
     const isSelf = member?.identity.identityKey.toString() === identity?.identityKey.toString()
+    const invitation = getContactInvitation(c.id, invitations)
     return new ExtendedContact({
       contact: c,
       isAdmin,
       isSelf,
       identity: member?.identity,
+      invitation,
+      invitationStatus: getInvitationStatus(invitation),
     })
   })
   const devices = useDevices()

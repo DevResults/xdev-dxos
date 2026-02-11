@@ -37,13 +37,22 @@ export class ExtendedContact implements EncodedContact {
   readonly isAdmin: boolean
   readonly identityKey: PublicKey | undefined
   readonly invitation?: Invitation
+  readonly invitationStatus: ContactInvitationStatus
 
-  constructor({ contact, isSelf, isAdmin, identity, invitation }: ExtendedContactProps) {
+  constructor({
+    contact,
+    isSelf,
+    isAdmin,
+    identity,
+    invitation,
+    invitationStatus,
+  }: ExtendedContactProps) {
     this.contact = contact
     this.isSelf = isSelf
     this.isAdmin = isAdmin
     this.identityKey = identity?.identityKey
     this.invitation = invitation
+    this.invitationStatus = invitationStatus
   }
 
   get isMember() {
@@ -81,4 +90,7 @@ type ExtendedContactProps = {
   isAdmin: boolean
   identity: Identity | undefined
   invitation?: Invitation
+  invitationStatus: ContactInvitationStatus
 }
+
+export type ContactInvitationStatus = "NOT_INVITED" | "PENDING" | "ACCEPTED" | "REVOKED" | "EXPIRED"
