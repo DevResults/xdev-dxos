@@ -53,10 +53,11 @@ const autoImportOptions: AutoImportOptions = {
 // Don't load remix plugin when vite is being used by storybook
 // https://github.com/remix-run/remix/issues/7953#issuecomment-1805649822
 const isStorybook = process.argv[1].includes("storybook")
+const isVitest = process.env.VITEST === "true"
 
 export default defineConfig({
   plugins: [
-    !isStorybook && reactRouter(),
+    !isStorybook && !isVitest && reactRouter(),
     tsconfigPaths(),
     wasm(),
     ConfigPlugin(),
@@ -101,5 +102,5 @@ export default defineConfig({
       "@dxos/shell/react",
     ],
   },
-  test: { include: ["app/**/*.test.ts"] },
+  test: { include: ["app/**/*.test.ts", "app/**/*.test.tsx"] },
 })

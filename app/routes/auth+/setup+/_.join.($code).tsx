@@ -72,7 +72,7 @@ export default function AuthJoinPage() {
       return
     }
 
-    const space = spaces.find(s => s.key.toHex() === joinedSpaceId)
+    const space = spaces.find(s => s.id === joinedSpaceId)
     if (!space) {
       return
     }
