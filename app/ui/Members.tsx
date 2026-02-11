@@ -2,6 +2,7 @@ import { Link } from "react-router"
 import { Button } from "@ui/button"
 import { by } from "~/lib/by"
 import { cx } from "~/lib/cx"
+import { getContactMembershipDisplay } from "~/ui/getContactMembershipDisplay"
 import { Avatar } from "~/ui/Avatar"
 import type { ExtendedContact } from "~/schema/Contact"
 
@@ -11,6 +12,7 @@ export const Members = ({
   onPromote = () => {},
   onDemote = () => {},
   onInvite = () => {},
+  onAddContact = () => {},
 }: Props) => {
   const adminIcon = <IconCircleKey className="size-5 text-primary-500" />
 
@@ -29,10 +31,10 @@ export const Members = ({
         }}
       >
         {/* One row per member */}
-        {/* eslint-disable-next-line complexity */}
         {contacts.sort(by("lastName")).map(contact => {
           // Admin users can toggle status for team members other than themselves
           const canChangeAdminStatus = self.isAdmin && !contact.isSelf
+          const { statusLabel, canInvite, canRevoke } = getContactMembershipDisplay(contact)
           return (
             <div
               key={contact.id}
@@ -90,17 +92,7 @@ export const Members = ({
                       <div>You</div>
                     : null}
                     <div>
-                      {contact.isAdmin ?
-                        <div>Admin</div>
-                      : contact.isMember ?
-                        <div>Member</div>
-                      : contact.invitationStatus === "PENDING" ?
-                        <div>Invitation pending</div>
-                      : contact.invitationStatus === "REVOKED" ?
-                        <div>Invitation revoked</div>
-                      : contact.invitationStatus === "EXPIRED" ?
-                        <div>Invitation expired</div>
-                      : <div>Not invited</div>}
+                      <div>{statusLabel}</div>
                     </div>
                   </div>
                 </div>
@@ -108,12 +100,12 @@ export const Members = ({
 
               {/* Invite or revoke button */}
               <div className="text-center">
-                {!contact.isMember && !contact.isSelf && contact.invitationStatus !== "PENDING" ?
+                {!contact.isSelf && canInvite ?
                   <Button
                     intent="primary"
                     size="xs"
                     onClick={() => {
-                      onInvite()
+                      onInvite(contact.id)
                     }}
                   >
                     Invite
@@ -121,13 +113,9 @@ export const Members = ({
                 : null}
 
                 {/* Revoke button */}
-                {contact.invitationStatus === "PENDING" ?
+                {canRevoke ?
                   <Button asChild intent="danger" size="xs">
-                    <Link
-                      to="/team/members/revoke"
-                      state={{ userId: contact.id }}
-                      title="Revoke invitation"
-                    >
+                    <Link to={`/team/members/revoke/${contact.id}`} title="Revoke invitation">
                       Revoke
                     </Link>
                   </Button>
@@ -157,10 +145,10 @@ export const Members = ({
               intent="primary"
               size="xs"
               onClick={() => {
-                onInvite()
+                onAddContact()
               }}
             >
-              Invite
+              Add contact
             </Button>
           </div>
         </div>
@@ -175,6 +163,7 @@ type Props = {
   onPromote?: (userId: string) => void
   onDemote?: (userId: string) => void
   onRemove?: (userId: string) => void
-  onInvite?: () => void
+  onInvite?: (userId: string) => void
+  onAddContact?: () => void
   onRevokeInvitation?: (userId: string) => void
 }

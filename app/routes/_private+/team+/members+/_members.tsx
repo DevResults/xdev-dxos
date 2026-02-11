@@ -14,8 +14,11 @@ export default function MembersPage() {
         onPromote={() => {}}
         onDemote={() => {}}
         onRemove={() => {}}
-        onInvite={() => {
-          void navigate("/team/members/invite")
+        onInvite={userId => {
+          void navigate(`/team/members/invite/${userId}`)
+        }}
+        onAddContact={() => {
+          void navigate("/team/members/add")
         }}
         onRevokeInvitation={() => {}}
       />
