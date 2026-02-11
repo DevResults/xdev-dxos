@@ -1,4 +1,6 @@
 import { ConfirmDialog } from "./ConfirmDialog"
+import type { ExtendedContact } from "~/schema/Contact"
+import type { Invitation } from "~/schema/Invitation"
 
 export function RevokeInvitationDialog({
   onClose = () => {},
@@ -16,9 +18,9 @@ export function RevokeInvitationDialog({
       title={`Revoke ${contact.firstName}’s invitation?`}
       body={`${contact.firstName} will no longer be able to use it to join.`}
       intent="danger"
-      onConfirm={() => {
-        revoke()
-        onClose()
+      onConfirm={async () => {
+        await revoke()
+        await onClose()
       }}
       onCancel={onClose}
       confirmButtonText="Yes, revoke"
@@ -28,9 +30,9 @@ export function RevokeInvitationDialog({
 }
 
 export type Props = {
-  onClose: () => void
-  contact: any
-  invitation: any
-  revoke: () => void
+  onClose: () => void | Promise<void>
+  contact: ExtendedContact
+  invitation: Invitation
+  revoke: () => void | Promise<void>
   defaultOpen?: boolean
 }

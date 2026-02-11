@@ -59,6 +59,7 @@ export default function MembersInvitePage() {
     const invitationRecord = makeInvitation(
       createPendingInvitation(contactId, new Date().toISOString()),
     )
+    invitationRecord.dxosInvitationId = newInvitation.get().invitationId
     space.db.add(invitationRecord)
 
     invitationRef.current = newInvitation
