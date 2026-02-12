@@ -87,6 +87,11 @@
     "workbox-precaching": "^7.3.0",
     "workbox-routing": "^7.3.0"
   },
+  "pnpm": {
+    "overrides": {
+      "@automerge/automerge": "3.0.0-beta.4"
+    }
+  },
   "devDependencies": {
     "@herbcaudill/ralph": "link:../../herbcaudill/ralph/packages/cli",
     "@iconify-json/tabler": "^1.2.16",
