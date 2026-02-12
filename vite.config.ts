@@ -97,6 +97,7 @@ export default defineConfig({
       "@dxos/react-client",
       "@dxos/react-client/echo",
       "@dxos/react-client/halo",
+      "@dxos/react-client/worker",
       "@dxos/config",
       "@dxos/echo-schema",
       "@dxos/shell/react",

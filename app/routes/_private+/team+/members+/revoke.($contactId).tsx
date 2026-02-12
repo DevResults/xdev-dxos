@@ -2,7 +2,7 @@ import { useCallback } from "react"
 import { useLocation, useNavigate, useParams } from "react-router"
 import { useSpace, useSpaceInvitations } from "@dxos/react-client/echo"
 import { RevokeInvitationDialog } from "ui/RevokeInvitationDialog"
-import { markInvitationRevoked } from "./markInvitationRevoked"
+import { markInvitationRevoked } from "~/lib/markInvitationRevoked"
 import { useTeam } from "~/hooks/useTeam"
 import { useLocalState } from "~/hooks/useLocalState"
 

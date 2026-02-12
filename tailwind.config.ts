@@ -6,7 +6,6 @@ import tailwindColors from "tailwindcss/colors"
 const emoji = "Segoe UI Emoji"
 const mono = "IBM Plex Mono"
 const sans = "IBM Plex Sans"
-const condensed = "IBM Plex Sans Condensed"
 const serif = "IBM Plex Serif"
 
 const { white, black, blue, zinc, green, orange, red } = tailwindColors
@@ -19,7 +18,6 @@ const config = {
       fontFamily: {
         mono: [mono, emoji, "monospace"],
         sans: [sans, emoji, "sans-serif"],
-        condensed: [condensed, emoji, "sans-serif"],
         serif: [serif, emoji, "serif"],
       },
       colors: withDefaults({

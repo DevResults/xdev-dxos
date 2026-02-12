@@ -9,7 +9,7 @@ import {
   useInvitationStatus,
 } from "@dxos/react-client/invitations"
 import { JoinSpaceForm } from "ui/JoinSpaceForm"
-import { getInvitationForJoin } from "./getInvitationForJoin"
+import { getInvitationForJoin } from "~/lib/getInvitationForJoin"
 import { useLocalState } from "~/hooks/useLocalState"
 import { useRedirect } from "~/hooks/useRedirect"
 import { Contact, make as makeContact } from "~/schema/Contact"

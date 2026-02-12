@@ -26,6 +26,15 @@ importers:
       '@dxos/util':
         specifier: ^0.8.3
         version: 0.8.3
+      '@fontsource/ibm-plex-mono':
+        specifier: ^5.2.7
+        version: 5.2.7
+      '@fontsource/ibm-plex-sans':
+        specifier: ^5.2.8
+        version: 5.2.8
+      '@fontsource/ibm-plex-serif':
+        specifier: ^5.2.7
+        version: 5.2.7
       '@headlessui/react':
         specifier: ^2.2.0
         version: 2.2.9(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -35,9 +44,6 @@ importers:
       '@hookform/resolvers':
         specifier: ^4.0.0
         version: 4.1.3(react-hook-form@7.70.0(react@18.2.0))
-      '@ibm/plex':
-        specifier: ^6.4.0
-        version: 6.4.1
       '@js-joda/core':
         specifier: ^5.6.4
         version: 5.6.5
@@ -1594,6 +1600,15 @@ packages:
   '@fontsource-variable/jetbrains-mono@5.0.21':
     resolution: {integrity: sha512-LL/57KBbM3r0UMuN6tSeYExiBObt0QuGq49m1FyoDFIv1GAcuKU0EQ/GAKJ/yt3R8onOCD3f5X9Dln//G6uzRQ==}
 
+  '@fontsource/ibm-plex-mono@5.2.7':
+    resolution: {integrity: sha512-MKAb8qV+CaiMQn2B0dIi1OV3565NYzp3WN5b4oT6LTkk+F0jR6j0ZN+5BKJiIhffDC3rtBULsYZE65+0018z9w==}
+
+  '@fontsource/ibm-plex-sans@5.2.8':
+    resolution: {integrity: sha512-eztSXjDhPhcpxNIiGTgMebdLP9qS4rWkysuE1V7c+DjOR0qiezaiDaTwQE7bTnG5HxAY/8M43XKDvs3cYq6ZYQ==}
+
+  '@fontsource/ibm-plex-serif@5.2.7':
+    resolution: {integrity: sha512-04owmc2OQQ/DAMjXjEMJc+7V4dBVmR01aIFOg4cuqS8pQ4HbvtlYs/u6+O0vCt21EMx5M/azIbgx43iKyisEOA==}
+
   '@griffel/core@1.19.2':
     resolution: {integrity: sha512-WkB/QQkjy9dE4vrNYGhQvRRUHFkYVOuaznVOMNTDT4pS9aTJ9XPrMTXXlkpcwaf0D3vNKoerj4zAwnU2lBzbOg==}
 
@@ -1639,13 +1654,6 @@ packages:
   '@humanwhocodes/retry@0.4.3':
     resolution: {integrity: sha512-bV0Tgo9K4hfPCek+aMAn81RppFKv2ySDQeMoSZuvTASywNTnVJCArCZE2FWqpvIatKu7VMRLWlR1EazvVhDyhQ==}
     engines: {node: '>=18.18'}
-
-  '@ibm/plex@6.4.1':
-    resolution: {integrity: sha512-fnsipQywHt3zWvsnlyYKMikcVI7E2fEwpiPnIHFqlbByXVfQfANAAeJk1IV4mNnxhppUIDlhU0TzwYwL++Rn2g==}
-
-  '@ibm/telemetry-js@1.10.2':
-    resolution: {integrity: sha512-F8+/NNUwtm8BuFz18O9KPvIFTFDo8GUSoyhPxPjEpk7nEyEzWGfhIiEPhL00B2NdHRLDSljh3AiCfSnL/tutiQ==}
-    hasBin: true
 
   '@iconify-json/tabler@1.2.26':
     resolution: {integrity: sha512-92G+ZD70AZgeJf07JfQzH+isnai6DwPcMBuF/qL1F+xAxdXCJzGd3w2RmsRvOmB+w1ImmWEEDms50QivQIjd6g==}
@@ -10721,6 +10729,12 @@ snapshots:
 
   '@fontsource-variable/jetbrains-mono@5.0.21': {}
 
+  '@fontsource/ibm-plex-mono@5.2.7': {}
+
+  '@fontsource/ibm-plex-sans@5.2.8': {}
+
+  '@fontsource/ibm-plex-serif@5.2.7': {}
+
   '@griffel/core@1.19.2':
     dependencies:
       '@emotion/hash': 0.9.2
@@ -10771,12 +10785,6 @@ snapshots:
   '@humanwhocodes/module-importer@1.0.1': {}
 
   '@humanwhocodes/retry@0.4.3': {}
-
-  '@ibm/plex@6.4.1':
-    dependencies:
-      '@ibm/telemetry-js': 1.10.2
-
-  '@ibm/telemetry-js@1.10.2': {}
 
   '@iconify-json/tabler@1.2.26':
     dependencies:
@@ -16038,7 +16046,7 @@ snapshots:
 
   path-scurry@2.0.1:
     dependencies:
-      lru-cache: 11.2.4
+      lru-cache: 11.2.6
       minipass: 7.1.2
 
   path-to-regexp@0.1.12: {}

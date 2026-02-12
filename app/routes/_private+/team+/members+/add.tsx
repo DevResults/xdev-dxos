@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router"
 import { useSpace } from "@dxos/react-client/echo"
 import { AddContactDialog, type AddContactValues } from "ui/AddContactDialog"
-import { createContactFromValues } from "./createContactFromValues"
+import { createContactFromValues } from "~/lib/createContactFromValues"
 import { useLocalState } from "~/hooks/useLocalState"
 import { make as makeContact } from "~/schema/Contact"
 

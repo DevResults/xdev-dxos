@@ -7,8 +7,8 @@ import {
   useInvitationStatus,
 } from "@dxos/react-client/invitations"
 import { InviteMemberDialog } from "ui/InviteMemberDialog"
-import { createPendingInvitation } from "./createPendingInvitation"
-import { shouldUpdateInvitationCode } from "./shouldUpdateInvitationCode"
+import { createPendingInvitation } from "~/lib/createPendingInvitation"
+import { shouldUpdateInvitationCode } from "~/lib/shouldUpdateInvitationCode"
 import { useLocalState } from "~/hooks/useLocalState"
 import { make as makeInvitation, type Invitation as InvitationRecord } from "~/schema/Invitation"
 

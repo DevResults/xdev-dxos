@@ -1,4 +1,17 @@
-import "@ibm/plex/css/ibm-plex.css"
+/** IBM Plex Sans — only the weights used in the app */
+import "@fontsource/ibm-plex-sans/300.css"
+import "@fontsource/ibm-plex-sans/400.css"
+import "@fontsource/ibm-plex-sans/500.css"
+import "@fontsource/ibm-plex-sans/600.css"
+import "@fontsource/ibm-plex-sans/700.css"
+
+/** IBM Plex Serif — used for headings (h2, year/week nav) */
+import "@fontsource/ibm-plex-serif/400.css"
+import "@fontsource/ibm-plex-serif/600.css"
+import "@fontsource/ibm-plex-serif/700.css"
+
+/** IBM Plex Mono — used for code displays */
+import "@fontsource/ibm-plex-mono/400.css"
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router"
 import { ClientProvider } from "@dxos/react-client"
 import { configProvider } from "./config"
