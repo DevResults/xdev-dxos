@@ -13,6 +13,7 @@ export const Members = ({
   onDemote = () => {},
   onInvite = () => {},
   onAddContact = () => {},
+  onEdit,
 }: Props) => {
   const adminIcon = <IconCircleKey className="size-5 text-primary-500" />
 
@@ -86,7 +87,13 @@ export const Members = ({
               <div className="flex flex-1 flex-row items-start gap-2">
                 <Avatar contact={contact} />
                 <div>
-                  <div className="font-medium">{contact.firstName}</div>
+                  <div className="font-medium">
+                    {onEdit ?
+                      <button onClick={() => onEdit(contact.id)} className="hover:underline">
+                        {contact.firstName}
+                      </button>
+                    : contact.firstName}
+                  </div>
                   <div className="flex flex-row gap-2 divide-x text-xs text-neutral-400 [&>div:not(:first-child)]:pl-2">
                     {contact.isSelf ?
                       <div>You</div>
@@ -166,4 +173,5 @@ type Props = {
   onInvite?: (userId: string) => void
   onAddContact?: () => void
   onRevokeInvitation?: (userId: string) => void
+  onEdit?: (contactId: string) => void
 }
