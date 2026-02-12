@@ -21,6 +21,9 @@ export default function MembersPage() {
           void navigate("/team/members/add")
         }}
         onRevokeInvitation={() => {}}
+        onEdit={contactId => {
+          void navigate(`/team/members/edit/${contactId}`)
+        }}
       />
       {/* Outlet for dialogs */}
       <Outlet />
