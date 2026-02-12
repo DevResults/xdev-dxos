@@ -83,3 +83,42 @@ test.describe("team navigation", () => {
     await expect(herb.page.getByRole("heading", { name: "Members" })).toBeVisible()
   })
 })
+
+test.describe("editing contacts", () => {
+  test("can edit a contact by clicking their name", async ({ context }) => {
+    const { herb } = await setup(context)
+
+    // Navigate directly to the Members page via URL
+    await herb.page.goto("/team/members")
+    await expect(herb.page.getByRole("heading", { name: "Members" })).toBeVisible({
+      timeout: 10_000,
+    })
+
+    // Click on the contact's first name (which is "herb" from the setup)
+    const contactNameButton = herb.page.locator(".Members").getByRole("button", { name: userName })
+    await expect(contactNameButton).toBeVisible()
+    await contactNameButton.click()
+
+    // The edit dialog should open
+    await expect(herb.page.getByRole("heading", { name: "Edit contact" })).toBeVisible({
+      timeout: 10_000,
+    })
+
+    // Change the first name
+    const firstNameInput = herb.page.getByLabel("First name")
+    await expect(firstNameInput).toBeVisible()
+    await firstNameInput.clear()
+    await firstNameInput.fill("Herbert")
+
+    // Save the changes
+    await herb.pressButton("Save changes")
+
+    // The dialog should close and we should be back on the members page
+    await expect(herb.page.getByRole("heading", { name: "Edit contact" })).not.toBeVisible()
+    await expect(herb.page.getByRole("heading", { name: "Members" })).toBeVisible()
+
+    // Verify the grid shows the updated name
+    const updatedNameButton = herb.page.locator(".Members").getByRole("button", { name: "Herbert" })
+    await expect(updatedNameButton).toBeVisible({ timeout: 10_000 })
+  })
+})

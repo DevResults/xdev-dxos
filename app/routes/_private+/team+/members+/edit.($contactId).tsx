@@ -16,14 +16,9 @@ export default function EditContactPage() {
 
   const contact = contacts.find(({ id }) => id === contactId)
 
-  // ----- ^ hooks
-
-  if (!contact) {
-    return null
-  }
-
   const handleSubmit = useCallback(
     async (values: EditContactValues) => {
+      if (!contact) return
       // Mutate the DXOS object directly
       contact.contact.firstName = values.firstName
       contact.contact.lastName = values.lastName
@@ -34,6 +29,12 @@ export default function EditContactPage() {
     },
     [contact, space, navigate],
   )
+
+  // ----- ^ hooks
+
+  if (!contact) {
+    return null
+  }
 
   return (
     <EditContactDialog
