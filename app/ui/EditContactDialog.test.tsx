@@ -4,7 +4,7 @@ import React from "react"
 import { cleanup, fireEvent, render, screen } from "@testing-library/react"
 import { afterEach, describe, expect, test, vi } from "vitest"
 import { EditContactDialog } from "./EditContactDialog"
-import type { ExtendedContact } from "~/schema/Contact"
+import type { Contact, ExtendedContact } from "~/schema/Contact"
 
 /** Create a mock ExtendedContact for testing. */
 function createMockContact(overrides: Partial<ExtendedContact> = {}): ExtendedContact {
@@ -21,7 +21,7 @@ function createMockContact(overrides: Partial<ExtendedContact> = {}): ExtendedCo
     identityId: undefined,
     invitation: undefined,
     invitationStatus: "NOT_INVITED",
-    contact: {} as any,
+    contact: {} as unknown as Contact,
     ...overrides,
   } as ExtendedContact
 }
@@ -69,7 +69,10 @@ describe("EditContactDialog", () => {
     expect(screen.getByLabelText("First name")).toHaveProperty("value", "Grace")
     expect(screen.getByLabelText("Last name")).toHaveProperty("value", "Hopper")
     expect(screen.getByLabelText("Username")).toHaveProperty("value", "grace")
-    expect(screen.getByLabelText("Avatar URL")).toHaveProperty("value", "https://example.com/grace.png")
+    expect(screen.getByLabelText("Avatar URL")).toHaveProperty(
+      "value",
+      "https://example.com/grace.png",
+    )
   })
 
   test("submit button says 'Save changes'", () => {
@@ -121,5 +124,47 @@ describe("EditContactDialog", () => {
     fireEvent.submit(form)
 
     expect(onSubmit).not.toHaveBeenCalled()
+  })
+
+  test("does not submit when firstName is only whitespace", () => {
+    const { onSubmit } = renderDialog()
+
+    fireEvent.change(screen.getByLabelText("First name"), { target: { value: "   " } })
+
+    const [form] = screen.getAllByTestId("edit-contact-form")
+    fireEvent.submit(form)
+
+    expect(onSubmit).not.toHaveBeenCalled()
+  })
+
+  test("does not submit when userName is only whitespace", () => {
+    const { onSubmit } = renderDialog()
+
+    fireEvent.change(screen.getByLabelText("Username"), { target: { value: "   " } })
+
+    const [form] = screen.getAllByTestId("edit-contact-form")
+    fireEvent.submit(form)
+
+    expect(onSubmit).not.toHaveBeenCalled()
+  })
+
+  test("cancel button is present and clickable", () => {
+    renderDialog()
+
+    const cancelButton = screen.getByRole("button", { name: "Cancel" })
+    expect(cancelButton).toBeDefined()
+
+    // Clicking cancel should not throw
+    fireEvent.click(cancelButton)
+  })
+
+  test("onClose is called when dialog closes after submit", () => {
+    const { onClose } = renderDialog()
+
+    const [form] = screen.getAllByTestId("edit-contact-form")
+    fireEvent.submit(form)
+
+    // onClose is called after successful submit
+    expect(onClose).toHaveBeenCalledTimes(1)
   })
 })
