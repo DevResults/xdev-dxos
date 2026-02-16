@@ -1,14 +1,13 @@
 import { useCallback } from "react"
-import { useLocation, useNavigate, useParams } from "react-router"
+import { useNavigate, useParams } from "react-router"
 import { useSpace } from "@dxos/react-client/echo"
-import { EditContactDialog, type EditContactValues } from "ui/EditContactDialog"
+import { EditContactForm, type EditContactValues } from "ui/EditContactForm"
 import { useTeam } from "~/hooks/useTeam"
 import { useLocalState } from "~/hooks/useLocalState"
 
+/** Route for editing a single contact's details. */
 export default function EditContactPage() {
-  const { contactId: contactIdFromParams } = useParams()
-  const { userId } = (useLocation().state as { userId?: string }) ?? {}
-  const contactId = contactIdFromParams ?? userId
+  const { contactId } = useParams()
   const { contacts } = useTeam()
   const { spaceKey } = useLocalState()
   const space = useSpace(spaceKey)
@@ -19,16 +18,19 @@ export default function EditContactPage() {
   const handleSubmit = useCallback(
     async (values: EditContactValues) => {
       if (!contact) return
-      // Mutate the DXOS object directly
       contact.contact.firstName = values.firstName
       contact.contact.lastName = values.lastName
       contact.contact.userName = values.userName
       contact.contact.avatarUrl = values.avatarUrl
       await space?.db.flush()
-      void navigate("..")
+      void navigate("/team/members")
     },
     [contact, space, navigate],
   )
+
+  const handleCancel = useCallback(() => {
+    void navigate("/team/members")
+  }, [navigate])
 
   // ----- ^ hooks
 
@@ -36,14 +38,5 @@ export default function EditContactPage() {
     return null
   }
 
-  return (
-    <EditContactDialog
-      defaultOpen={true}
-      onClose={() => {
-        void navigate("..")
-      }}
-      contact={contact}
-      onSubmit={handleSubmit}
-    />
-  )
+  return <EditContactForm contact={contact} onSubmit={handleSubmit} onCancel={handleCancel} />
 }

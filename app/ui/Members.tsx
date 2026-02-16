@@ -13,7 +13,6 @@ export const Members = ({
   onDemote = () => {},
   onInvite = () => {},
   onAddContact = () => {},
-  onEdit,
 }: Props) => {
   const adminIcon = <IconCircleKey className="size-5 text-primary-500" />
 
@@ -88,11 +87,9 @@ export const Members = ({
                 <Avatar contact={contact} />
                 <div>
                   <div className="font-medium">
-                    {onEdit ?
-                      <button onClick={() => onEdit(contact.id)} className="hover:underline">
-                        {contact.firstName}
-                      </button>
-                    : contact.firstName}
+                    <Link to={`/team/members/${contact.id}`} className="hover:underline">
+                      {contact.firstName}
+                    </Link>
                   </div>
                   <div className="flex flex-row gap-2 divide-x text-xs text-neutral-400 [&>div:not(:first-child)]:pl-2">
                     {contact.isSelf ?
@@ -173,5 +170,4 @@ type Props = {
   onInvite?: (userId: string) => void
   onAddContact?: () => void
   onRevokeInvitation?: (userId: string) => void
-  onEdit?: (contactId: string) => void
 }

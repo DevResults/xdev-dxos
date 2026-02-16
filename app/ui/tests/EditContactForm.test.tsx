@@ -2,8 +2,9 @@
 
 import React from "react"
 import { cleanup, fireEvent, render, screen } from "@testing-library/react"
+import { MemoryRouter } from "react-router"
 import { afterEach, describe, expect, test, vi } from "vitest"
-import { EditContactDialog } from "./EditContactDialog"
+import { EditContactForm } from "../EditContactForm"
 import type { Contact, ExtendedContact } from "~/schema/Contact"
 
 /** Create a mock ExtendedContact for testing. */
@@ -26,32 +27,35 @@ function createMockContact(overrides: Partial<ExtendedContact> = {}): ExtendedCo
   } as ExtendedContact
 }
 
-/** Render the dialog for interaction tests. */
-function renderDialog(props: Partial<React.ComponentProps<typeof EditContactDialog>> = {}) {
-  const onClose = vi.fn()
+/** Render the form for interaction tests. */
+function renderForm(props: Partial<React.ComponentProps<typeof EditContactForm>> = {}) {
+  const onCancel = vi.fn()
   const onSubmit = vi.fn()
   const contact = createMockContact(props.contact as Partial<ExtendedContact>)
 
   render(
-    React.createElement(EditContactDialog, {
-      defaultOpen: true,
-      onClose,
-      onSubmit,
-      contact,
-      ...props,
-    }),
+    React.createElement(
+      MemoryRouter,
+      null,
+      React.createElement(EditContactForm, {
+        onCancel,
+        onSubmit,
+        contact,
+        ...props,
+      }),
+    ),
   )
 
-  return { onClose, onSubmit, contact }
+  return { onCancel, onSubmit, contact }
 }
 
 afterEach(() => {
   cleanup()
 })
 
-describe("EditContactDialog", () => {
-  test("renders with the correct title", () => {
-    renderDialog()
+describe("EditContactForm", () => {
+  test("renders with the correct heading", () => {
+    renderForm()
 
     expect(screen.getByText("Edit contact")).toBeDefined()
   })
@@ -64,7 +68,7 @@ describe("EditContactDialog", () => {
       avatarUrl: "https://example.com/grace.png",
     })
 
-    renderDialog({ contact })
+    renderForm({ contact })
 
     expect(screen.getByLabelText("First name")).toHaveProperty("value", "Grace")
     expect(screen.getByLabelText("Last name")).toHaveProperty("value", "Hopper")
@@ -76,7 +80,7 @@ describe("EditContactDialog", () => {
   })
 
   test("submit button says 'Save changes'", () => {
-    renderDialog()
+    renderForm()
 
     expect(screen.getByRole("button", { name: "Save changes" })).toBeDefined()
   })
@@ -90,7 +94,7 @@ describe("EditContactDialog", () => {
       avatarUrl: "https://example.com/ada.png",
     })
 
-    const { onClose, onSubmit } = renderDialog({ contact })
+    const { onSubmit } = renderForm({ contact })
 
     // Update the form fields
     fireEvent.change(screen.getByLabelText("First name"), { target: { value: "  Grace  " } })
@@ -110,11 +114,10 @@ describe("EditContactDialog", () => {
       userName: "grace",
       avatarUrl: "https://example.com/grace.png",
     })
-    expect(onClose).toHaveBeenCalledTimes(1)
   })
 
   test("does not submit when required fields are empty", () => {
-    const { onSubmit } = renderDialog()
+    const { onSubmit } = renderForm()
 
     // Clear required fields
     fireEvent.change(screen.getByLabelText("First name"), { target: { value: "" } })
@@ -127,7 +130,7 @@ describe("EditContactDialog", () => {
   })
 
   test("does not submit when firstName is only whitespace", () => {
-    const { onSubmit } = renderDialog()
+    const { onSubmit } = renderForm()
 
     fireEvent.change(screen.getByLabelText("First name"), { target: { value: "   " } })
 
@@ -138,7 +141,7 @@ describe("EditContactDialog", () => {
   })
 
   test("does not submit when userName is only whitespace", () => {
-    const { onSubmit } = renderDialog()
+    const { onSubmit } = renderForm()
 
     fireEvent.change(screen.getByLabelText("Username"), { target: { value: "   " } })
 
@@ -148,23 +151,20 @@ describe("EditContactDialog", () => {
     expect(onSubmit).not.toHaveBeenCalled()
   })
 
-  test("cancel button is present and clickable", () => {
-    renderDialog()
+  test("cancel button calls onCancel", () => {
+    const { onCancel } = renderForm()
 
     const cancelButton = screen.getByRole("button", { name: "Cancel" })
-    expect(cancelButton).toBeDefined()
-
-    // Clicking cancel should not throw
     fireEvent.click(cancelButton)
+
+    expect(onCancel).toHaveBeenCalledTimes(1)
   })
 
-  test("onClose is called when dialog closes after submit", () => {
-    const { onClose } = renderDialog()
+  test("has a back link to members list", () => {
+    renderForm()
 
-    const [form] = screen.getAllByTestId("edit-contact-form")
-    fireEvent.submit(form)
-
-    // onClose is called after successful submit
-    expect(onClose).toHaveBeenCalledTimes(1)
+    const backLink = screen.getByText(/Back to members/)
+    expect(backLink).toBeDefined()
+    expect(backLink.getAttribute("href")).toBe("/team/members")
   })
 })
