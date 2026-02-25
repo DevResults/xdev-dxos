@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from "react"
+import { useCallback, useMemo, useRef } from "react"
 import { useNavigate } from "react-router"
 import { useSpace } from "@dxos/react-client/echo"
 import type { FieldPath } from "react-hook-form"
@@ -11,9 +11,10 @@ export default function MembersAddContactPage() {
   const navigate = useNavigate()
   const { spaceKey } = useLocalState()
   const space = useSpace(spaceKey)
+  const contactRef = useRef<Contact | undefined>(undefined)
 
-  const contact = useMemo(() => {
-    if (!space) return undefined
+  // Create the blank contact exactly once
+  if (space && !contactRef.current) {
     const newContact = makeContact({
       firstName: "",
       lastName: "",
@@ -21,13 +22,15 @@ export default function MembersAddContactPage() {
       avatarUrl: "",
     })
     space.db.add(newContact)
-    return newContact
-  }, [space])
+    contactRef.current = newContact
+  }
+
+  const contact = contactRef.current
 
   const extendedContact = useMemo(() => {
     if (!contact) return undefined
     return extendContact({
-      contact: contact as Contact,
+      contact,
       member: undefined,
       selfIdentity: undefined,
       invitation: undefined,
