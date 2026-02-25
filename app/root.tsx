@@ -1,28 +1,23 @@
-/** IBM Plex Sans — only the weights used in the app */
+import { ClientProvider } from "@dxos/react-client"
+import "@fontsource/ibm-plex-mono/400.css"
 import "@fontsource/ibm-plex-sans/300.css"
 import "@fontsource/ibm-plex-sans/400.css"
 import "@fontsource/ibm-plex-sans/500.css"
 import "@fontsource/ibm-plex-sans/600.css"
 import "@fontsource/ibm-plex-sans/700.css"
-
-/** IBM Plex Serif — used for headings (h2, year/week nav) */
 import "@fontsource/ibm-plex-serif/400.css"
 import "@fontsource/ibm-plex-serif/600.css"
 import "@fontsource/ibm-plex-serif/700.css"
-
-/** IBM Plex Mono — used for code displays */
-import "@fontsource/ibm-plex-mono/400.css"
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router"
-import { ClientProvider } from "@dxos/react-client"
 import { configProvider } from "./config"
 import "./index.css"
-import { DoneEntry } from "./schema/DoneEntry"
-import { TimeEntry } from "./schema/TimeEntry"
-import { Contact } from "./schema/Contact"
-import { Loading } from "./ui/Loading"
 import { Client } from "./schema/Client"
+import { Contact } from "./schema/Contact"
+import { DoneEntry } from "./schema/DoneEntry"
 import { Invitation } from "./schema/Invitation"
 import { Project } from "./schema/Project"
+import { TimeEntry } from "./schema/TimeEntry"
+import { Loading } from "./ui/Loading"
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
