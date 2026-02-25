@@ -1,7 +1,8 @@
 import { useCallback } from "react"
 import { useNavigate, useParams } from "react-router"
 import { useSpace } from "@dxos/react-client/echo"
-import { EditContactForm, type EditContactValues } from "ui/EditContactForm"
+import type { FieldPath } from "react-hook-form"
+import { ContactForm, type ContactFormValues } from "ui/ContactForm"
 import { useTeam } from "~/hooks/useTeam"
 import { useLocalState } from "~/hooks/useLocalState"
 
@@ -15,20 +16,16 @@ export default function EditContactPage() {
 
   const contact = contacts.find(({ id }) => id === contactId)
 
-  const handleSubmit = useCallback(
-    async (values: EditContactValues) => {
+  const handleSaveField = useCallback(
+    async (name: FieldPath<ContactFormValues>, value: string) => {
       if (!contact) return
-      contact.firstName = values.firstName
-      contact.lastName = values.lastName
-      contact.userName = values.userName
-      contact.avatarUrl = values.avatarUrl
+      contact[name] = value
       await space?.db.flush()
-      void navigate("/team/members")
     },
-    [contact, space, navigate],
+    [contact, space],
   )
 
-  const handleCancel = useCallback(() => {
+  const handleDone = useCallback(() => {
     void navigate("/team/members")
   }, [navigate])
 
@@ -36,5 +33,13 @@ export default function EditContactPage() {
 
   if (!contact) return null
 
-  return <EditContactForm contact={contact} onSubmit={handleSubmit} onCancel={handleCancel} />
+  return (
+    <ContactForm
+      contact={contact}
+      onSaveField={handleSaveField}
+      onDone={handleDone}
+      title="Edit contact"
+      description="Update the contact's information."
+    />
+  )
 }

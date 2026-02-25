@@ -1,29 +1,73 @@
+import { useCallback, useMemo } from "react"
 import { useNavigate } from "react-router"
 import { useSpace } from "@dxos/react-client/echo"
-import { AddContactDialog, type AddContactValues } from "ui/AddContactDialog"
-import { createContactFromValues } from "~/lib/createContactFromValues"
+import type { FieldPath } from "react-hook-form"
+import { ContactForm, type ContactFormValues } from "ui/ContactForm"
 import { useLocalState } from "~/hooks/useLocalState"
-import { make as makeContact } from "~/schema/Contact"
+import { extendContact, make as makeContact, type Contact } from "~/schema/Contact"
 
+/** Route for adding a new contact. Creates a blank contact upfront and auto-saves fields on blur. */
 export default function MembersAddContactPage() {
   const navigate = useNavigate()
   const { spaceKey } = useLocalState()
   const space = useSpace(spaceKey)
 
-  const handleClose = () => {
-    void navigate("..")
-  }
+  const contact = useMemo(() => {
+    if (!space) return undefined
+    const newContact = makeContact({
+      firstName: "",
+      lastName: "",
+      userName: "",
+      avatarUrl: "",
+    })
+    space.db.add(newContact)
+    return newContact
+  }, [space])
 
-  const handleSubmit = async (values: AddContactValues) => {
-    if (!space) {
-      return
-    }
+  const extendedContact = useMemo(() => {
+    if (!contact) return undefined
+    return extendContact({
+      contact: contact as Contact,
+      member: undefined,
+      selfIdentity: undefined,
+      invitation: undefined,
+      invitationStatus: "NOT_INVITED",
+    })
+  }, [contact])
 
-    const contact = makeContact(createContactFromValues(values))
-    space.db.add(contact)
-    await space.db.flush()
+  const handleSaveField = useCallback(
+    async (name: FieldPath<ContactFormValues>, value: string) => {
+      if (!contact) return
+      ;(contact as any)[name] = value
+      await space?.db.flush()
+    },
+    [contact, space],
+  )
+
+  const handleDone = useCallback(() => {
+    if (!contact) return
     void navigate(`/team/members/invite/${contact.id}`)
-  }
+  }, [navigate, contact])
 
-  return <AddContactDialog defaultOpen={true} onClose={handleClose} onSubmit={handleSubmit} />
+  const handleCancel = useCallback(() => {
+    if (contact && space) {
+      space.db.remove(contact)
+    }
+    void navigate("..")
+  }, [contact, space, navigate])
+
+  // ----- ^ hooks
+
+  if (!extendedContact) return null
+
+  return (
+    <ContactForm
+      contact={extendedContact}
+      onSaveField={handleSaveField}
+      onDone={handleDone}
+      onCancel={handleCancel}
+      title="Add contact"
+      description="Enter contact details to add a new team member."
+    />
+  )
 }
