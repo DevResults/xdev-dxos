@@ -1,6 +1,5 @@
 import { Obj, Type } from "@dxos/echo"
 import type { Identity } from "@dxos/react-client/halo"
-import type { PublicKey } from "@dxos/react-client"
 import { pipe, S } from "./lib/Effect"
 import { Cuid } from "./Cuid"
 import type { Invitation } from "./Invitation"
@@ -46,7 +45,7 @@ export const extendContact = ({
     contact,
     isSelf,
     isAdmin,
-    identityKey: identity?.identityKey,
+    identity,
     invitation,
     invitationStatus,
     get isMember() {
@@ -70,14 +69,12 @@ type ContactExtensions = {
   readonly contact: Contact
   readonly isSelf: boolean
   readonly isAdmin: boolean
-  readonly identityKey: PublicKey | undefined
+  readonly identity: Identity | undefined
   readonly invitation: Invitation | undefined
   readonly invitationStatus: ContactInvitationStatus
   readonly isMember: boolean
 }
 
-type ExtendedContactProps = Omit<ContactExtensions, "identityKey" | "isMember"> & {
-  identity: Identity | undefined
-}
+type ExtendedContactProps = Omit<ContactExtensions, "isMember">
 
 export type ContactInvitationStatus = "NOT_INVITED" | "PENDING" | "ACCEPTED" | "REVOKED" | "EXPIRED"

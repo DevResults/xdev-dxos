@@ -21,7 +21,7 @@ export default function RemovePage() {
   }
 
   const contact = contacts.find(({ id }) => id === userId)
-  if (!contact?.identityKey) {
+  if (!contact?.identity?.identityKey) {
     return null
   }
 
@@ -33,7 +33,7 @@ export default function RemovePage() {
       remove={async () => {
         // Remove from space
         await space?.updateMemberRole({
-          memberKey: contact.identityKey!,
+          memberKey: contact.identity!.identityKey,
           newRole: HaloSpaceMember.Role.REMOVED,
         })
         // Remove contact from contacts list
