@@ -52,7 +52,7 @@ export default function MembersInvitePage() {
 
     const newInvitation = space.share({
       type: Invitation.Type.INTERACTIVE,
-      authMethod: Invitation.AuthMethod.SHARED_SECRET,
+      authMethod: Invitation.AuthMethod.NONE,
       multiUse: false,
     })
 
@@ -68,7 +68,7 @@ export default function MembersInvitePage() {
   }, [contactId, space])
 
   // Use the hook to track invitation status
-  const { invitationCode, authCode } = useInvitationStatus(invitation)
+  const { invitationCode } = useInvitationStatus(invitation)
 
   // Persist invitation code and auth code after DXOS generates them.
   useEffect(() => {
@@ -80,11 +80,7 @@ export default function MembersInvitePage() {
     if (shouldUpdateInvitationCode(invitationRecord.invitationCode, invitationCode)) {
       invitationRecord.invitationCode = invitationCode
     }
-
-    if (authCode && !invitationRecord.authCode) {
-      invitationRecord.authCode = authCode
-    }
-  }, [invitationCode, authCode])
+  }, [invitationCode])
 
   // Don't cancel the invitation on close — DXOS invitations expire naturally
   // (7-day lifetime), and keeping them active lets the user view the invitation
@@ -98,11 +94,6 @@ export default function MembersInvitePage() {
   }
 
   return (
-    <InviteMemberDialog
-      defaultOpen={true}
-      onClose={handleClose}
-      invitationCode={invitationCode}
-      authCode={authCode}
-    />
+    <InviteMemberDialog defaultOpen={true} onClose={handleClose} invitationCode={invitationCode} />
   )
 }

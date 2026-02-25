@@ -11,7 +11,6 @@ export default function ViewInvitationPage() {
 
   const contact = contactId ? contacts.find(c => c.id === contactId) : undefined
   const invitationCode = contact?.invitation?.invitationCode
-  const authCode = contact?.invitation?.authCode
 
   const handleClose = useCallback(() => {
     void navigate("..")
@@ -22,11 +21,6 @@ export default function ViewInvitationPage() {
   }
 
   return (
-    <InviteMemberDialog
-      defaultOpen={true}
-      onClose={handleClose}
-      invitationCode={invitationCode}
-      authCode={authCode}
-    />
+    <InviteMemberDialog defaultOpen={true} onClose={handleClose} invitationCode={invitationCode} />
   )
 }
