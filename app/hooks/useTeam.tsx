@@ -40,7 +40,8 @@ export const useTeam = () => {
   const invitations = useQuery(space, Filter.type(Invitation))
   const contacts = rawContacts.map(c => {
     const member = members.find(m => m.identity.identityKey.toString() === c.identityId)
-    const isAdmin = member?.role === HaloSpaceMember.Role.OWNER
+    const isAdmin =
+      member?.role === HaloSpaceMember.Role.OWNER || member?.role === HaloSpaceMember.Role.ADMIN
     const isSelf = member?.identity.identityKey.toString() === identity?.identityKey.toString()
     const invitation = getContactInvitation(c.id, invitations)
     return extendContact({
