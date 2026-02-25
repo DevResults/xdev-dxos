@@ -34,7 +34,8 @@ export const Members = ({
         {contacts.sort(by("lastName")).map(contact => {
           // Admin users can toggle status for team members other than themselves
           const canChangeAdminStatus = self.isAdmin && !contact.isSelf
-          const { statusLabel, canInvite, canRevoke } = getContactMembershipDisplay(contact)
+          const { statusLabel, canInvite, canRevoke, canViewInvitation } =
+            getContactMembershipDisplay(contact)
           return (
             <div
               key={contact.id}
@@ -102,8 +103,8 @@ export const Members = ({
                 </div>
               </div>
 
-              {/* Invite or revoke button */}
-              <div className="text-center">
+              {/* Invite, view, or revoke buttons */}
+              <div className="flex items-center justify-end gap-2">
                 {!contact.isSelf && canInvite ?
                   <Button
                     intent="primary"
@@ -113,6 +114,15 @@ export const Members = ({
                     }}
                   >
                     Invite
+                  </Button>
+                : null}
+
+                {/* View invitation button */}
+                {canViewInvitation ?
+                  <Button asChild intent="neutral" size="xs">
+                    <Link to={`/team/members/invitation/${contact.id}`} title="View invitation">
+                      View
+                    </Link>
                   </Button>
                 : null}
 

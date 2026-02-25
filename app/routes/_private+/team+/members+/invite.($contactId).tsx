@@ -84,10 +84,12 @@ export default function MembersInvitePage() {
     invitationRecord.invitationCode = invitationCode
   }, [invitationCode])
 
+  // Don't cancel the invitation on close — DXOS invitations expire naturally
+  // (7-day lifetime), and keeping them active lets the user view the invitation
+  // details again from the members list.
   const handleClose = useCallback(() => {
-    void invitation?.cancel()
     void navigate("..")
-  }, [invitation, navigate])
+  }, [navigate])
 
   if (!contactId) {
     return null

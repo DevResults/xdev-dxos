@@ -35,6 +35,7 @@ describe("getContactMembershipDisplay", () => {
       statusLabel: "Invitation pending",
       canInvite: false,
       canRevoke: true,
+      canViewInvitation: true,
     })
 
     expect(

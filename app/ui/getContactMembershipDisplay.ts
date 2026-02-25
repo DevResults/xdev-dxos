@@ -15,7 +15,12 @@ export function getContactMembershipDisplay({
   }
 
   if (invitationStatus === "PENDING") {
-    return { statusLabel: "Invitation pending", canInvite: false, canRevoke: true }
+    return {
+      statusLabel: "Invitation pending",
+      canInvite: false,
+      canRevoke: true,
+      canViewInvitation: true,
+    }
   }
 
   if (invitationStatus === "REVOKED") {
@@ -43,4 +48,5 @@ type Output = {
   statusLabel: string
   canInvite: boolean
   canRevoke: boolean
+  canViewInvitation?: boolean
 }
