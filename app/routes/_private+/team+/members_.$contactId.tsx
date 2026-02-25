@@ -34,9 +34,7 @@ export default function EditContactPage() {
 
   // ----- ^ hooks
 
-  if (!contact) {
-    return null
-  }
+  if (!contact) return null
 
   return <EditContactForm contact={contact} onSubmit={handleSubmit} onCancel={handleCancel} />
 }
