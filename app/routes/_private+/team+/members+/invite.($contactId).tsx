@@ -70,19 +70,21 @@ export default function MembersInvitePage() {
   // Use the hook to track invitation status
   const { invitationCode, authCode } = useInvitationStatus(invitation)
 
-  // Persist invitation code after DXOS generates it.
+  // Persist invitation code and auth code after DXOS generates them.
   useEffect(() => {
     const invitationRecord = invitationRecordRef.current
     if (!invitationRecord) {
       return
     }
 
-    if (!shouldUpdateInvitationCode(invitationRecord.invitationCode, invitationCode)) {
-      return
+    if (shouldUpdateInvitationCode(invitationRecord.invitationCode, invitationCode)) {
+      invitationRecord.invitationCode = invitationCode
     }
 
-    invitationRecord.invitationCode = invitationCode
-  }, [invitationCode])
+    if (authCode && !invitationRecord.authCode) {
+      invitationRecord.authCode = authCode
+    }
+  }, [invitationCode, authCode])
 
   // Don't cancel the invitation on close — DXOS invitations expire naturally
   // (7-day lifetime), and keeping them active lets the user view the invitation

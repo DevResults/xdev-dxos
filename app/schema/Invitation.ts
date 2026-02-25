@@ -15,6 +15,8 @@ export const Invitation = S.Struct({
   contactId: S.String,
   /** The human-readable invitation code */
   invitationCode: S.String,
+  /** The shared-secret verification code */
+  authCode: S.optional(S.String),
   /** The DXOS internal invitation ID */
   dxosInvitationId: S.optional(S.String),
   /** Current status of the invitation */
