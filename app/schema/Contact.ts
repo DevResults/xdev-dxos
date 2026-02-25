@@ -30,74 +30,50 @@ export const make = (props: Omit<EncodedContact, "id">) => Obj.make(Contact, pro
 
 type EncodedContact = S.Schema.Encoded<typeof Contact>
 
-// Unable to extend dxos objects the same way, so we'll do it naively
-export class ExtendedContact implements EncodedContact {
+/** Contact with extra UI-facing properties, proxied to the underlying DXOS object. */
+export type ExtendedContact = Contact & ContactExtensions
+
+/** Create an ExtendedContact that proxies reads/writes to the underlying DXOS Contact. */
+export const extendContact = ({
+  contact,
+  isSelf,
+  isAdmin,
+  identity,
+  invitation,
+  invitationStatus,
+}: ExtendedContactProps): ExtendedContact => {
+  const extensions: ContactExtensions = {
+    contact,
+    isSelf,
+    isAdmin,
+    identityKey: identity?.identityKey,
+    invitation,
+    invitationStatus,
+    get isMember() {
+      return Boolean(contact.identityId)
+    },
+  }
+
+  return new Proxy(contact, {
+    get(target, prop, receiver) {
+      if (prop in extensions) return extensions[prop as keyof ContactExtensions]
+      return Reflect.get(target, prop, receiver)
+    },
+    set(target, prop, value, receiver) {
+      if (prop in extensions) return false
+      return Reflect.set(target, prop, value, receiver)
+    },
+  }) as unknown as ExtendedContact
+}
+
+type ContactExtensions = {
   readonly contact: Contact
   readonly isSelf: boolean
   readonly isAdmin: boolean
   readonly identityKey: PublicKey | undefined
   readonly invitation: Invitation | undefined
   readonly invitationStatus: ContactInvitationStatus
-
-  constructor({
-    contact,
-    isSelf,
-    isAdmin,
-    identity,
-    invitation,
-    invitationStatus,
-  }: ExtendedContactProps) {
-    this.contact = contact
-    this.isSelf = isSelf
-    this.isAdmin = isAdmin
-    this.identityKey = identity?.identityKey
-    this.invitation = invitation
-    this.invitationStatus = invitationStatus
-  }
-
-  get isMember() {
-    return Boolean(this.contact.identityId)
-  }
-
-  get id() {
-    return this.contact.id
-  }
-
-  get identityId() {
-    return this.contact.identityId
-  }
-
-  get userName() {
-    return this.contact.userName
-  }
-
-  set userName(value: string) {
-    this.contact.userName = value
-  }
-
-  get firstName() {
-    return this.contact.firstName
-  }
-
-  set firstName(value: string) {
-    this.contact.firstName = value
-  }
-
-  get lastName() {
-    return this.contact.lastName
-  }
-
-  set lastName(value: string) {
-    this.contact.lastName = value
-  }
-
-  get avatarUrl() {
-    return this.contact.avatarUrl
-  }
-
-  set avatarUrl(value: string) {
-    this.contact.avatarUrl = value
-  }
+  readonly isMember: boolean
 }
 
 type ExtendedContactProps = {

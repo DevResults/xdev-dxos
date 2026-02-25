@@ -11,7 +11,7 @@ import { useMemo } from "react"
 import { getContactInvitation } from "./getContactInvitation"
 import { getInvitationStatus } from "./getInvitationStatus"
 import { useLocalState } from "./useLocalState"
-import { Contact, ExtendedContact } from "~/schema/Contact"
+import { Contact, extendContact } from "~/schema/Contact"
 import { Invitation } from "~/schema/Invitation"
 
 // Create a stable empty observable for when space.members is undefined
@@ -43,7 +43,7 @@ export const useTeam = () => {
     const isAdmin = member?.role === HaloSpaceMember.Role.OWNER
     const isSelf = member?.identity.identityKey.toString() === identity?.identityKey.toString()
     const invitation = getContactInvitation(c.id, invitations)
-    return new ExtendedContact({
+    return extendContact({
       contact: c,
       isAdmin,
       isSelf,

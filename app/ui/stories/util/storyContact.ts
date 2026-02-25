@@ -1,5 +1,5 @@
 import { contacts } from "data/contacts"
-import { ExtendedContact } from "schema/Contact"
+import { extendContact, type ExtendedContact } from "schema/Contact"
 
 export function storyContact(
   firstName: string,
@@ -9,11 +9,12 @@ export function storyContact(
   }: Parameters_ = {},
 ): ExtendedContact {
   const c = contacts.find(c => c.id === firstName.toLowerCase())!
-  return new ExtendedContact({
+  return extendContact({
     contact: c,
     isSelf: self,
     isAdmin: admin,
     identity: undefined,
+    invitationStatus: "NOT_INVITED",
   })
 }
 
