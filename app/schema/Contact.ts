@@ -57,6 +57,7 @@ export const extendContact = ({
   return new Proxy(contact, {
     get(target, prop, receiver) {
       if (prop in extensions) return extensions[prop as keyof ContactExtensions]
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
       return Reflect.get(target, prop, receiver)
     },
     set(target, prop, value, receiver) {
