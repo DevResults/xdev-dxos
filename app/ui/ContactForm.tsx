@@ -5,25 +5,22 @@ import { Input } from "@ui/input"
 import type { FieldPath } from "react-hook-form"
 import { useAutoSaveForm } from "~/hooks/useAutoSaveForm"
 import { S } from "~/schema/lib/Effect"
-import type { ExtendedContact } from "~/schema/Contact"
 
 /** Unified form for creating and editing contacts, with per-field auto-save on blur. */
-export function ContactForm({ contact, onSaveField, onDone, onCancel, title, description }: Props) {
-  const { form, saveOnBlur } = useAutoSaveForm(
-    contactFormSchema,
-    {
-      firstName: contact.firstName ?? "",
-      lastName: contact.lastName ?? "",
-      userName: contact.userName ?? "",
-      avatarUrl: contact.avatarUrl ?? "",
-    },
-    onSaveField,
-  )
+export function ContactForm({
+  defaultValues,
+  onSaveField,
+  onDone,
+  onCancel,
+  title,
+  description,
+}: Props) {
+  const { form, saveOnBlur } = useAutoSaveForm(contactFormSchema, defaultValues, onSaveField)
 
   const handleDone = async () => {
     const isValid = await form.trigger()
     if (isValid) {
-      onDone()
+      onDone(form.getValues())
     }
   }
 
@@ -110,13 +107,13 @@ type FieldConfig = {
 }
 
 export type Props = {
-  /** The contact to edit (read initial values from this DXOS object). */
-  contact: ExtendedContact
+  /** Initial form values. */
+  defaultValues: ContactFormValues
   /** Called on valid blur with the field name and its new value. */
   onSaveField: (name: FieldPath<ContactFormValues>, value: string) => Promise<void>
-  /** Called when the user clicks Done (after validation passes). */
-  onDone: () => void
-  /** Optional cancel handler (used in add flow to clean up orphan). */
+  /** Called when the user clicks Done (after validation passes). Receives the final form values. */
+  onDone: (values: ContactFormValues) => void
+  /** Optional cancel handler (used in add flow). */
   onCancel?: () => void
   /** Form heading text. */
   title: string

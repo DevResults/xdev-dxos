@@ -4,29 +4,20 @@ import React from "react"
 import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react"
 import { MemoryRouter } from "react-router"
 import { afterEach, describe, expect, test, vi } from "vitest"
-import { ContactForm } from "../ContactForm"
-import type { Contact, ExtendedContact } from "~/schema/Contact"
+import { ContactForm, type ContactFormValues } from "../ContactForm"
 
-/** Create a mock ExtendedContact for testing. */
-function createMockContact(overrides: Partial<ExtendedContact> = {}): ExtendedContact {
-  return {
-    id: "test-contact-id",
-    firstName: "Ada",
-    lastName: "Lovelace",
-    userName: "ada",
-    avatarUrl: "https://example.com/ada.png",
-    isSelf: false,
-    isAdmin: false,
-    isMember: false,
-    member: undefined,
-    selfIdentity: undefined,
-    identity: undefined,
-    identityId: undefined,
-    invitation: undefined,
-    invitationStatus: "NOT_INVITED",
-    contact: {} as unknown as Contact,
-    ...overrides,
-  } as ExtendedContact
+const DEFAULT_VALUES: ContactFormValues = {
+  firstName: "Ada",
+  lastName: "Lovelace",
+  userName: "ada",
+  avatarUrl: "https://example.com/ada.png",
+}
+
+const EMPTY_VALUES: ContactFormValues = {
+  firstName: "",
+  lastName: "",
+  userName: "",
+  avatarUrl: "",
 }
 
 /** Render the ContactForm for interaction tests. */
@@ -34,14 +25,13 @@ function renderForm(props: Partial<React.ComponentProps<typeof ContactForm>> = {
   const onSaveField = vi.fn().mockResolvedValue(undefined)
   const onDone = vi.fn()
   const onCancel = vi.fn()
-  const contact = props.contact ?? createMockContact()
 
   render(
     React.createElement(
       MemoryRouter,
       null,
       React.createElement(ContactForm, {
-        contact,
+        defaultValues: DEFAULT_VALUES,
         onSaveField,
         onDone,
         title: "Edit contact",
@@ -52,7 +42,7 @@ function renderForm(props: Partial<React.ComponentProps<typeof ContactForm>> = {
     ),
   )
 
-  return { onSaveField, onDone, onCancel, contact }
+  return { onSaveField, onDone, onCancel }
 }
 
 afterEach(() => {
@@ -71,15 +61,15 @@ describe("ContactForm", () => {
     expect(screen.getByText("Enter details.")).toBeDefined()
   })
 
-  test("form is pre-filled with the contact's data", () => {
-    const contact = createMockContact({
-      firstName: "Grace",
-      lastName: "Hopper",
-      userName: "grace",
-      avatarUrl: "https://example.com/grace.png",
+  test("form is pre-filled with default values", () => {
+    renderForm({
+      defaultValues: {
+        firstName: "Grace",
+        lastName: "Hopper",
+        userName: "grace",
+        avatarUrl: "https://example.com/grace.png",
+      },
     })
-
-    renderForm({ contact })
 
     expect(screen.getByLabelText("First name")).toHaveProperty("value", "Grace")
     expect(screen.getByLabelText("Last name")).toHaveProperty("value", "Hopper")
@@ -125,14 +115,12 @@ describe("ContactForm", () => {
   })
 
   test("blur on invalid required field does not call onSaveField", async () => {
-    const contact = createMockContact({ firstName: "" })
-    const { onSaveField } = renderForm({ contact })
+    const { onSaveField } = renderForm({ defaultValues: EMPTY_VALUES })
 
     const firstNameInput = screen.getByLabelText("First name")
     fireEvent.change(firstNameInput, { target: { value: "" } })
     fireEvent.blur(firstNameInput)
 
-    // Wait a tick to ensure async validation settles
     await waitFor(() => {
       expect(screen.getByText("First name is required.")).toBeDefined()
     })
@@ -141,12 +129,7 @@ describe("ContactForm", () => {
   })
 
   test("Done validates all fields before calling onDone", async () => {
-    const contact = createMockContact({ firstName: "", userName: "" })
-    const { onDone } = renderForm({ contact })
-
-    // Clear the required fields
-    fireEvent.change(screen.getByLabelText("First name"), { target: { value: "" } })
-    fireEvent.change(screen.getByLabelText("Username"), { target: { value: "" } })
+    const { onDone } = renderForm({ defaultValues: EMPTY_VALUES })
 
     const doneButton = screen.getByRole("button", { name: "Done" })
     fireEvent.click(doneButton)
@@ -159,7 +142,7 @@ describe("ContactForm", () => {
     expect(onDone).not.toHaveBeenCalled()
   })
 
-  test("Done calls onDone when all fields are valid", async () => {
+  test("Done calls onDone with form values when all fields are valid", async () => {
     const { onDone } = renderForm()
 
     const doneButton = screen.getByRole("button", { name: "Done" })
@@ -167,6 +150,7 @@ describe("ContactForm", () => {
 
     await waitFor(() => {
       expect(onDone).toHaveBeenCalledTimes(1)
+      expect(onDone).toHaveBeenCalledWith(DEFAULT_VALUES)
     })
   })
 

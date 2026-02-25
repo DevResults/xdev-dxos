@@ -25,9 +25,12 @@ export default function EditContactPage() {
     [contact, space],
   )
 
-  const handleDone = useCallback(() => {
-    void navigate("/team/members")
-  }, [navigate])
+  const handleDone = useCallback(
+    (_values: ContactFormValues) => {
+      void navigate("/team/members")
+    },
+    [navigate],
+  )
 
   // ----- ^ hooks
 
@@ -35,7 +38,12 @@ export default function EditContactPage() {
 
   return (
     <ContactForm
-      contact={contact}
+      defaultValues={{
+        firstName: contact.firstName ?? "",
+        lastName: contact.lastName ?? "",
+        userName: contact.userName ?? "",
+        avatarUrl: contact.avatarUrl ?? "",
+      }}
       onSaveField={handleSaveField}
       onDone={handleDone}
       title="Edit contact"
