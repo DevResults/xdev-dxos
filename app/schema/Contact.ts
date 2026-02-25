@@ -36,7 +36,7 @@ export class ExtendedContact implements EncodedContact {
   readonly isSelf: boolean
   readonly isAdmin: boolean
   readonly identityKey: PublicKey | undefined
-  readonly invitation?: Invitation
+  readonly invitation: Invitation | undefined
   readonly invitationStatus: ContactInvitationStatus
 
   constructor({
