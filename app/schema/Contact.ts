@@ -1,4 +1,5 @@
 import { Obj, Type } from "@dxos/echo"
+import { HaloSpaceMember, type SpaceMember } from "@dxos/react-client/echo"
 import type { Identity } from "@dxos/react-client/halo"
 import { pipe, S } from "./lib/Effect"
 import { Cuid } from "./Cuid"
@@ -40,19 +41,28 @@ export type ExtendedContact = Contact & ContactExtensions
 /** Create an ExtendedContact that proxies reads/writes to the underlying DXOS Contact. */
 export const extendContact = ({
   contact,
-  isSelf,
-  isAdmin,
-  identity,
+  member,
+  selfIdentity,
   invitation,
   invitationStatus,
 }: ExtendedContactProps): ExtendedContact => {
   const extensions: ContactExtensions = {
     contact,
-    isSelf,
-    isAdmin,
-    identity,
+    member,
+    selfIdentity,
     invitation,
     invitationStatus,
+    get identity() {
+      return member?.identity
+    },
+    get isAdmin() {
+      return (
+        member?.role === HaloSpaceMember.Role.OWNER || member?.role === HaloSpaceMember.Role.ADMIN
+      )
+    },
+    get isSelf() {
+      return member?.identity.identityKey.toString() === selfIdentity?.identityKey.toString()
+    },
     get isMember() {
       return Boolean(contact.identityId)
     },
@@ -72,14 +82,16 @@ export const extendContact = ({
 
 type ContactExtensions = {
   readonly contact: Contact
-  readonly isSelf: boolean
-  readonly isAdmin: boolean
-  readonly identity: Identity | undefined
+  readonly member: SpaceMember | undefined
+  readonly selfIdentity: Identity | undefined
   readonly invitation: Invitation | undefined
   readonly invitationStatus: ContactInvitationStatus
+  readonly identity: Identity | undefined
+  readonly isAdmin: boolean
+  readonly isSelf: boolean
   readonly isMember: boolean
 }
 
-type ExtendedContactProps = Omit<ContactExtensions, "isMember">
+type ExtendedContactProps = Omit<ContactExtensions, "isMember" | "identity" | "isAdmin" | "isSelf">
 
 export type ContactInvitationStatus = "NOT_INVITED" | "PENDING" | "ACCEPTED" | "REVOKED" | "EXPIRED"

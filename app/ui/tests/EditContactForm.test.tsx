@@ -18,6 +18,8 @@ function createMockContact(overrides: Partial<ExtendedContact> = {}): ExtendedCo
     isSelf: false,
     isAdmin: false,
     isMember: false,
+    member: undefined,
+    selfIdentity: undefined,
     identity: undefined,
     identityId: undefined,
     invitation: undefined,

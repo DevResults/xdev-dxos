@@ -1,24 +1,27 @@
 import { contacts } from "data/contacts"
-import { extendContact, type ExtendedContact } from "schema/Contact"
+import type { ExtendedContact } from "schema/Contact"
 
+/** Create a mock ExtendedContact for stories. */
 export function storyContact(
   firstName: string,
-  {
-    admin = false, //
-    self = false,
-  }: Parameters_ = {},
+  { admin = false, self = false }: StoryContactOptions = {},
 ): ExtendedContact {
   const c = contacts.find(c => c.id === firstName.toLowerCase())!
-  return extendContact({
+  return {
+    ...c,
     contact: c,
-    isSelf: self,
-    isAdmin: admin,
+    member: undefined,
+    selfIdentity: undefined,
     identity: undefined,
+    invitation: undefined,
     invitationStatus: "NOT_INVITED",
-  })
+    isAdmin: admin,
+    isSelf: self,
+    isMember: false,
+  } as ExtendedContact
 }
 
-type Parameters_ = {
+type StoryContactOptions = {
   admin?: boolean
   self?: boolean
 }

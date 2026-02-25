@@ -1,11 +1,5 @@
 import { DeviceKind, useDevices, useIdentity } from "@dxos/react-client/halo"
-import {
-  HaloSpaceMember,
-  Filter,
-  useQuery,
-  useSpace,
-  type SpaceMember,
-} from "@dxos/react-client/echo"
+import { Filter, useQuery, useSpace, type SpaceMember } from "@dxos/react-client/echo"
 import { useMulticastObservable } from "@dxos/react-client"
 import { useMemo } from "react"
 import { getContactInvitation } from "./getContactInvitation"
@@ -29,26 +23,17 @@ export const useTeam = () => {
   const identity = useIdentity()
   const { spaceKey } = useLocalState()
   const space = useSpace(spaceKey)
-  // Use space.members directly instead of useMembers hook which has issues finding the space
   const emptyObservable = useMemo(createEmptyObservable, [])
-  // Cast needed because our minimal observable doesn't have all MulticastObservable properties,
-  // but useMulticastObservable only uses get() and subscribe()
-  const members: SpaceMember[] =
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-    useMulticastObservable((space?.members ?? emptyObservable) as any) ?? []
+  const members: SpaceMember[] = useMulticastObservable(space?.members ?? emptyObservable) ?? []
   const rawContacts = useQuery(space, Filter.type(Contact))
   const invitations = useQuery(space, Filter.type(Invitation))
   const contacts = rawContacts.map(c => {
     const member = members.find(m => m.identity.identityKey.toString() === c.identityId)
-    const isAdmin =
-      member?.role === HaloSpaceMember.Role.OWNER || member?.role === HaloSpaceMember.Role.ADMIN
-    const isSelf = member?.identity.identityKey.toString() === identity?.identityKey.toString()
     const invitation = getContactInvitation(c.id, invitations)
     return extendContact({
       contact: c,
-      isAdmin,
-      isSelf,
-      identity: member?.identity,
+      member,
+      selfIdentity: identity ?? undefined,
       invitation,
       invitationStatus: getInvitationStatus(invitation),
     })
