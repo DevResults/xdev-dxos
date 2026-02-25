@@ -71,16 +71,32 @@ export class ExtendedContact implements EncodedContact {
     return this.contact.userName
   }
 
+  set userName(value: string) {
+    this.contact.userName = value
+  }
+
   get firstName() {
     return this.contact.firstName
+  }
+
+  set firstName(value: string) {
+    this.contact.firstName = value
   }
 
   get lastName() {
     return this.contact.lastName
   }
 
+  set lastName(value: string) {
+    this.contact.lastName = value
+  }
+
   get avatarUrl() {
     return this.contact.avatarUrl
+  }
+
+  set avatarUrl(value: string) {
+    this.contact.avatarUrl = value
   }
 }
 

@@ -18,10 +18,10 @@ export default function EditContactPage() {
   const handleSubmit = useCallback(
     async (values: EditContactValues) => {
       if (!contact) return
-      contact.contact.firstName = values.firstName
-      contact.contact.lastName = values.lastName
-      contact.contact.userName = values.userName
-      contact.contact.avatarUrl = values.avatarUrl
+      contact.firstName = values.firstName
+      contact.lastName = values.lastName
+      contact.userName = values.userName
+      contact.avatarUrl = values.avatarUrl
       await space?.db.flush()
       void navigate("/team/members")
     },

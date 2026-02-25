@@ -14,7 +14,7 @@ type Story = StoryObj<typeof meta>
 
 const herb = storyContact("herb")
 const herbWithoutAvatar = storyContact("herb")
-herbWithoutAvatar.contact.avatarUrl = ""
+herbWithoutAvatar.avatarUrl = ""
 
 export const ExtraSmall: Story = { args: { size: "xs", contact: herb } }
 export const ExtraSmallNoImage: Story = {
