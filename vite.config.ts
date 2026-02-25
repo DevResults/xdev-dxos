@@ -66,15 +66,15 @@ export default defineConfig({
     autoImport(autoImportOptions),
     icons({ compiler: "jsx", jsx: "react" }),
     topLevelAwait(), // Needed for DXOS WASM modules
-    // Skip PostCSS for DXOS CSS files that use their own Tailwind classes
+    // Strip invalid @apply directives from DXOS CSS/PCSS files to prevent
+    // PostCSS errors and esbuild minification warnings (e.g. @apply -mie-2)
     {
-      name: "skip-postcss-for-dxos",
+      name: "strip-dxos-apply",
       enforce: "pre",
       transform(code, id) {
-        if (id.includes("node_modules/@dxos") && id.endsWith(".pcss")) {
-          // Return raw CSS without @apply transforms
+        if (id.includes("node_modules/@dxos") && (id.endsWith(".pcss") || id.endsWith(".css"))) {
           return {
-            code: code.replaceAll(/@apply\s+[^;]+;/g, "/* skipped @apply */"),
+            code: code.replaceAll(/@apply\s+[^;}]+[;]?/g, "/* skipped @apply */"),
             map: null,
           }
         }
@@ -92,10 +92,6 @@ export default defineConfig({
         if (warning.code === "EVAL" && warning.id?.includes("node_modules")) return
         warn(warning)
       },
-    },
-    // Suppress CSS syntax warnings from @dxos/shell's invalid @apply directives
-    cssMinifyOptions: {
-      logOverrides: { "css-syntax-error": "silent" },
     },
   },
   resolve: {
