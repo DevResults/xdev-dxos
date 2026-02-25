@@ -1,8 +1,8 @@
 import { Button } from "@ui/button"
 import {
   Dialog,
-  DialogBody,
   DialogContent,
+  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
@@ -34,12 +34,8 @@ export function ConfirmDialog({
       <DialogContent className="max-w-xl">
         <DialogHeader>
           <DialogTitle>{title}</DialogTitle>
+          <DialogDescription>{body}</DialogDescription>
         </DialogHeader>
-        <DialogBody>
-          <div className="flex flex-col space-y-4">
-            <p>{body}</p>
-          </div>
-        </DialogBody>
         <DialogFooter>
           <Button
             intent="neutral"

@@ -3,6 +3,7 @@ import {
   Dialog,
   DialogBody,
   DialogContent,
+  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
@@ -40,9 +41,9 @@ export function InviteMemberDialog({ onClose, invitationCode, defaultOpen = fals
         </DialogHeader>
         <DialogBody>
           <div className="flex min-w-0 flex-col space-y-4 overflow-hidden">
-            <p className="text-sm text-neutral-600">
+            <DialogDescription>
               Share this QR code or link with the person you want to invite.
-            </p>
+            </DialogDescription>
 
             {/* QR Code */}
             <div className="flex justify-center rounded-lg bg-white p-4">

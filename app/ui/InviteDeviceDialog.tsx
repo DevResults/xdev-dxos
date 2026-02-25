@@ -3,6 +3,7 @@ import {
   Dialog,
   DialogBody,
   DialogContent,
+  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
@@ -40,9 +41,9 @@ export function InviteDeviceDialog({ onClose, invitationCode, defaultOpen = fals
         </DialogHeader>
         <DialogBody>
           <div className="flex min-w-0 flex-col space-y-4 overflow-hidden">
-            <p className="text-sm text-neutral-600">
+            <DialogDescription>
               Scan this QR code on your other device to link it to your account.
-            </p>
+            </DialogDescription>
 
             {/* QR Code */}
             <div className="flex justify-center rounded-lg bg-white p-4">
