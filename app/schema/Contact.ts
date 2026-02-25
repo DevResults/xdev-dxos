@@ -63,7 +63,7 @@ export const extendContact = ({
       if (prop in extensions) return false
       return Reflect.set(target, prop, value, receiver)
     },
-  }) as unknown as ExtendedContact
+  }) as ExtendedContact
 }
 
 type ContactExtensions = {
@@ -76,13 +76,8 @@ type ContactExtensions = {
   readonly isMember: boolean
 }
 
-type ExtendedContactProps = {
-  contact: Contact
-  isSelf: boolean
-  isAdmin: boolean
+type ExtendedContactProps = Omit<ContactExtensions, "identityKey" | "isMember"> & {
   identity: Identity | undefined
-  invitation?: Invitation
-  invitationStatus: ContactInvitationStatus
 }
 
 export type ContactInvitationStatus = "NOT_INVITED" | "PENDING" | "ACCEPTED" | "REVOKED" | "EXPIRED"
