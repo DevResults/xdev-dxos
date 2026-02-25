@@ -11,6 +11,7 @@ The user wants to invert this: create contacts first with full profile informati
 **Matching Strategy:** Use DXOS invitation codes as the linking mechanism. Each invitation will be associated with a specific contact via a new `Invitation` schema.
 
 **Flow:**
+
 1. Admin creates contact with full profile (no identityId yet)
 2. Admin invites that contact, creating both:
    - DXOS invitation (via `space.share()`)
@@ -24,6 +25,7 @@ The user wants to invert this: create contacts first with full profile informati
 ## Data Model Changes
 
 ### New Schema: Invitation
+
 **File:** `app/schema/Invitation.ts`
 
 ```typescript
@@ -39,6 +41,7 @@ The user wants to invert this: create contacts first with full profile informati
 ```
 
 ### Update Contact Schema
+
 **File:** `app/schema/Contact.ts`
 
 - Make `identityId` optional (it's populated only after join)
@@ -46,6 +49,7 @@ The user wants to invert this: create contacts first with full profile informati
 - Update `isMember` getter to check `Boolean(identityId)` instead of always returning true
 
 ### Register Schema
+
 **File:** `app/root.tsx`
 
 Add `Invitation` to the types array in ClientProvider.
@@ -53,21 +57,25 @@ Add `Invitation` to the types array in ClientProvider.
 ## UI Changes
 
 ### 1. Contact Creation Form
+
 **New file:** `app/routes/_private+/team+/members+/add.tsx`
 **New file:** `app/ui/AddContactDialog.tsx`
 
 Form with fields: firstName (required), lastName, userName (required), avatarUrl
 
 ### 2. Update Invitation Flow
+
 **Rename:** `invite.tsx` → `invite.($contactId).tsx`
 
 Changes:
+
 - Accept contactId param
 - Create DXOS invitation via `space.share()`
 - Create Invitation record linking code to contact
 - Update invitation record with code once available from `useInvitationStatus`
 
 ### 3. Update Members UI
+
 **File:** `app/ui/Members.tsx`
 **File:** `app/routes/_private+/team+/members+/_members.tsx`
 
@@ -76,6 +84,7 @@ Changes:
 - Show accurate status based on invitation records
 
 ### 4. Update Join Flow
+
 **File:** `app/routes/auth+/setup+/_.join.($code).tsx`
 
 After `space.waitUntilReady()`, instead of always creating a new contact:
@@ -89,6 +98,7 @@ After `space.waitUntilReady()`, instead of always creating a new contact:
    - Create new contact (current behavior)
 
 ### 5. Update useTeam Hook
+
 **File:** `app/hooks/useTeam.tsx`
 
 - Query Invitation records from space
@@ -96,6 +106,7 @@ After `space.waitUntilReady()`, instead of always creating a new contact:
 - ExtendedContact computes invitation status
 
 ### 6. Revoke Functionality
+
 **New file:** `app/routes/_private+/team+/members+/revoke.($contactId).tsx`
 **New file:** `app/ui/RevokeInvitationDialog.tsx`
 
@@ -105,20 +116,20 @@ After `space.waitUntilReady()`, instead of always creating a new contact:
 
 ## Critical Files
 
-| File | Change |
-|------|--------|
-| `app/schema/Invitation.ts` | NEW - Invitation schema |
-| `app/schema/Contact.ts` | Update - make identityId optional, update ExtendedContact |
-| `app/root.tsx` | Update - register Invitation schema |
-| `app/routes/auth+/setup+/_.join.($code).tsx` | **CRITICAL** - Match invitation to contact on join |
-| `app/routes/_private+/team+/members+/invite.($contactId).tsx` | Rename & update - invite specific contact |
-| `app/routes/_private+/team+/members+/add.tsx` | NEW - Add contact form |
-| `app/routes/_private+/team+/members+/revoke.($contactId).tsx` | NEW - Revoke invitation |
-| `app/ui/AddContactDialog.tsx` | NEW - Contact creation form component |
-| `app/ui/RevokeInvitationDialog.tsx` | NEW - Revoke confirmation dialog |
-| `app/ui/Members.tsx` | Update - Add contact button, invite per contact |
-| `app/routes/_private+/team+/members+/_members.tsx` | Update - Add routing for add/invite/revoke |
-| `app/hooks/useTeam.tsx` | Update - Include invitation data |
+| File                                                          | Change                                                    |
+| ------------------------------------------------------------- | --------------------------------------------------------- |
+| `app/schema/Invitation.ts`                                    | NEW - Invitation schema                                   |
+| `app/schema/Contact.ts`                                       | Update - make identityId optional, update ExtendedContact |
+| `app/root.tsx`                                                | Update - register Invitation schema                       |
+| `app/routes/auth+/setup+/_.join.($code).tsx`                  | **CRITICAL** - Match invitation to contact on join        |
+| `app/routes/_private+/team+/members+/invite.($contactId).tsx` | Rename & update - invite specific contact                 |
+| `app/routes/_private+/team+/members+/add.tsx`                 | NEW - Add contact form                                    |
+| `app/routes/_private+/team+/members+/revoke.($contactId).tsx` | NEW - Revoke invitation                                   |
+| `app/ui/AddContactDialog.tsx`                                 | NEW - Contact creation form component                     |
+| `app/ui/RevokeInvitationDialog.tsx`                           | NEW - Revoke confirmation dialog                          |
+| `app/ui/Members.tsx`                                          | Update - Add contact button, invite per contact           |
+| `app/routes/_private+/team+/members+/_members.tsx`            | Update - Add routing for add/invite/revoke                |
+| `app/hooks/useTeam.tsx`                                       | Update - Include invitation data                          |
 
 ## Reusable Patterns
 
@@ -138,12 +149,16 @@ After `space.waitUntilReady()`, instead of always creating a new contact:
 ## Verification
 
 ### Unit Tests
+
 **File:** `app/schema/tests/Invitation.test.ts`
+
 - Test `Invitation.make()` with valid data
 - Test status transitions
 
 ### E2E Tests
+
 **File:** `test/invitation-flow.test.ts`
+
 1. Admin creates contact with firstName="Jane", lastName="Doe"
 2. Admin invites Jane
 3. Jane joins using invitation code
@@ -152,17 +167,20 @@ After `space.waitUntilReady()`, instead of always creating a new contact:
 6. Verify Jane appears as "Member" in team list
 
 **File:** `test/revoke-invitation.test.ts`
+
 1. Admin creates contact and sends invitation
 2. Admin revokes invitation
 3. Verify invitation status is REVOKED
 4. Verify contact shows "Invitation revoked"
 
 **File:** `test/backward-compatibility.test.ts`
+
 1. User joins without invitation record (simulate old flow)
 2. Verify contact is auto-created
 3. Verify user can access app
 
 ### Manual Testing Checklist
+
 - [ ] Create contact without inviting
 - [ ] Invite existing contact
 - [ ] Join via new invitation (matches to contact)
