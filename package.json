@@ -13,6 +13,7 @@
     "build:storybook": "storybook build",
     "dev": "react-router dev --open",
     "icon-types": "node ./scripts/generate-icon-types.js",
+    "format": "prettier --write .",
     "lint": "xo",
     "lint:fix": "xo --fix",
     "preinstall": "npx only-allow pnpm",
