@@ -1,6 +1,6 @@
 import { DeviceKind, useDevices, useIdentity } from "@dxos/react-client/halo"
 import { Filter, useQuery, useSpace, type SpaceMember } from "@dxos/react-client/echo"
-import { useMulticastObservable } from "@dxos/react-client"
+import { type MulticastObservable, useMulticastObservable } from "@dxos/react-client"
 import { useMemo } from "react"
 import { getContactInvitation } from "./getContactInvitation"
 import { getInvitationStatus } from "./getInvitationStatus"
@@ -24,7 +24,12 @@ export const useTeam = () => {
   const { spaceKey } = useLocalState()
   const space = useSpace(spaceKey)
   const emptyObservable = useMemo(createEmptyObservable, [])
-  const members: SpaceMember[] = useMulticastObservable(space?.members ?? emptyObservable) ?? []
+  /* eslint-disable @typescript-eslint/no-unsafe-argument -- fake observable only implements get/subscribe */
+  const members: SpaceMember[] =
+    useMulticastObservable(
+      (space?.members ?? emptyObservable) as MulticastObservable<SpaceMember[]>,
+    ) ?? []
+  /* eslint-enable @typescript-eslint/no-unsafe-argument */
   const rawContacts = useQuery(space, Filter.type(Contact))
   const invitations = useQuery(space, Filter.type(Invitation))
   const contacts = rawContacts.map(c => {
