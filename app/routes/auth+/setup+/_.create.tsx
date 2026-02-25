@@ -38,7 +38,7 @@ export default function AuthCreatePage() {
 
         // Build a contact for yourself
         const contact = makeContact({
-          identityId: identity!.identityKey.toString(),
+          identity: identity!,
           avatarUrl: "",
           firstName: identity!.profile!.displayName!,
           lastName: "",

@@ -24,10 +24,15 @@ export const Contact = S.Struct({
 
 export type Contact = S.Schema.Type<typeof Contact>
 
-/** Create a new Contact object */
-export const make = (props: Omit<EncodedContact, "id">) => Obj.make(Contact, props)
+/** Create a new Contact object. Accepts an Identity instead of a raw identityId string. */
+export const make = ({ identity, ...props }: MakeContactProps) =>
+  Obj.make(Contact, {
+    ...props,
+    identityId: identity?.identityKey.toString(),
+  })
 
 type EncodedContact = S.Schema.Encoded<typeof Contact>
+type MakeContactProps = Omit<EncodedContact, "id" | "identityId"> & { identity?: Identity }
 
 /** Contact with extra UI-facing properties, proxied to the underlying DXOS object. */
 export type ExtendedContact = Contact & ContactExtensions

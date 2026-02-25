@@ -101,7 +101,7 @@ export default function AuthJoinPage() {
         } else {
           // Backward compatibility for spaces that don't have pre-created contacts.
           const contact = makeContact({
-            identityId: identity.identityKey.toString(),
+            identity,
             avatarUrl: "",
             firstName: identity.profile!.displayName!,
             lastName: "",
