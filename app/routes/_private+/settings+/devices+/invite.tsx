@@ -32,7 +32,11 @@ export default function DevicesInvitePage() {
       return
     }
 
-    const newInvitation = client.halo.share()
+    const newInvitation = client.halo.share({
+      type: Invitation.Type.INTERACTIVE,
+      authMethod: Invitation.AuthMethod.NONE,
+      multiUse: false,
+    })
     invitationRef.current = newInvitation
     setInvitation(newInvitation)
   }, [client])
@@ -47,7 +51,7 @@ export default function DevicesInvitePage() {
   }, [])
 
   // Use the hook to track invitation status
-  const { invitationCode, authCode } = useInvitationStatus(invitation)
+  const { invitationCode } = useInvitationStatus(invitation)
 
   const handleClose = useCallback(() => {
     void invitation?.cancel()
@@ -55,11 +59,6 @@ export default function DevicesInvitePage() {
   }, [invitation, navigate])
 
   return (
-    <InviteDeviceDialog
-      defaultOpen={true}
-      onClose={handleClose}
-      invitationCode={invitationCode}
-      authCode={authCode}
-    />
+    <InviteDeviceDialog defaultOpen={true} onClose={handleClose} invitationCode={invitationCode} />
   )
 }
