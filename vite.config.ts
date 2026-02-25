@@ -1,3 +1,4 @@
+import { resolve } from "node:path"
 import { reactRouter } from "@react-router/dev/vite"
 import { type Plugin } from "vite"
 import { defineConfig } from "vitest/config"
@@ -83,6 +84,29 @@ export default defineConfig({
   // DXOS 0.8.x requires modern browser targets for top-level await support
   build: {
     target: "esnext",
+    // DXOS bundles are inherently large; suppress chunk size warnings
+    chunkSizeWarningLimit: 6_000,
+    rollupOptions: {
+      onwarn(warning, warn) {
+        // Suppress eval warnings from third-party deps (onnxruntime-web, protobufjs)
+        if (warning.code === "EVAL" && warning.id?.includes("node_modules")) return
+        warn(warning)
+      },
+    },
+    // Suppress CSS syntax warnings from @dxos/shell's invalid @apply directives
+    cssMinifyOptions: {
+      logOverrides: { "css-syntax-error": "silent" },
+    },
+  },
+  resolve: {
+    alias: {
+      // Suppress "module externalized for browser compatibility" console warnings.
+      // postcss is pulled into the client bundle by @ch-ui/tokens (via @dxos/react-ui-theme)
+      // but only runs at build time; util is used by readable-stream (via @dxos/node-std)
+      // for optional debug logging.
+      postcss: resolve(__dirname, "app/lib/stubs/postcss.ts"),
+      util: resolve(__dirname, "app/lib/stubs/util.ts"),
+    },
   },
   worker: {
     format: "es",
