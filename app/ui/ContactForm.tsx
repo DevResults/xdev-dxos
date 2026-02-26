@@ -1,11 +1,11 @@
 import { Button } from "@ui/button"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@ui/form"
-import { Input } from "@ui/input"
-import type { FieldPath, UseFormReturn } from "react-hook-form"
+import { Form } from "@ui/form"
+import type { FieldPath } from "react-hook-form"
 import { Link } from "react-router"
 import { useAutoSaveForm } from "~/hooks/useAutoSaveForm"
 import { Contact } from "~/schema/Contact"
 import { S } from "~/schema/lib/Effect"
+import { TextInput } from "./TextInput"
 
 /** Unified form for creating and editing contacts, with per-field auto-save on blur. */
 export function ContactForm({
@@ -72,50 +72,11 @@ export function ContactForm({
   )
 }
 
-/** A labeled text input bound to a form field, with auto-save on blur. */
-function TextInput({ form, name, label, autoFocus, saveOnBlur }: TextInputProps) {
-  return (
-    <FormField
-      control={form.control}
-      name={name}
-      render={({ field }) => (
-        <FormItem>
-          <FormLabel>{label}</FormLabel>
-          <FormControl>
-            <Input
-              {...field}
-              autoFocus={autoFocus}
-              onBlur={() => {
-                field.onBlur()
-                void saveOnBlur(name)()
-              }}
-            />
-          </FormControl>
-          <FormMessage />
-        </FormItem>
-      )}
-    />
-  )
-}
-
 export const ContactFormSchema = Contact.pipe(
   S.pick("firstName", "lastName", "userName", "avatarUrl"),
 )
 
 export type ContactFormValues = S.Schema.Type<typeof ContactFormSchema>
-
-type TextInputProps = {
-  /** The react-hook-form instance. */
-  form: UseFormReturn<ContactFormValues>
-  /** The field name to bind to. */
-  name: FieldPath<ContactFormValues>
-  /** The visible label for the field. */
-  label: string
-  /** Whether to auto-focus this field on mount. */
-  autoFocus?: boolean
-  /** Returns a blur handler that validates and saves the given field. */
-  saveOnBlur: (name: FieldPath<ContactFormValues>) => () => Promise<void>
-}
 
 export type Props = {
   /** Initial form values. */
