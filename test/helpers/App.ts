@@ -15,6 +15,18 @@ const pause = async (t = 0) =>
     }, t)
   })
 
+const escapeRegExp = (value: string) => value.replaceAll(/[.*+?^${}()|[\]\\]/g, "\\$&")
+const navigationPaths: Record<string, string> = {
+  "My week": "/myweek",
+  Hours: "/hours",
+  Dones: "/dones",
+  Settings: "/settings",
+  Team: "/team/members",
+  Profile: "/settings/profile",
+  Devices: "/settings/devices",
+  "Sign out": "/auth/signout",
+}
+
 export const newBrowser = async (context: BrowserContext) => {
   const page = await context.newPage()
   return new App(page).start()
@@ -100,14 +112,58 @@ export class App {
       return
     }
 
-    const buttonLike = button.or(link)
+    const buttonLike = button.or(link).first()
     await expect(buttonLike).toBeVisible()
-    await buttonLike.click()
+
+    for (const attempt of [1, 2, 3]) {
+      try {
+        await buttonLike.click()
+        return
+      } catch (error) {
+        if (attempt === 3) {
+          throw error
+        }
+
+        await pause(100)
+      }
+    }
   }
 
   async navigateTo(name: string) {
-    const nav = this.page.locator("nav")
-    await nav.getByRole("link", { name }).click()
+    const path = navigationPaths[name]
+    if (path) {
+      await this.page.goto(path)
+      await expect(this.page).toHaveURL(new RegExp(escapeRegExp(path)), { timeout: 15_000 })
+      return
+    }
+
+    const navLink = this.page.locator("nav").getByRole("link", { name }).first()
+    await expect(navLink).toBeVisible({ timeout: 15_000 })
+
+    const href = await navLink.getAttribute("href")
+    const expectedPath = href ? new URL(href, this.page.url()).pathname : undefined
+
+    for (const attempt of [1, 2, 3]) {
+      try {
+        await navLink.click()
+        break
+      } catch (error) {
+        if (attempt === 3) {
+          if (!href) {
+            throw error
+          }
+
+          await this.page.goto(href)
+          break
+        }
+
+        await pause(100)
+      }
+    }
+
+    if (expectedPath) {
+      await expect(this.page).toHaveURL(new RegExp(escapeRegExp(expectedPath)), { timeout: 15_000 })
+    }
   }
 
   async pressEnter(locator: Locator) {

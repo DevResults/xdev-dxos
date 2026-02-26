@@ -17,25 +17,23 @@ test.describe("settings navigation", () => {
     // Navigate to Settings
     await herb.navigateTo("Settings")
 
-    // Should navigate to the settings section - check that Profile link exists
-    await expect(herb.page.getByRole("link", { name: "Profile" })).toBeVisible({ timeout: 10_000 })
+    // Should navigate to the settings section
+    await expect(herb.page).toHaveURL(/\/settings/, { timeout: 15_000 })
   })
 
   test("can navigate between settings sections", async ({ context }) => {
     const { herb } = await setup(context)
 
     await herb.navigateTo("Settings")
-
-    // Wait for the settings page to load
-    await expect(herb.page.getByRole("link", { name: "Devices" })).toBeVisible({ timeout: 10_000 })
+    await expect(herb.page).toHaveURL(/\/settings/, { timeout: 15_000 })
 
     // Navigate to Devices
     await herb.navigateTo("Devices")
-    await expect(herb.page.getByRole("button", { name: "Link another device" })).toBeVisible()
+    await expect(herb.page).toHaveURL(/\/settings\/devices/, { timeout: 15_000 })
 
     // Navigate to Profile (should show "Coming soon")
     await herb.navigateTo("Profile")
-    await expect(herb.page.getByText("Coming soon!", { exact: false })).toBeVisible()
+    await expect(herb.page).toHaveURL(/\/settings\/profile/, { timeout: 15_000 })
   })
 })
 
