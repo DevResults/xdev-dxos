@@ -4,6 +4,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@ui/input"
 import type { FieldPath } from "react-hook-form"
 import { useAutoSaveForm } from "~/hooks/useAutoSaveForm"
+import { ContactFields } from "~/schema/Contact"
 import { S } from "~/schema/lib/Effect"
 
 /** Unified form for creating and editing contacts, with per-field auto-save on blur. */
@@ -92,10 +93,10 @@ const FIELDS: FieldConfig[] = [
 ]
 
 export const contactFormSchema = S.Struct({
-  firstName: S.Trim.pipe(S.minLength(1, { message: () => "First name is required." })),
-  lastName: S.Trim,
-  userName: S.Trim.pipe(S.minLength(1, { message: () => "Username is required." })),
-  avatarUrl: S.Trim,
+  firstName: ContactFields.fields.firstName,
+  lastName: ContactFields.fields.lastName,
+  userName: ContactFields.fields.userName,
+  avatarUrl: ContactFields.fields.avatarUrl,
 })
 
 export type ContactFormValues = S.Schema.Type<typeof contactFormSchema>

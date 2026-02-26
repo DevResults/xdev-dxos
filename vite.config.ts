@@ -68,11 +68,11 @@ const suppressedPatterns = [
   "css-syntax-error", // esbuild CSS warnings for @apply
 ]
 
-const shouldSuppress = (text: string) => suppressedPatterns.some((p) => text.includes(p))
+const shouldSuppress = (text: string) => suppressedPatterns.some(p => text.includes(p))
 
 const originalConsoleWarn = console.warn
 console.warn = (...args: unknown[]) => {
-  if (args.some((a) => typeof a === "string" && shouldSuppress(a))) return
+  if (args.some(a => typeof a === "string" && shouldSuppress(a))) return
   originalConsoleWarn(...args)
 }
 

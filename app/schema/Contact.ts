@@ -8,15 +8,18 @@ import type { Invitation } from "./Invitation"
 export const ContactId = pipe(Cuid, S.brand("ContactId"))
 export type ContactId = typeof ContactId.Type
 
-/** A contact's record, including staff directory type information */
-export const Contact = S.Struct({
+/** The editable fields of a Contact, with validation. */
+export const ContactFields = S.Struct({
   /** The DXOS identity ID - populated after the contact joins the team */
   identityId: S.optional(S.String),
-  userName: S.String,
-  firstName: S.String,
-  lastName: S.String,
-  avatarUrl: S.String,
-}).pipe(
+  userName: S.Trim.pipe(S.minLength(1, { message: () => "Username is required." })),
+  firstName: S.Trim.pipe(S.minLength(1, { message: () => "First name is required." })),
+  lastName: S.Trim,
+  avatarUrl: S.Trim,
+})
+
+/** A contact's record, including staff directory type information */
+export const Contact = ContactFields.pipe(
   Type.Obj({
     typename: "devresults.com/type/Contact",
     version: "0.1.0",
