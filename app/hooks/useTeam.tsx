@@ -45,7 +45,8 @@ export const useTeam = () => {
   })
   const devices = useDevices()
   const device = devices.find(d => d.kind === DeviceKind.CURRENT)
-  const self = contacts.find(d => d.isSelf)!
+  const selfIdentityId = identity?.identityKey.toString()
+  const self = contacts.find(d => d.identityId === selfIdentityId) ?? contacts.find(d => d.isSelf)!
 
   return {
     self,

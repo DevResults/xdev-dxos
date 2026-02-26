@@ -2,26 +2,24 @@ import { expect, test } from "@playwright/test"
 import { newBrowser, newIsolatedBrowser } from "./helpers/App"
 
 test.describe("P2P invitation flow", () => {
-  test.describe.configure({ retries: 2 })
-
   // P2P connections need more time for signaling, swarm handshake, and auth
   test.setTimeout(120_000)
 
-  test.skip("invited member can join via invitation link", async ({ context }) => {
+  const openAddContactForm = async (herb: Awaited<ReturnType<typeof newBrowser>>) => {
+    await herb.page.goto("/team/members/add")
+    const firstNameInput = herb.page.getByRole("textbox", { name: "First name" })
+    await expect(firstNameInput).toBeVisible({ timeout: 30_000 })
+    return firstNameInput
+  }
+
+  test("invited member can join via invitation link", async ({ context }) => {
     // ---- Herb creates a team and generates an invitation ----
 
     const herb = await newBrowser(context)
     await herb.createTeam("herb", "DevResults")
 
     // Add a contact and open their invite dialog.
-    let firstNameInput = herb.page.getByRole("textbox", { name: "First name" })
-    for (const _attempt of [1, 2, 3]) {
-      await herb.page.goto("/team/members/add")
-      if (await firstNameInput.isVisible({ timeout: 10_000 })) {
-        break
-      }
-    }
-    await expect(firstNameInput).toBeVisible({ timeout: 30_000 })
+    const firstNameInput = await openAddContactForm(herb)
     await firstNameInput.fill("ritika")
     const username = herb.page.getByRole("textbox", { name: "Username" })
     await username.fill("ritika")

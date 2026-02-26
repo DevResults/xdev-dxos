@@ -11,20 +11,13 @@ const setup = async (context: BrowserContext) => {
 }
 
 const openAddContactForm = async (herb: Awaited<ReturnType<typeof newBrowser>>) => {
+  await herb.page.goto("/team/members/add")
   const firstNameInput = herb.page.getByRole("textbox", { name: "First name" })
-
-  for (const _attempt of [1, 2, 3]) {
-    await herb.page.goto("/team/members/add")
-    if (await firstNameInput.isVisible()) {
-      return firstNameInput
-    }
-  }
-
   await expect(firstNameInput).toBeVisible({ timeout: 30_000 })
   return firstNameInput
 }
 
-test.describe.configure({ timeout: 45_000, retries: 2 })
+test.describe.configure({ timeout: 180_000 })
 
 test.describe("team members page", () => {
   test("displays the current user as a member", async ({ context }) => {

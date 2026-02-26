@@ -64,7 +64,10 @@ export const extendContact = ({
       )
     },
     get isSelf() {
-      return member?.identity.identityKey.toString() === selfIdentity?.identityKey.toString()
+      return (
+        member?.identity.identityKey.toString() === selfIdentity?.identityKey.toString() ||
+        contact.identityId === selfIdentity?.identityKey.toString()
+      )
     },
     get isMember() {
       return Boolean(contact.identityId)

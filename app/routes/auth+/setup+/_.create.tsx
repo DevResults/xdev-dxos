@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router"
 import { useIdentity } from "@dxos/react-client/halo"
 import { type Client, useClient } from "@dxos/react-client"
+import { useState } from "react"
 import { TeamNameForm } from "ui/TeamNameForm"
 import { useLocalState } from "~/hooks/useLocalState"
 import { useRedirect } from "~/hooks/useRedirect"
@@ -13,6 +14,7 @@ export default function AuthCreatePage() {
   const navigate = useNavigate()
   const client = useClient()
   const { spaceKey, update } = useLocalState()
+  const [isCreating, setIsCreating] = useState(false)
 
   // Hooks ↑
 
@@ -23,7 +25,11 @@ export default function AuthCreatePage() {
   })
 
   // Already have a team
-  useRedirect({ from: "/auth/setup/create", to: "/", condition: Boolean(spaceKey) })
+  useRedirect({
+    from: "/auth/setup/create",
+    to: "/",
+    condition: Boolean(spaceKey) && !isCreating,
+  })
 
   const defaultTeamName = "DevResults"
 
@@ -31,35 +37,40 @@ export default function AuthCreatePage() {
     <TeamNameForm
       teamName={defaultTeamName}
       onSubmit={async ({ teamName }) => {
-        // Create a space with the team name
-        const space = await client.spaces.create({ name: teamName })
-        update({ spaceKey: space.id })
-        await space.waitUntilReady()
+        setIsCreating(true)
+        try {
+          // Create a space with the team name
+          const space = await client.spaces.create({ name: teamName })
+          await space.waitUntilReady()
 
-        // Build a contact for yourself
-        const contact = makeContact({
-          identity: identity!,
-          avatarUrl: "",
-          firstName: identity!.profile!.displayName!,
-          lastName: "",
-          userName: identity!.profile!.displayName!,
-        })
-        space.db.add(contact)
+          // Build a contact for yourself
+          const contact = makeContact({
+            identity: identity!,
+            avatarUrl: "",
+            firstName: identity!.profile!.displayName!,
+            lastName: "",
+            userName: identity!.profile!.displayName!,
+          })
+          space.db.add(contact)
 
-        // Seed projects and clients
-        for (const project of createProjects()) {
-          space.db.add(project)
+          // Seed projects and clients
+          for (const project of createProjects()) {
+            space.db.add(project)
+          }
+
+          for (const c of createClients()) {
+            space.db.add(c)
+          }
+
+          // Ensure data is queryable before navigating
+          await space.db.flush()
+
+          // Persist selected space and navigate to the app
+          update({ spaceKey: space.id })
+          void navigate("/")
+        } finally {
+          setIsCreating(false)
         }
-
-        for (const c of createClients()) {
-          space.db.add(c)
-        }
-
-        // Ensure data is queryable before navigating
-        await space.db.flush()
-
-        // Navigate to the app
-        void navigate("/")
       }}
     />
   )

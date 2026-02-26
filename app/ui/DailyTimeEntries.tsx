@@ -43,7 +43,12 @@ export const DailyTimeEntries = ({
       <ul
         className="relative flex h-full flex-col gap-1 overflow-auto"
         style={{ containerName: "day", containerType: "size" }}
-        onBlur={() => {
+        onBlur={event => {
+          const nextFocused = event.relatedTarget
+          if (nextFocused instanceof Node && event.currentTarget.contains(nextFocused)) {
+            return
+          }
+
           setFocus(-1)
         }}
       >
