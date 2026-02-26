@@ -22,8 +22,8 @@ export const Contact = S.Struct({
     version: "0.1.0",
   }),
 )
-
 export type Contact = S.Schema.Type<typeof Contact>
+export type EncodedContact = S.Schema.Encoded<typeof Contact>
 
 /** Create a new Contact object. Accepts an Identity instead of a raw identityId string. */
 export const make = ({ identity, ...props }: MakeContactProps) =>
@@ -31,9 +31,6 @@ export const make = ({ identity, ...props }: MakeContactProps) =>
     ...props,
     identityId: identity?.identityKey.toString(),
   })
-
-type EncodedContact = S.Schema.Encoded<typeof Contact>
-type MakeContactProps = Omit<EncodedContact, "id" | "identityId"> & { identity?: Identity }
 
 /** Contact with extra UI-facing properties, proxied to the underlying DXOS object. */
 export type ExtendedContact = Contact & ContactExtensions
@@ -46,7 +43,7 @@ export const extendContact = ({
   invitation,
   invitationStatus,
 }: ExtendedContactProps): ExtendedContact => {
-  const extensions: ContactExtensions = {
+  const extensions = {
     contact,
     member,
     selfIdentity,
@@ -71,6 +68,7 @@ export const extendContact = ({
     },
   }
 
+  // Use a Proxy to allow direct access to Contact properties while also providing the extended properties.
   return new Proxy(contact, {
     get(target, prop, receiver) {
       if (prop in extensions) return extensions[prop as keyof ContactExtensions]
@@ -95,6 +93,8 @@ type ContactExtensions = {
   readonly isMember: boolean
   readonly fullName: string
 }
+
+type MakeContactProps = Omit<EncodedContact, "id" | "identityId"> & { identity?: Identity }
 
 type ExtendedContactProps = Omit<ContactExtensions, "isMember" | "identity" | "isAdmin" | "isSelf">
 
