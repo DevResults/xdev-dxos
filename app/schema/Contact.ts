@@ -52,6 +52,9 @@ export const extendContact = ({
     selfIdentity,
     invitation,
     invitationStatus,
+    get fullName() {
+      return `${contact.firstName} ${contact.lastName}`
+    },
     get identity() {
       return member?.identity
     },
@@ -90,6 +93,7 @@ type ContactExtensions = {
   readonly isAdmin: boolean
   readonly isSelf: boolean
   readonly isMember: boolean
+  readonly fullName: string
 }
 
 type ExtendedContactProps = Omit<ContactExtensions, "isMember" | "identity" | "isAdmin" | "isSelf">

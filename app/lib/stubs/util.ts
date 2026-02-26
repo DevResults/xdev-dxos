@@ -8,6 +8,6 @@
 export const debuglog = () => () => {}
 
 /** Returns a basic string representation. */
-export const inspect = (obj: unknown) => String(obj)
+export const inspect = String
 
 export default { debuglog, inspect }

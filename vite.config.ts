@@ -56,6 +56,32 @@ const autoImportOptions: AutoImportOptions = {
 const isStorybook = process.argv[1].includes("storybook")
 const isVitest = process.env.VITEST === "true"
 
+/**
+ * Suppress noisy build warnings from third-party deps that we can't fix.
+ * These warnings come from Rollup (console.warn), esbuild (stderr), and
+ * Vite's reporter, so we intercept at the process level.
+ */
+const suppressedPatterns = [
+  "Use of eval", // onnxruntime-web, protobufjs
+  "@apply -mie-", // @dxos/lit-ui CSS @apply directives
+  "Some chunks are larger than", // DXOS bundles are inherently large
+  "css-syntax-error", // esbuild CSS warnings for @apply
+]
+
+const shouldSuppress = (text: string) => suppressedPatterns.some((p) => text.includes(p))
+
+const originalConsoleWarn = console.warn
+console.warn = (...args: unknown[]) => {
+  if (args.some((a) => typeof a === "string" && shouldSuppress(a))) return
+  originalConsoleWarn(...args)
+}
+
+const originalStderrWrite = process.stderr.write.bind(process.stderr)
+process.stderr.write = ((chunk: any, ...rest: any[]) => {
+  if (typeof chunk === "string" && shouldSuppress(chunk)) return true
+  return originalStderrWrite(chunk, ...rest)
+}) as typeof process.stderr.write
+
 export default defineConfig({
   plugins: [
     !isStorybook && !isVitest && reactRouter(),
@@ -74,7 +100,7 @@ export default defineConfig({
       transform(code, id) {
         if (id.includes("node_modules/@dxos") && (id.endsWith(".pcss") || id.endsWith(".css"))) {
           return {
-            code: code.replaceAll(/@apply\s+[^;}]+[;]?/g, "/* skipped @apply */"),
+            code: code.replaceAll(/@apply\s+[^;}]+;?/g, "/* skipped @apply */"),
             map: null,
           }
         }
@@ -84,15 +110,6 @@ export default defineConfig({
   // DXOS 0.8.x requires modern browser targets for top-level await support
   build: {
     target: "esnext",
-    // DXOS bundles are inherently large; suppress chunk size warnings
-    chunkSizeWarningLimit: 6_000,
-    rollupOptions: {
-      onwarn(warning, warn) {
-        // Suppress eval warnings from third-party deps (onnxruntime-web, protobufjs)
-        if (warning.code === "EVAL" && warning.id?.includes("node_modules")) return
-        warn(warning)
-      },
-    },
   },
   resolve: {
     alias: {

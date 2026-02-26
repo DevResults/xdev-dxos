@@ -38,6 +38,7 @@ export default function EditContactPage() {
 
   return (
     <ContactForm
+      title={contact.fullName}
       defaultValues={{
         firstName: contact.firstName ?? "",
         lastName: contact.lastName ?? "",
@@ -46,8 +47,6 @@ export default function EditContactPage() {
       }}
       onSaveField={handleSaveField}
       onDone={handleDone}
-      title="Edit contact"
-      description="Update the contact's information."
     />
   )
 }
