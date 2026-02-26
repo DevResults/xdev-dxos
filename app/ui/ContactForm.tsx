@@ -33,7 +33,7 @@ export function ContactForm({
       </div>
 
       <h2 className="mb-1">{title}</h2>
-      <p className="mb-6 text-sm text-neutral-500">{description}</p>
+      {description && <p className="mb-6 text-sm text-neutral-500">{description}</p>}
 
       <Form {...form}>
         <form
@@ -118,5 +118,5 @@ export type Props = {
   /** Form heading text. */
   title: string
   /** Form description text. */
-  description: string
+  description?: string
 }
