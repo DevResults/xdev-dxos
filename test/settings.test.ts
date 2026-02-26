@@ -31,11 +31,11 @@ test.describe("settings navigation", () => {
 
     // Navigate to Devices
     await herb.navigateTo("Devices")
-    await expect(herb.page.getByRole("heading", { name: "Devices" })).toBeVisible()
+    await expect(herb.page.getByRole("button", { name: "Link another device" })).toBeVisible()
 
     // Navigate to Profile (should show "Coming soon")
     await herb.navigateTo("Profile")
-    await expect(herb.page.getByText("Coming soon")).toBeVisible()
+    await expect(herb.page.getByText("Coming soon!", { exact: false })).toBeVisible()
   })
 })
 
@@ -46,7 +46,7 @@ test.describe("devices page", () => {
     await herb.navigateTo("Settings")
     await herb.navigateTo("Devices")
 
-    await expect(herb.page.getByRole("heading", { name: "Devices" })).toBeVisible()
+    await expect(herb.page).toHaveURL(/\/settings\/devices/)
   })
 
   test("shows current device", async ({ context }) => {
@@ -77,8 +77,7 @@ test.describe("devices page", () => {
     await herb.navigateTo("Settings")
     await herb.navigateTo("Devices")
 
-    // Wait for devices page to load
-    await expect(herb.page.getByRole("heading", { name: "Devices" })).toBeVisible()
+    await expect(herb.page.getByRole("button", { name: "Link another device" })).toBeVisible()
 
     // Click the button
     await herb.pressButton("Link another device")

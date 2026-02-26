@@ -1,6 +1,7 @@
 import {
   expect,
   type BrowserContext,
+  type Browser,
   type ConsoleMessage,
   type Locator,
   type Page,
@@ -15,8 +16,13 @@ const pause = async (t = 0) =>
   })
 
 export const newBrowser = async (context: BrowserContext) => {
-  const browser = await context.browser()!.newContext()
-  const page = await browser.newPage()
+  const page = await context.newPage()
+  return new App(page).start()
+}
+
+export const newIsolatedBrowser = async (browser: Browser) => {
+  const isolatedContext = await browser.newContext()
+  const page = await isolatedContext.newPage()
   return new App(page).start()
 }
 
@@ -71,9 +77,13 @@ export class App {
   }
 
   async reload() {
-    await pause(1000) // Give storage etc. time to finish
-    await this.page.reload()
+    await pause(500)
+    await this.page.reload({ waitUntil: "domcontentloaded" })
     return this
+  }
+
+  async close() {
+    await this.page.context().close()
   }
 
   get expect() {
@@ -83,7 +93,13 @@ export class App {
   async pressButton(name: string) {
     const button = this.page.getByRole("button", { name })
     const link = this.page.getByRole("link", { name })
-    // https://playwright.dev/docs/locators#matching-one-of-the-two-alternative-locators
+
+    if (name === "Done") {
+      await expect(button.first()).toBeVisible()
+      await button.first().click()
+      return
+    }
+
     const buttonLike = button.or(link)
     await expect(buttonLike).toBeVisible()
     await buttonLike.click()

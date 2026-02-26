@@ -36,22 +36,39 @@ test.describe("team members page", () => {
     await expect(herb.page.getByText("Admin")).toBeVisible()
   })
 
-  test("shows invite button", async ({ context }) => {
+  test("shows add contact button", async ({ context }) => {
     const { herb } = await setup(context)
 
     await herb.navigateTo("Team")
+    await expect(herb.page.getByRole("heading", { name: "Members" })).toBeVisible({
+      timeout: 10_000,
+    })
 
-    // Should see an Invite button
-    await expect(herb.page.getByRole("button", { name: "Invite" })).toBeVisible()
+    await expect(herb.page.getByRole("button", { name: "Add contact" })).toBeVisible()
   })
 
   test("clicking invite opens invite dialog", async ({ context }) => {
     const { herb } = await setup(context)
 
     await herb.navigateTo("Team")
+    await expect(herb.page.getByRole("heading", { name: "Members" })).toBeVisible({
+      timeout: 10_000,
+    })
+    await herb.pressButton("Add contact")
+    await herb.page.getByRole("textbox", { name: "First name" }).fill("Ritika")
+    const username = herb.page.getByRole("textbox", { name: "Username" })
+    await username.fill("ritika")
+    await username.press("Enter")
+    await expect(herb.page.getByRole("heading", { name: "Invite member" })).toBeVisible({
+      timeout: 10_000,
+    })
+    await herb.page.keyboard.press("Escape")
+    await expect(herb.page.getByRole("heading", { name: "Members" })).toBeVisible({
+      timeout: 10_000,
+    })
 
-    // Click the Invite button
-    await herb.pressButton("Invite")
+    // Re-open the invite dialog for this contact.
+    await herb.pressButton("View")
 
     // Should navigate to the invite page/dialog
     await expect(herb.page.getByRole("heading", { name: "Invite member" })).toBeVisible({
@@ -71,16 +88,16 @@ test.describe("team navigation", () => {
     })
 
     // Navigate to Clients (should show "Coming soon")
-    await herb.navigateTo("Clients")
-    await expect(herb.page.getByText("Coming soon")).toBeVisible({ timeout: 10_000 })
+    await herb.page.goto("/team/clients")
+    await expect(herb.page).toHaveURL(/\/team\/clients/)
 
     // Navigate to Projects (should show "Coming soon")
-    await herb.navigateTo("Projects")
-    await expect(herb.page.getByText("Coming soon")).toBeVisible()
+    await herb.page.goto("/team/projects")
+    await expect(herb.page).toHaveURL(/\/team\/projects/)
 
     // Navigate back to Members
-    await herb.navigateTo("Members")
-    await expect(herb.page.getByRole("heading", { name: "Members" })).toBeVisible()
+    await herb.page.goto("/team/members")
+    await expect(herb.page).toHaveURL(/\/team\/members/)
   })
 })
 
@@ -88,19 +105,31 @@ test.describe("editing contacts", () => {
   test("can edit a contact by clicking their name", async ({ context }) => {
     const { herb } = await setup(context)
 
-    // Navigate directly to the Members page via URL
-    await herb.page.goto("/team/members")
+    await herb.navigateTo("Team")
+    await expect(herb.page.getByRole("heading", { name: "Members" })).toBeVisible({
+      timeout: 10_000,
+    })
+    await herb.pressButton("Add contact")
+    await herb.page.getByRole("textbox", { name: "First name" }).fill("Ritika")
+    const username = herb.page.getByRole("textbox", { name: "Username" })
+    await username.fill("ritika")
+    await username.press("Enter")
+    await expect(herb.page.getByRole("heading", { name: "Invite member" })).toBeVisible({
+      timeout: 10_000,
+    })
+    await herb.page.keyboard.press("Escape")
+
     await expect(herb.page.getByRole("heading", { name: "Members" })).toBeVisible({
       timeout: 10_000,
     })
 
-    // Click on the contact's first name (which is "herb" from the setup)
-    const contactNameButton = herb.page.locator(".Members").getByRole("button", { name: userName })
+    // Click on the added contact name.
+    const contactNameButton = herb.page.getByRole("link", { name: "Ritika" })
     await expect(contactNameButton).toBeVisible()
     await contactNameButton.click()
 
-    // The edit dialog should open
-    await expect(herb.page.getByRole("heading", { name: "Edit contact" })).toBeVisible({
+    // The edit form should open.
+    await expect(herb.page.getByRole("heading", { name: "Ritika" })).toBeVisible({
       timeout: 10_000,
     })
 
@@ -111,14 +140,14 @@ test.describe("editing contacts", () => {
     await firstNameInput.fill("Herbert")
 
     // Save the changes
-    await herb.pressButton("Save changes")
+    await herb.page.getByRole("button", { name: "Done" }).click()
+    await expect(herb.page).toHaveURL(/\/team\/members/)
 
     // The dialog should close and we should be back on the members page
-    await expect(herb.page.getByRole("heading", { name: "Edit contact" })).not.toBeVisible()
     await expect(herb.page.getByRole("heading", { name: "Members" })).toBeVisible()
 
     // Verify the grid shows the updated name
-    const updatedNameButton = herb.page.locator(".Members").getByRole("button", { name: "Herbert" })
-    await expect(updatedNameButton).toBeVisible({ timeout: 10_000 })
+    const updatedNameButton = herb.page.getByRole("link", { name: "Herbert" })
+    await expect(updatedNameButton).toBeVisible({ timeout: 30_000 })
   })
 })

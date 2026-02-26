@@ -2,6 +2,7 @@ import process from "node:process"
 import { defineConfig, devices } from "@playwright/test"
 
 const isPlaywrightUI = process.env.PLAYWRIGHT_UI === "1"
+const isCI = Boolean(process.env.CI)
 
 /** https://playwright.dev/docs/test-configuration */
 export default defineConfig({
@@ -17,6 +18,10 @@ export default defineConfig({
   /* Abort if we get several test failures (probably server isn't running or something) */
   maxFailures: 10,
 
+  expect: {
+    timeout: 10_000,
+  },
+
   /* Run tests in files in parallel */
   fullyParallel: true,
 
@@ -26,9 +31,7 @@ export default defineConfig({
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
 
-  /* Opt out of parallel tests */
   workers: 1,
-  // workers: process.env.CI ? 1 : 8,
 
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: "list",
@@ -42,37 +45,48 @@ export default defineConfig({
     trace: "on-first-retry",
   },
 
-  projects: [
-    {
-      name: "chromium",
-      use: {
-        ...devices["Desktop Chrome"],
-        permissions: ["clipboard-read", "clipboard-write"],
-      },
-    },
-    {
-      name: "firefox",
-      use: {
-        ...devices["Desktop Firefox"],
-        launchOptions: {
-          firefoxUserPrefs: {
-            "dom.events.asyncClipboard.readText": true,
-            "dom.events.testing.asyncClipboard": true,
+  projects:
+    isCI ?
+      [
+        {
+          name: "chromium",
+          use: {
+            ...devices["Desktop Chrome"],
+            permissions: ["clipboard-read", "clipboard-write"],
           },
         },
-        permissions: [],
-      },
-    },
-    { name: "webkit", use: { ...devices["Desktop Safari"], permissions: [] } },
-    {
-      name: "edge",
-      use: { ...devices["Desktop Edge"], permissions: ["clipboard-read", "clipboard-write"] },
-    },
-  ],
+        {
+          name: "firefox",
+          use: {
+            ...devices["Desktop Firefox"],
+            launchOptions: {
+              firefoxUserPrefs: {
+                "dom.events.asyncClipboard.readText": true,
+                "dom.events.testing.asyncClipboard": true,
+              },
+            },
+            permissions: [],
+          },
+        },
+        { name: "webkit", use: { ...devices["Desktop Safari"], permissions: [] } },
+        {
+          name: "edge",
+          use: { ...devices["Desktop Edge"], permissions: ["clipboard-read", "clipboard-write"] },
+        },
+      ]
+    : [
+        {
+          name: "chromium",
+          use: {
+            ...devices["Desktop Chrome"],
+            permissions: ["clipboard-read", "clipboard-write"],
+          },
+        },
+      ],
 
   webServer:
     isPlaywrightUI ? []
-    : process.env.CI ?
+    : isCI ?
       // Use the built website for testing in ci
       [
         {

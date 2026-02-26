@@ -23,13 +23,13 @@ test("creates two time entries (using enter key)", async ({ context }) => {
 
   const timeEntry = herb.firstTimeEntryInput()
   await timeEntry.click()
-  await herb.page.keyboard.type("1h #out ")
-  await herb.page.keyboard.press("Enter")
-  await herb.page.keyboard.type("2h #overhead ")
-  await herb.page.keyboard.press("Enter")
-
+  await timeEntry.fill("1h #out ")
+  await timeEntry.press("Enter")
   await expect(herb.hoursForDay(0)).toContainText("1:00")
   await expect(herb.hoursForDay(0)).toContainText("Out")
+  const nextTimeEntry = herb.firstTimeEntryInput()
+  await nextTimeEntry.fill("2h #overhead ")
+  await nextTimeEntry.press("Enter")
 
   // The second entry is created in the same day
   await expect(herb.hoursForDay(0)).toContainText("2:00")
@@ -146,10 +146,13 @@ test("edits a time entry", async ({ context }) => {
 
   // Click to edit
   await timeEntry.click()
+  const editor = herb.page.locator(":focus")
+  await expect(editor).toContainText("90min #out")
 
   // Change the text
-  await herb.page.keyboard.type("2h #overhead ")
-  await herb.page.keyboard.press("Enter")
+  await editor.press("ControlOrMeta+A")
+  await editor.type("2h #overhead ")
+  await editor.press("Enter")
 
   // The entry is updated
   await expect(timeEntry).toContainText("2:00")
@@ -291,8 +294,11 @@ test("persists edits", async ({ context }) => {
   // Edit the entry
   const timeEntry = herb.firstTimeEntry()
   await timeEntry.click()
-  await herb.page.keyboard.type("2h #overhead ")
-  await herb.page.keyboard.press("Enter")
+  const editor = herb.page.locator(":focus")
+  await expect(editor).toContainText("90min #out")
+  await editor.press("ControlOrMeta+A")
+  await editor.type("2h #overhead ")
+  await editor.press("Enter")
   await expect(timeEntry).toContainText("2:00")
   await expect(timeEntry).toContainText("Overhead")
 
@@ -464,10 +470,12 @@ test("rejects a time entry with multiple client codes", async ({ context }) => {
 test("rejects a time entry with an unknown client code", async ({ context }) => {
   const { herb } = await setup(context)
 
-  await herb.createTimeEntry("1h #out @unknownclient")
+  const input = herb.firstTimeEntryInput()
+  await input.click()
+  await input.fill("1h #out @unknownclient")
+  await input.press("Enter")
 
   // The input is invalid
-  const input = herb.firstTimeEntryInput()
   await expect(input).toHaveAttribute("aria-invalid", "true")
 
   // The error message is displayed

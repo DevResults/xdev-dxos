@@ -85,11 +85,12 @@ test("likes a done", async ({ context }) => {
 
     // The done is visible and has no likes
     const done = herb.page.locator("li").filter({ hasText: doneText })
-    await expect(done).toBeVisible()
+    await expect(done).toBeVisible({ timeout: 30_000 })
     await expect(done).not.toContainText("1")
 
     // They like the done
     const likeButton = done.getByRole("button", { name: "Click to like" }).first()
+    await expect(likeButton).toBeVisible({ timeout: 10_000 })
     await likeButton.click()
 
     // The done now has 1 like and herb can see that they liked it

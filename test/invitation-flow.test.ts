@@ -5,12 +5,15 @@ test("can add a contact and open contact-specific invite dialog", async ({ conte
   const app = await newBrowser(context)
   await app.createTeam("herb", "DevResults")
 
-  await app.page.goto("/team/members")
-  await app.pressButton("Add contact")
+  await app.page.goto("/team/members/add")
+  await expect(app.page.getByRole("textbox", { name: "First name" })).toBeVisible({
+    timeout: 30_000,
+  })
 
   await app.page.getByRole("textbox", { name: "First name" }).fill("Ritika")
-  await app.page.getByRole("textbox", { name: "Username" }).fill("ritika")
-  await app.pressButton("Add contact")
+  const username = app.page.getByRole("textbox", { name: "Username" })
+  await username.fill("ritika")
+  await username.press("Enter")
 
   await expect(app.page.getByRole("heading", { name: "Invite member" })).toBeVisible()
   await expect(app.page.getByRole("button", { name: "Copy link" })).toBeVisible()
