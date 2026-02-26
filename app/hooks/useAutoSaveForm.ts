@@ -7,7 +7,7 @@ import {
   type Path,
   type UseFormReturn,
 } from "react-hook-form"
-import type { S } from "~/schema/lib/Effect"
+import { S } from "~/schema/lib/Effect"
 
 /**
  * Hook wrapping `useForm` with per-field blur-save behavior.
@@ -16,14 +16,14 @@ import type { S } from "~/schema/lib/Effect"
 export function useAutoSaveForm<T extends FieldValues>(
   /** Effect Schema defining the form validation rules. */
   schema: S.Schema<T>,
-  /** Initial form values. */
-  defaultValues: T,
   /** Called on valid blur with the field name and its new value. */
   onSaveField: (name: FieldPath<T>, value: T[FieldPath<T>]) => Promise<void>,
+  /** Initial form values. If omitted, defaults are derived from the schema. */
+  defaultValues?: T,
 ): UseAutoSaveFormReturn<T> {
   const form = useForm<T>({
     resolver: effectTsResolver(schema),
-    defaultValues: defaultValues as any,
+    defaultValues: (defaultValues ?? S.decodeUnknownSync(schema)({})) as any,
     mode: "onBlur",
   })
 
