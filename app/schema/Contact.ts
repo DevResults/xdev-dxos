@@ -29,7 +29,10 @@ export type Contact = S.Schema.Type<typeof Contact>
 export type EncodedContact = S.Schema.Encoded<typeof Contact>
 
 /** Create a new Contact object. Accepts an Identity instead of a raw identityId string. */
-export const make = ({ identity, ...props }: MakeContactProps) =>
+export const make = ({
+  identity,
+  ...props
+}: Omit<EncodedContact, "id" | "identityId"> & { identity?: Identity }) =>
   Obj.make(Contact, {
     ...props,
     identityId: identity?.identityKey.toString(),
@@ -99,8 +102,6 @@ type ContactExtensions = {
   readonly isMember: boolean
   readonly fullName: string
 }
-
-type MakeContactProps = Omit<EncodedContact, "id" | "identityId"> & { identity?: Identity }
 
 type ExtendedContactProps = Omit<ContactExtensions, "isMember" | "identity" | "isAdmin" | "isSelf">
 
