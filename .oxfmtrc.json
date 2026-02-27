@@ -8,12 +8,12 @@
   "singleQuote": false,
   "sortImports": {
     "groups": [
-      "type-import",
-      ["value-builtin", "value-external"],
-      "type-internal",
-      "value-internal",
-      ["type-parent", "type-sibling", "type-index"],
-      ["value-parent", "value-sibling", "value-index"],
+      ["type-builtin", "value-builtin"],
+      ["type-external", "value-external"],
+      ["type-parent", "value-parent"],
+      ["type-sibling", "value-sibling"],
+      ["type-index", "value-index"],
+      ["type-internal", "value-internal"],
       "unknown"
     ],
     "newlinesBetween": false
