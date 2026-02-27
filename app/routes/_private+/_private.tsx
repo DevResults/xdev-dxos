@@ -37,9 +37,11 @@ export default function Private() {
     }
   }, [self, space, identity])
 
-  return self ?
-      <AppLayout self={self}>
-        <Outlet />
-      </AppLayout>
-    : <Loading />
+  return self ? (
+    <AppLayout self={self}>
+      <Outlet />
+    </AppLayout>
+  ) : (
+    <Loading />
+  )
 }

@@ -71,7 +71,7 @@ export const DailyTimeEntries = ({
                 setFocus(index)
               }}
             >
-              {focus === index ?
+              {focus === index ? (
                 <TimeEntryInput
                   content={timeEntry.input}
                   {...{
@@ -91,7 +91,8 @@ export const DailyTimeEntries = ({
                   }}
                   onCommit={e => Object.assign(timeEntry, e)}
                 />
-              : <div className="group relative h-full cursor-pointer">
+              ) : (
+                <div className="group relative h-full cursor-pointer">
                   <TimeEntryDisplay
                     key={index}
                     timeEntry={timeEntry}
@@ -107,7 +108,7 @@ export const DailyTimeEntries = ({
                     />
                   </span>
                 </div>
-              }
+              )}
             </li>
           )
         })}

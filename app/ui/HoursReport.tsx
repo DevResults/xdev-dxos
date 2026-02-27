@@ -128,14 +128,13 @@ export const HoursReport = ({ year, contacts, timeEntries }: Props) => {
         const isAlsoShamed = Boolean(rankByCompletion.get(1)?.includes(id))
         const isShamed = weeksBehind > 2 && (isMostShamed || isAlsoShamed)
 
-        const badge =
-          isShamed ?
-            isMostShamed ?
-              mostShamedBadge //
+        const badge = isShamed
+          ? isMostShamed
+            ? mostShamedBadge //
             : alsoShamedBadge
-          : weeksBehind <= 0 ?
-            completeBadge //
-          : null
+          : weeksBehind <= 0
+            ? completeBadge //
+            : null
 
         return (
           <Fragment key={id}>
@@ -165,11 +164,13 @@ export const HoursReport = ({ year, contacts, timeEntries }: Props) => {
               const minutes = getMinutes(id, week)
               const hours = Math.round(minutes / 60)
 
-              const icon =
-                isCompleteWeek(minutes) ? weekCompleteIcon
-                : minutes > 0 ? weekPartialIcon
-                : isPast(week) ? weekEmptyIcon
-                : null
+              const icon = isCompleteWeek(minutes)
+                ? weekCompleteIcon
+                : minutes > 0
+                  ? weekPartialIcon
+                  : isPast(week)
+                    ? weekEmptyIcon
+                    : null
 
               const dateRange = formatDateRange(week, week.plusDays(6), {
                 monthFormat: "short",
@@ -212,10 +213,7 @@ export const HoursReport = ({ year, contacts, timeEntries }: Props) => {
       {weeks.map(week => {
         const isComplete = teamCompletionByWeek.get(String(week))
         const isFuture = week.isAfter(LocalDate.now())
-        const icon =
-          isFuture ? null
-          : isComplete ? weekCompleteIcon
-          : weekEmptyIcon
+        const icon = isFuture ? null : isComplete ? weekCompleteIcon : weekEmptyIcon
         return (
           <div
             key={week.toString()}

@@ -105,9 +105,9 @@ export const MyWeek = ({
         <div className="flex items-center text-xs font-semibold text-neutral-400">
           <IconStopwatch />
           {formatDuration(weeklyTotal)}
-          {weeklyTotal >= FULL_WEEK ?
+          {weeklyTotal >= FULL_WEEK ? (
             <IconSquareRoundedCheckFilled className="mx-2 size-5 text-success" />
-          : null}
+          ) : null}
         </div>
       </div>
       {days.map(date => (
@@ -137,9 +137,9 @@ export const MyWeek = ({
             <div className="flex flex-row items-center gap-px pb-1 pt-2 text-xs font-semibold text-neutral-400">
               <IconStopwatch />
               {formatDuration(total)}
-              {total >= FULL_DAY ?
+              {total >= FULL_DAY ? (
                 <IconSquareRoundedCheckFilled className="mx-2 size-4 text-success" />
-              : null}
+              ) : null}
             </div>
           </div>
         )

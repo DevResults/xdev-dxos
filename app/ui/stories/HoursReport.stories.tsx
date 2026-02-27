@@ -45,17 +45,17 @@ const makeStory = ({
   today,
   weekCount,
   procrastinators = [],
-  entries = weekCount ?
-    (generateTimeEntries({
-      clients,
-      contacts,
-      projects,
-      startDate: LocalDate.parse("2024-01-01"),
-      weekCount,
-      procrastinators,
-      omit: ["Colleen"],
-    }) as TimeEntry[])
-  : [],
+  entries = weekCount
+    ? (generateTimeEntries({
+        clients,
+        contacts,
+        projects,
+        startDate: LocalDate.parse("2024-01-01"),
+        weekCount,
+        procrastinators,
+        omit: ["Colleen"],
+      }) as TimeEntry[])
+    : [],
 }: {
   today: string
   entries?: TimeEntry[]

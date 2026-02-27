@@ -38,16 +38,17 @@ export const CopyCode = ({ label = "Copy", labelAfter = "Copied", code }: Props)
         intent={copied ? "primary" : "neutral"}
         className="shrink-0 rounded-l-none focus:outline-none focus:ring-0 focus:ring-offset-0"
       >
-        {copied ?
+        {copied ? (
           <>
             <IconClipboardCheck className="size-5" />
             {labelAfter}
           </>
-        : <>
+        ) : (
+          <>
             <IconClipboard className="size-5" />
             {label}
           </>
-        }
+        )}
       </Button>
     </div>
   )

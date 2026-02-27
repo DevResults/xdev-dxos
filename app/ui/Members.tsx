@@ -43,8 +43,8 @@ export const Members = ({
             >
               {/* Admin icon */}
               <div className="">
-                {contact.isMember ?
-                  canChangeAdminStatus ?
+                {contact.isMember ? (
+                  canChangeAdminStatus ? (
                     <button
                       disabled={!self.isAdmin || contact.isSelf}
                       onClick={() => {
@@ -55,9 +55,9 @@ export const Members = ({
                         }
                       }}
                       title={
-                        contact.isAdmin ?
-                          "Team admin (click to remove)"
-                        : "Click to make team admin"
+                        contact.isAdmin
+                          ? "Team admin (click to remove)"
+                          : "Click to make team admin"
                       }
                       className={cx("mx-auto cursor-pointer hover:opacity-25", {
                         "opacity-100": contact.isAdmin,
@@ -65,22 +65,23 @@ export const Members = ({
                       })}
                       children={adminIcon}
                     />
+                  ) : (
                     // Admin status can't be toggled if self isn't admin, or if contact isn't on team, or if contact is self
-                  : <span
+                    <span
                       title={
-                        contact.isMember ?
-                          contact.isSelf ?
-                            "You are team admin"
-                          : contact.isAdmin ?
-                            "Member is team admin"
-                          : "Member is not team admin"
-                        : "Contact is not on team"
+                        contact.isMember
+                          ? contact.isSelf
+                            ? "You are team admin"
+                            : contact.isAdmin
+                              ? "Member is team admin"
+                              : "Member is not team admin"
+                          : "Contact is not on team"
                       }
                       className={cx({ "opacity-0": !contact.isAdmin }, "mx-auto w-fit")}
                       children={adminIcon}
                     />
-
-                : null}
+                  )
+                ) : null}
               </div>
 
               {/* Name, avatar, metadata */}
@@ -93,9 +94,7 @@ export const Members = ({
                     </Link>
                   </div>
                   <div className="flex flex-row gap-2 divide-x text-xs text-neutral-400 [&>div:not(:first-child)]:pl-2">
-                    {contact.isSelf ?
-                      <div>You</div>
-                    : null}
+                    {contact.isSelf ? <div>You</div> : null}
                     <div>
                       <div>{statusLabel}</div>
                     </div>
@@ -105,7 +104,7 @@ export const Members = ({
 
               {/* Invite, view, or revoke buttons */}
               <div className="flex items-center justify-end gap-2">
-                {!contact.isSelf && canInvite ?
+                {!contact.isSelf && canInvite ? (
                   <Button
                     intent="primary"
                     size="xs"
@@ -115,30 +114,30 @@ export const Members = ({
                   >
                     Invite
                   </Button>
-                : null}
+                ) : null}
 
                 {/* View invitation button */}
-                {canViewInvitation ?
+                {canViewInvitation ? (
                   <Button asChild intent="neutral" size="xs">
                     <Link to={`/team/members/invitation/${contact.id}`} title="View invitation">
                       View
                     </Link>
                   </Button>
-                : null}
+                ) : null}
 
                 {/* Revoke button */}
-                {canRevoke ?
+                {canRevoke ? (
                   <Button asChild intent="danger" size="xs">
                     <Link to={`/team/members/revoke/${contact.id}`} title="Revoke invitation">
                       Revoke
                     </Link>
                   </Button>
-                : null}
+                ) : null}
               </div>
 
               {/* Remove Button */}
               <div className="">
-                {contact.isMember && self.isAdmin && !contact.isSelf ?
+                {contact.isMember && self.isAdmin && !contact.isSelf ? (
                   <Link
                     to="/team/members/remove"
                     state={{ userId: contact.id }}
@@ -146,7 +145,7 @@ export const Members = ({
                     className="opacity-10 hover:text-danger-500 hover:opacity-100"
                     children={<IconTrash className="size-4" />}
                   />
-                : null}
+                ) : null}
               </div>
             </div>
           )

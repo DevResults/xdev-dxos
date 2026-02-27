@@ -52,9 +52,8 @@ export const parseDuration = (input: string) => {
           const text = match[0]
           const { hrs = "0", mins = "0", hrsDecimal } = match.groups!
 
-          const duration =
-            hrsDecimal ?
-              Math.round(Number(hrsDecimal) * 60) // Decimal (e.g. 2.5)
+          const duration = hrsDecimal
+            ? Math.round(Number(hrsDecimal) * 60) // Decimal (e.g. 2.5)
             : Number(hrs) * 60 + Number(mins) // Hours+minutes (e.g. 2:30)
 
           // Only return this if we got a valid non-zero number

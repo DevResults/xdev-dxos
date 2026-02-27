@@ -19,9 +19,9 @@ export default function Begin() {
     <UserNameForm
       userName=""
       onSubmit={async ({ n: userName }) => {
-        await (identity ?
-          client.halo.updateProfile({ displayName: userName })
-        : client.halo.createIdentity({ displayName: userName }))
+        await (identity
+          ? client.halo.updateProfile({ displayName: userName })
+          : client.halo.createIdentity({ displayName: userName }))
       }}
     />
   )

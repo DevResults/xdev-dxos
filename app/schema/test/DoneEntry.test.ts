@@ -1,3 +1,4 @@
+import { LocalDate } from "@js-joda/core"
 import { describe, expect, expectTypeOf, it } from "vitest"
 import { type ContactId } from "../Contact"
 import {
@@ -9,41 +10,39 @@ import {
 } from "../DoneEntry"
 
 describe("DoneEntry", () => {
-  // It("constructs a DoneEntry", () => {
-  //   const decoded = {
-  //     contactId: "0001" as ContactId,
-  //     date: LocalDate.parse("2024-06-10"),
-  //     content: "Coded and compiled terabytes of data",
-  //   }
+  it("constructs a DoneEntry", () => {
+    const decoded = {
+      contactId: "0001" as ContactId,
+      date: LocalDate.parse("2024-06-10"),
+      content: "Coded and compiled terabytes of data",
+    }
 
-  //   // contactId was cast as a ContactId
-  //   expectTypeOf(decoded.contactId).toMatchTypeOf<ContactId>()
+    // contactId was cast as a ContactId
+    expectTypeOf(decoded.contactId).toMatchTypeOf<ContactId>()
 
-  //   // id was populated
-  //   expect(decoded.id).toBeTypeOf("string")
-  //   expect(decoded.id).toHaveLength(24)
+    // id was populated
+    expect(decoded.id).toBeTypeOf("string")
+    expect(decoded.id).toHaveLength(24)
 
-  //   // date was parsed
-  //   expect(decoded.date).toBeInstanceOf(LocalDate)
-  //   expect(decoded.date.year()).toBe(2024)
-  //   expect(decoded.date.monthValue()).toBe(6)
-  //   expect(decoded.date.dayOfMonth()).toBe(10)
+    // date was parsed
+    expect(decoded.date).toBeInstanceOf(LocalDate)
+    expect(decoded.date.year()).toBe(2024)
+    expect(decoded.date.monthValue()).toBe(6)
+    expect(decoded.date.dayOfMonth()).toBe(10)
 
-  //   // content was left untouched
-  //   expect(decoded.content).toBe("Coded and compiled terabytes of data")
+    // content was left untouched
+    expect(decoded.content).toBe("Coded and compiled terabytes of data")
 
-  //   // likes was initialized as an empty array
-  //   expect(decoded.likes).toEqual([])
+    // likes was initialized as an empty array
+    expect(decoded.likes).toEqual([])
 
-  //   // timestamp was populated
-  //   expect(decoded.timestamp).toBeInstanceOf(Date)
+    // timestamp was populated
+    expect(decoded.timestamp).toBeInstanceOf(Date)
 
-  //   expectTypeOf(decoded).toMatchTypeOf<DoneEntry>()
-  // })
+    expectTypeOf(decoded).toMatchTypeOf<DoneEntry>()
+  })
 
-  // Skip encode/decode tests - they require DXOS runtime context
-  // Obj.make from @dxos/echo needs a valid client context
-  it.skip("encodes and decodes DoneEntry", () => {
+  it("encodes and decodes DoneEntry", () => {
     const decoded = makeDoneEntry({
       contactId: "0001" as ContactId,
       date: "2024-06-10",

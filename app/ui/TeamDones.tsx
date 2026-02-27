@@ -33,21 +33,21 @@ export const TeamDones = ({ dones, contacts, self }: Props) => {
       {contacts.map(contact => {
         const contactDones = donesByContact[contact.id]
 
-        return contactDones?.length > 0 ?
-            <div className="min-h-1/3 flex flex-col gap-2" key={contact.id}>
-              {/* user's avatar & name */}
-              <h3 className="flex flex-row items-center gap-2 text-base">
-                <Avatar size="md" contact={contact} />
-                <span>{contact.firstName}</span>
-              </h3>
-              {/* user's dones */}
-              <ul className="flex flex-col gap-1 font-normal text-neutral-700">
-                {contactDones?.map(done => (
-                  <DoneDisplay key={done.id} done={done} self={self} contacts={contacts} />
-                ))}
-              </ul>
-            </div>
-          : null
+        return contactDones?.length > 0 ? (
+          <div className="min-h-1/3 flex flex-col gap-2" key={contact.id}>
+            {/* user's avatar & name */}
+            <h3 className="flex flex-row items-center gap-2 text-base">
+              <Avatar size="md" contact={contact} />
+              <span>{contact.firstName}</span>
+            </h3>
+            {/* user's dones */}
+            <ul className="flex flex-col gap-1 font-normal text-neutral-700">
+              {contactDones?.map(done => (
+                <DoneDisplay key={done.id} done={done} self={self} contacts={contacts} />
+              ))}
+            </ul>
+          </div>
+        ) : null
       })}
     </div>
   )

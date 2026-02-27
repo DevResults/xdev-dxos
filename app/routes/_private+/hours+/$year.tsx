@@ -17,9 +17,9 @@ export default function Hours$YearPage() {
   useRedirect({ from: "/hours", to: `/hours/${currentYear}`, condition: year > currentYear })
 
   const years =
-    timeEntries.length > 0 ?
-      new Set(timeEntries.map(({ date }) => LocalDate.parse(date).year()))
-    : [Number.NEGATIVE_INFINITY, Number.POSITIVE_INFINITY]
+    timeEntries.length > 0
+      ? new Set(timeEntries.map(({ date }) => LocalDate.parse(date).year()))
+      : [Number.NEGATIVE_INFINITY, Number.POSITIVE_INFINITY]
   const minYear = Math.min(...years)
   const maxYear = Math.max(...years)
 

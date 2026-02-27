@@ -67,7 +67,7 @@ export const TimeEntryImporter = ({
           ].join("\n")}
         ></textarea>
         <div className="-mt-1 mb-2 rounded-md rounded-t-none border border-t-0 bg-neutral-50 p-2 pt-3">
-          {errors.length > 0 ?
+          {errors.length > 0 ? (
             <div className="text-sm">
               <div className="flex flex-row gap-1">
                 <IconExclamationCircleFilled className="text-lg text-danger" />
@@ -79,12 +79,12 @@ export const TimeEntryImporter = ({
                 ))}
               </ul>
             </div>
-          : timeEntries.length > 0 ?
+          ) : timeEntries.length > 0 ? (
             <div className="flex flex-row gap-1 text-sm">
               <IconCircleCheckFilled className="text-lg text-success" />
               <p>{timeEntries.length} entries will be imported.</p>
             </div>
-          : undefined}
+          ) : undefined}
         </div>
       </div>
       <div className="py-4">
@@ -95,12 +95,12 @@ export const TimeEntryImporter = ({
         >
           Replace ALL hours with imported data
         </Button>
-        {successMessage ?
+        {successMessage ? (
           <div className="mt-2 flex flex-row items-center gap-2 text-sm">
             <IconCircleCheckFilled className="text-lg text-success" />
             {successMessage}
           </div>
-        : undefined}
+        ) : undefined}
       </div>
     </>
   )

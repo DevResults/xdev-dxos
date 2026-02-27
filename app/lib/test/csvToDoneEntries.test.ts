@@ -65,14 +65,11 @@ for (const testCase of testCases) {
   const { input, only, skip } = testCase
 
   const testName =
-    "error" in testCase && testCase.error ?
-      `⛔ ${label(testCase).padEnd(errorPadding)} ${testCase.error}`
-    : `✅ ${label(testCase)}`
+    "error" in testCase && testCase.error
+      ? `⛔ ${label(testCase).padEnd(errorPadding)} ${testCase.error}`
+      : `✅ ${label(testCase)}`
 
-  const _test =
-    only ? test.only
-    : skip ? test.skip
-    : test
+  const _test = only ? test.only : skip ? test.skip : test
 
   _test(testName, () => {
     const [errors, entries] = decode(input)

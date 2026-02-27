@@ -3,12 +3,14 @@ import { Spinner } from "~/ui/Spinner"
 
 export const SubmitButton = ({ isSubmitting, submittingText, children, ...props }: Props) => (
   <Button {...props} type="submit" disabled={isSubmitting}>
-    {isSubmitting ?
+    {isSubmitting ? (
       <>
         <Spinner onDark className="mr-2" />
         {submittingText}
       </>
-    : children}
+    ) : (
+      children
+    )}
   </Button>
 )
 

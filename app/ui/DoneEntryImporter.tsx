@@ -53,7 +53,7 @@ export const DoneEntryImporter = ({ add = NO_OP, destroyAll = NO_OP, contacts = 
           ].join("\n")}
         ></textarea>
         <div className="-mt-1 mb-2 rounded-md rounded-t-none border border-t-0 bg-neutral-50 p-2 pt-3">
-          {errors.length > 0 ?
+          {errors.length > 0 ? (
             <div className="text-sm">
               <div className="flex flex-row gap-1">
                 <IconExclamationCircleFilled className="text-lg text-danger" />
@@ -65,12 +65,12 @@ export const DoneEntryImporter = ({ add = NO_OP, destroyAll = NO_OP, contacts = 
                 ))}
               </ul>
             </div>
-          : doneEntries.length > 0 ?
+          ) : doneEntries.length > 0 ? (
             <div className="flex flex-row gap-1 text-sm">
               <IconCircleCheckFilled className="text-lg text-success" />
               <p>{doneEntries.length} dones will be imported.</p>
             </div>
-          : null}
+          ) : null}
         </div>
       </div>
       <div className="py-4">
@@ -81,12 +81,12 @@ export const DoneEntryImporter = ({ add = NO_OP, destroyAll = NO_OP, contacts = 
         >
           Replace ALL dones with imported data
         </Button>
-        {successMessage ?
+        {successMessage ? (
           <div className="mt-2 flex flex-row items-center gap-2 text-sm">
             <IconCircleCheckFilled className="text-lg text-success" />
             {successMessage}
           </div>
-        : null}
+        ) : null}
       </div>
     </>
   )

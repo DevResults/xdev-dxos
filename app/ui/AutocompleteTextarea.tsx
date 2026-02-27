@@ -115,7 +115,7 @@ export const AutocompleteTextarea = forwardRef<HTMLTextAreaElement, Props>(
             e.preventDefault()
           }} // Don't steal focus
         >
-          {showAutocomplete ?
+          {showAutocomplete ? (
             <>
               <div
                 className="max-h-64 w-64 overflow-auto border bg-white text-xs shadow-md outline-none"
@@ -126,7 +126,7 @@ export const AutocompleteTextarea = forwardRef<HTMLTextAreaElement, Props>(
                   top: autocompletePosition.y,
                 }}
               >
-                {autocompleteItems.length > 0 ?
+                {autocompleteItems.length > 0 ? (
                   <AutocompleteMenu
                     id={autocompleteMenuId}
                     items={autocompleteItems}
@@ -150,17 +150,18 @@ export const AutocompleteTextarea = forwardRef<HTMLTextAreaElement, Props>(
                       setQueryState(undefined)
                     }}
                   />
-                : <div className="p-2">
+                ) : (
+                  <div className="p-2">
                     No {queryState.type.toLowerCase()}s found matching{" "}
                     <b>
                       {queryState.trigger}
                       {queryState.query}
                     </b>
                   </div>
-                }
+                )}
               </div>
             </>
-          : null}
+          ) : null}
         </PopoverContent>
       </Popover>
     )

@@ -29,9 +29,8 @@ export function ErrorScreen({ error, isDevelopment = false }: Props) {
     }
   }
 
-  const output =
-    isRouteError ?
-      {
+  const output = isRouteError
+    ? {
         status: error.status,
         statusText: error.statusText,
         message: getMessage(error.status),
@@ -56,14 +55,14 @@ export function ErrorScreen({ error, isDevelopment = false }: Props) {
         <CardContent>
           <h1 className="mt-4">{output.statusText}</h1>
 
-          {output.message ?
+          {output.message ? (
             <pre className="mt-6 text-sm leading-7 text-neutral-600">{output.message}</pre>
-          : null}
-          {isDevelopment && output.stack ?
+          ) : null}
+          {isDevelopment && output.stack ? (
             <pre className="max-h-48 overflow-auto rounded-lg bg-neutral-50 p-2 text-[.6em]">
               {output.stack}
             </pre>
-          : null}
+          ) : null}
         </CardContent>
       </Card>
     </CenteredLayout>

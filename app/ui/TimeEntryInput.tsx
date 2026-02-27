@@ -180,7 +180,7 @@ export const TimeEntryInput = ({
         }}
       >
         {/* ERRORS */}
-        {showError ?
+        {showError ? (
           <div
             id={errorMessageId}
             className="flex flex-col gap-1 rounded-md bg-danger p-2 shadow-md outline-none"
@@ -196,7 +196,7 @@ export const TimeEntryInput = ({
               </div>
             ))}
           </div>
-        : null}
+        ) : null}
       </PopoverContent>
     </Popover>
   )

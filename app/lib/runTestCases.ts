@@ -17,10 +17,7 @@ export const runTestCases = <
 }) => {
   for (const testCase of testCases) {
     const { input, error, only, skip } = testCase
-    const test =
-      only ? _test.only
-      : skip ? _test.skip
-      : _test
+    const test = only ? _test.only : skip ? _test.skip : _test
 
     const decode = (input: string) =>
       pipe(

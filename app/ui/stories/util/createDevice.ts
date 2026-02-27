@@ -6,9 +6,9 @@ export const createDevice = (ua: string) => {
   // Based on dxos identity-manager https://github.com/DevResults/dxos/blob/5d1ad0f/packages/sdk/client-services/src/packlets/identity/identity-manager.ts
   const platform = parse(ua)
   const type =
-    platform.name && (platform.name.startsWith("iOS") || platform.name.startsWith("Android")) ?
-      DeviceType.MOBILE
-    : DeviceType.BROWSER
+    platform.name && (platform.name.startsWith("iOS") || platform.name.startsWith("Android"))
+      ? DeviceType.MOBILE
+      : DeviceType.BROWSER
 
   return {
     deviceKey: "" as unknown as PublicKey,

@@ -46,9 +46,8 @@ export default defineConfig({
     trace: "on-first-retry",
   },
 
-  projects:
-    isCI ?
-      [
+  projects: isCI
+    ? [
         {
           name: "chromium",
           use: {
@@ -85,22 +84,22 @@ export default defineConfig({
         },
       ],
 
-  webServer:
-    isPlaywrightUI ? []
-    : isCI ?
-      // Use the built website for testing in ci
-      [
-        {
-          command: "pnpm vite preview --port 3001",
-          url: "http://localhost:3001",
-          reuseExistingServer: false,
-        },
-      ]
-    : [
-        {
-          command: "pnpm react-router dev --port 3001",
-          url: "http://localhost:3001",
-          reuseExistingServer: false,
-        },
-      ],
+  webServer: isPlaywrightUI
+    ? []
+    : isCI
+      ? // Use the built website for testing in ci
+        [
+          {
+            command: "pnpm vite preview --port 3001",
+            url: "http://localhost:3001",
+            reuseExistingServer: false,
+          },
+        ]
+      : [
+          {
+            command: "pnpm react-router dev --port 3001",
+            url: "http://localhost:3001",
+            reuseExistingServer: false,
+          },
+        ],
 })

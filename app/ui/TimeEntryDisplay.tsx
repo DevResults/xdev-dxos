@@ -46,21 +46,19 @@ export function TimeEntryDisplay({ className = "", timeEntry, projects, clients 
           // Icon={<IconHash />}
         >
           #<span className="font-bold">{project?.code}</span>
-          {project?.subCode ?
+          {project?.subCode ? (
             <>
               <span className="inline-block px-px">:</span>
               {project?.subCode}
             </>
-          : null}
+          ) : null}
         </Badge>
         {/* client */}
-        {client ?
+        {client ? (
           <Badge className="border border-neutral-200 text-black">@{client.code}</Badge>
-        : null}
+        ) : null}
       </div>
-      {description ?
-        <div className="px-1 text-xs">{description}</div>
-      : null}
+      {description ? <div className="px-1 text-xs">{description}</div> : null}
     </div>
   )
 }

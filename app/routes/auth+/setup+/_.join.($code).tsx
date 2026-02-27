@@ -41,18 +41,18 @@ export default function AuthJoinPage() {
   // Hooks ↑
 
   useRedirect(
-    invitationCode ?
-      {
-        from: /.*/,
-        to: "/auth/begin",
-        condition: !identity,
-        localState: { invitationCode },
-      }
-    : {
-        from: /.*/,
-        to: "/auth/begin",
-        condition: !identity,
-      },
+    invitationCode
+      ? {
+          from: /.*/,
+          to: "/auth/begin",
+          condition: !identity,
+          localState: { invitationCode },
+        }
+      : {
+          from: /.*/,
+          to: "/auth/begin",
+          condition: !identity,
+        },
   )
   useRedirect({ from: /.*/, to: "/", condition: Boolean(spaceKey) })
 
@@ -89,9 +89,8 @@ export default function AuthJoinPage() {
         await joinedSpace.waitUntilReady()
 
         const invitationRecord = getInvitationForJoin(invitationCodeForLookup, joinedInvitations)
-        const matchedContact =
-          invitationRecord ?
-            joinedContacts.find(contact => contact.id === invitationRecord.contactId)
+        const matchedContact = invitationRecord
+          ? joinedContacts.find(contact => contact.id === invitationRecord.contactId)
           : undefined
 
         if (matchedContact) {

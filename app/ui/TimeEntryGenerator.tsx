@@ -51,12 +51,12 @@ export const TimeEntryGenerator = ({
         <Button intent="danger" onClick={onConfirm}>
           Replace ALL hours with dummy data
         </Button>
-        {successMessage ?
+        {successMessage ? (
           <div className="mt-2 flex flex-row items-center gap-2 text-sm">
             <IconCircleCheckFilled className="text-lg text-success" />
             {successMessage}
           </div>
-        : null}
+        ) : null}
       </div>
     </>
   )

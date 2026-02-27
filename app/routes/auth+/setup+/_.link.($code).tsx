@@ -17,17 +17,19 @@ export default function AuthLinkPage() {
     void navigate("/")
   }
 
-  return invitationCodeFromUrl ?
-      <InvitationForm
-        heading="Link a device"
-        error={error}
-        invitationCode={invitationCodeFromUrl}
-        readOnly={true}
-        onSubmit={async () => joinWithCode(invitationCodeFromUrl)}
-      />
-    : <InvitationForm
-        heading="Link a device"
-        error={error}
-        onSubmit={async ({ invitationCode }) => joinWithCode(invitationCode)}
-      />
+  return invitationCodeFromUrl ? (
+    <InvitationForm
+      heading="Link a device"
+      error={error}
+      invitationCode={invitationCodeFromUrl}
+      readOnly={true}
+      onSubmit={async () => joinWithCode(invitationCodeFromUrl)}
+    />
+  ) : (
+    <InvitationForm
+      heading="Link a device"
+      error={error}
+      onSubmit={async ({ invitationCode }) => joinWithCode(invitationCode)}
+    />
+  )
 }

@@ -39,14 +39,15 @@ export function Likes({ likes = [], self, onToggle }: Props) {
       }}
       title={numberLikes === 0 ? "Click to like" : likesDescription(likes, self)}
     >
-      {numberLikes === 0 ?
+      {numberLikes === 0 ? (
         <IconHeart
           className={cx(
             "size-[1em]", //
             animateUnlike && "animate-shortshake",
           )}
         />
-      : <>
+      ) : (
+        <>
           <IconHeartFilled
             className={cx(
               "size-[1em]",
@@ -57,7 +58,7 @@ export function Likes({ likes = [], self, onToggle }: Props) {
           />
           {numberLikes}
         </>
-      }
+      )}
     </button>
   )
 }
