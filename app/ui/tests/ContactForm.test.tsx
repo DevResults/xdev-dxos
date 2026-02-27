@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 
-import React from "react"
 import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react"
+import React from "react"
 import { MemoryRouter } from "react-router"
 import { afterEach, describe, expect, test, vi } from "vitest"
 import { ContactForm, type ContactFormValues } from "../ContactForm"

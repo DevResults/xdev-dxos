@@ -1,9 +1,9 @@
 import { PageLayout } from "ui/layouts/PageLayout"
-import { WeekNav } from "ui/WeekNav"
 import { TeamDones } from "ui/TeamDones"
+import { WeekNav } from "ui/WeekNav"
+import { useDatabase } from "~/hooks/useDatabase"
 import { useSelectedWeek } from "~/hooks/useSelectedWeek"
 import { useTeam } from "~/hooks/useTeam"
-import { useDatabase } from "~/hooks/useDatabase"
 
 export default function Dones$DatePage() {
   const { doneEntries } = useDatabase()

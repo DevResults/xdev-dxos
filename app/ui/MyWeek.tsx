@@ -7,11 +7,11 @@ import { formatDuration } from "~/lib/formatDuration"
 import { getDaysOfWeek } from "~/lib/getDaysOfWeek"
 import { isWeekend } from "~/lib/isWeekend"
 import { sum } from "~/lib/sum"
-import type { DoneEntry } from "~/schema/DoneEntry"
-import type { TimeEntry } from "~/schema/TimeEntry"
 import type { Client } from "~/schema/Client"
-import type { Project } from "~/schema/Project"
 import type { Contact } from "~/schema/Contact"
+import type { DoneEntry } from "~/schema/DoneEntry"
+import type { Project } from "~/schema/Project"
+import type { TimeEntry } from "~/schema/TimeEntry"
 
 const FULL_DAY = 7 * 60
 const FULL_WEEK = FULL_DAY * 5

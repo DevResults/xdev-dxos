@@ -1,10 +1,10 @@
 import type { ReactNode } from "react"
 import { cx } from "~/lib/cx"
 import { formatDuration } from "~/lib/formatDuration"
-import type { TimeEntry } from "~/schema/TimeEntry"
-import type { Project } from "~/schema/Project"
 import type { Client } from "~/schema/Client"
 import type { Contact } from "~/schema/Contact"
+import type { Project } from "~/schema/Project"
+import type { TimeEntry } from "~/schema/TimeEntry"
 
 /**
  * Displays a read-only TimeEntry

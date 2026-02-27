@@ -1,8 +1,8 @@
-import { E, pipe } from "schema/lib/Effect"
+import { contacts } from "data/contacts"
 import { type BaseTestCase } from "lib/runTestCases"
 import { ProvidedContacts } from "schema/ContactCollection"
+import { E, pipe } from "schema/lib/Effect"
 import { assert, expect, test } from "vitest"
-import { contacts } from "data/contacts"
 import { csvToDoneEntries } from "../csvToDoneEntries"
 
 type TestCase = BaseTestCase & {

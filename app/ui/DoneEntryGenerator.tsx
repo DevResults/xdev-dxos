@@ -1,10 +1,10 @@
 import { LocalDate } from "@js-joda/core"
 import { Button } from "@ui/button"
-import { useState } from "react"
-import { generateDones } from "lib/generateDones"
 import { NO_OP } from "lib/constants"
-import type { DoneEntry } from "schema/DoneEntry"
+import { generateDones } from "lib/generateDones"
+import { useState } from "react"
 import type { Contact } from "schema/Contact"
+import type { DoneEntry } from "schema/DoneEntry"
 import { RadioGroup } from "ui/RadioGroup"
 
 export const DoneEntryGenerator = ({ destroyAll = NO_OP, add = () => {}, contacts }: Props) => {

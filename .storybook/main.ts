@@ -1,6 +1,6 @@
-import type { StorybookConfig } from "@storybook/react-vite"
 import fs from "fs"
 import path from "path"
+import type { StorybookConfig } from "@storybook/react-vite"
 
 const stories = getUiDirs().flatMap(dir => [{ directory: `${dir}/stories` }])
 

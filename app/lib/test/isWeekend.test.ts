@@ -1,6 +1,6 @@
 import { LocalDate } from "@js-joda/core"
-import { describe, expect, test } from "vitest"
 import { isWeekend } from "lib/isWeekend"
+import { describe, expect, test } from "vitest"
 
 describe("getPreviousSunday", () => {
   const testCase = (date: string, expected: boolean): void => {

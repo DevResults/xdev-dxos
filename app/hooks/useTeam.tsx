@@ -1,6 +1,6 @@
-import { DeviceKind, useDevices, useIdentity } from "@dxos/react-client/halo"
-import { Filter, useQuery, useSpace, type SpaceMember } from "@dxos/react-client/echo"
 import { type MulticastObservable, useMulticastObservable } from "@dxos/react-client"
+import { Filter, useQuery, useSpace, type SpaceMember } from "@dxos/react-client/echo"
+import { DeviceKind, useDevices, useIdentity } from "@dxos/react-client/halo"
 import { useMemo } from "react"
 import { getContactInvitation } from "./getContactInvitation"
 import { getInvitationStatus } from "./getInvitationStatus"

@@ -1,6 +1,6 @@
 import { Outlet } from "react-router"
-import { SecondaryNav } from "ui/SecondaryNav"
 import { PageLayout } from "ui/layouts/PageLayout"
+import { SecondaryNav } from "ui/SecondaryNav"
 
 export default function TeamLayout() {
   return (

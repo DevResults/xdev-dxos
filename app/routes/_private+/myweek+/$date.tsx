@@ -1,13 +1,13 @@
+import { useSpace } from "@dxos/react-client/echo"
 import { Checkbox } from "@ui/checkbox"
 import { useState } from "react"
-import { useSpace } from "@dxos/react-client/echo"
 import { PageLayout } from "ui/layouts/PageLayout"
-import { WeekNav } from "ui/WeekNav"
 import { MyWeek } from "ui/MyWeek"
-import { useSelectedWeek } from "~/hooks/useSelectedWeek"
-import { useTeam } from "~/hooks/useTeam"
+import { WeekNav } from "ui/WeekNav"
 import { useDatabase } from "~/hooks/useDatabase"
 import { useLocalState } from "~/hooks/useLocalState"
+import { useSelectedWeek } from "~/hooks/useSelectedWeek"
+import { useTeam } from "~/hooks/useTeam"
 
 export default function MyWeek$DatePage() {
   const { self, contacts } = useTeam()

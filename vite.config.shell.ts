@@ -1,11 +1,11 @@
 import fs from "node:fs"
 import path from "node:path"
-import { type Plugin } from "vite"
-import { defineConfig } from "vitest/config"
-import topLevelAwait from "vite-plugin-top-level-await"
 import { ConfigPlugin } from "@dxos/config/vite-plugin"
 import ReactPlugin from "@vitejs/plugin-react"
+import { type Plugin } from "vite"
+import topLevelAwait from "vite-plugin-top-level-await"
 import wasm from "vite-plugin-wasm"
+import { defineConfig } from "vitest/config"
 
 const combineShellWithApp = () => ({
   name: "combineShellWithApp",

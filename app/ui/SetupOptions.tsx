@@ -1,7 +1,7 @@
-import { Card, CardContent, CardHeader } from "@ui/card"
 import { Button } from "@ui/button"
-import { Fragment } from "react/jsx-runtime"
+import { Card, CardContent, CardHeader } from "@ui/card"
 import { Link } from "react-router"
+import { Fragment } from "react/jsx-runtime"
 import { cx } from "~/lib/cx"
 
 export const SetupOptions = () => {

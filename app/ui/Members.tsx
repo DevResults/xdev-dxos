@@ -1,10 +1,10 @@
-import { Link } from "react-router"
 import { Button } from "@ui/button"
+import { Link } from "react-router"
 import { by } from "~/lib/by"
 import { cx } from "~/lib/cx"
-import { getContactMembershipDisplay } from "~/ui/getContactMembershipDisplay"
-import { Avatar } from "~/ui/Avatar"
 import type { ExtendedContact } from "~/schema/Contact"
+import { Avatar } from "~/ui/Avatar"
+import { getContactMembershipDisplay } from "~/ui/getContactMembershipDisplay"
 
 export const Members = ({
   self,

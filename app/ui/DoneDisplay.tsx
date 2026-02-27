@@ -1,7 +1,7 @@
 import { withTrackSignals } from "@preact-signals/safe-react/manual"
 import { cx } from "lib/cx"
-import type { DoneEntry } from "schema/DoneEntry"
 import type { Contact } from "schema/Contact"
+import type { DoneEntry } from "schema/DoneEntry"
 import { Likes } from "ui/Likes"
 
 // We're using withTrackSignals for reactivity as per [this conversation](https://discord.com/channels/837138313172353095/1340003933757902908/1458261445677678664).

@@ -1,9 +1,9 @@
-import { Likes } from "./Likes"
 import { DeleteButton } from "./DeleteButton"
 import { DoneInput, type Props as InputProps } from "./DoneInput"
-import type { DoneEntry } from "~/schema/DoneEntry"
+import { Likes } from "./Likes"
 import { cx } from "~/lib/cx"
 import type { Contact } from "~/schema/Contact"
+import type { DoneEntry } from "~/schema/DoneEntry"
 
 /**
  * Used for displaying the current user's own dones to them so they can edit them. Wraps a

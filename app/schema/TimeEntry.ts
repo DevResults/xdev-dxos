@@ -1,11 +1,11 @@
 import { Obj, Type } from "@dxos/echo"
 import type { Client } from "./Client"
-import type { Project } from "./Project"
 import { ProvidedClients } from "./ClientCollection"
 import { Cuid } from "./Cuid"
 import { E, pipe, S } from "./lib/Effect"
 import { parseTimeEntry } from "./lib/parseTimeEntry"
 import { stripUndefined } from "./lib/stripUndefined"
+import type { Project } from "./Project"
 import { ProvidedProjects } from "./ProjectCollection"
 
 export const TimeEntryId = pipe(Cuid, S.brand("TimeEntryId"))

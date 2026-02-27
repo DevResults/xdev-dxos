@@ -1,8 +1,8 @@
 import { DoneDisplay } from "./DoneDisplay"
+import type { Contact } from "~/schema/Contact"
+import type { DoneEntry } from "~/schema/DoneEntry"
 import { Avatar } from "~/ui/Avatar"
 import { CenteredLayout } from "~/ui/layouts/CenteredLayout"
-import type { DoneEntry } from "~/schema/DoneEntry"
-import type { Contact } from "~/schema/Contact"
 
 export const TeamDones = ({ dones, contacts, self }: Props) => {
   if (dones.length === 0) {

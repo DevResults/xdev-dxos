@@ -1,8 +1,8 @@
 import { NavLink } from "react-router"
 import { Avatar } from "./Avatar"
 import { cx } from "~/lib/cx"
-import type { NavItem } from "~/types/types"
 import type { Contact } from "~/schema/Contact"
+import type { NavItem } from "~/types/types"
 
 export function Sidebar({ self, close }: Props) {
   const navigation: NavItem[] = [

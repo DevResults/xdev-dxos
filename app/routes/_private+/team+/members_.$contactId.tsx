@@ -1,10 +1,10 @@
-import { useCallback } from "react"
-import { useNavigate, useParams } from "react-router"
 import { useSpace } from "@dxos/react-client/echo"
+import { useCallback } from "react"
 import type { FieldPath } from "react-hook-form"
+import { useNavigate, useParams } from "react-router"
 import { ContactForm, type ContactFormValues } from "ui/ContactForm"
-import { useTeam } from "~/hooks/useTeam"
 import { useLocalState } from "~/hooks/useLocalState"
+import { useTeam } from "~/hooks/useTeam"
 
 /** Route for editing a single contact's details. */
 export default function EditContactPage() {

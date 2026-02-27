@@ -1,8 +1,8 @@
-import { Link } from "react-router"
-import { Button } from "@ui/button"
 import type { Device } from "@dxos/react-client/halo"
-import { getBrowserIcon, getDeviceIcon, getOsIcon } from "lib/getDeviceIcon"
+import { Button } from "@ui/button"
 import { cx } from "lib/cx"
+import { getBrowserIcon, getDeviceIcon, getOsIcon } from "lib/getDeviceIcon"
+import { Link } from "react-router"
 import { MetadataList } from "ui/MetadataList"
 
 export const Devices = ({ ownDevice, devices = [], onInvite = () => {} }: Props) => (

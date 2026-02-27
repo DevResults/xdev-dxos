@@ -1,6 +1,6 @@
-import { parse } from "platform"
 import type { PublicKey } from "@dxos/react-client"
 import { Device, DeviceKind, DeviceType } from "@dxos/react-client/halo"
+import { parse } from "platform"
 
 export const createDevice = (ua: string) => {
   // Based on dxos identity-manager https://github.com/DevResults/dxos/blob/5d1ad0f/packages/sdk/client-services/src/packlets/identity/identity-manager.ts

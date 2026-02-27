@@ -1,6 +1,6 @@
-import { Outlet } from "react-router"
 import { type PublicKey, useShell } from "@dxos/react-client"
 import { Device, DeviceKind } from "@dxos/react-client/halo"
+import { Outlet } from "react-router"
 import { Devices } from "ui/Devices"
 import { useTeam } from "~/hooks/useTeam"
 

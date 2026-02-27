@@ -2,8 +2,8 @@ import type { LocalDate } from "@js-joda/core"
 import { isWeekend } from "lib/isWeekend"
 import type { Contact } from "schema/Contact"
 import { type DoneEntry } from "schema/DoneEntry"
-import { randomElement } from "./randomElement"
 import { dummyDones } from "./dummyDones"
+import { randomElement } from "./randomElement"
 
 export const generateDones = ({ today, weeks, productivity, enthusiasm, contacts }: parameters) => {
   const N = weeks * 7 * productivity * contacts.length

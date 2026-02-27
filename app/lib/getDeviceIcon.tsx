@@ -1,5 +1,5 @@
-import type { ReactNode } from "react"
 import { DeviceType, type Device } from "@dxos/react-client/halo"
+import type { ReactNode } from "react"
 
 export const getDeviceIcon = (deviceInfo: Device) =>
   deviceInfo.profile?.type === DeviceType.MOBILE ? <IconDeviceMobile /> : <IconDeviceDesktop />

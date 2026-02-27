@@ -8,12 +8,12 @@ import { getSunday } from "~/lib/getSunday"
 import { getSundaysForYear } from "~/lib/getSundaysForYear"
 import { isCompleteWeek } from "~/lib/isCompleteWeek"
 import { plural } from "~/lib/plural"
+import { rankByScore } from "~/lib/rankByScore"
 import { sum } from "~/lib/sum"
+import type { Contact, ContactId } from "~/schema/Contact"
+import type { TimeEntry } from "~/schema/TimeEntry"
 import { Avatar } from "~/ui/Avatar"
 import { CenteredLayout } from "~/ui/layouts/CenteredLayout"
-import type { TimeEntry } from "~/schema/TimeEntry"
-import type { Contact, ContactId } from "~/schema/Contact"
-import { rankByScore } from "~/lib/rankByScore"
 
 export const HoursReport = ({ year, contacts, timeEntries }: Props) => {
   const sYear = year.toString()

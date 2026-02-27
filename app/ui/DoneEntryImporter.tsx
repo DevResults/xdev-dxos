@@ -2,10 +2,10 @@ import { Button } from "@ui/button"
 import { useState } from "react"
 import { csvToDoneEntries } from "../lib/csvToDoneEntries"
 import { NO_OP } from "~/lib/constants"
-import type { DoneEntry } from "~/schema/DoneEntry"
 import type { Contact } from "~/schema/Contact"
-import { pipe, E } from "~/schema/lib/Effect"
 import { ProvidedContacts } from "~/schema/ContactCollection"
+import type { DoneEntry } from "~/schema/DoneEntry"
+import { pipe, E } from "~/schema/lib/Effect"
 
 export const DoneEntryImporter = ({ add = NO_OP, destroyAll = NO_OP, contacts = [] }: Props) => {
   const [importData, setImportData] = useState("")

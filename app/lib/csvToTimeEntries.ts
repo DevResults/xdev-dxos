@@ -1,11 +1,11 @@
 import { LocalDate } from "@js-joda/core"
-import { reconstructTimeEntryInput } from "./reconstructTimeEntryInput"
 import { type CsvParseError, csvToSchema } from "./parseCsv"
-import { Data, E, S } from "~/schema/lib/Effect"
+import { reconstructTimeEntryInput } from "./reconstructTimeEntryInput"
 import { ClientNotFoundError, ProvidedClients } from "~/schema/ClientCollection"
 import { ContactNotFoundError, ProvidedContacts } from "~/schema/ContactCollection"
-import { ProvidedProjects } from "~/schema/ProjectCollection"
+import { Data, E, S } from "~/schema/lib/Effect"
 import { findByCode } from "~/schema/lib/parseProject"
+import { ProvidedProjects } from "~/schema/ProjectCollection"
 
 export class TimeEntryCsvRow extends S.Class<TimeEntryCsvRow>("TimeEntryCsvRow")({
   userName: S.String,

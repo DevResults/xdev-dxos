@@ -7,7 +7,7 @@ const alertVariants = cva(
     "relative w-full rounded-lg border p-4",
     "[&>svg~*]:pl-7",
     "[&>svg+div]:translate-y-[-3px]",
-    "[&>svg]:absolute [&>svg]:text-xl [&>svg]:left-3 [&>svg]:top-3",
+    "[&>svg]:absolute [&>svg]:left-3 [&>svg]:top-3 [&>svg]:text-xl",
   ),
   {
     variants: {

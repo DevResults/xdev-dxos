@@ -1,7 +1,7 @@
 import { useIdentity } from "@dxos/react-client/halo"
 import { SetupOptions } from "ui/SetupOptions"
-import { useRedirect } from "~/hooks/useRedirect"
 import { useLocalState } from "~/hooks/useLocalState"
+import { useRedirect } from "~/hooks/useRedirect"
 
 export default function Setup() {
   const identity = useIdentity()

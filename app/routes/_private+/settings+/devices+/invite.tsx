@@ -1,11 +1,11 @@
-import { useNavigate } from "react-router"
-import { useCallback, useEffect, useRef, useState } from "react"
 import { useClient } from "@dxos/react-client"
 import {
   type CancellableInvitationObservable,
   Invitation,
   useInvitationStatus,
 } from "@dxos/react-client/invitations"
+import { useCallback, useEffect, useRef, useState } from "react"
+import { useNavigate } from "react-router"
 import { InviteDeviceDialog } from "ui/InviteDeviceDialog"
 
 export default function DevicesInvitePage() {

@@ -8,8 +8,8 @@ import {
   type AutocompleteMode,
   type AutocompleteState,
 } from "./AutocompleteMenu"
-import { cx } from "~/lib/cx"
 import { NO_OP } from "~/lib/constants"
+import { cx } from "~/lib/cx"
 
 export const AutocompleteTextarea = forwardRef<HTMLTextAreaElement, Props>(
   (

@@ -1,5 +1,5 @@
-import type { Invitation } from "~/schema/Invitation"
 import type { ContactInvitationStatus } from "~/schema/Contact"
+import type { Invitation } from "~/schema/Invitation"
 
 const INVITATION_EXPIRY_MS = 7 * 24 * 60 * 60 * 1000
 

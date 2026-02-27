@@ -1,5 +1,5 @@
-import type { MakeOptional } from "@dxos/util"
 import { Obj, Type } from "@dxos/echo"
+import type { MakeOptional } from "@dxos/util"
 import { Cuid } from "./Cuid"
 import { E, pipe, S } from "./lib/Effect"
 import { stripUndefined } from "./lib/stripUndefined"

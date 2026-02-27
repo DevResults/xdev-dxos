@@ -2,10 +2,10 @@ import { Button } from "@ui/button"
 import { Form } from "@ui/form"
 import type { FieldPath } from "react-hook-form"
 import { Link } from "react-router"
+import { TextInput } from "./TextInput"
 import { useAutoSaveForm } from "~/hooks/useAutoSaveForm"
 import { Contact } from "~/schema/Contact"
 import { S } from "~/schema/lib/Effect"
-import { TextInput } from "./TextInput"
 
 /** Unified form for creating and editing contacts, with per-field auto-save on blur. */
 export function ContactForm({

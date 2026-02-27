@@ -4,9 +4,9 @@ import { useState } from "react"
 import { generateTimeEntries } from "../lib/generateTimeEntries"
 import { RadioGroup } from "./RadioGroup"
 import { getSunday } from "~/lib/getSunday"
+import type { Client } from "~/schema/Client"
 import type { Contact } from "~/schema/Contact"
 import type { Project } from "~/schema/Project"
-import type { Client } from "~/schema/Client"
 
 export const TimeEntryGenerator = ({
   destroyAll = () => {},

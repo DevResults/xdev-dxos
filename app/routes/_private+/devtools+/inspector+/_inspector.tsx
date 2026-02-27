@@ -1,7 +1,7 @@
-import { Tabs, TabsList, TabsContent, TabsTrigger } from "@ui/tabs"
-import { JsonView, defaultStyles } from "react-json-view-lite"
-import "react-json-view-lite/dist/index.css"
 import { useSpaces } from "@dxos/react-client/echo"
+import { Tabs, TabsList, TabsContent, TabsTrigger } from "@ui/tabs"
+import "react-json-view-lite/dist/index.css"
+import { JsonView, defaultStyles } from "react-json-view-lite"
 
 export default function InspectorPage() {
   const spaces = useSpaces()

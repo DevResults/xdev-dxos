@@ -1,8 +1,8 @@
-import { useLocation, useNavigate } from "react-router"
 import { useSpace, HaloSpaceMember } from "@dxos/react-client/echo"
+import { useLocation, useNavigate } from "react-router"
 import { RemoveMemberDialog } from "ui/RemoveMemberDialog"
-import { useTeam } from "~/hooks/useTeam"
 import { useLocalState } from "~/hooks/useLocalState"
+import { useTeam } from "~/hooks/useTeam"
 import type { ContactId } from "~/schema/Contact"
 
 export default function RemovePage() {

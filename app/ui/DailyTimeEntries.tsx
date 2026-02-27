@@ -4,10 +4,10 @@ import { DeleteButton } from "./DeleteButton"
 import { TimeEntryDisplay } from "./TimeEntryDisplay"
 import { TimeEntryInput } from "./TimeEntryInput"
 import { cx } from "~/lib/cx"
-import type { TimeEntry } from "~/schema/TimeEntry"
-import type { Project } from "~/schema/Project"
 import type { Client } from "~/schema/Client"
 import type { Contact } from "~/schema/Contact"
+import type { Project } from "~/schema/Project"
+import type { TimeEntry } from "~/schema/TimeEntry"
 
 /** Displays a single day of the current user's timeentries */
 export const DailyTimeEntries = ({

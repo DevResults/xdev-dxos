@@ -1,12 +1,12 @@
 import { LocalDate } from "@js-joda/core"
-import { PageLayout } from "ui/layouts/PageLayout"
 import { HoursReport } from "ui/HoursReport"
+import { PageLayout } from "ui/layouts/PageLayout"
 import { YearNav } from "ui/YearNav"
+import { useDatabase } from "~/hooks/useDatabase"
 import { useRedirect } from "~/hooks/useRedirect"
 import { useSelectedYear } from "~/hooks/useSelectedYear"
 import { useTeam } from "~/hooks/useTeam"
 import { getCurrentYear } from "~/lib/getCurrentYear"
-import { useDatabase } from "~/hooks/useDatabase"
 
 export default function Hours$YearPage() {
   const { timeEntries } = useDatabase()

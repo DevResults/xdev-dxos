@@ -1,8 +1,8 @@
-import type { Identity } from "@dxos/react-client/halo"
 import { Obj, Type } from "@dxos/echo"
 import { HaloSpaceMember, type SpaceMember } from "@dxos/react-client/echo"
-import type { Invitation } from "./Invitation"
+import type { Identity } from "@dxos/react-client/halo"
 import { Cuid } from "./Cuid"
+import type { Invitation } from "./Invitation"
 import { pipe, S } from "./lib/Effect"
 
 export const ContactId = pipe(Cuid, S.brand("ContactId"))

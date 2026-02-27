@@ -6,10 +6,10 @@ import { AutocompleteTextarea } from "./AutocompleteTextarea"
 import { NO_OP } from "~/lib/constants"
 import { cx } from "~/lib/cx"
 import { Keys } from "~/lib/keys"
-import { parseTimeEntries, type TimeEntry } from "~/schema/TimeEntry"
-import type { Project } from "~/schema/Project"
 import type { Client } from "~/schema/Client"
 import type { Contact } from "~/schema/Contact"
+import type { Project } from "~/schema/Project"
+import { parseTimeEntries, type TimeEntry } from "~/schema/TimeEntry"
 
 const { enter, escape, up, down, left, right } = Keys
 
