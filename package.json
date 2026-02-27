@@ -30,9 +30,9 @@
     "ralph": "ralph"
   },
   "dependencies": {
-    "@dxos/config": "^0.8.3",
     "@dxos/echo": "0.8.3",
     "@dxos/echo-schema": "^0.8.3",
+    "@dxos/config": "^0.8.3",
     "@dxos/react-client": "^0.8.3",
     "@dxos/shell": "^0.8.3",
     "@dxos/util": "^0.8.3",

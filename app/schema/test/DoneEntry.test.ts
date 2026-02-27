@@ -11,14 +11,14 @@ import {
 
 describe("DoneEntry", () => {
   it("constructs a DoneEntry", () => {
-    const decoded = {
+    const decoded = makeDoneEntry({
       contactId: "0001" as ContactId,
-      date: LocalDate.parse("2024-06-10"),
+      date: "2024-06-10",
       content: "Coded and compiled terabytes of data",
-    }
+    })
 
     // contactId was cast as a ContactId
-    expectTypeOf(decoded.contactId).toMatchTypeOf<ContactId>()
+    expectTypeOf(decoded.contactId).toEqualTypeOf<ContactId>()
 
     // id was populated
     expect(decoded.id).toBeTypeOf("string")
