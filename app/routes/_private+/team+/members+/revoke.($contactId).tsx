@@ -19,14 +19,11 @@ export default function RevokeInvitationPage() {
   const contact = contacts.find(({ id }) => id === contactId)
   const invitation = contact?.invitation
 
-  // ----- ↑ hooks
-
-  // Only existing invitations can be revoked
-  if (!contact || !invitation || invitation.status !== "pending") {
-    return null
-  }
-
   const revoke = useCallback(async () => {
+    if (!invitation || invitation.status !== "pending") {
+      return
+    }
+
     if (invitation.dxosInvitationId) {
       const dxosInvitation = spaceInvitations.find(
         value => value.get().invitationId === invitation.dxosInvitationId,
@@ -37,6 +34,11 @@ export default function RevokeInvitationPage() {
     markInvitationRevoked(invitation, new Date().toISOString())
     await space?.db.flush()
   }, [invitation, space, spaceInvitations])
+
+  // Only existing pending invitations can be revoked.
+  if (!contact || !invitation || invitation.status !== "pending") {
+    return null
+  }
 
   return (
     <RevokeInvitationDialog
