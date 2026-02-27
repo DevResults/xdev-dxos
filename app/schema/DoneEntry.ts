@@ -1,7 +1,8 @@
+import type { MakeOptional } from "@dxos/util"
 import { Obj, Type } from "@dxos/echo"
+import { Cuid } from "./Cuid"
 import { E, pipe, S } from "./lib/Effect"
 import { stripUndefined } from "./lib/stripUndefined"
-import { Cuid } from "./Cuid"
 
 export const DoneEntryId = pipe(Cuid, S.brand("DoneEntryId"))
 export type DoneEntryId = typeof DoneEntryId.Type
@@ -11,7 +12,7 @@ export const DoneEntry = S.Struct({
   contactId: S.String,
   content: S.String,
   likes: S.mutable(S.Array(S.String)),
-  timestamp: S.String,
+  timestamp: S.Number,
 }).pipe(
   Type.Obj({
     typename: "devresults.com/type/DoneEntry",
@@ -23,7 +24,12 @@ export type DoneEntry = S.Schema.Type<typeof DoneEntry>
 export type DoneEntryEncoded = S.Schema.Encoded<typeof DoneEntry>
 
 /** Create a new DoneEntry object */
-export const make = (props: Omit<DoneEntryEncoded, "id">) => Obj.make(DoneEntry, props)
+export const make = ({
+  likes = [],
+  timestamp = Date.now(),
+  ...rest
+}: MakeOptional<DoneEntry, "id" | "likes" | "timestamp">) =>
+  Obj.make(DoneEntry, { ...rest, likes, timestamp })
 
 /** Decode a DoneEntry from encoded form */
 export const decodeDoneEntry = (encoded: DoneEntryEncoded) =>

@@ -1,4 +1,3 @@
-import { LocalDate } from "@js-joda/core"
 import { describe, expect, expectTypeOf, it } from "vitest"
 import { type ContactId } from "../Contact"
 import {
@@ -22,13 +21,10 @@ describe("DoneEntry", () => {
 
     // id was populated
     expect(decoded.id).toBeTypeOf("string")
-    expect(decoded.id).toHaveLength(24)
+    expect(decoded.id).toHaveLength(26)
 
-    // date was parsed
-    expect(decoded.date).toBeInstanceOf(LocalDate)
-    expect(decoded.date.year()).toBe(2024)
-    expect(decoded.date.monthValue()).toBe(6)
-    expect(decoded.date.dayOfMonth()).toBe(10)
+    // date was preserved as an ISO local date string
+    expect(decoded.date).toBe("2024-06-10")
 
     // content was left untouched
     expect(decoded.content).toBe("Coded and compiled terabytes of data")
@@ -37,7 +33,8 @@ describe("DoneEntry", () => {
     expect(decoded.likes).toEqual([])
 
     // timestamp was populated
-    expect(decoded.timestamp).toBeInstanceOf(Date)
+    expect(decoded.timestamp).toBeTypeOf("number")
+    expect(decoded.timestamp).toBeGreaterThan(0)
 
     expectTypeOf(decoded).toMatchTypeOf<DoneEntry>()
   })
@@ -48,7 +45,7 @@ describe("DoneEntry", () => {
       date: "2024-06-10",
       content: "Coded and compiled terabytes of data",
       likes: [],
-      timestamp: new Date().toISOString(),
+      timestamp: Date.now(),
     })
 
     const encoded = encodeDoneEntry(decoded)
