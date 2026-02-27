@@ -23,7 +23,7 @@ export type DoneEntry = S.Schema.Type<typeof DoneEntry>
 export type DoneEntryEncoded = S.Schema.Encoded<typeof DoneEntry>
 
 /** Create a new DoneEntry object */
-export const make = (props: Omit<DoneEntry, "id">) => Obj.make(DoneEntry, props)
+export const make = (props: Omit<DoneEntryEncoded, "id">) => Obj.make(DoneEntry, props)
 
 /** Decode a DoneEntry from encoded form */
 export const decodeDoneEntry = (encoded: DoneEntryEncoded) =>
@@ -33,4 +33,4 @@ export const decodeDoneEntry = (encoded: DoneEntryEncoded) =>
 export const encodeDoneEntry = (decoded: DoneEntry) =>
   pipe(decoded, S.encode(DoneEntry), E.runSync, stripUndefined)
 
-export type DoneEntryInput = Omit<DoneEntry, "id" | "timestamp">
+export type DoneEntryInput = Omit<DoneEntryEncoded, "id" | "timestamp">
