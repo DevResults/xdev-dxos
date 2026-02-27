@@ -1,6 +1,6 @@
+import { defineConfig, devices } from "@playwright/test"
 import { availableParallelism } from "node:os"
 import process from "node:process"
-import { defineConfig, devices } from "@playwright/test"
 
 const isPlaywrightUI = process.env.PLAYWRIGHT_UI === "1"
 const isCI = Boolean(process.env.CI)
