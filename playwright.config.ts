@@ -31,7 +31,7 @@ export default defineConfig({
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
 
-  workers: 1,
+  workers: isCI ? 1 : 8,
 
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: "list",
