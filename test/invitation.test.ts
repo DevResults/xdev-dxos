@@ -12,7 +12,7 @@ test.describe("P2P invitation flow", () => {
     return firstNameInput
   }
 
-  test("invited member can join via invitation link", async ({ context }) => {
+  test("invited member can join via invitation link", async ({ browser, context }) => {
     // ---- Herb creates a team and generates an invitation ----
 
     const herb = await newBrowser(context)
@@ -40,7 +40,7 @@ test.describe("P2P invitation flow", () => {
 
     // ---- Ritika joins using the invitation link ----
 
-    const ritika = await newIsolatedBrowser(context.browser())
+    const ritika = await newIsolatedBrowser(browser)
     try {
       await ritika.page.goto(joinUrl)
 
