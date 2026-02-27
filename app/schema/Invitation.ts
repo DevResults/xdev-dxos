@@ -1,4 +1,5 @@
 import { Obj, Type } from "@dxos/echo"
+import type { MakeOptional } from "@dxos/util"
 import { Cuid } from "./Cuid"
 import { pipe, S } from "./lib/Effect"
 
@@ -33,6 +34,8 @@ export const Invitation = S.Struct({
 )
 
 export type Invitation = S.Schema.Type<typeof Invitation>
+export type EncodedInvitation = S.Schema.Encoded<typeof Invitation>
 
 /** Create a new Invitation object */
-export const makeInvitation = (props: Omit<Invitation, "id">) => Obj.make(Invitation, props)
+export const makeInvitation = (props: MakeOptional<EncodedInvitation, "id">) =>
+  Obj.make(Invitation, props)

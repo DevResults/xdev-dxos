@@ -1,4 +1,4 @@
-import { type Client, useClient } from "@dxos/react-client"
+import { useClient } from "@dxos/react-client"
 import { useLocalState } from "~/hooks/useLocalState"
 
 export const useSignOut = () => {

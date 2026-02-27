@@ -1,0 +1,63 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["react", "typescript", "unicorn", "vitest"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn"
+  },
+  "ignorePatterns": ["**/*.cjs", "**/*.js", "auto-imports.d.ts", "app/types/icons.d.ts"],
+  "rules": {
+    // Effect.gen generator functions won't always yield
+    "require-yield": "off",
+
+    // `S.Class`, `Context.Tag`, etc. aren't constructors
+    "no-new-cap": "off",
+
+    // Sometimes `as T` is needed
+    "typescript/consistent-type-assertions": "off",
+
+    // Need dynamic delete for DXOS reactive objects
+    "typescript/no-dynamic-delete": "off",
+
+    // Noop functions are fine
+    "typescript/no-empty-function": "off",
+
+    // Checked by tsc
+    "typescript/no-redeclare": "off",
+
+    // Generator functions in class methods need `const _this = this`
+    "typescript/no-this-alias": "off",
+
+    // React 17+ JSX transform doesn't require React in scope
+    "react/react-in-jsx-scope": "off",
+
+    // Tabler icons are auto-imported via unplugin-icons; not visible to linter
+    "react/jsx-no-undef": "off",
+
+    // Children prop is fine in React
+    "react/no-children-prop": "off",
+
+    // Different rules for routes vs components; not worth enforcing now
+    "unicorn/filename-case": "off",
+
+    // Too many false positives (e.g. repo.find(id))
+    "unicorn/no-array-callback-reference": "off",
+
+    // Reduce is fine
+    "unicorn/no-array-reduce": "off",
+
+    // Generator functions in class methods need `const _this = this`
+    "unicorn/no-this-assignment": "off",
+
+    // Gets mad about "numLikes" etc.
+    "unicorn/prevent-abbreviations": "off",
+
+    // False positive for `extends Data.TaggedError(...)` pattern
+    "unicorn/throw-new-error": "off",
+
+    // Project uses vitest, not jest; disable jest rules
+    "jest/expect-expect": "off",
+    "jest/no-standalone-expect": "off",
+    "jest/no-conditional-expect": "off"
+  }
+}

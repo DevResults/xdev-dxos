@@ -2,8 +2,9 @@ import { useLocalStorage } from "@uidotdev/usehooks"
 import { useCallback } from "react"
 import type { LocalState } from "~/types/types"
 
+const initialState: LocalState = {}
+
 export function useLocalState() {
-  const initialState: LocalState = {}
   const [state, setState] = useLocalStorage("xdev-localstate", initialState)
 
   const { spaceKey, invitationCode } = state

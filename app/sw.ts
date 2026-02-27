@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-floating-promises */
-
 import { clientsClaim } from "workbox-core"
 import {
   cleanupOutdatedCaches,

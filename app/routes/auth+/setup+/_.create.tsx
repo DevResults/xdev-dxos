@@ -1,4 +1,4 @@
-import { type Client, useClient } from "@dxos/react-client"
+import { useClient } from "@dxos/react-client"
 import { useIdentity } from "@dxos/react-client/halo"
 import { useState } from "react"
 import { useNavigate } from "react-router"

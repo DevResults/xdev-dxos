@@ -24,7 +24,7 @@ export const Devices = ({ ownDevice, devices = [], onInvite = () => {} }: Props)
         gridTemplateColumns: "1fr min-content",
       }}
     >
-      {devices?.sort(selfFirst(ownDevice)).map(device => (
+      {devices?.toSorted(selfFirst(ownDevice)).map(device => (
         <div
           key={device.deviceKey.toString()}
           className="DeviceInfo col-span-2 grid grid-cols-subgrid items-center border-b p-2"

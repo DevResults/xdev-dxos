@@ -7,5 +7,5 @@ export function getContactInvitation(
 ): Invitation | undefined {
   return invitations
     .filter(invitation => invitation.contactId === contactId)
-    .sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt))[0]
+    .toSorted((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt))[0]
 }

@@ -2,7 +2,7 @@ import type { Contact } from "~/schema/Contact"
 
 export function likesDescription(likes: Contact[], self: Contact) {
   const numberLikes = likes.length
-  const sortedNames = likes.map(({ firstName }) => firstName).sort()
+  const sortedNames = likes.map(({ firstName }) => firstName).toSorted()
   const index = sortedNames.indexOf(self.firstName)
   if (index !== -1) {
     sortedNames.splice(index, 1)

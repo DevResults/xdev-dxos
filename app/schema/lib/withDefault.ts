@@ -9,5 +9,5 @@ export const withDefault =
 export const withDefaultId = <T extends S.Schema.All>(self: T) =>
   pipe(
     self,
-    withDefault(() => createId() as Types.NoInfer<T["Type"]>), // eslint-disable-line @typescript-eslint/no-unsafe-return
+    withDefault(() => createId() as Types.NoInfer<T["Type"]>),
   )

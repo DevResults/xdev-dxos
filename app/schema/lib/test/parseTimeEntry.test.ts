@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */ // expect.any is `any`
-
 import { clients } from "data/clients"
 import { projects } from "data/projects"
 import { runTestCases, type BaseTestCase } from "lib/runTestCases"

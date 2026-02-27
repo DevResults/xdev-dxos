@@ -13,5 +13,5 @@ export function getInvitationForJoin(
     .filter(
       invitation => invitation.invitationCode === invitationCode && invitation.status === "pending",
     )
-    .sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt))[0]
+    .toSorted((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt))[0]
 }

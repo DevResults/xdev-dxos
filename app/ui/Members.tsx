@@ -31,7 +31,7 @@ export const Members = ({
         }}
       >
         {/* One row per member */}
-        {contacts.sort(by("lastName")).map(contact => {
+        {contacts.toSorted(by("lastName")).map(contact => {
           // Admin users can toggle status for team members other than themselves
           const canChangeAdminStatus = self.isAdmin && !contact.isSelf
           const { statusLabel, canInvite, canRevoke, canViewInvitation } =

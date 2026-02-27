@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { clients } from "data/clients"
 import { projects } from "data/projects"
 import { ProvidedClients } from "schema/ClientCollection"

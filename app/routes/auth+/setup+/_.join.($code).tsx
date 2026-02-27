@@ -19,7 +19,7 @@ export default function AuthJoinPage() {
   const identity = useIdentity()
   const navigate = useNavigate()
   const client = useClient()
-  const spaces = useSpaces()
+  const _spaces = useSpaces()
   const { spaceKey, invitationCode: savedInvitationCode, update } = useLocalState()
   const invitationCodeFromUrl = useParams().code
 

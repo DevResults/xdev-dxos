@@ -60,7 +60,7 @@ export const AutocompleteTextarea = forwardRef<HTMLTextAreaElement, Props>(
       } else {
         onClose()
       }
-    }, [showAutocomplete])
+    }, [showAutocomplete, onOpen, onClose])
 
     return (
       <Popover open={showAutocomplete}>

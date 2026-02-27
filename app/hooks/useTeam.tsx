@@ -1,5 +1,11 @@
-import { type MulticastObservable, useMulticastObservable } from "@dxos/react-client"
-import { Filter, useQuery, useSpace, type SpaceMember } from "@dxos/react-client/echo"
+import { useMulticastObservable } from "@dxos/react-client"
+import {
+  type MulticastObservable,
+  Filter,
+  useQuery,
+  useSpace,
+  type SpaceMember,
+} from "@dxos/react-client/echo"
 import { DeviceKind, useDevices, useIdentity } from "@dxos/react-client/halo"
 import { useMemo } from "react"
 import { getContactInvitation } from "./getContactInvitation"
@@ -24,7 +30,6 @@ export const useTeam = () => {
   const { spaceKey } = useLocalState()
   const space = useSpace(spaceKey)
   const emptyObservable = useMemo(createEmptyObservable, [])
-  /* eslint-disable @typescript-eslint/no-unsafe-argument -- fake observable only implements get/subscribe */
   const members: SpaceMember[] =
     useMulticastObservable(
       (space?.members ?? emptyObservable) as MulticastObservable<SpaceMember[]>,

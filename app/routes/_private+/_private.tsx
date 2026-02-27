@@ -35,7 +35,7 @@ export default function Private() {
         })()
       }
     }
-  }, [self, space, identity])
+  }, [self, space, identity, signOut, navigate])
 
   return self ? (
     <AppLayout self={self}>

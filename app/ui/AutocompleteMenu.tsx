@@ -120,7 +120,7 @@ export const getAutocompleteItems = <Item extends CollectionItem>(
   return collection
     .map(item => String(item[property]))
     .filter(value => value.toLowerCase().includes(query.toLowerCase()))
-    .sort((a, b) => {
+    .toSorted((a, b) => {
       // List matches that start with the query first, otherwise sort alphabetically
       const aStartsWith = a.toLowerCase().startsWith(query.toLowerCase())
       const bStartsWith = b.toLowerCase().startsWith(query.toLowerCase())

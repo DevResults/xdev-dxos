@@ -51,7 +51,7 @@ pnpm build        # Production build
 pnpm test         # Run Vitest
 pnpm test:pw      # Run Playwright tests
 pnpm storybook    # Component documentation
-pnpm lint         # XO linter
+pnpm lint         # oxlint (Rust-based linter)
 pnpm lint:fix     # Auto-fix lint issues (run after every change)
 ```
 
