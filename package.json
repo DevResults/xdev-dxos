@@ -2,9 +2,6 @@
   "name": "xdev",
   "private": true,
   "type": "module",
-  "engines": {
-    "node": "22.21.1"
-  },
   "scripts": {
     "benchmark": "vitest bench",
     "build": "run-s build:reactrouter build:shell",
@@ -30,9 +27,9 @@
     "ralph": "ralph"
   },
   "dependencies": {
+    "@dxos/config": "^0.8.3",
     "@dxos/echo": "0.8.3",
     "@dxos/echo-schema": "^0.8.3",
-    "@dxos/config": "^0.8.3",
     "@dxos/react-client": "^0.8.3",
     "@dxos/shell": "^0.8.3",
     "@dxos/util": "^0.8.3",
@@ -88,11 +85,6 @@
     "workbox-precaching": "^7.3.0",
     "workbox-routing": "^7.3.0"
   },
-  "pnpm": {
-    "overrides": {
-      "@automerge/automerge": "3.0.0-beta.4"
-    }
-  },
   "devDependencies": {
     "@herbcaudill/ralph": "link:../../herbcaudill/ralph/packages/cli",
     "@iconify-json/tabler": "^1.2.16",
@@ -133,5 +125,13 @@
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.0.6",
     "xo": "^1.2.3"
+  },
+  "engines": {
+    "node": "22.21.1"
+  },
+  "pnpm": {
+    "overrides": {
+      "@automerge/automerge": "3.0.0-beta.4"
+    }
   }
 }
