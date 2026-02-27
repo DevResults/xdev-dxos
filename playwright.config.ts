@@ -1,8 +1,11 @@
+import { availableParallelism } from "node:os"
 import process from "node:process"
 import { defineConfig, devices } from "@playwright/test"
+import { getPlaywrightWorkers } from "./app/lib/getPlaywrightWorkers"
 
 const isPlaywrightUI = process.env.PLAYWRIGHT_UI === "1"
 const isCI = Boolean(process.env.CI)
+const workers = getPlaywrightWorkers(isCI, availableParallelism(), process.env.PLAYWRIGHT_WORKERS)
 
 /** https://playwright.dev/docs/test-configuration */
 export default defineConfig({
@@ -31,7 +34,7 @@ export default defineConfig({
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
 
-  workers: isCI ? 1 : 8,
+  workers: isCI ? 1 : "100%",
 
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: "list",
