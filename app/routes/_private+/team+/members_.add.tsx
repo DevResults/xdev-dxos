@@ -1,9 +1,9 @@
+import { useSpace } from "@dxos/react-client/echo"
 import { useCallback } from "react"
 import { useNavigate } from "react-router"
-import { useSpace } from "@dxos/react-client/echo"
 import { ContactForm, type ContactFormValues } from "ui/ContactForm"
 import { useLocalState } from "~/hooks/useLocalState"
-import { make as makeContact } from "~/schema/Contact"
+import { makeContact } from "~/schema/Contact"
 
 /** Route for adding a new contact. Creates the contact on Done. */
 export default function MembersAddContactPage() {

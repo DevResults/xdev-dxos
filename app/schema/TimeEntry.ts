@@ -1,16 +1,20 @@
 import { Obj, Type } from "@dxos/echo"
-import { E, pipe, S } from "./lib/Effect"
-import { stripUndefined } from "./lib/stripUndefined"
-import { Cuid } from "./Cuid"
-import { ProvidedProjects } from "./ProjectCollection"
-import { ProvidedClients } from "./ClientCollection"
-import { parseTimeEntry } from "./lib/parseTimeEntry"
-import type { Project } from "./Project"
 import type { Client } from "./Client"
+import type { Project } from "./Project"
+import { ProvidedClients } from "./ClientCollection"
+import { Cuid } from "./Cuid"
+import { E, pipe, S } from "./lib/Effect"
+import { parseTimeEntry } from "./lib/parseTimeEntry"
+import { stripUndefined } from "./lib/stripUndefined"
+import { ProvidedProjects } from "./ProjectCollection"
 
 export const TimeEntryId = pipe(Cuid, S.brand("TimeEntryId"))
 export type TimeEntryId = typeof TimeEntryId.Type
 
+/**
+ * This is what we get from a user when they input a time entry. It includes the raw input string,
+ * which we will parse to extract the duration, project, client, and description.
+ */
 export class TimeEntryInput extends S.Class<TimeEntryInput>("TimeEntryInput")({
   contactId: S.String,
   date: S.String,
@@ -37,7 +41,7 @@ export type TimeEntry = S.Schema.Type<typeof TimeEntry>
 export type TimeEntryEncoded = S.Schema.Encoded<typeof TimeEntry>
 
 /** Create a new TimeEntry object */
-export const make = (props: Omit<TimeEntry, "id">) => Obj.make(TimeEntry, props)
+export const makeTimeEntry = (props: Omit<TimeEntry, "id">) => Obj.make(TimeEntry, props)
 
 /** Decode a TimeEntry from encoded form */
 export const decodeTimeEntry = (encoded: TimeEntryEncoded) =>

@@ -2,7 +2,7 @@ import { type LocalDate } from "@js-joda/core"
 import { useState } from "react"
 import type { Contact } from "~/schema/Contact"
 import { cx } from "~/lib/cx"
-import { make as makeDoneEntry, type DoneEntry } from "~/schema/DoneEntry"
+import { makeDoneEntry, type DoneEntry } from "~/schema/DoneEntry"
 import { DoneEditable } from "./DoneEditable"
 import { DoneInput } from "./DoneInput"
 

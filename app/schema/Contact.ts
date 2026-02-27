@@ -1,9 +1,9 @@
+import type { Identity } from "@dxos/react-client/halo"
 import { Obj, Type } from "@dxos/echo"
 import { HaloSpaceMember, type SpaceMember } from "@dxos/react-client/echo"
-import type { Identity } from "@dxos/react-client/halo"
-import { pipe, S } from "./lib/Effect"
-import { Cuid } from "./Cuid"
 import type { Invitation } from "./Invitation"
+import { Cuid } from "./Cuid"
+import { pipe, S } from "./lib/Effect"
 
 export const ContactId = pipe(Cuid, S.brand("ContactId"))
 export type ContactId = typeof ContactId.Type
@@ -29,7 +29,7 @@ export type Contact = S.Schema.Type<typeof Contact>
 export type EncodedContact = S.Schema.Encoded<typeof Contact>
 
 /** Create a new Contact object. Accepts an Identity instead of a raw identityId string. */
-export const make = ({
+export const makeContact = ({
   identity,
   ...props
 }: Omit<EncodedContact, "id" | "identityId"> & { identity?: Identity }) =>

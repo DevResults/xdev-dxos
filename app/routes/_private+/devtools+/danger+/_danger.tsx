@@ -1,14 +1,14 @@
-import { Alert, AlertDescription } from "@ui/alert"
-import { useSpace } from "@dxos/react-client/echo"
 import type { Obj } from "@dxos/echo"
+import { useSpace } from "@dxos/react-client/echo"
+import { Alert, AlertDescription } from "@ui/alert"
 import { DoneEntryGenerator } from "ui/DoneEntryGenerator"
 import { DoneEntryImporter } from "ui/DoneEntryImporter"
 import { TimeEntryGenerator } from "ui/TimeEntryGenerator"
 import { TimeEntryImporter } from "ui/TimeEntryImporter"
-import { useLocalState } from "~/hooks/useLocalState"
-import { make as makeDoneEntry, type DoneEntry } from "~/schema/DoneEntry"
-import { make as makeTimeEntry, type TimeEntry } from "~/schema/TimeEntry"
 import { useDatabase } from "~/hooks/useDatabase"
+import { useLocalState } from "~/hooks/useLocalState"
+import { makeDoneEntry, type DoneEntry } from "~/schema/DoneEntry"
+import { makeTimeEntry, type TimeEntry } from "~/schema/TimeEntry"
 
 export default function DangerPage() {
   const { spaceKey } = useLocalState()

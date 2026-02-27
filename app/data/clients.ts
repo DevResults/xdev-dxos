@@ -1,4 +1,4 @@
-import { make as makeClient, type Client } from "../schema/Client"
+import { makeClient, type Client } from "../schema/Client"
 
 const clientCodes = `
 2scale

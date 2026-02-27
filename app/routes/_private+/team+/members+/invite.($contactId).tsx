@@ -1,16 +1,16 @@
-import { useLocation, useNavigate, useParams } from "react-router"
-import { useCallback, useEffect, useRef, useState } from "react"
 import { useSpace } from "@dxos/react-client/echo"
 import {
   type CancellableInvitationObservable,
   Invitation,
   useInvitationStatus,
 } from "@dxos/react-client/invitations"
+import { useCallback, useEffect, useRef, useState } from "react"
+import { useLocation, useNavigate, useParams } from "react-router"
 import { InviteMemberDialog } from "ui/InviteMemberDialog"
+import { useLocalState } from "~/hooks/useLocalState"
 import { createPendingInvitation } from "~/lib/createPendingInvitation"
 import { shouldUpdateInvitationCode } from "~/lib/shouldUpdateInvitationCode"
-import { useLocalState } from "~/hooks/useLocalState"
-import { make as makeInvitation, type Invitation as InvitationRecord } from "~/schema/Invitation"
+import { makeInvitation, type Invitation as InvitationRecord } from "~/schema/Invitation"
 
 export default function MembersInvitePage() {
   const { contactId: contactIdFromParams } = useParams()

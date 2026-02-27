@@ -1,13 +1,13 @@
-import { useNavigate } from "react-router"
-import { useIdentity } from "@dxos/react-client/halo"
 import { type Client, useClient } from "@dxos/react-client"
+import { useIdentity } from "@dxos/react-client/halo"
 import { useState } from "react"
+import { useNavigate } from "react-router"
 import { TeamNameForm } from "ui/TeamNameForm"
+import { createClients } from "~/data/clients"
+import { createProjects } from "~/data/projects"
 import { useLocalState } from "~/hooks/useLocalState"
 import { useRedirect } from "~/hooks/useRedirect"
-import { make as makeContact } from "~/schema/Contact"
-import { createProjects } from "~/data/projects"
-import { createClients } from "~/data/clients"
+import { makeContact } from "~/schema/Contact"
 
 export default function AuthCreatePage() {
   const identity = useIdentity()

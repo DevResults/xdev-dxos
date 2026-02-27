@@ -1,5 +1,3 @@
-import { useNavigate, useParams } from "react-router"
-import { useCallback, useEffect, useRef, useState } from "react"
 import { useClient } from "@dxos/react-client"
 import { Filter, useQuery, useSpace, useSpaces } from "@dxos/react-client/echo"
 import { useIdentity } from "@dxos/react-client/halo"
@@ -8,11 +6,13 @@ import {
   Invitation,
   useInvitationStatus,
 } from "@dxos/react-client/invitations"
+import { useCallback, useEffect, useRef, useState } from "react"
+import { useNavigate, useParams } from "react-router"
 import { JoinSpaceForm } from "ui/JoinSpaceForm"
-import { getInvitationForJoin } from "~/lib/getInvitationForJoin"
 import { useLocalState } from "~/hooks/useLocalState"
 import { useRedirect } from "~/hooks/useRedirect"
-import { Contact, make as makeContact } from "~/schema/Contact"
+import { getInvitationForJoin } from "~/lib/getInvitationForJoin"
+import { Contact, makeContact } from "~/schema/Contact"
 import { Invitation as InvitationRecord } from "~/schema/Invitation"
 
 export default function AuthJoinPage() {

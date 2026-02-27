@@ -1,6 +1,6 @@
 import tailwindColors from "tailwindcss/colors"
+import { makeFullCode, makeProject, type Project } from "~/schema/Project"
 import { unique } from "../lib/unique"
-import { makeFullCode, make as makeProject, type Project } from "~/schema/Project"
 
 const projectList = `
 Business:Contracts	yes	Contract negotiation & other back-and-forth

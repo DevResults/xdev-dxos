@@ -1,6 +1,6 @@
 import { Obj, Type } from "@dxos/echo"
-import { pipe, S } from "./lib/Effect"
 import { Cuid } from "./Cuid"
+import { pipe, S } from "./lib/Effect"
 
 export const ProjectId = pipe(Cuid, S.brand("ProjectId"))
 export type ProjectId = typeof ProjectId.Type
@@ -23,7 +23,7 @@ export const Project = S.Struct({
 export type Project = S.Schema.Type<typeof Project>
 
 /** Create a new Project object */
-export const make = (props: Omit<Project, "id">) => Obj.make(Project, props)
+export const makeProject = (props: Omit<Project, "id">) => Obj.make(Project, props)
 
 export const makeFullCode = (code: string, subCode?: string) =>
   subCode ? `${code}:${subCode}` : code

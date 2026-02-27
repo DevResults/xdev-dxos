@@ -24,7 +24,7 @@ export type DoneEntry = S.Schema.Type<typeof DoneEntry>
 export type DoneEntryEncoded = S.Schema.Encoded<typeof DoneEntry>
 
 /** Create a new DoneEntry object */
-export const make = ({
+export const makeDoneEntry = ({
   likes = [],
   timestamp = Date.now(),
   ...rest

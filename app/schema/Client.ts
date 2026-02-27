@@ -1,6 +1,6 @@
 import { Obj, Type } from "@dxos/echo"
-import { pipe, S } from "./lib/Effect"
 import { Cuid } from "./Cuid"
+import { pipe, S } from "./lib/Effect"
 
 export const ClientId = pipe(Cuid, S.brand("ClientId"))
 export type ClientId = typeof ClientId.Type
@@ -19,4 +19,4 @@ export const Client = S.Struct({
 export type Client = S.Schema.Type<typeof Client>
 
 /** Create a new Client object */
-export const make = (props: Omit<Client, "id">) => Obj.make(Client, props)
+export const makeClient = (props: Omit<Client, "id">) => Obj.make(Client, props)
