@@ -4,7 +4,14 @@ import { type EncodedInvitation, type Invitation, makeInvitation } from "~/schem
 
 describe("getContactInvitation", () => {
   test("returns undefined when no invitations match the contact", () => {
-    const invitations = [make({ contactId: "other" })]
+    const invitations = [
+      make({
+        contactId: "other",
+        createdAt: "2026-01-01T00:00:00.000Z",
+        invitationCode: "code1",
+        status: "pending",
+      }),
+    ]
 
     expect(getContactInvitation("contact-1", invitations)).toBeUndefined()
   })
