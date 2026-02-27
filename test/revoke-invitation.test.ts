@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test"
 import { newBrowser } from "./helpers/App"
 
-test.skip("can revoke a pending invitation from the members table", async ({ context }) => {
+test("can revoke a pending invitation from the members table", async ({ context }) => {
   const app = await newBrowser(context)
   await app.createTeam("herb", "DevResults")
 
