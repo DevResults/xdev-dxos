@@ -2,13 +2,27 @@
   "$schema": "./node_modules/oxfmt/configuration_schema.json",
   "arrowParens": "avoid",
   "bracketSpacing": true,
+  "ignorePatterns": ["auto-imports.d.ts", "*.txt", "app/data/generated/*.json"],
+  "printWidth": 100,
   "semi": false,
   "singleQuote": false,
+  "sortImports": {
+    "groups": [
+      "type-import",
+      ["value-builtin", "value-external"],
+      "type-internal",
+      "value-internal",
+      ["type-parent", "type-sibling", "type-index"],
+      ["value-parent", "value-sibling", "value-index"],
+      "unknown"
+    ],
+    "newlinesBetween": false
+  },
+  "sortPackageJson": true,
+  "sortTailwindcss": {
+    "functions": ["cx"]
+  },
   "tabWidth": 2,
   "trailingComma": "all",
-  "useTabs": false,
-  "printWidth": 100,
-  "sortTailwindcss": {},
-  "sortPackageJson": false,
-  "ignorePatterns": ["auto-imports.d.ts", "*.txt", "app/data/generated/*.json"]
+  "useTabs": false
 }
