@@ -154,19 +154,18 @@ export const Members = ({
             </div>
           )
         })}
-
-        <div className="flex flex-1 flex-row items-start gap-2 py-2">
-          <Button
-            intent="primary"
-            size="xs"
-            onClick={() => {
-              onAddContact()
-            }}
-          >
-            <IconPlus className="size-4" />
-            Add member
-          </Button>
-        </div>
+      </div>
+      <div className="py-3">
+        <Button
+          intent="primary"
+          size="sm"
+          onClick={() => {
+            onAddContact()
+          }}
+        >
+          <IconPlus className="size-4" />
+          Add member
+        </Button>
       </div>
     </>
   )
@@ -175,7 +174,7 @@ export const Members = ({
 type Props = {
   self?: ExtendedContact
   contacts?: ExtendedContact[]
-  selectedContactId?: string
+  selectedContactId: string | undefined
   onPromote?: (userId: string) => void
   onDemote?: (userId: string) => void
   onRemove?: (userId: string) => void
