@@ -38,6 +38,7 @@ export default function EditContactPage() {
 
   return (
     <ContactForm
+      key={contactId}
       title={contact.fullName}
       defaultValues={{
         firstName: contact.firstName ?? "",
