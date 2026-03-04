@@ -45,14 +45,16 @@ export function ContactForm({
             void handleDone()
           }}
         >
-          <TextInput
-            form={form}
-            name="firstName"
-            label="First name"
-            autoFocus
-            saveOnBlur={saveOnBlur}
-          />
-          <TextInput form={form} name="lastName" label="Last name" saveOnBlur={saveOnBlur} />
+          <div className="grid grid-cols-2 gap-4">
+            <TextInput
+              form={form}
+              name="firstName"
+              label="First name"
+              autoFocus
+              saveOnBlur={saveOnBlur}
+            />
+            <TextInput form={form} name="lastName" label="Last name" saveOnBlur={saveOnBlur} />
+          </div>
           <TextInput form={form} name="userName" label="Username" saveOnBlur={saveOnBlur} />
           <TextInput form={form} name="avatarUrl" label="Avatar URL" saveOnBlur={saveOnBlur} />
 
