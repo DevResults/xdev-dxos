@@ -42,7 +42,15 @@ export function ContactForm({
             void handleDone()
           }}
         >
-          <ImageUpload form={form} name="avatarUrl" label="Avatar" saveOnBlur={saveOnBlur} />
+          <div className="w-[10em]">
+            <ImageUpload
+              form={form}
+              name="avatarUrl"
+              label="Avatar"
+              saveOnBlur={saveOnBlur}
+              imageClassName="rounded-lg"
+            />
+          </div>
           <div className="grid grid-cols-2 gap-4">
             <TextInput
               form={form}
