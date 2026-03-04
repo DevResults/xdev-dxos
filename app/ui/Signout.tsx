@@ -39,8 +39,14 @@ export const Signout = ({ confirmed = false, onConfirm = () => {} }: Props) => {
     <Card className="w-full max-w-xs">
       <CardHeader className="text-center">You've been signed out.</CardHeader>
       <CardFooter className="justify-center">
-        <Button asChild size="md" intent="primary">
-          <Link to="/">Sign in again</Link>
+        <Button
+          size="md"
+          intent="primary"
+          onClick={() => {
+            window.location.href = "/"
+          }}
+        >
+          Sign in again
         </Button>
       </CardFooter>
     </Card>

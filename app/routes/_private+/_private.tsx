@@ -31,7 +31,7 @@ export default function Private() {
       if (member?.role === HaloSpaceMember.Role.REMOVED) {
         ;(async () => {
           await signOut()
-          void navigate("/")
+          window.location.href = "/"
         })()
       }
     }
