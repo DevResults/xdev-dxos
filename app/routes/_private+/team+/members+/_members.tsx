@@ -1,4 +1,5 @@
 import { Outlet, useLocation, useNavigate, useParams } from "react-router"
+import { Pane } from "ui/layouts/Pane"
 import { Members } from "ui/Members"
 import { useTeam } from "~/hooks/useTeam"
 
@@ -12,8 +13,8 @@ export default function MembersPage() {
   const hasDetailPane = contactId != null || location.pathname.endsWith("/add")
 
   return (
-    <div className="flex">
-      <div className="min-w-0 shrink-0">
+    <>
+      <Pane className="shrink-0">
         <Members
           contacts={Object.values(contacts)}
           self={self}
@@ -29,13 +30,13 @@ export default function MembersPage() {
           }}
           onRevokeInvitation={() => {}}
         />
-      </div>
+      </Pane>
       {hasDetailPane && (
-        <div className="min-w-0 flex-1 border-l pl-6">
+        <Pane className="flex-1">
           <Outlet />
-        </div>
+        </Pane>
       )}
       {!hasDetailPane && <Outlet />}
-    </div>
+    </>
   )
 }

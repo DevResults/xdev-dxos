@@ -2,6 +2,7 @@ import { useSpaces } from "@dxos/react-client/echo"
 import { Tabs, TabsList, TabsContent, TabsTrigger } from "@ui/tabs"
 import "react-json-view-lite/dist/index.css"
 import { JsonView, defaultStyles } from "react-json-view-lite"
+import { Pane } from "ui/layouts/Pane"
 
 export default function InspectorPage() {
   const spaces = useSpaces()
@@ -18,31 +19,33 @@ export default function InspectorPage() {
   }
 
   return (
-    <div className="flex h-full">
-      <Tabs defaultValue={spaces[0].id} className="flex grow flex-col">
-        <div>
-          <TabsList className="">
+    <Pane>
+      <div className="flex h-full">
+        <Tabs defaultValue={spaces[0].id} className="flex grow flex-col">
+          <div>
+            <TabsList className="">
+              {spaces.map(space => (
+                <TabsTrigger key={space.id} value={space.id}>
+                  <span className="mr-1">{space.id}</span>
+                  {/* <span className="text-xs font-light text-neutral-400">({count})</span> */}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+          </div>
+          <div className="grow overflow-scroll">
             {spaces.map(space => (
-              <TabsTrigger key={space.id} value={space.id}>
-                <span className="mr-1">{space.id}</span>
-                {/* <span className="text-xs font-light text-neutral-400">({count})</span> */}
-              </TabsTrigger>
+              <TabsContent key={space.id} value={space.id}>
+                <JsonView
+                  data={space}
+                  style={styles}
+                  shouldExpandNode={level => level < 2}
+                  clickToExpandNode={true}
+                />
+              </TabsContent>
             ))}
-          </TabsList>
-        </div>
-        <div className="grow overflow-scroll">
-          {spaces.map(space => (
-            <TabsContent key={space.id} value={space.id}>
-              <JsonView
-                data={space}
-                style={styles}
-                shouldExpandNode={level => level < 2}
-                clickToExpandNode={true}
-              />
-            </TabsContent>
-          ))}
-        </div>
-      </Tabs>
-    </div>
+          </div>
+        </Tabs>
+      </div>
+    </Pane>
   )
 }

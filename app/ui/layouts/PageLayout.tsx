@@ -12,7 +12,7 @@ export const PageLayout = ({ nav, children }: Props) => (
     >
       {nav}
     </div>
-    <div className={cx("grow overflow-auto p-4")}>{children}</div>
+    <div className={cx("flex grow divide-x overflow-hidden")}>{children}</div>
   </>
 )
 

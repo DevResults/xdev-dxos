@@ -1,6 +1,7 @@
 import { LocalDate } from "@js-joda/core"
 import { HoursReport } from "ui/HoursReport"
 import { PageLayout } from "ui/layouts/PageLayout"
+import { Pane } from "ui/layouts/Pane"
 import { YearNav } from "ui/YearNav"
 import { useDatabase } from "~/hooks/useDatabase"
 import { useRedirect } from "~/hooks/useRedirect"
@@ -35,16 +36,18 @@ export default function Hours$YearPage() {
         </div>
       }
     >
-      <div className="h-full">
-        <HoursReport
-          {...{
-            self,
-            year,
-            contacts,
-            timeEntries,
-          }}
-        />
-      </div>
+      <Pane>
+        <div className="h-full">
+          <HoursReport
+            {...{
+              self,
+              year,
+              contacts,
+              timeEntries,
+            }}
+          />
+        </div>
+      </Pane>
     </PageLayout>
   )
 }

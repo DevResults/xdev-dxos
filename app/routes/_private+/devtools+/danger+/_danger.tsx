@@ -3,6 +3,7 @@ import { useSpace } from "@dxos/react-client/echo"
 import { Alert, AlertDescription } from "@ui/alert"
 import { DoneEntryGenerator } from "ui/DoneEntryGenerator"
 import { DoneEntryImporter } from "ui/DoneEntryImporter"
+import { Pane } from "ui/layouts/Pane"
 import { TimeEntryGenerator } from "ui/TimeEntryGenerator"
 import { TimeEntryImporter } from "ui/TimeEntryImporter"
 import { useDatabase } from "~/hooks/useDatabase"
@@ -30,7 +31,7 @@ export default function DangerPage() {
   }
 
   return (
-    <div>
+    <Pane>
       <div className="flex flex-col gap-4">
         <Alert variant="danger">
           <IconExclamationCircle />
@@ -110,6 +111,6 @@ export default function DangerPage() {
           ))}
         </div>
       </div>
-    </div>
+    </Pane>
   )
 }

@@ -1,4 +1,5 @@
 import { PageLayout } from "ui/layouts/PageLayout"
+import { Pane } from "ui/layouts/Pane"
 import { TeamDones } from "ui/TeamDones"
 import { WeekNav } from "ui/WeekNav"
 import { useDatabase } from "~/hooks/useDatabase"
@@ -27,9 +28,11 @@ export default function Dones$DatePage() {
         </div>
       }
     >
-      <div className="flex flex-col gap-2 p-4">
-        <TeamDones dones={dones} contacts={contacts} self={self} />
-      </div>
+      <Pane>
+        <div className="flex flex-col gap-2">
+          <TeamDones dones={dones} contacts={contacts} self={self} />
+        </div>
+      </Pane>
     </PageLayout>
   )
 }

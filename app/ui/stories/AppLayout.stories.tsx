@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { PageLayout } from "ui/layouts/PageLayout"
+import { Pane } from "ui/layouts/Pane"
 import { SecondaryNav } from "ui/SecondaryNav"
 import { AppLayout } from "../layouts/AppLayout"
 import { storyContact } from "./util/storyContact"
@@ -32,7 +33,7 @@ export const WithTopNav: Story = {
           />
         }
       >
-        Content goes here
+        <Pane>Content goes here</Pane>
       </PageLayout>
     ),
   },

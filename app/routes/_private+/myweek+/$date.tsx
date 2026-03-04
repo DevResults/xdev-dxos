@@ -2,6 +2,7 @@ import { useSpace } from "@dxos/react-client/echo"
 import { Checkbox } from "@ui/checkbox"
 import { useState } from "react"
 import { PageLayout } from "ui/layouts/PageLayout"
+import { Pane } from "ui/layouts/Pane"
 import { MyWeek } from "ui/MyWeek"
 import { WeekNav } from "ui/WeekNav"
 import { useDatabase } from "~/hooks/useDatabase"
@@ -49,24 +50,26 @@ export default function MyWeek$DatePage() {
         </div>
       }
     >
-      <div className="h-full p-1">
-        <MyWeek
-          {...{
-            start,
-            showWeekends,
-            doneEntries,
-            timeEntries: times,
-            projects,
-            clients,
-            self,
-            contacts,
-            onAddDone: d => space?.db.add(d),
-            onRemoveDone: d => space?.db.remove(d),
-            onAddTime: d => space?.db.add(d),
-            onRemoveTime: d => space?.db.remove(d),
-          }}
-        />
-      </div>
+      <Pane>
+        <div className="h-full">
+          <MyWeek
+            {...{
+              start,
+              showWeekends,
+              doneEntries,
+              timeEntries: times,
+              projects,
+              clients,
+              self,
+              contacts,
+              onAddDone: d => space?.db.add(d),
+              onRemoveDone: d => space?.db.remove(d),
+              onAddTime: d => space?.db.add(d),
+              onRemoveTime: d => space?.db.remove(d),
+            }}
+          />
+        </div>
+      </Pane>
     </PageLayout>
   )
 }
