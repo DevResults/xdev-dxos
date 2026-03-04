@@ -29,7 +29,9 @@ export default function Hours$YearPage() {
       removePadding={false}
       nav={
         <div className="flex h-full flex-row items-center gap-4">
-          <Heading className="grow">Hours</Heading>
+          <Heading level={1} className="grow">
+            Hours
+          </Heading>
           <YearNav {...{ minYear, maxYear }} />
         </div>
       }

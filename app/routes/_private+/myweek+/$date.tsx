@@ -27,7 +27,9 @@ export default function MyWeek$DatePage() {
       removePadding={true}
       nav={
         <div className="flex h-full flex-row items-center gap-4">
-          <Heading className="grow">My week</Heading>
+          <Heading level={1} className="grow">
+            My week
+          </Heading>
           <WeekNav />
           <div className="flex items-center space-x-1">
             <Checkbox

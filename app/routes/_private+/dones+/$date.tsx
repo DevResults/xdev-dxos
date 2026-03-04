@@ -21,7 +21,9 @@ export default function Dones$DatePage() {
       removePadding={true}
       nav={
         <div className="flex h-full flex-row items-center gap-4">
-          <Heading className="grow">Dones</Heading>
+          <Heading level={1} className="grow">
+            Dones
+          </Heading>
           <WeekNav />
         </div>
       }

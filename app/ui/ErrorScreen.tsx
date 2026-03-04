@@ -54,7 +54,9 @@ export function ErrorScreen({ error, isDevelopment = false }: Props) {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <Heading className="mt-4">{output.statusText}</Heading>
+          <Heading level={1} className="mt-4">
+            {output.statusText}
+          </Heading>
 
           {output.message ? (
             <pre className="mt-6 text-sm leading-7 text-neutral-600">{output.message}</pre>

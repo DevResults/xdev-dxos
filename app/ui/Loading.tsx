@@ -21,7 +21,7 @@ export function Loading() {
   return (
     <div className="mt-24 flex w-full flex-col items-center">
       <div className="flex w-[20em] flex-col space-y-3">
-        <Heading className="flex items-center space-x-2">
+        <Heading level={1} className="flex items-center space-x-2">
           <Spinner />
           <span>Loading...</span>
         </Heading>
