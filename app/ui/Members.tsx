@@ -5,6 +5,7 @@ import { cx } from "~/lib/cx"
 import type { ExtendedContact } from "~/schema/Contact"
 import { Avatar } from "~/ui/Avatar"
 import { getContactMembershipDisplay } from "~/ui/getContactMembershipDisplay"
+import { Heading } from "~/ui/Heading"
 
 export const Members = ({
   self,
@@ -23,7 +24,7 @@ export const Members = ({
 
   return (
     <>
-      <h2 className="flex-1">Members</h2>
+      <Heading level={2}>Members</Heading>
 
       <div
         className="Members my-3 grid w-full max-w-xl gap-x-4 border-t text-sm"

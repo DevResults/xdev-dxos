@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { Spinner } from "./Spinner"
+import { Heading } from "~/ui/Heading"
 
 export function Loading() {
   const [hung, setHung] = useState(false)
@@ -20,10 +21,10 @@ export function Loading() {
   return (
     <div className="mt-24 flex w-full flex-col items-center">
       <div className="flex w-[20em] flex-col space-y-3">
-        <h1 className="flex items-center space-x-2">
+        <Heading className="flex items-center space-x-2">
           <Spinner />
           <span>Loading...</span>
-        </h1>
+        </Heading>
       </div>
     </div>
   )

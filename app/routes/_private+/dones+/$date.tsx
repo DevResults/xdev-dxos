@@ -4,6 +4,7 @@ import { WeekNav } from "ui/WeekNav"
 import { useDatabase } from "~/hooks/useDatabase"
 import { useSelectedWeek } from "~/hooks/useSelectedWeek"
 import { useTeam } from "~/hooks/useTeam"
+import { Heading } from "~/ui/Heading"
 
 export default function Dones$DatePage() {
   const { doneEntries } = useDatabase()
@@ -20,7 +21,7 @@ export default function Dones$DatePage() {
       removePadding={true}
       nav={
         <div className="flex h-full flex-row items-center gap-4">
-          <h1 className="grow">Dones</h1>
+          <Heading className="grow">Dones</Heading>
           <WeekNav />
         </div>
       }

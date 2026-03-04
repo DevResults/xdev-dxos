@@ -2,42 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Typography */
-
 strong {
   @apply font-bold text-black;
 }
 
-h1 {
-  @apply text-lg font-bold tracking-tight text-neutral-900;
-}
-
-h2 {
-  @apply font-serif text-xl text-neutral-800;
-}
-
-h3 {
-  @apply text-sm font-bold text-neutral-700;
-}
-
 /* Dones */
 
+/* shared by DoneDisplay and DoneInput */
 .done-entry {
   @apply block w-full resize-none overflow-hidden break-words text-sm font-normal leading-tight;
   @apply bg-transparent;
-}
-
-/* Menus */
-
-.MenuItem a,
-.MenuItem button {
-  @apply block w-full cursor-pointer bg-transparent px-4 py-2 text-left text-sm;
-}
-
-/* Form heading */
-
-form > h2 {
-  @apply font-serif text-2xl font-semibold leading-9 tracking-tight text-gray-900;
 }
 
 /* Inputs */

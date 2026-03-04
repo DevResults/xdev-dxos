@@ -6,6 +6,7 @@ import { TextInput } from "./TextInput"
 import { useAutoSaveForm } from "~/hooks/useAutoSaveForm"
 import { Contact } from "~/schema/Contact"
 import { S } from "~/schema/lib/Effect"
+import { Heading } from "~/ui/Heading"
 
 /** Unified form for creating and editing contacts, with per-field auto-save on blur. */
 export function ContactForm({
@@ -28,7 +29,9 @@ export function ContactForm({
   return (
     <div className="max-w-xl">
       <Form {...form}>
-        <h2 className="mb-1">{title}</h2>
+        <Heading level={2} className="mb-1">
+          {title}
+        </Heading>
         {description && <p className="mb-6 text-sm text-neutral-500">{description}</p>}
 
         <form

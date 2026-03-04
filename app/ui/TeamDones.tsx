@@ -2,6 +2,7 @@ import { DoneDisplay } from "./DoneDisplay"
 import type { Contact } from "~/schema/Contact"
 import type { DoneEntry } from "~/schema/DoneEntry"
 import { Avatar } from "~/ui/Avatar"
+import { Heading } from "~/ui/Heading"
 import { CenteredLayout } from "~/ui/layouts/CenteredLayout"
 
 export const TeamDones = ({ dones, contacts, self }: Props) => {
@@ -36,10 +37,10 @@ export const TeamDones = ({ dones, contacts, self }: Props) => {
         return contactDones?.length > 0 ? (
           <div className="min-h-1/3 flex flex-col gap-2" key={contact.id}>
             {/* user's avatar & name */}
-            <h3 className="flex flex-row items-center gap-2 text-base">
+            <Heading level={3} className="flex flex-row items-center gap-2 text-base">
               <Avatar size="md" contact={contact} />
               <span>{contact.firstName}</span>
-            </h3>
+            </Heading>
             {/* user's dones */}
             <ul className="flex flex-col gap-1 font-normal text-neutral-700">
               {contactDones?.map(done => (

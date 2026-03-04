@@ -9,6 +9,7 @@ import { useDatabase } from "~/hooks/useDatabase"
 import { useLocalState } from "~/hooks/useLocalState"
 import { makeDoneEntry, type DoneEntry } from "~/schema/DoneEntry"
 import { makeTimeEntry, type TimeEntry } from "~/schema/TimeEntry"
+import { Heading } from "~/ui/Heading"
 
 export default function DangerPage() {
   const { spaceKey } = useLocalState()
@@ -101,7 +102,9 @@ export default function DangerPage() {
             },
           ].map(({ heading, content }) => (
             <div className="flex flex-row py-2" key={heading}>
-              <h3 className="w-[14em] flex-none">{heading}</h3>
+              <Heading level={3} className="w-[14em] flex-none">
+                {heading}
+              </Heading>
               <div className="flex-grow">{content}</div>
             </div>
           ))}

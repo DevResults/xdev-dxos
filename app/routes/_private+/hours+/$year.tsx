@@ -7,6 +7,7 @@ import { useRedirect } from "~/hooks/useRedirect"
 import { useSelectedYear } from "~/hooks/useSelectedYear"
 import { useTeam } from "~/hooks/useTeam"
 import { getCurrentYear } from "~/lib/getCurrentYear"
+import { Heading } from "~/ui/Heading"
 
 export default function Hours$YearPage() {
   const { timeEntries } = useDatabase()
@@ -28,7 +29,7 @@ export default function Hours$YearPage() {
       removePadding={false}
       nav={
         <div className="flex h-full flex-row items-center gap-4">
-          <h1 className="grow">Hours</h1>
+          <Heading className="grow">Hours</Heading>
           <YearNav {...{ minYear, maxYear }} />
         </div>
       }

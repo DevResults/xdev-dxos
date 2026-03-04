@@ -4,11 +4,14 @@ import { cx } from "lib/cx"
 import { getBrowserIcon, getDeviceIcon, getOsIcon } from "lib/getDeviceIcon"
 import { Link } from "react-router"
 import { MetadataList } from "ui/MetadataList"
+import { Heading } from "~/ui/Heading"
 
 export const Devices = ({ ownDevice, devices = [], onInvite = () => {} }: Props) => (
   <div className="w-full max-w-xl">
     <div className="flex flex-row items-center">
-      <h2 className="flex-1">Devices</h2>
+      <Heading level={2} className="flex-1">
+        Devices
+      </Heading>
       <Button
         intent="primary"
         onClick={async () => {

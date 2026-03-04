@@ -8,6 +8,7 @@ import { useDatabase } from "~/hooks/useDatabase"
 import { useLocalState } from "~/hooks/useLocalState"
 import { useSelectedWeek } from "~/hooks/useSelectedWeek"
 import { useTeam } from "~/hooks/useTeam"
+import { Heading } from "~/ui/Heading"
 
 export default function MyWeek$DatePage() {
   const { self, contacts } = useTeam()
@@ -26,7 +27,7 @@ export default function MyWeek$DatePage() {
       removePadding={true}
       nav={
         <div className="flex h-full flex-row items-center gap-4">
-          <h1 className="grow">My week</h1>
+          <Heading className="grow">My week</Heading>
           <WeekNav />
           <div className="flex items-center space-x-1">
             <Checkbox

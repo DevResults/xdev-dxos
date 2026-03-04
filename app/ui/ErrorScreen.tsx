@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@ui/card"
 import type { ErrorResponse } from "react-router"
 import { CenteredLayout } from "./layouts/CenteredLayout"
+import { Heading } from "~/ui/Heading"
 
 const isRouteErrorResponse = (e: Error | ErrorResponse): e is ErrorResponse =>
   "status" in e && "statusText" in e && "data" in e
@@ -53,7 +54,7 @@ export function ErrorScreen({ error, isDevelopment = false }: Props) {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <h1 className="mt-4">{output.statusText}</h1>
+          <Heading className="mt-4">{output.statusText}</Heading>
 
           {output.message ? (
             <pre className="mt-6 text-sm leading-7 text-neutral-600">{output.message}</pre>

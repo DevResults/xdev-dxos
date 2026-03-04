@@ -12,6 +12,7 @@ import type { Contact } from "~/schema/Contact"
 import type { DoneEntry } from "~/schema/DoneEntry"
 import type { Project } from "~/schema/Project"
 import type { TimeEntry } from "~/schema/TimeEntry"
+import { Heading } from "~/ui/Heading"
 
 const FULL_DAY = 7 * 60
 const FULL_WEEK = FULL_DAY * 5
@@ -69,7 +70,8 @@ export const MyWeek = ({
         const isToday = date.equals(LocalDate.now())
 
         return (
-          <h2
+          <Heading
+            level={2}
             key={date.toString()}
             className={cx(
               "items-center p-2 text-center tracking-tight",
@@ -93,15 +95,15 @@ export const MyWeek = ({
             >
               {formatDate(date, DAY_OF_MONTH)}
             </span>
-          </h2>
+          </Heading>
         )
       })}
       {/* HOURS */}
       <div className="col-span-full flex items-center gap-1 p-2">
-        <h3 className="flex grow items-center gap-1">
+        <Heading level={3} className="flex grow items-center gap-1">
           <IconClock2 />
           Hours
-        </h3>
+        </Heading>
         <div className="flex items-center text-xs font-semibold text-neutral-400">
           <IconStopwatch />
           {formatDuration(weeklyTotal)}
@@ -145,10 +147,10 @@ export const MyWeek = ({
         )
       })}
       {/* DONES */}
-      <h3 className="col-span-full flex items-center gap-1 py-2">
+      <Heading level={3} className="col-span-full flex items-center gap-1 py-2">
         <IconClipboardCheck />
         Dones
-      </h3>
+      </Heading>
       {days.map(date => (
         <div key={date.toString()} className={cx("overflow-auto", weekendShading(date))}>
           <DailyDones
