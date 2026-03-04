@@ -1,6 +1,7 @@
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@ui/form"
 import { useRef, useState } from "react"
 import type { FieldPath, FieldValues, UseFormReturn } from "react-hook-form"
+import { cx } from "~/lib/cx"
 import { resizeImage } from "~/lib/resizeImage"
 
 /** A drag-and-drop image upload field bound to a form field, with auto-save. */
