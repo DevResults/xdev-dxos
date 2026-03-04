@@ -4,6 +4,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router"
 import { TeamNameForm } from "ui/TeamNameForm"
 import { createClients } from "~/data/clients"
+import { createContacts, findContactData } from "~/data/contacts"
 import { createProjects } from "~/data/projects"
 import { useLocalState } from "~/hooks/useLocalState"
 import { useRedirect } from "~/hooks/useRedirect"
@@ -43,15 +44,24 @@ export default function AuthCreatePage() {
           const space = await client.spaces.create({ name: teamName })
           await space.waitUntilReady()
 
-          // Build a contact for yourself
+          // Build a contact for yourself, using seed data if available
+          const displayName = identity!.profile!.displayName!
+          const seedData = teamName === defaultTeamName ? findContactData(displayName) : undefined
           const contact = makeContact({
             identity: identity!,
-            avatarUrl: "",
-            firstName: identity!.profile!.displayName!,
-            lastName: "",
-            userName: identity!.profile!.displayName!,
+            avatarUrl: seedData?.avatarUrl ?? "",
+            firstName: seedData?.firstName ?? displayName,
+            lastName: seedData?.lastName ?? "",
+            userName: seedData?.userName ?? displayName,
           })
           space.db.add(contact)
+
+          // Seed team members (excluding yourself) when creating the DevResults team
+          if (teamName === defaultTeamName) {
+            for (const c of createContacts(displayName)) {
+              space.db.add(c)
+            }
+          }
 
           // Seed projects and clients
           for (const project of createProjects()) {
