@@ -8,7 +8,7 @@ import { randomElement } from "./randomElement"
 export const generateDones = ({ today, weeks, productivity, enthusiasm, contacts }: parameters) => {
   const N = weeks * 7 * productivity * contacts.length
   const result: Array<Omit<DoneEntry, "id">> = []
-  const now = new Date().toISOString()
+  const now = Date.now()
   let percentComplete = 0
   for (let i = 0; i < N; i++) {
     const currentPercentComplete = Math.floor((i / N) * 10) * 10
