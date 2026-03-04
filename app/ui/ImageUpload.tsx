@@ -1,17 +1,10 @@
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@ui/form"
 import { useRef, useState } from "react"
 import type { FieldPath, FieldValues, UseFormReturn } from "react-hook-form"
-import { cx } from "~/lib/cx"
 import { resizeImage } from "~/lib/resizeImage"
 
 /** A drag-and-drop image upload field bound to a form field, with auto-save. */
-export function ImageUpload<T extends FieldValues>({
-  form,
-  name,
-  label,
-  saveOnBlur,
-  imageClassName,
-}: Props<T>) {
+export function ImageUpload<T extends FieldValues>({ form, name, label, saveOnBlur }: Props<T>) {
   const fileInputRef = useRef<HTMLInputElement>(null)
   const [isDragging, setIsDragging] = useState(false)
 
@@ -64,7 +57,7 @@ export function ImageUpload<T extends FieldValues>({
                     <img
                       src={currentValue}
                       alt="Image preview"
-                      className={cx("size-20 object-cover", imageClassName ?? "rounded-full")}
+                      className="size-20 rounded-[15%] object-cover"
                     />
                     <div className="flex gap-2">
                       <button
@@ -139,6 +132,4 @@ type Props<T extends FieldValues> = {
   label?: string
   /** Returns a blur handler that validates and saves the given field. */
   saveOnBlur: (name: FieldPath<T>) => () => Promise<void>
-  /** Custom classes for the image preview (defaults to `rounded-full`). */
-  imageClassName?: string
 }
