@@ -18,7 +18,6 @@ export default function Dones$DatePage() {
 
   return (
     <PageLayout
-      removePadding={true}
       nav={
         <div className="flex h-full flex-row items-center gap-4">
           <Heading level={1} className="grow">

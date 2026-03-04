@@ -26,7 +26,6 @@ export default function Hours$YearPage() {
 
   return (
     <PageLayout
-      removePadding={false}
       nav={
         <div className="flex h-full flex-row items-center gap-4">
           <Heading level={1} className="grow">

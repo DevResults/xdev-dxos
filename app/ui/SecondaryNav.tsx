@@ -1,4 +1,5 @@
 import { NavLink } from "react-router"
+import { Heading } from "./Heading"
 import { useRedirect } from "~/hooks/useRedirect"
 import { cx } from "~/lib/cx"
 
@@ -8,8 +9,10 @@ export function SecondaryNav({ heading, items = [], parent: parentPath }: Props)
 
   return (
     <nav className="flex h-12 w-full shrink-0 flex-row items-stretch gap-2">
-      <div className="mr-4 flex items-center border-b-4 border-transparent font-semibold">
-        {heading}
+      <div className="mr-4 flex items-center border-b-4 border-transparent">
+        <Heading level={1} className="text-lg">
+          {heading}
+        </Heading>
       </div>
       {items.map(({ to, label }) => (
         <NavLink

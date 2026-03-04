@@ -1,7 +1,7 @@
 import { cx } from "~/lib/cx"
 
 /** Container with secondary navigation for everything to the right of the sidebar */
-export const PageLayout = ({ nav, children, removePadding = false }: Props) => (
+export const PageLayout = ({ nav, children }: Props) => (
   <>
     <div
       className={cx(
@@ -12,12 +12,11 @@ export const PageLayout = ({ nav, children, removePadding = false }: Props) => (
     >
       {nav}
     </div>
-    <div className={cx("grow overflow-auto", !removePadding && "p-4")}>{children}</div>
+    <div className={cx("grow overflow-auto p-4")}>{children}</div>
   </>
 )
 
 type Props = {
   nav: React.ReactNode
   children: React.ReactNode
-  removePadding?: boolean
 }

@@ -147,10 +147,12 @@ export const MyWeek = ({
         )
       })}
       {/* DONES */}
-      <Heading level={3} className="col-span-full flex items-center gap-1 py-2">
-        <IconClipboardCheck />
-        Dones
-      </Heading>
+      <div className="col-span-full flex items-center gap-1 p-2">
+        <Heading level={3} className="flex grow items-center gap-1">
+          <IconClipboardCheck />
+          Dones
+        </Heading>
+      </div>
       {days.map(date => (
         <div key={date.toString()} className={cx("overflow-auto", weekendShading(date))}>
           <DailyDones
