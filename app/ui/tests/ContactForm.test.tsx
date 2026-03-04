@@ -74,8 +74,8 @@ describe("ContactForm", () => {
     expect(screen.getByLabelText("First name")).toHaveProperty("value", "Grace")
     expect(screen.getByLabelText("Last name")).toHaveProperty("value", "Hopper")
     expect(screen.getByLabelText("Username")).toHaveProperty("value", "grace")
-    expect(screen.getByLabelText("Avatar URL")).toHaveProperty(
-      "value",
+    expect(screen.getByAltText("Avatar preview")).toHaveProperty(
+      "src",
       "https://example.com/grace.png",
     )
   })

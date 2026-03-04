@@ -2,6 +2,7 @@ import { Button } from "@ui/button"
 import { Form } from "@ui/form"
 import type { FieldPath } from "react-hook-form"
 import { Link } from "react-router"
+import { ImageUpload } from "./ImageUpload"
 import { TextInput } from "./TextInput"
 import { useAutoSaveForm } from "~/hooks/useAutoSaveForm"
 import { Contact } from "~/schema/Contact"
@@ -33,10 +34,10 @@ export function ContactForm({
         </Link>
       </div>
 
-      <h2 className="mb-1">{title}</h2>
-      {description && <p className="mb-6 text-sm text-neutral-500">{description}</p>}
-
       <Form {...form}>
+        <h2 className="mb-1">{title}</h2>
+        {description && <p className="mb-6 text-sm text-neutral-500">{description}</p>}
+
         <form
           data-testid="contact-form"
           className="grid gap-4"
@@ -56,7 +57,7 @@ export function ContactForm({
             <TextInput form={form} name="lastName" label="Last name" saveOnBlur={saveOnBlur} />
           </div>
           <TextInput form={form} name="userName" label="Username" saveOnBlur={saveOnBlur} />
-          <TextInput form={form} name="avatarUrl" label="Avatar URL" saveOnBlur={saveOnBlur} />
+          <ImageUpload form={form} name="avatarUrl" label="Avatar" saveOnBlur={saveOnBlur} />
 
           <div className="flex justify-end gap-2">
             {onCancel && (
