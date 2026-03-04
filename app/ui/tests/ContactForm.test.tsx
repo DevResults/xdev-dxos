@@ -95,13 +95,6 @@ describe("ContactForm", () => {
     expect(screen.queryByRole("button", { name: "Cancel" })).toBeNull()
   })
 
-  test("has a back link to members list", () => {
-    renderForm()
-    const backLink = screen.getByText(/Back to members/)
-    expect(backLink).toBeDefined()
-    expect(backLink.getAttribute("href")).toBe("/team/members")
-  })
-
   test("blur on valid field calls onSaveField", async () => {
     const { onSaveField } = renderForm()
 

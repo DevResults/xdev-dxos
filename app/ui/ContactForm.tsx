@@ -1,7 +1,6 @@
 import { Button } from "@ui/button"
 import { Form } from "@ui/form"
 import type { FieldPath } from "react-hook-form"
-import { Link } from "react-router"
 import { ImageUpload } from "./ImageUpload"
 import { TextInput } from "./TextInput"
 import { useAutoSaveForm } from "~/hooks/useAutoSaveForm"
@@ -28,12 +27,6 @@ export function ContactForm({
 
   return (
     <div className="max-w-xl">
-      <div className="mb-4">
-        <Link to="/team/members" className="text-sm text-neutral-500 hover:text-neutral-700">
-          &larr; Back to members
-        </Link>
-      </div>
-
       <Form {...form}>
         <h2 className="mb-1">{title}</h2>
         {description && <p className="mb-6 text-sm text-neutral-500">{description}</p>}

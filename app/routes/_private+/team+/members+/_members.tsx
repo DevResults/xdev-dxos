@@ -1,29 +1,41 @@
-import { Outlet, useNavigate } from "react-router"
+import { Outlet, useLocation, useNavigate, useParams } from "react-router"
 import { Members } from "ui/Members"
 import { useTeam } from "~/hooks/useTeam"
 
 export default function MembersPage() {
   const { contacts, self } = useTeam()
+  const { contactId } = useParams()
+  const location = useLocation()
   const navigate = useNavigate()
 
+  /** True when a child route (edit or add) is active. */
+  const hasDetailPane = contactId != null || location.pathname.endsWith("/add")
+
   return (
-    <>
-      <Members
-        contacts={Object.values(contacts)}
-        self={self}
-        onPromote={() => {}}
-        onDemote={() => {}}
-        onRemove={() => {}}
-        onInvite={userId => {
-          void navigate(`/team/members/invite/${userId}`)
-        }}
-        onAddContact={() => {
-          void navigate("/team/members/add")
-        }}
-        onRevokeInvitation={() => {}}
-      />
-      {/* Outlet for dialogs */}
-      <Outlet />
-    </>
+    <div className="flex">
+      <div className="min-w-0 shrink-0">
+        <Members
+          contacts={Object.values(contacts)}
+          self={self}
+          selectedContactId={contactId}
+          onPromote={() => {}}
+          onDemote={() => {}}
+          onRemove={() => {}}
+          onInvite={userId => {
+            void navigate(`/team/members/invite/${userId}`)
+          }}
+          onAddContact={() => {
+            void navigate("/team/members/add")
+          }}
+          onRevokeInvitation={() => {}}
+        />
+      </div>
+      {hasDetailPane && (
+        <div className="min-w-0 flex-1 border-l pl-6">
+          <Outlet />
+        </div>
+      )}
+      {!hasDetailPane && <Outlet />}
+    </div>
   )
 }

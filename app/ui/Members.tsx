@@ -9,6 +9,7 @@ import { getContactMembershipDisplay } from "~/ui/getContactMembershipDisplay"
 export const Members = ({
   self,
   contacts,
+  selectedContactId,
   onPromote = () => {},
   onDemote = () => {},
   onInvite = () => {},
@@ -39,7 +40,10 @@ export const Members = ({
           return (
             <div
               key={contact.id}
-              className="col-span-4 grid grid-cols-subgrid items-center border-b p-2"
+              className={cx(
+                "col-span-4 grid grid-cols-subgrid items-center border-b p-2",
+                contact.id === selectedContactId && "bg-primary-50",
+              )}
             >
               {/* Admin icon */}
               <div className="">
@@ -151,19 +155,17 @@ export const Members = ({
           )
         })}
 
-        <div className="col-span-4 grid grid-cols-subgrid gap-2 border-b p-2 text-center">
-          <div></div>
-          <div className="flex flex-1 flex-row items-start gap-2">
-            <Button
-              intent="primary"
-              size="xs"
-              onClick={() => {
-                onAddContact()
-              }}
-            >
-              Add contact
-            </Button>
-          </div>
+        <div className="flex flex-1 flex-row items-start gap-2 py-2">
+          <Button
+            intent="primary"
+            size="xs"
+            onClick={() => {
+              onAddContact()
+            }}
+          >
+            <IconPlus className="size-4" />
+            Add member
+          </Button>
         </div>
       </div>
     </>
@@ -173,6 +175,7 @@ export const Members = ({
 type Props = {
   self?: ExtendedContact
   contacts?: ExtendedContact[]
+  selectedContactId?: string
   onPromote?: (userId: string) => void
   onDemote?: (userId: string) => void
   onRemove?: (userId: string) => void
