@@ -46,6 +46,7 @@ export function ContactForm({
             void handleDone()
           }}
         >
+          <ImageUpload form={form} name="avatarUrl" label="Avatar" saveOnBlur={saveOnBlur} />
           <div className="grid grid-cols-2 gap-4">
             <TextInput
               form={form}
@@ -57,7 +58,6 @@ export function ContactForm({
             <TextInput form={form} name="lastName" label="Last name" saveOnBlur={saveOnBlur} />
           </div>
           <TextInput form={form} name="userName" label="Username" saveOnBlur={saveOnBlur} />
-          <ImageUpload form={form} name="avatarUrl" label="Avatar" saveOnBlur={saveOnBlur} />
 
           <div className="flex justify-end gap-2">
             {onCancel && (
