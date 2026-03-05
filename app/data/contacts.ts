@@ -1,26 +1,48 @@
 import { avatars } from "./avatars"
+import { staffContactData } from "./staffContactData"
 import type { Contact } from "~/schema/Contact"
 import { makeContact } from "~/schema/Contact"
 
-/** Seed contact data for the DevResults team. */
-export const contactData = [
-  { userName: "herb", firstName: "Herb", lastName: "Caudill" },
-  { userName: "shane", firstName: "Shane", lastName: "Kunkle" },
-  { userName: "brent", firstName: "Brent", lastName: "Keller" },
-  { userName: "leslie", firstName: "Leslie", lastName: "Sage" },
-  { userName: "ritika", firstName: "Ritika", lastName: "Bhasker" },
-  { userName: "aasit", firstName: "Aasit", lastName: "Nanavati" },
-  { userName: "reid", firstName: "Reid", lastName: "Porter" },
-  { userName: "nathan", firstName: "Nathan", lastName: "Gerhart" },
-  { userName: "fred", firstName: "Fred", lastName: "Pinto" },
-  { userName: "colleen", firstName: "Colleen", lastName: "Williams" },
+/** Additional contacts not in staff-info.csv. */
+const additionalContacts = [
+  { userName: "colleen", firstName: "Colleen", lastName: "Williams", avatarUrl: "" },
 
   // Former team members
-  { userName: "diego", firstName: "Diego", lastName: "Mijelsohn", status: "inactive" as const },
-  { userName: "jeff", firstName: "Jeff", lastName: "Swenson", status: "inactive" as const },
-  { userName: "nancy", firstName: "Nancy", lastName: "Hawa", status: "inactive" as const },
-  { userName: "sam", firstName: "Sam", lastName: "Sesay", status: "inactive" as const },
-].map(c => ({ ...c, avatarUrl: avatars[c.userName] ?? "" }))
+  {
+    userName: "diego",
+    firstName: "Diego",
+    lastName: "Mijelsohn",
+    avatarUrl: "",
+    status: "inactive" as const,
+  },
+  {
+    userName: "jeff",
+    firstName: "Jeff",
+    lastName: "Swenson",
+    avatarUrl: "",
+    status: "inactive" as const,
+  },
+  {
+    userName: "nancy",
+    firstName: "Nancy",
+    lastName: "Hawa",
+    avatarUrl: "",
+    status: "inactive" as const,
+  },
+  {
+    userName: "sam",
+    firstName: "Sam",
+    lastName: "Sesay",
+    avatarUrl: "",
+    status: "inactive" as const,
+  },
+]
+
+/** Seed contact data for the DevResults team, enriched with staff-info.csv data. */
+export const contactData = [...staffContactData, ...additionalContacts].map(c => ({
+  ...c,
+  avatarUrl: avatars[c.userName] ?? c.avatarUrl ?? "",
+}))
 
 /** Plain contact objects for use in tests. */
 export const contacts = contactData.map(d => ({ ...d, id: d.userName })) as Contact[]
