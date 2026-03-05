@@ -31,7 +31,40 @@ export default function MembersAddContactPage() {
 
   return (
     <ContactForm
-      defaultValues={{ firstName: "", lastName: "", userName: "", avatarUrl: "", status: "active" }}
+      defaultValues={{
+        firstName: "",
+        lastName: "",
+        userName: "",
+        avatarUrl: "",
+        status: "active",
+        middleName: "",
+        suffix: "",
+        legalFirstName: "",
+        preferredName: "",
+        pronouns: "",
+        birthdate: "",
+        startDate: "",
+        title: "",
+        phone: "",
+        homeAddress: "",
+        homeCity: "",
+        homeState: "",
+        homeZip: "",
+        country: "",
+        workAddress: "",
+        workCity: "",
+        workState: "",
+        workZip: "",
+        emergencyContactName: "",
+        emergencyContactRelationship: "",
+        emergencyContactPhone: "",
+        passportNumber: "",
+        passportIssueDate: "",
+        passportExpirationDate: "",
+        passportCountry: "",
+        driversLicense: "",
+        driversLicenseExpiration: "",
+      }}
       onSaveField={handleSaveField}
       onDone={handleDone}
       onCancel={handleCancel}

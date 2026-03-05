@@ -38,39 +38,186 @@ export function ContactForm({
 
         <form
           data-testid="contact-form"
-          className="grid gap-4"
+          className="grid gap-6"
           onSubmit={event => {
             event.preventDefault()
             void handleDone()
           }}
         >
-          <div className="w-[10em]">
-            <ImageUpload form={form} name="avatarUrl" label="Avatar" saveOnBlur={saveOnBlur} />
-          </div>
-          <div className="grid grid-cols-2 gap-4">
+          {/* Basic info */}
+          <section className="grid gap-4">
+            <div className="w-[10em]">
+              <ImageUpload form={form} name="avatarUrl" label="Avatar" saveOnBlur={saveOnBlur} />
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <TextInput
+                form={form}
+                name="firstName"
+                label="First name"
+                autoFocus
+                saveOnBlur={saveOnBlur}
+              />
+              <TextInput form={form} name="lastName" label="Last name" saveOnBlur={saveOnBlur} />
+            </div>
+            <TextInput form={form} name="userName" label="Username" saveOnBlur={saveOnBlur} />
+            <div className="flex items-center gap-2">
+              <Switch
+                id="status"
+                checked={(form.watch("status") ?? "active") === "active"}
+                onCheckedChange={checked => {
+                  const value = checked ? "active" : "inactive"
+                  form.setValue("status", value as ContactFormValues["status"])
+                  void saveOnBlur("status" as any)()
+                }}
+              />
+              <Label htmlFor="status">Active</Label>
+            </div>
+          </section>
+
+          {/* Personal info */}
+          <section className="grid gap-4">
+            <Heading level={3}>Personal info</Heading>
+            <div className="grid grid-cols-3 gap-4">
+              <TextInput
+                form={form}
+                name="middleName"
+                label="Middle name"
+                saveOnBlur={saveOnBlur}
+              />
+              <TextInput form={form} name="suffix" label="Suffix" saveOnBlur={saveOnBlur} />
+              <TextInput form={form} name="pronouns" label="Pronouns" saveOnBlur={saveOnBlur} />
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <TextInput
+                form={form}
+                name="legalFirstName"
+                label="Legal first name"
+                saveOnBlur={saveOnBlur}
+              />
+              <TextInput
+                form={form}
+                name="preferredName"
+                label="Preferred name"
+                saveOnBlur={saveOnBlur}
+              />
+            </div>
+            <TextInput form={form} name="title" label="Title" saveOnBlur={saveOnBlur} />
+            <div className="grid grid-cols-2 gap-4">
+              <TextInput form={form} name="birthdate" label="Birthdate" saveOnBlur={saveOnBlur} />
+              <TextInput form={form} name="startDate" label="Start date" saveOnBlur={saveOnBlur} />
+            </div>
+          </section>
+
+          {/* Contact */}
+          <section className="grid gap-4">
+            <Heading level={3}>Contact</Heading>
+            <TextInput form={form} name="phone" label="Phone" saveOnBlur={saveOnBlur} />
+          </section>
+
+          {/* Home address */}
+          <section className="grid gap-4">
+            <Heading level={3}>Home address</Heading>
             <TextInput
               form={form}
-              name="firstName"
-              label="First name"
-              autoFocus
+              name="homeAddress"
+              label="Street address"
               saveOnBlur={saveOnBlur}
             />
-            <TextInput form={form} name="lastName" label="Last name" saveOnBlur={saveOnBlur} />
-          </div>
-          <TextInput form={form} name="userName" label="Username" saveOnBlur={saveOnBlur} />
+            <div className="grid grid-cols-3 gap-4">
+              <TextInput form={form} name="homeCity" label="City" saveOnBlur={saveOnBlur} />
+              <TextInput form={form} name="homeState" label="State" saveOnBlur={saveOnBlur} />
+              <TextInput form={form} name="homeZip" label="Zip" saveOnBlur={saveOnBlur} />
+            </div>
+            <TextInput form={form} name="country" label="Country" saveOnBlur={saveOnBlur} />
+          </section>
 
-          <div className="flex items-center gap-2">
-            <Switch
-              id="status"
-              checked={(form.watch("status") ?? "active") === "active"}
-              onCheckedChange={checked => {
-                const value = checked ? "active" : "inactive"
-                form.setValue("status", value as ContactFormValues["status"])
-                void saveOnBlur("status" as any)()
-              }}
+          {/* Work address */}
+          <section className="grid gap-4">
+            <Heading level={3}>Work address</Heading>
+            <TextInput
+              form={form}
+              name="workAddress"
+              label="Street address"
+              saveOnBlur={saveOnBlur}
             />
-            <Label htmlFor="status">Active</Label>
-          </div>
+            <div className="grid grid-cols-3 gap-4">
+              <TextInput form={form} name="workCity" label="City" saveOnBlur={saveOnBlur} />
+              <TextInput form={form} name="workState" label="State" saveOnBlur={saveOnBlur} />
+              <TextInput form={form} name="workZip" label="Zip" saveOnBlur={saveOnBlur} />
+            </div>
+          </section>
+
+          {/* Emergency contact */}
+          <section className="grid gap-4">
+            <Heading level={3}>Emergency contact</Heading>
+            <TextInput
+              form={form}
+              name="emergencyContactName"
+              label="Name"
+              saveOnBlur={saveOnBlur}
+            />
+            <div className="grid grid-cols-2 gap-4">
+              <TextInput
+                form={form}
+                name="emergencyContactRelationship"
+                label="Relationship"
+                saveOnBlur={saveOnBlur}
+              />
+              <TextInput
+                form={form}
+                name="emergencyContactPhone"
+                label="Phone"
+                saveOnBlur={saveOnBlur}
+              />
+            </div>
+          </section>
+
+          {/* Travel documents */}
+          <section className="grid gap-4">
+            <Heading level={3}>Travel documents</Heading>
+            <div className="grid grid-cols-2 gap-4">
+              <TextInput
+                form={form}
+                name="passportNumber"
+                label="Passport number"
+                saveOnBlur={saveOnBlur}
+              />
+              <TextInput
+                form={form}
+                name="passportCountry"
+                label="Passport country"
+                saveOnBlur={saveOnBlur}
+              />
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <TextInput
+                form={form}
+                name="passportIssueDate"
+                label="Issue date"
+                saveOnBlur={saveOnBlur}
+              />
+              <TextInput
+                form={form}
+                name="passportExpirationDate"
+                label="Expiration date"
+                saveOnBlur={saveOnBlur}
+              />
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <TextInput
+                form={form}
+                name="driversLicense"
+                label="Driver's license"
+                saveOnBlur={saveOnBlur}
+              />
+              <TextInput
+                form={form}
+                name="driversLicenseExpiration"
+                label="License expiration"
+                saveOnBlur={saveOnBlur}
+              />
+            </div>
+          </section>
 
           <div className="flex justify-end gap-2">
             {onCancel && (
@@ -89,7 +236,47 @@ export function ContactForm({
 }
 
 export const ContactFormSchema = Contact.pipe(
-  S.pick("firstName", "lastName", "userName", "avatarUrl", "status"),
+  S.pick(
+    // Basic info
+    "firstName",
+    "lastName",
+    "userName",
+    "avatarUrl",
+    "status",
+    // Personal info
+    "middleName",
+    "suffix",
+    "legalFirstName",
+    "preferredName",
+    "pronouns",
+    "birthdate",
+    "startDate",
+    "title",
+    // Contact
+    "phone",
+    // Home address
+    "homeAddress",
+    "homeCity",
+    "homeState",
+    "homeZip",
+    "country",
+    // Work address
+    "workAddress",
+    "workCity",
+    "workState",
+    "workZip",
+    // Emergency contact
+    "emergencyContactName",
+    "emergencyContactRelationship",
+    "emergencyContactPhone",
+    // Travel documents
+    "passportNumber",
+    "passportIssueDate",
+    "passportExpirationDate",
+    "passportCountry",
+    "driversLicense",
+    "driversLicenseExpiration",
+  ),
 )
 
 export type ContactFormValues = S.Schema.Type<typeof ContactFormSchema>
