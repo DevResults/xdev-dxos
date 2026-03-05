@@ -1,13 +1,13 @@
 import type { LocalDate } from "@js-joda/core"
 import { isWeekend } from "lib/isWeekend"
 import type { Contact } from "schema/Contact"
-import { type DoneEntry } from "schema/DoneEntry"
+import { type DoneEntryEncoded } from "schema/DoneEntry"
 import { dummyDones } from "./dummyDones"
 import { randomElement } from "./randomElement"
 
 export const generateDones = ({ today, weeks, productivity, enthusiasm, contacts }: parameters) => {
   const N = weeks * 7 * productivity * contacts.length
-  const result: Array<Omit<DoneEntry, "id">> = []
+  const result: Array<Omit<DoneEntryEncoded, "id">> = []
   const now = Date.now()
   let percentComplete = 0
   for (let i = 0; i < N; i++) {
