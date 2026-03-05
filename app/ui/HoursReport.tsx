@@ -95,7 +95,7 @@ export const HoursReport = ({ year, contacts, timeEntries }: Props) => {
     <div
       className={cx(
         "grid text-sm",
-        "*:flex *:min-h-8 *:items-center *:border-b *:py-1", // Shared styles for all grid cells
+        "*:flex *:min-h-10 *:items-center *:border-b *:py-1", // Shared styles for all grid cells
       )}
       style={{
         gridTemplateColumns: [
@@ -151,7 +151,7 @@ export const HoursReport = ({ year, contacts, timeEntries }: Props) => {
 
             {/* Badge */}
             <div>
-              <div className="w-full *:m-auto">{badge}</div>
+              <div className="w-full px-2">{badge}</div>
             </div>
 
             {/* Avatar & name */}
@@ -234,9 +234,9 @@ export const HoursReport = ({ year, contacts, timeEntries }: Props) => {
 
 // ICONS
 
-const mostShamedBadge = <IconMoodWrrrFilled className="text-danger" />
-const alsoShamedBadge = <IconMoodConfuzed className="text-danger" />
-const completeBadge = <IconDiscountCheckFilled className="text-success" />
+const mostShamedBadge = <IconMoodWrrrFilled className="size-5 text-danger" />
+const alsoShamedBadge = <IconMoodConfuzed className="size-5 text-danger" />
+const completeBadge = <IconDiscountCheckFilled className="size-5 text-success" />
 
 const weekCompleteIcon = <IconCircleCheck className="text-success" />
 const weekPartialIcon = <IconCircleCheck className="text-neutral-300" />
