@@ -64,14 +64,23 @@ export function ContactForm({
                 <Label htmlFor="status">Active</Label>
               </div>
             </div>
-            <div className="grid grid-cols-[3fr_2fr_3fr_1fr] gap-4">
+            <div className="grid grid-cols-3 gap-4">
               <TextInput
                 form={form}
-                name="firstName"
-                label="First name"
+                name="preferredName"
+                label="Preferred name"
                 autoFocus
                 saveOnBlur={saveOnBlur}
               />
+              <TextInput
+                form={form}
+                name="firstName"
+                label="First name (legal)"
+                saveOnBlur={saveOnBlur}
+              />
+              <TextInput form={form} name="userName" label="Username" saveOnBlur={saveOnBlur} />
+            </div>
+            <div className="grid grid-cols-[2fr_3fr_1fr] gap-4">
               <TextInput
                 form={form}
                 name="middleName"
@@ -80,15 +89,6 @@ export function ContactForm({
               />
               <TextInput form={form} name="lastName" label="Last name" saveOnBlur={saveOnBlur} />
               <TextInput form={form} name="suffix" label="Suffix" saveOnBlur={saveOnBlur} />
-            </div>
-            <div className="grid grid-cols-3 gap-4">
-              <TextInput form={form} name="userName" label="Username" saveOnBlur={saveOnBlur} />
-              <TextInput
-                form={form}
-                name="preferredName"
-                label="Preferred name"
-                saveOnBlur={saveOnBlur}
-              />
             </div>
           </section>
 

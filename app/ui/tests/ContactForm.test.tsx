@@ -88,7 +88,7 @@ describe("ContactForm", () => {
       },
     })
 
-    expect(screen.getByLabelText("First name")).toHaveProperty("value", "Grace")
+    expect(screen.getByLabelText("First name (legal)")).toHaveProperty("value", "Grace")
     expect(screen.getByLabelText("Last name")).toHaveProperty("value", "Hopper")
     expect(screen.getByLabelText("Username")).toHaveProperty("value", "grace")
     expect(screen.getByAltText("Image preview")).toHaveProperty(
@@ -127,7 +127,7 @@ describe("ContactForm", () => {
   test("blur on invalid required field does not call onSaveField", async () => {
     const { onSaveField } = renderForm({ defaultValues: EMPTY_VALUES })
 
-    const firstNameInput = screen.getByLabelText("First name")
+    const firstNameInput = screen.getByLabelText("First name (legal)")
     fireEvent.change(firstNameInput, { target: { value: "" } })
     fireEvent.blur(firstNameInput)
 
