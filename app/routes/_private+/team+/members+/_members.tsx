@@ -29,7 +29,7 @@ export default function MembersPage() {
 
   return (
     <>
-      <Pane>
+      <Pane className="w-auto">
         <Members
           contacts={Object.values(contacts)}
           self={self}
