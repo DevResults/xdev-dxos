@@ -48,6 +48,7 @@ export default function AuthCreatePage() {
           const displayName = identity!.profile!.displayName!
           const seedData = teamName === defaultTeamName ? findContactData(displayName) : undefined
           const contact = makeContact({
+            ...seedData,
             identity: identity!,
             avatarUrl: seedData?.avatarUrl ?? "",
             firstName: seedData?.firstName ?? displayName,
