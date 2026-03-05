@@ -28,7 +28,7 @@ export const makeDoneEntry = ({
   likes = [],
   timestamp = Date.now(),
   ...rest
-}: MakeOptional<DoneEntry, "id" | "likes" | "timestamp">) =>
+}: MakeOptional<DoneEntryEncoded, "id" | "likes" | "timestamp">) =>
   Obj.make(DoneEntry, { ...rest, likes, timestamp })
 
 /** Decode a DoneEntry from encoded form */

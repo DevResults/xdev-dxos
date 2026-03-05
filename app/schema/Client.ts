@@ -17,6 +17,7 @@ export const Client = S.Struct({
 )
 
 export type Client = S.Schema.Type<typeof Client>
+export type EncodedClient = S.Schema.Encoded<typeof Client>
 
 /** Create a new Client object */
-export const makeClient = (props: Omit<Client, "id">) => Obj.make(Client, props)
+export const makeClient = (props: Omit<EncodedClient, "id">) => Obj.make(Client, props)

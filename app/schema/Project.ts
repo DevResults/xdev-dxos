@@ -21,9 +21,10 @@ export const Project = S.Struct({
 )
 
 export type Project = S.Schema.Type<typeof Project>
+export type EncodedProject = S.Schema.Encoded<typeof Project>
 
 /** Create a new Project object */
-export const makeProject = (props: Omit<Project, "id">) => Obj.make(Project, props)
+export const makeProject = (props: Omit<EncodedProject, "id">) => Obj.make(Project, props)
 
 export const makeFullCode = (code: string, subCode?: string) =>
   subCode ? `${code}:${subCode}` : code
