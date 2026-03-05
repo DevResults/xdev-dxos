@@ -9,7 +9,7 @@ import { ProvidedContacts } from "~/schema/ContactCollection"
 import { E, pipe } from "~/schema/lib/Effect"
 import type { Project } from "~/schema/Project"
 import { ProvidedProjects } from "~/schema/ProjectCollection"
-import type { TimeEntry } from "~/schema/TimeEntry"
+import type { TimeEntryEncoded } from "~/schema/TimeEntry"
 
 export const TimeEntryImporter = ({
   add = NO_OP,
@@ -20,7 +20,7 @@ export const TimeEntryImporter = ({
 }: Props) => {
   const [importData, setImportData] = useState("")
   const [errors, setErrors] = useState<Error[]>([])
-  const [timeEntries, setTimes] = useState<Array<Omit<TimeEntry, "id">>>([])
+  const [timeEntries, setTimes] = useState<Array<Omit<TimeEntryEncoded, "id">>>([])
 
   const [successMessage, setSuccessMessage] = useState<string | undefined>(undefined)
 
@@ -112,5 +112,5 @@ type Props = {
   projects: Project[]
   clients: Client[]
   destroyAll(): void
-  add(ts: Array<Omit<TimeEntry, "id">>): void
+  add(ts: Array<Omit<TimeEntryEncoded, "id">>): void
 }

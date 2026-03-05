@@ -51,7 +51,7 @@ export const csvToDoneEntries = (csvData: string) =>
           date,
           content: row.content,
           likes,
-          timestamp: new Date(Number(row.timestamp)).toISOString(),
+          timestamp: Number(row.timestamp),
         }
       }).pipe(E.mapError(cause => new DoneEntryCsvParseError({ input, index, cause })))
     })
