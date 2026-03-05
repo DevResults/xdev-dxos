@@ -77,7 +77,10 @@ export default function MembersInvitePage() {
       return
     }
 
-    if (shouldUpdateInvitationCode(invitationRecord.invitationCode, invitationCode)) {
+    if (
+      invitationCode &&
+      shouldUpdateInvitationCode(invitationRecord.invitationCode, invitationCode)
+    ) {
       invitationRecord.invitationCode = invitationCode
     }
   }, [invitationCode])

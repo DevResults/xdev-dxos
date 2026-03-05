@@ -13,7 +13,7 @@ export default function RevokeInvitationPage() {
   const { contacts } = useTeam()
   const { spaceKey } = useLocalState()
   const space = useSpace(spaceKey)
-  const spaceInvitations = useSpaceInvitations(spaceKey)
+  const spaceInvitations = useSpaceInvitations(space?.key)
   const navigate = useNavigate()
 
   const contact = contacts.find(({ id }) => id === contactId)
