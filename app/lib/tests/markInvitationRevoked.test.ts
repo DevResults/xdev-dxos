@@ -25,5 +25,5 @@ function makeInvitation(overrides: Partial<Invitation> = {}): Invitation {
     createdAt: overrides.createdAt ?? "2026-01-01T00:00:00.000Z",
     revokedAt: overrides.revokedAt,
     acceptedAt: overrides.acceptedAt,
-  }
+  } as Invitation
 }
