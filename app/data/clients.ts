@@ -123,8 +123,6 @@ wvus
 wwb
 zam`
 
-const sNow = new Date().toISOString()
-
 /** Plain client data for use in tests */
 export const clients = clientCodes
   .trim()
@@ -133,7 +131,7 @@ export const clients = clientCodes
   .map(line => ({
     id: line.trim(),
     code: line.trim(),
-    timestamp: sNow,
+    timestamp: new Date().toISOString(),
   })) as Client[]
 
 /** Create DXOS client objects lazily to avoid issues during SSR/prerender */
