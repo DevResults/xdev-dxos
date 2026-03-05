@@ -1,6 +1,6 @@
 import { clients } from "data/clients"
 import { contacts } from "data/contacts"
-import actualHoursCsv from "data/csv/actual-hours.csv?raw"
+import actualHoursCsv from "data/csv/hours-export.csv?raw"
 import { projects } from "data/projects"
 import { type BaseTestCase } from "lib/runTestCases"
 import { ProvidedClients } from "schema/ClientCollection"

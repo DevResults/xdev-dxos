@@ -1,4 +1,4 @@
-import hoursCsv from "data/csv/actual-hours.csv?raw"
+import hoursCsv from "data/csv/hours-export.csv?raw"
 import { bench, describe } from "vitest"
 import { testCsvToTimeEntries } from "./csvToTimeEntries.test"
 
