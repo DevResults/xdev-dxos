@@ -43,7 +43,7 @@ export const Members = ({
                 className="cursor-pointer rounded p-1 text-neutral-400 hover:bg-neutral-100 hover:text-neutral-600"
                 title="Filters"
               >
-                <IconFilter className="size-5" />
+                <IconFilter2 className="size-5" />
               </button>
             </PopoverTrigger>
             <PopoverContent align="end" className="w-48 rounded-md border bg-white p-3 shadow-md">
