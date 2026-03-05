@@ -21,10 +21,18 @@ const EMPTY_VALUES: ContactFormValues = {
 }
 
 /** Render the ContactForm for interaction tests. */
-function renderForm(props: Partial<React.ComponentProps<typeof ContactForm>> = {}) {
+function renderForm(
+  /** Override props; pass `{ showCancel: false }` to omit the cancel button. */
+  {
+    showCancel = true,
+    ...props
+  }: Partial<React.ComponentProps<typeof ContactForm>> & { showCancel?: boolean } = {},
+) {
   const onSaveField = vi.fn().mockResolvedValue(undefined)
   const onDone = vi.fn()
   const onCancel = vi.fn()
+
+  const cancelProps = showCancel ? { onCancel } : {}
 
   render(
     React.createElement(
@@ -36,8 +44,8 @@ function renderForm(props: Partial<React.ComponentProps<typeof ContactForm>> = {
         onDone,
         title: "Edit contact",
         description: "Update the contact's information.",
+        ...cancelProps,
         ...props,
-        onCancel: "onCancel" in props ? props.onCancel : onCancel,
       }),
     ),
   )
@@ -91,7 +99,7 @@ describe("ContactForm", () => {
   })
 
   test("Cancel button not shown when onCancel is undefined", () => {
-    renderForm({ onCancel: undefined })
+    renderForm({ showCancel: false })
     expect(screen.queryByRole("button", { name: "Cancel" })).toBeNull()
   })
 
