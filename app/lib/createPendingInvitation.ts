@@ -1,10 +1,10 @@
-import type { Invitation } from "~/schema/Invitation"
+import type { EncodedInvitation } from "~/schema/Invitation"
 
 /** Create a pending invitation payload for persistence. */
 export function createPendingInvitation(
   contactId: string,
   createdAt: string,
-): Omit<Invitation, "id" | "dxosInvitationId" | "revokedAt" | "acceptedAt"> {
+): Omit<EncodedInvitation, "id" | "dxosInvitationId" | "revokedAt" | "acceptedAt"> {
   return {
     contactId,
     invitationCode: "",
