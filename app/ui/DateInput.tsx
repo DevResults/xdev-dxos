@@ -75,7 +75,7 @@ export function DateInput<T extends FieldValues>({ form, name, label, saveOnBlur
                     )}
                     tabIndex={-1}
                   >
-                    <CalendarIcon />
+                    <IconCalendar className="size-4" />
                   </button>
                 </PopoverTrigger>
               </div>
@@ -123,27 +123,6 @@ function parseStoredDate(value: string | undefined): Date | null {
   if (!value) return null
   const parsed = parse(value, "yyyy-MM-dd", new Date())
   return isNaN(parsed.getTime()) ? null : parsed
-}
-
-/** Inline calendar icon (16x16). */
-function CalendarIcon() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M8 2v4M16 2v4" />
-      <rect width="18" height="18" x="3" y="4" rx="2" />
-      <path d="M3 10h18" />
-    </svg>
-  )
 }
 
 type Props<T extends FieldValues> = {
