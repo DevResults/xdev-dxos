@@ -1,6 +1,7 @@
 import { Button } from "@ui/button"
 import { Form } from "@ui/form"
 import type { FieldPath } from "react-hook-form"
+import { DateInput } from "./DateInput"
 import { ImageUpload } from "./ImageUpload"
 import { TextInput } from "./TextInput"
 import { useAutoSaveForm } from "~/hooks/useAutoSaveForm"
@@ -103,8 +104,8 @@ export function ContactForm({
             </div>
             <TextInput form={form} name="title" label="Title" saveOnBlur={saveOnBlur} />
             <div className="grid grid-cols-2 gap-4">
-              <TextInput form={form} name="birthdate" label="Birthdate" saveOnBlur={saveOnBlur} />
-              <TextInput form={form} name="startDate" label="Start date" saveOnBlur={saveOnBlur} />
+              <DateInput form={form} name="birthdate" label="Birthdate" saveOnBlur={saveOnBlur} />
+              <DateInput form={form} name="startDate" label="Start date" saveOnBlur={saveOnBlur} />
             </div>
           </section>
 
