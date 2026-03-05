@@ -101,11 +101,13 @@ export function ContactForm({
           {/* Personal info */}
           <section className="grid gap-4">
             <Heading level={3}>Personal info</Heading>
-            <TextInput form={form} name="pronouns" label="Pronouns" saveOnBlur={saveOnBlur} />
-            <TextInput form={form} name="title" label="Title" saveOnBlur={saveOnBlur} />
             <div className="grid grid-cols-2 gap-4">
-              <DateInput form={form} name="birthdate" label="Birthdate" saveOnBlur={saveOnBlur} />
+              <TextInput form={form} name="title" label="Title" saveOnBlur={saveOnBlur} />
               <DateInput form={form} name="startDate" label="Start date" saveOnBlur={saveOnBlur} />
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <TextInput form={form} name="pronouns" label="Pronouns" saveOnBlur={saveOnBlur} />
+              <DateInput form={form} name="birthdate" label="Birthdate" saveOnBlur={saveOnBlur} />
             </div>
           </section>
 
