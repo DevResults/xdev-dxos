@@ -1,6 +1,6 @@
 import { clients } from "data/clients"
 import { contacts } from "data/contacts"
-import actualHoursCsv from "data/csv/hours-export.csv?raw"
+import actualHoursCsv from "data/csv/hours.csv?raw"
 import { projects } from "data/projects"
 import { type BaseTestCase } from "lib/runTestCases"
 import { ProvidedClients } from "schema/ClientCollection"
@@ -11,7 +11,7 @@ import { assert, expect, test } from "vitest"
 import { csvToTimeEntries } from "../csvToTimeEntries"
 
 type TestCase = BaseTestCase & {
-  label?: string
+  text?: string
   entries?: number
   errors?: number
 }
@@ -55,7 +55,7 @@ const testCases = [
   { input: "", entries: 0, errors: 0 },
 
   {
-    label: "3 well-formed entries",
+    text: "3 well-formed entries",
     input: join(
       "Herb,2024-05-30,1.50,Overhead,,hours tracking",
       "Brent,2024-05-30,2.25,Out,,Out",
@@ -66,15 +66,14 @@ const testCases = [
   },
 
   {
-    label: "actual hours dataset",
+    text: "actual hours dataset",
     input: actualHoursCsv.split("\n").slice(0, 5000).join("\n"),
-    entries: 4802,
-    errors: 198,
+    entries: 4998,
+    errors: 2,
   },
 ] as TestCase[]
 
-const label = ({ label, input }: TestCase) =>
-  label ?? (input.length > 0 ? `\`${input}\`` : "(empty)")
+const label = ({ text, input }: TestCase) => text ?? (input.length > 0 ? `\`${input}\`` : "(empty)")
 
 const errorPadding = Math.max(...testCases.filter(tc => tc.error).map(tc => label(tc).length))
 
