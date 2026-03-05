@@ -151,13 +151,13 @@ export function ContactForm({
           {/* Emergency contact */}
           <section className="grid gap-4">
             <Heading level={3}>Emergency contact</Heading>
-            <TextInput
-              form={form}
-              name="emergencyContactName"
-              label="Name"
-              saveOnBlur={saveOnBlur}
-            />
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-3 gap-4">
+              <TextInput
+                form={form}
+                name="emergencyContactName"
+                label="Name"
+                saveOnBlur={saveOnBlur}
+              />
               <TextInput
                 form={form}
                 name="emergencyContactRelationship"
