@@ -37,16 +37,7 @@ export default function Hours$YearPage() {
       }
     >
       <Pane>
-        <div className="h-full">
-          <HoursReport
-            {...{
-              self,
-              year,
-              contacts,
-              timeEntries,
-            }}
-          />
-        </div>
+        <HoursReport {...{ self, year, contacts, timeEntries }} />
       </Pane>
     </PageLayout>
   )
