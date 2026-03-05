@@ -16,6 +16,78 @@ export const ContactFields = S.Struct({
   firstName: S.Trim.pipe(S.minLength(1, { message: () => "First name is required." })),
   lastName: S.Trim,
   avatarUrl: S.Trim,
+
+  /** Whether the contact is active or inactive. Defaults to 'active'. */
+  status: S.optional(S.Union(S.Literal("active"), S.Literal("inactive"))),
+
+  // Personal info
+  /** Middle name */
+  middleName: S.optional(S.Trim),
+  /** Suffix (e.g. Jr., III) */
+  suffix: S.optional(S.Trim),
+  /** Legal first name */
+  legalFirstName: S.optional(S.Trim),
+  /** Preferred name (for business card) */
+  preferredName: S.optional(S.Trim),
+  /** Pronouns */
+  pronouns: S.optional(S.Trim),
+  /** Birthdate (ISO date string) */
+  birthdate: S.optional(S.Trim),
+  /** Start date (ISO date string) */
+  startDate: S.optional(S.Trim),
+  /** Job title */
+  title: S.optional(S.Trim),
+
+  // Emergency contact
+  /** Emergency contact name */
+  emergencyContactName: S.optional(S.Trim),
+  /** Emergency contact relationship */
+  emergencyContactRelationship: S.optional(S.Trim),
+  /** Emergency contact phone */
+  emergencyContactPhone: S.optional(S.Trim),
+
+  // Driver's license
+  /** Driver's license number */
+  driversLicense: S.optional(S.Trim),
+  /** Driver's license expiration date (ISO date string) */
+  driversLicenseExpiration: S.optional(S.Trim),
+
+  // Phone
+  /** Phone number */
+  phone: S.optional(S.Trim),
+
+  // Passport
+  /** Passport number */
+  passportNumber: S.optional(S.Trim),
+  /** Passport issue date (ISO date string) */
+  passportIssueDate: S.optional(S.Trim),
+  /** Passport expiration date (ISO date string) */
+  passportExpirationDate: S.optional(S.Trim),
+  /** Passport country */
+  passportCountry: S.optional(S.Trim),
+
+  // Home address
+  /** Home street address */
+  homeAddress: S.optional(S.Trim),
+  /** Home city */
+  homeCity: S.optional(S.Trim),
+  /** Home state/province */
+  homeState: S.optional(S.Trim),
+  /** Home zip/postal code */
+  homeZip: S.optional(S.Trim),
+
+  // Work address
+  /** Work street address */
+  workAddress: S.optional(S.Trim),
+  /** Work city */
+  workCity: S.optional(S.Trim),
+  /** Work state/province */
+  workState: S.optional(S.Trim),
+  /** Work zip/postal code */
+  workZip: S.optional(S.Trim),
+
+  /** Country (shared between home and work) */
+  country: S.optional(S.Trim),
 })
 
 /** A contact's record, including staff directory type information */
