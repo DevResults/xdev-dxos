@@ -1,4 +1,5 @@
 import { ConfirmDialog } from "./ConfirmDialog"
+import { displayFirstName } from "~/lib/displayFirstName"
 
 export function RemoveMemberDialog({
   onClose = () => {},
@@ -13,7 +14,7 @@ export function RemoveMemberDialog({
   return (
     <ConfirmDialog
       title="Remove member"
-      body={`${contact.firstName} will be permanently removed from this team.`}
+      body={`${displayFirstName(contact)} will be permanently removed from this team.`}
       intent="danger"
       onConfirm={() => {
         remove()

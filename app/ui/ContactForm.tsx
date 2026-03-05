@@ -85,12 +85,6 @@ export function ContactForm({
               <TextInput form={form} name="userName" label="Username" saveOnBlur={saveOnBlur} />
               <TextInput
                 form={form}
-                name="legalFirstName"
-                label="Legal first name"
-                saveOnBlur={saveOnBlur}
-              />
-              <TextInput
-                form={form}
                 name="preferredName"
                 label="Preferred name"
                 saveOnBlur={saveOnBlur}
@@ -247,7 +241,6 @@ export const ContactFormSchema = Contact.pipe(
     // Personal info
     "middleName",
     "suffix",
-    "legalFirstName",
     "preferredName",
     "pronouns",
     "birthdate",

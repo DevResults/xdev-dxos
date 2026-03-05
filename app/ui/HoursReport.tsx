@@ -2,6 +2,7 @@ import { LocalDate } from "@js-joda/core"
 import { Fragment } from "react/jsx-runtime"
 import { asPercentage } from "~/lib/asPercentage"
 import { cx } from "~/lib/cx"
+import { displayFirstName } from "~/lib/displayFirstName"
 import { formatDate } from "~/lib/formatDate"
 import { formatDateRange } from "~/lib/formatDateRange"
 import { getSunday } from "~/lib/getSunday"
@@ -121,7 +122,8 @@ export const HoursReport = ({ year, contacts, timeEntries }: Props) => {
       {/* DATA ROWS  */}
 
       {reportingContacts.map(contact => {
-        const { id, firstName } = contact
+        const { id } = contact
+        const name = displayFirstName(contact)
 
         const completeWeeks = completionByContact.get(id)!
         const weeksBehind = weeksToDate - completeWeeks
@@ -157,7 +159,7 @@ export const HoursReport = ({ year, contacts, timeEntries }: Props) => {
             {/* Avatar & name */}
             <div className="gap-2">
               <Avatar contact={contact} size="2xs" />
-              {firstName}
+              {name}
             </div>
 
             {/* Completion by week */}

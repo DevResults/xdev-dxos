@@ -1,9 +1,10 @@
+import { displayFirstName } from "~/lib/displayFirstName"
 import type { Contact } from "~/schema/Contact"
 
 export function likesDescription(likes: Contact[], self: Contact) {
   const numberLikes = likes.length
-  const sortedNames = likes.map(({ firstName }) => firstName).toSorted()
-  const index = sortedNames.indexOf(self.firstName)
+  const sortedNames = likes.map(c => displayFirstName(c)).toSorted()
+  const index = sortedNames.indexOf(displayFirstName(self))
   if (index !== -1) {
     sortedNames.splice(index, 1)
     sortedNames.push("you")

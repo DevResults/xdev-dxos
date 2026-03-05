@@ -1,11 +1,14 @@
 import { Avatar as _Avatar, AvatarImage, AvatarFallback, type AvatarSize } from "@ui/avatar"
+import { displayFirstName } from "~/lib/displayFirstName"
 import type { Contact } from "~/schema/Contact"
 
 export function Avatar({ className = "", size = "md", contact }: Props) {
   return (
     <_Avatar size={size} className={className}>
       <AvatarImage src={contact.avatarUrl} />
-      <AvatarFallback>{(contact.firstName ?? "ü").slice(0, 1).toLocaleUpperCase()}</AvatarFallback>
+      <AvatarFallback>
+        {(displayFirstName(contact) ?? "ü").slice(0, 1).toLocaleUpperCase()}
+      </AvatarFallback>
     </_Avatar>
   )
 }

@@ -1,4 +1,5 @@
 import { ConfirmDialog } from "./ConfirmDialog"
+import { displayFirstName } from "~/lib/displayFirstName"
 import type { ExtendedContact } from "~/schema/Contact"
 import type { Invitation } from "~/schema/Invitation"
 
@@ -13,10 +14,11 @@ export function RevokeInvitationDialog({
     return null
   }
 
+  const name = displayFirstName(contact)
   return (
     <ConfirmDialog
-      title={`Revoke ${contact.firstName}’s invitation?`}
-      body={`${contact.firstName} will no longer be able to use it to join.`}
+      title={`Revoke ${name}’s invitation?`}
+      body={`${name} will no longer be able to use it to join.`}
       intent="danger"
       onConfirm={async () => {
         await revoke()

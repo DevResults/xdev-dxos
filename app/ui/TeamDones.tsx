@@ -1,4 +1,5 @@
 import { DoneDisplay } from "./DoneDisplay"
+import { displayFirstName } from "~/lib/displayFirstName"
 import type { Contact } from "~/schema/Contact"
 import type { DoneEntry } from "~/schema/DoneEntry"
 import { Avatar } from "~/ui/Avatar"
@@ -39,7 +40,7 @@ export const TeamDones = ({ dones, contacts, self }: Props) => {
             {/* user's avatar & name */}
             <Heading level={3} className="flex flex-row items-center gap-2 text-base">
               <Avatar size="md" contact={contact} />
-              <span>{contact.firstName}</span>
+              <span>{displayFirstName(contact)}</span>
             </Heading>
             {/* user's dones */}
             <ul className="flex flex-col gap-1 font-normal text-neutral-700">

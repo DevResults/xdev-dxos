@@ -25,9 +25,7 @@ export const ContactFields = S.Struct({
   middleName: S.optional(S.Trim),
   /** Suffix (e.g. Jr., III) */
   suffix: S.optional(S.Trim),
-  /** Legal first name */
-  legalFirstName: S.optional(S.Trim),
-  /** Preferred name (for business card) */
+  /** Preferred first name (e.g. "Herb" when firstName is "Herbert") */
   preferredName: S.optional(S.Trim),
   /** Pronouns */
   pronouns: S.optional(S.Trim),
@@ -128,7 +126,12 @@ export const extendContact = ({
     invitation,
     invitationStatus,
     get fullName() {
-      return `${contact.firstName} ${contact.lastName}`
+      return `${contact.preferredName || contact.firstName} ${contact.lastName}`
+    },
+    get legalFullName() {
+      return [contact.firstName, contact.middleName, contact.lastName, contact.suffix]
+        .filter(Boolean)
+        .join(" ")
     },
     get identity() {
       return member?.identity
@@ -173,11 +176,12 @@ type ContactExtensions = {
   readonly isSelf: boolean
   readonly isMember: boolean
   readonly fullName: string
+  readonly legalFullName: string
 }
 
 type ExtendedContactProps = Omit<
   ContactExtensions,
-  "isMember" | "identity" | "isAdmin" | "isSelf" | "fullName"
+  "isMember" | "identity" | "isAdmin" | "isSelf" | "fullName" | "legalFullName"
 >
 
 export type ContactInvitationStatus = "NOT_INVITED" | "PENDING" | "ACCEPTED" | "REVOKED" | "EXPIRED"

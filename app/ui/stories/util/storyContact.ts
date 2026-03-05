@@ -20,7 +20,12 @@ export function storyContact(
     isSelf: self,
     isMember: false,
     get fullName() {
-      return `${c.firstName} ${c.lastName}`
+      return `${c.preferredName ?? c.firstName} ${c.lastName}`
+    },
+    get legalFullName() {
+      return [c.firstName, (c as any).middleName, c.lastName, (c as any).suffix]
+        .filter(Boolean)
+        .join(" ")
     },
   } as ExtendedContact
 }

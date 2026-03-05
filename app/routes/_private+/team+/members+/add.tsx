@@ -39,7 +39,6 @@ export default function MembersAddContactPage() {
         status: "active",
         middleName: "",
         suffix: "",
-        legalFirstName: "",
         preferredName: "",
         pronouns: "",
         birthdate: "",

@@ -1,5 +1,6 @@
 import { makeRandom } from "@herbcaudill/random"
 import { type LocalDate } from "@js-joda/core"
+import { displayFirstName } from "./displayFirstName"
 import { dummyDones } from "./dummyDones"
 import { getWorkDays } from "./getWorkDays"
 import { reconstructTimeEntryInput } from "./reconstructTimeEntryInput"
@@ -25,7 +26,8 @@ export function generateTimeEntries({
   // Assign a timekeeping style to each contact
   const contactStyles = Object.fromEntries(
     contacts.map(c => {
-      const procrastinates = procrastinators.includes(c.firstName) || random.probability(0.1)
+      const procrastinates =
+        procrastinators.includes(displayFirstName(c)) || random.probability(0.1)
       const weeksDelay = procrastinates ? random.integer(2, 4) : random.integer(0, 2)
       const gapProbability = procrastinates ? random.decimal(0.1, 0.3) : 0
       return [c.id, { weeksDelay, gapProbability }]
@@ -91,7 +93,7 @@ export function generateTimeEntries({
 
   // For each contact, generate entries based on their style
   for (const contact of contacts) {
-    if (omit.includes(contact.firstName)) {
+    if (omit.includes(displayFirstName(contact))) {
       continue
     }
 

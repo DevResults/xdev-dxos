@@ -48,7 +48,6 @@ export default function EditContactPage() {
         status: contact.contact.status ?? "active",
         middleName: contact.contact.middleName ?? "",
         suffix: contact.contact.suffix ?? "",
-        legalFirstName: contact.contact.legalFirstName ?? "",
         preferredName: contact.contact.preferredName ?? "",
         pronouns: contact.contact.pronouns ?? "",
         birthdate: contact.contact.birthdate ?? "",

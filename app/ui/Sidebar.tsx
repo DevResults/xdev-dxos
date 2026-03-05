@@ -1,6 +1,7 @@
 import { NavLink } from "react-router"
 import { Avatar } from "./Avatar"
 import { cx } from "~/lib/cx"
+import { displayFirstName } from "~/lib/displayFirstName"
 import type { Contact } from "~/schema/Contact"
 import type { NavItem } from "~/types/types"
 
@@ -30,7 +31,7 @@ export function Sidebar({ self, close }: Props) {
         <span className="w-11">
           <Avatar size="sm" contact={self} className="mx-auto" />
         </span>
-        <span className="truncate text-sm font-semibold text-black">{self.firstName}</span>
+        <span className="truncate text-sm font-semibold text-black">{displayFirstName(self)}</span>
       </header>
 
       {/* app navigation */}

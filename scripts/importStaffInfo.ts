@@ -79,17 +79,18 @@ const parseDate = (raw: string): string | undefined => {
 
 /** Convert a staff CSV row to a contact data object. */
 const rowToContact = (row: StaffRow) => {
+  const legalFirst = row.first.trim()
+  const everyday = row.everydayName.trim()
   const contact: Record<string, string | undefined> = {
-    userName: row.everydayName.trim().toLowerCase(),
-    firstName: row.everydayName.trim(),
+    userName: everyday.toLowerCase(),
+    firstName: legalFirst || everyday,
     lastName: row.last.trim(),
     avatarUrl: "",
 
     // Personal info
-    legalFirstName: row.first.trim() || undefined,
     middleName: row.middle.trim() || undefined,
     suffix: row.suffix.trim() || undefined,
-    preferredName: row.businessCardName.trim() || undefined,
+    preferredName: everyday !== legalFirst ? everyday : undefined,
     pronouns: row.pronouns.trim() || undefined,
     birthdate: parseDate(row.birthdate),
     startDate: parseDate(row.startDate),
@@ -164,7 +165,7 @@ export const staffContactData: Array<Omit<EncodedContact, "id">> = ${JSON.string
 
   // Print summary
   for (const c of contacts) {
-    console.log(`  ${c.firstName} ${c.lastName} (${c.userName})`)
+    console.log(`  ${c.preferredName ?? c.firstName} ${c.lastName} (${c.userName})`)
   }
 }
 
