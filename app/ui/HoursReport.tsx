@@ -15,6 +15,8 @@ import type { TimeEntry } from "~/schema/TimeEntry"
 import { Avatar } from "~/ui/Avatar"
 import { CenteredLayout } from "~/ui/layouts/CenteredLayout"
 
+const isStartOfMonth = (week: LocalDate) => week.dayOfMonth() <= 7
+
 export const HoursReport = ({ year, contacts, timeEntries }: Props) => {
   const sYear = year.toString()
   const entries = timeEntries.filter(d => d.date.startsWith(sYear))
@@ -39,7 +41,6 @@ export const HoursReport = ({ year, contacts, timeEntries }: Props) => {
   const weeks = getSundaysForYear(year)
 
   const isPast = (week: LocalDate) => week.minusDays(1).isBefore(LocalDate.now())
-  const isStartOfMonth = (week: LocalDate) => week.dayOfMonth() <= 7
 
   /** How many weeks have there been this year? */
   const weeksToDate = weeks.filter(isPast).length
