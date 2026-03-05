@@ -25,9 +25,8 @@ export const Members = ({
   return (
     <>
       <Heading level={2}>Members</Heading>
-
       <div
-        className="Members my-3 grid w-full max-w-xl gap-x-4 border-t text-sm"
+        className="Members my-3 grid w-full min-w-[35em] max-w-xl gap-x-4 border-t text-sm"
         style={{
           gridTemplateColumns: "min-content 2fr min-content min-content",
         }}
@@ -95,7 +94,7 @@ export const Members = ({
                 <div>
                   <div className="font-medium">
                     <Link to={`/team/members/${contact.id}`} className="hover:underline">
-                      {contact.firstName}
+                      {contact.fullName}
                     </Link>
                   </div>
                   <div className="flex flex-row gap-2 divide-x text-xs text-neutral-400 [&>div:not(:first-child)]:pl-2">
