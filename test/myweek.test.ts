@@ -1,27 +1,14 @@
-import { expect, test, type BrowserContext } from "@playwright/test"
-import { newBrowser } from "./helpers/App"
-
-const userName = "herb"
-const teamName = "DevResults"
-
-const setup = async (context: BrowserContext) => {
-  const herb = await newBrowser(context)
-  await herb.createTeam(userName, teamName)
-  return { herb }
-}
+import { expect } from "@playwright/test"
+import { test } from "./helpers/fixtures"
 
 test.describe("my week page", () => {
-  test("shows Hours and Dones sections", async ({ context }) => {
-    const { herb } = await setup(context)
-
+  test("shows Hours and Dones sections", async ({ app: herb }) => {
     // The myweek page is the default landing page after team creation
     await expect(herb.page.getByRole("heading", { name: "Hours" })).toBeVisible()
     await expect(herb.page.getByRole("heading", { name: "Dones" })).toBeVisible()
   })
 
-  test("shows days of the week", async ({ context }) => {
-    const { herb } = await setup(context)
-
+  test("shows days of the week", async ({ app: herb }) => {
     // Should show Mon-Fri by default (weekends hidden)
     await expect(herb.page.getByText("mon", { exact: false })).toBeVisible()
     await expect(herb.page.getByText("tue", { exact: false })).toBeVisible()
@@ -30,9 +17,7 @@ test.describe("my week page", () => {
     await expect(herb.page.getByText("fri", { exact: false })).toBeVisible()
   })
 
-  test("can toggle weekend visibility", async ({ context }) => {
-    const { herb } = await setup(context)
-
+  test("can toggle weekend visibility", async ({ app: herb }) => {
     // Weekends are hidden by default
     const saturdayCount = await herb.page.getByText("sat", { exact: false }).count()
     expect(saturdayCount).toBe(0)
@@ -45,9 +30,7 @@ test.describe("my week page", () => {
     await expect(herb.page.getByText("sun", { exact: false })).toBeVisible()
   })
 
-  test("can create time entries and dones from myweek", async ({ context }) => {
-    const { herb } = await setup(context)
-
+  test("can create time entries and dones from myweek", async ({ app: herb }) => {
     // Create a time entry
     await herb.createTimeEntry("1h #out")
     await expect(herb.page.locator("main")).toContainText("1:00")
@@ -58,9 +41,7 @@ test.describe("my week page", () => {
     await expect(herb.page.locator("main")).toContainText("Completed task A")
   })
 
-  test("shows weekly total", async ({ context }) => {
-    const { herb } = await setup(context)
-
+  test("shows weekly total", async ({ app: herb }) => {
     // Create time entries
     await herb.createTimeEntry("2h #out")
 
@@ -69,9 +50,7 @@ test.describe("my week page", () => {
     await expect(herb.page.locator("main")).toContainText("2:00")
   })
 
-  test("can navigate to previous week", async ({ context }) => {
-    const { herb } = await setup(context)
-
+  test("can navigate to previous week", async ({ app: herb }) => {
     // Get the current week's first date shown
     const currentDateText = await herb.page.locator("h2").first().textContent()
 
@@ -83,9 +62,7 @@ test.describe("my week page", () => {
     expect(previousDateText).not.toBe(currentDateText)
   })
 
-  test("can navigate to next week", async ({ context }) => {
-    const { herb } = await setup(context)
-
+  test("can navigate to next week", async ({ app: herb }) => {
     // Go to previous week first so we can go forward
     await herb.page.getByTitle("Previous week").click()
 

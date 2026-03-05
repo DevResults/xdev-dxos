@@ -1,28 +1,17 @@
-import { expect, test, type BrowserContext } from "@playwright/test"
-import { newBrowser } from "./helpers/App"
+import { expect } from "@playwright/test"
+import { test } from "./helpers/fixtures"
 
-export const userName = "herb"
-export const teamName = "DevResults"
 const doneText = "Completed terabytes of coding and compiling"
-
-const setup = async (context: BrowserContext) => {
-  const herb = await newBrowser(context)
-  await herb.createTeam(userName, teamName)
-  return { herb }
-}
 
 test.describe.configure({ timeout: 45_000, retries: 2 })
 
-test("creates a done", async ({ context }) => {
-  const { herb } = await setup(context)
+test("creates a done", async ({ app: herb }) => {
   await herb.createDone(doneText)
   const doneEntry = herb.firstDoneEntryInput()
   await expect(doneEntry).toContainText(doneText)
 })
 
-test("persists a done", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("persists a done", async ({ app: herb }) => {
   await herb.createDone(doneText)
   const doneEntry = herb.firstDoneEntryInput()
   await expect(doneEntry).toContainText(doneText)
@@ -33,9 +22,7 @@ test("persists a done", async ({ context }) => {
   await expect(doneEntryAfterReload).toContainText(doneText)
 })
 
-test("edits a done", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("edits a done", async ({ app: herb }) => {
   await herb.createDone(doneText)
   const doneEntry = herb.firstDoneEntryInput()
   await expect(doneEntry).toContainText(doneText)
@@ -51,9 +38,7 @@ test("edits a done", async ({ context }) => {
   await expect(doneEntryAfterReload).toContainText("Completed petabytes of coding and compiling")
 })
 
-test("deletes a done", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("deletes a done", async ({ app: herb }) => {
   await herb.createDone(doneText)
 
   const doneEntry = herb.firstDoneEntryInput()
@@ -67,18 +52,14 @@ test("deletes a done", async ({ context }) => {
   await expect(doneEntryAfterReload).not.toContainText(doneText)
 })
 
-test("shows dones in team view", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("shows dones in team view", async ({ app: herb }) => {
   await herb.createDone(doneText)
 
   await herb.pressButton("Dones")
   await expect(herb.page.locator("main")).toContainText(doneText)
 })
 
-test.skip("likes a done", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test.skip("likes a done", async ({ app: herb }) => {
   await herb.createDone(doneText)
 
   {

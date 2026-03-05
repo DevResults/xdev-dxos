@@ -1,19 +1,8 @@
-import { expect, test, type BrowserContext, type Locator } from "@playwright/test"
-import { newBrowser } from "./helpers/App"
+import { expect, type Locator } from "@playwright/test"
+import { type App } from "./helpers/App"
+import { test } from "./helpers/fixtures"
 
-const userName = "herb"
-const teamName = "DevResults"
-
-const setup = async (context: BrowserContext) => {
-  const herb = await newBrowser(context)
-  await herb.createTeam(userName, teamName)
-  return { herb }
-}
-
-const openTimeEntryEditor = async (
-  herb: Awaited<ReturnType<typeof newBrowser>>,
-  entryRow: Locator,
-) => {
+const openTimeEntryEditor = async (herb: App, entryRow: Locator) => {
   const display = entryRow.locator("[tabindex='0']").first()
 
   for (const _attempt of [1, 2, 3]) {
@@ -31,7 +20,7 @@ const openTimeEntryEditor = async (
   await expect.poll(() => getActiveComboboxValue(herb), { timeout: 10_000 }).not.toEqual("")
 }
 
-const getActiveComboboxValue = async (herb: Awaited<ReturnType<typeof newBrowser>>) =>
+const getActiveComboboxValue = async (herb: App) =>
   herb.page.evaluate(() => {
     const active = document.activeElement
     if (!(active instanceof HTMLTextAreaElement)) {
@@ -45,11 +34,7 @@ const getActiveComboboxValue = async (herb: Awaited<ReturnType<typeof newBrowser
     return active.value
   })
 
-const setTimeEntryValueAndBlur = async (
-  herb: Awaited<ReturnType<typeof newBrowser>>,
-  entryRow: Locator,
-  value: string,
-) => {
+const setTimeEntryValueAndBlur = async (herb: App, entryRow: Locator, value: string) => {
   for (const _attempt of [1, 2, 3]) {
     await openTimeEntryEditor(herb, entryRow)
     const committed = await herb.page.evaluate(nextValue => {
@@ -78,17 +63,13 @@ const setTimeEntryValueAndBlur = async (
 
 test.describe.configure({ timeout: 45_000 })
 
-test("creates a time entry", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("creates a time entry", async ({ app: herb }) => {
   await herb.createTimeEntry("90min #out")
   await expect(herb.hoursForDay(0)).toContainText("1:30")
   await expect(herb.hoursForDay(0)).toContainText("Out")
 })
 
-test("creates two time entries (using enter key)", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("creates two time entries (using enter key)", async ({ app: herb }) => {
   const timeEntry = herb.firstTimeEntryInput()
   await timeEntry.click()
   await timeEntry.fill("1h #out ")
@@ -104,9 +85,7 @@ test("creates two time entries (using enter key)", async ({ context }) => {
   await expect(herb.hoursForDay(0)).toContainText("Overhead")
 })
 
-test("creates two time entries (using tab key)", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("creates two time entries (using tab key)", async ({ app: herb }) => {
   const timeEntry = herb.firstTimeEntryInput()
   await timeEntry.fill("1h #out ")
   await timeEntry.press("Tab")
@@ -124,9 +103,7 @@ test("creates two time entries (using tab key)", async ({ context }) => {
   await expect(herb.hoursForDay(1)).toContainText("Overhead")
 })
 
-test("creates two time entries at once", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("creates two time entries at once", async ({ app: herb }) => {
   await herb.createTimeEntry(`
     1h #out
     2h #overhead`)
@@ -137,9 +114,7 @@ test("creates two time entries at once", async ({ context }) => {
   await expect(herb.hoursForDay(0)).toContainText("Overhead")
 })
 
-test("rejects a time entry containing no duration", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("rejects a time entry containing no duration", async ({ app: herb }) => {
   // Try to create an invalid time entry with no duration
   await herb.createTimeEntry("#out")
 
@@ -159,9 +134,7 @@ test("rejects a time entry containing no duration", async ({ context }) => {
   await expect(herb.hoursForDay(0)).not.toContainText("Out")
 })
 
-test("accepts a time entry once mistakes have been corrected", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("accepts a time entry once mistakes have been corrected", async ({ app: herb }) => {
   // Try to create an invalid time entry with no duration
   const input = herb.firstTimeEntryInput()
   await input.click()
@@ -189,9 +162,8 @@ test("accepts a time entry once mistakes have been corrected", async ({ context 
   await expect(herb.hoursForDay(0)).toContainText("Out")
 })
 
-test("entries are committed on blur", async ({ context }) => {
+test("entries are committed on blur", async ({ app: herb }) => {
   // We need this since we're using focus/blur to control whether it's editable or not
-  const { herb } = await setup(context)
 
   const input = herb.firstTimeEntryInput()
   await input.fill("90min #out ")
@@ -204,9 +176,7 @@ test("entries are committed on blur", async ({ context }) => {
   await expect(herb.hoursForDay(0)).toContainText("Out")
 })
 
-test("edits a time entry", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("edits a time entry", async ({ app: herb }) => {
   await herb.createTimeEntry("90min #out")
 
   await expect(herb.hoursForDay(0)).toContainText("1:30")
@@ -222,9 +192,7 @@ test("edits a time entry", async ({ context }) => {
   await expect(firstEntryRow).toContainText("updated", { timeout: 30_000 })
 })
 
-test("deletes a time entry by clearing its text", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("deletes a time entry by clearing its text", async ({ app: herb }) => {
   await herb.createTimeEntry("90min #out")
 
   await expect(herb.hoursForDay(0)).toContainText("1:30")
@@ -243,9 +211,7 @@ test("deletes a time entry by clearing its text", async ({ context }) => {
   await expect(herb.hoursForDay(0)).not.toContainText("Out")
 })
 
-test("cancels an edit using the escape key", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("cancels an edit using the escape key", async ({ app: herb }) => {
   await herb.createTimeEntry("90min #out")
 
   const timeEntry = herb.firstTimeEntry()
@@ -264,9 +230,7 @@ test("cancels an edit using the escape key", async ({ context }) => {
   await expect(timeEntry).toContainText("Out")
 })
 
-test("uses keyboard to navigate time entries", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("uses keyboard to navigate time entries", async ({ app: herb }) => {
   // Create a few time entries
   await herb.createTimeEntry(`
     1h #out doctor
@@ -293,9 +257,7 @@ test("uses keyboard to navigate time entries", async ({ context }) => {
   await expect(day.getByRole("combobox").first()).toBeVisible()
 })
 
-test("deletes a time entry", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("deletes a time entry", async ({ app: herb }) => {
   await herb.createTimeEntry("90min #out")
 
   await expect(herb.hoursForDay(0)).toContainText("1:30")
@@ -310,9 +272,7 @@ test("deletes a time entry", async ({ context }) => {
   await expect(herb.hoursForDay(0)).not.toContainText("Out")
 })
 
-test("persists a time entry", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("persists a time entry", async ({ app: herb }) => {
   await herb.createTimeEntry("90min #out")
   await expect(herb.hoursForDay(0)).toContainText("1:30")
   await expect(herb.hoursForDay(0)).toContainText("Out")
@@ -325,9 +285,7 @@ test("persists a time entry", async ({ context }) => {
   await expect(herb.hoursForDay(0)).toContainText("Out")
 })
 
-test("persists edits", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("persists edits", async ({ app: herb }) => {
   await herb.createTimeEntry("90min #out")
   await expect(herb.hoursForDay(0)).toContainText("1:30")
   await expect(herb.hoursForDay(0)).toContainText("Out")
@@ -344,9 +302,7 @@ test("persists edits", async ({ context }) => {
   await expect(herb.hoursForDay(0)).toContainText("updated")
 })
 
-test("persists deletion", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("persists deletion", async ({ app: herb }) => {
   await herb.createTimeEntry("90min #out")
   await expect(herb.hoursForDay(0)).toContainText("1:30")
   await expect(herb.hoursForDay(0)).toContainText("Out")
@@ -365,9 +321,7 @@ test("persists deletion", async ({ context }) => {
   await expect(herb.hoursForDay(0)).not.toContainText("Out")
 })
 
-test("autocompletes a project", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("autocompletes a project", async ({ app: herb }) => {
   const timeEntry = herb.firstTimeEntryInput()
 
   //  No autocomplete menu is visible
@@ -400,9 +354,7 @@ test("autocompletes a project", async ({ context }) => {
   ).toBeVisible()
 })
 
-test("opens client autocomplete for partial client code", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("opens client autocomplete for partial client code", async ({ app: herb }) => {
   const timeEntry = herb.firstTimeEntryInput()
 
   await timeEntry.click()
@@ -412,9 +364,7 @@ test("opens client autocomplete for partial client code", async ({ context }) =>
 
 // Validation error tests
 
-test("rejects a time entry containing multiple durations", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("rejects a time entry containing multiple durations", async ({ app: herb }) => {
   await herb.createTimeEntry("1h 2h #out")
 
   // The input is invalid
@@ -430,9 +380,7 @@ test("rejects a time entry containing multiple durations", async ({ context }) =
   await expect(herb.hoursForDay(0)).not.toContainText("Out")
 })
 
-test("rejects a time entry without a project code", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("rejects a time entry without a project code", async ({ app: herb }) => {
   await herb.createTimeEntry("1h")
 
   // The input is invalid
@@ -445,9 +393,7 @@ test("rejects a time entry without a project code", async ({ context }) => {
   await expect(errorMessage).toContainText("You need to include a project code")
 })
 
-test("rejects a time entry with multiple project codes", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("rejects a time entry with multiple project codes", async ({ app: herb }) => {
   await herb.createTimeEntry("1h #out #overhead")
 
   // The input is invalid
@@ -460,9 +406,7 @@ test("rejects a time entry with multiple project codes", async ({ context }) => 
   await expect(errorMessage).toContainText("An entry can only have one project code")
 })
 
-test("rejects a time entry with an unknown project code", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("rejects a time entry with an unknown project code", async ({ app: herb }) => {
   await herb.createTimeEntry("1h #nonexistent")
 
   // The input is invalid
@@ -475,9 +419,7 @@ test("rejects a time entry with an unknown project code", async ({ context }) =>
   await expect(errorMessage).toContainText('There is no project with code "nonexistent"')
 })
 
-test("rejects a time entry with multiple client codes", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("rejects a time entry with multiple client codes", async ({ app: herb }) => {
   await herb.createTimeEntry("1h #out @chemonics @aba")
 
   // The input is invalid
@@ -490,9 +432,7 @@ test("rejects a time entry with multiple client codes", async ({ context }) => {
   await expect(errorMessage).toContainText("An entry can only include one @client code")
 })
 
-test("rejects a time entry with an unknown client code", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("rejects a time entry with an unknown client code", async ({ app: herb }) => {
   const input = herb.firstTimeEntryInput()
   await input.click()
   await input.fill("1h #out @unknownclient")
@@ -508,10 +448,8 @@ test("rejects a time entry with an unknown client code", async ({ context }) => 
 })
 
 test("rejects a time entry when project requires a client but none provided", async ({
-  context,
+  app: herb,
 }) => {
-  const { herb } = await setup(context)
-
   // Business:Contracts requires a client
   await herb.createTimeEntry("1h #Business:Contracts")
 
@@ -526,10 +464,8 @@ test("rejects a time entry when project requires a client but none provided", as
 })
 
 test("accepts a time entry when project requires a client and client is provided", async ({
-  context,
+  app: herb,
 }) => {
-  const { herb } = await setup(context)
-
   // Business:Contracts requires a client - provide one
   await herb.createTimeEntry("1h #Business:Contracts @chemonics")
 
@@ -540,65 +476,49 @@ test("accepts a time entry when project requires a client and client is provided
 
 // Duration format tests
 
-test("parses HH:MM duration format", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("parses HH:MM duration format", async ({ app: herb }) => {
   await herb.createTimeEntry("1:30 #out")
   await expect(herb.hoursForDay(0)).toContainText("1:30")
   await expect(herb.hoursForDay(0)).toContainText("Out")
 })
 
-test("parses :MM duration format (minutes only)", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("parses :MM duration format (minutes only)", async ({ app: herb }) => {
   await herb.createTimeEntry(":45 #out")
   await expect(herb.hoursForDay(0)).toContainText("0:45")
   await expect(herb.hoursForDay(0)).toContainText("Out")
 })
 
-test("parses decimal hours format", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("parses decimal hours format", async ({ app: herb }) => {
   await herb.createTimeEntry("1.5 #out")
   await expect(herb.hoursForDay(0)).toContainText("1:30")
   await expect(herb.hoursForDay(0)).toContainText("Out")
 })
 
-test("parses decimal hours format with leading dot", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("parses decimal hours format with leading dot", async ({ app: herb }) => {
   await herb.createTimeEntry(".25 #out")
   await expect(herb.hoursForDay(0)).toContainText("0:15")
   await expect(herb.hoursForDay(0)).toContainText("Out")
 })
 
-test("parses hour abbreviation format", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("parses hour abbreviation format", async ({ app: herb }) => {
   await herb.createTimeEntry("2hr #out")
   await expect(herb.hoursForDay(0)).toContainText("2:00")
   await expect(herb.hoursForDay(0)).toContainText("Out")
 })
 
-test("parses minute abbreviation format", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("parses minute abbreviation format", async ({ app: herb }) => {
   await herb.createTimeEntry("45min #out")
   await expect(herb.hoursForDay(0)).toContainText("0:45")
   await expect(herb.hoursForDay(0)).toContainText("Out")
 })
 
-test("parses combined hour and minute format", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("parses combined hour and minute format", async ({ app: herb }) => {
   await herb.createTimeEntry("1h30m #out")
   await expect(herb.hoursForDay(0)).toContainText("1:30")
   await expect(herb.hoursForDay(0)).toContainText("Out")
 })
 
-test("parses duration case-insensitively", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("parses duration case-insensitively", async ({ app: herb }) => {
   await herb.createTimeEntry("1HR30MIN #out")
   await expect(herb.hoursForDay(0)).toContainText("1:30")
   await expect(herb.hoursForDay(0)).toContainText("Out")
@@ -606,25 +526,19 @@ test("parses duration case-insensitively", async ({ context }) => {
 
 // Project code tests
 
-test("parses project code with subcode", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("parses project code with subcode", async ({ app: herb }) => {
   await herb.createTimeEntry("1h #Feature:API")
   await expect(herb.hoursForDay(0)).toContainText("1:00")
   await expect(herb.hoursForDay(0)).toContainText("Feature:API")
 })
 
-test("parses project code case-insensitively", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("parses project code case-insensitively", async ({ app: herb }) => {
   await herb.createTimeEntry("1h #OUT")
   await expect(herb.hoursForDay(0)).toContainText("1:00")
   await expect(herb.hoursForDay(0)).toContainText("Out")
 })
 
-test("parses project code with spaces in subcode using dash", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("parses project code with spaces in subcode using dash", async ({ app: herb }) => {
   // Project X has a space, should be matched via dash
   await herb.createTimeEntry("1h #Feature:Project-X")
   await expect(herb.hoursForDay(0)).toContainText("1:00")
@@ -633,18 +547,14 @@ test("parses project code with spaces in subcode using dash", async ({ context }
 
 // Description tests
 
-test("captures description text", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("captures description text", async ({ app: herb }) => {
   await herb.createTimeEntry("1h #out doctor appointment")
   await expect(herb.hoursForDay(0)).toContainText("1:00")
   await expect(herb.hoursForDay(0)).toContainText("Out")
   await expect(herb.hoursForDay(0)).toContainText("doctor appointment")
 })
 
-test("captures description with client and project", async ({ context }) => {
-  const { herb } = await setup(context)
-
+test("captures description with client and project", async ({ app: herb }) => {
   await herb.createTimeEntry("1h #Support:Ongoing @chemonics fixing login issue")
   await expect(herb.hoursForDay(0)).toContainText("1:00")
   await expect(herb.hoursForDay(0)).toContainText("Support:Ongoing")

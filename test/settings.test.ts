@@ -1,19 +1,8 @@
-import { expect, test, type BrowserContext } from "@playwright/test"
-import { newBrowser } from "./helpers/App"
-
-const userName = "herb"
-const teamName = "DevResults"
-
-const setup = async (context: BrowserContext) => {
-  const herb = await newBrowser(context)
-  await herb.createTeam(userName, teamName)
-  return { herb }
-}
+import { expect } from "@playwright/test"
+import { test } from "./helpers/fixtures"
 
 test.describe("settings navigation", () => {
-  test("can navigate to settings", async ({ context }) => {
-    const { herb } = await setup(context)
-
+  test("can navigate to settings", async ({ app: herb }) => {
     // Navigate to Settings
     await herb.navigateTo("Settings")
 
@@ -21,9 +10,7 @@ test.describe("settings navigation", () => {
     await expect(herb.page).toHaveURL(/\/settings/, { timeout: 15_000 })
   })
 
-  test("can navigate between settings sections", async ({ context }) => {
-    const { herb } = await setup(context)
-
+  test("can navigate between settings sections", async ({ app: herb }) => {
     await herb.navigateTo("Settings")
     await expect(herb.page).toHaveURL(/\/settings/, { timeout: 15_000 })
 
@@ -38,18 +25,14 @@ test.describe("settings navigation", () => {
 })
 
 test.describe("devices page", () => {
-  test("shows devices heading", async ({ context }) => {
-    const { herb } = await setup(context)
-
+  test("shows devices heading", async ({ app: herb }) => {
     await herb.navigateTo("Settings")
     await herb.navigateTo("Devices")
 
     await expect(herb.page).toHaveURL(/\/settings\/devices/)
   })
 
-  test("shows current device", async ({ context }) => {
-    const { herb } = await setup(context)
-
+  test("shows current device", async ({ app: herb }) => {
     await herb.navigateTo("Settings")
     await herb.navigateTo("Devices")
 
@@ -57,9 +40,7 @@ test.describe("devices page", () => {
     await expect(herb.page.locator(".DeviceInfo")).toBeVisible()
   })
 
-  test("shows link another device button", async ({ context }) => {
-    const { herb } = await setup(context)
-
+  test("shows link another device button", async ({ app: herb }) => {
     await herb.navigateTo("Settings")
     await herb.navigateTo("Devices")
 
@@ -69,9 +50,7 @@ test.describe("devices page", () => {
     await expect(herb.page.getByRole("button", { name: "Link another device" })).toBeVisible()
   })
 
-  test("clicking link another device opens dialog", async ({ context }) => {
-    const { herb } = await setup(context)
-
+  test("clicking link another device opens dialog", async ({ app: herb }) => {
     await herb.navigateTo("Settings")
     await herb.navigateTo("Devices")
 

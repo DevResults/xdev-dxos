@@ -1,12 +1,9 @@
-import { expect, test } from "@playwright/test"
-import { newBrowser } from "./helpers/App"
+import { expect } from "@playwright/test"
+import { test } from "./helpers/fixtures"
 
 test.setTimeout(60_000)
 
-test("can revoke a pending invitation from the members table", async ({ context }) => {
-  const app = await newBrowser(context)
-  await app.createTeam("herb", "DevResults")
-
+test("can revoke a pending invitation from the members table", async ({ app }) => {
   await app.page.goto("/team/members/add")
   await app.page.getByRole("textbox", { name: "First name" }).fill("Ritika")
   await app.page.getByRole("textbox", { name: "Username" }).fill("ritika")

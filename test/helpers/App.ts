@@ -280,12 +280,11 @@ export class App {
   // DONES
 
   donesArea() {
-    return this.page.locator("h3:has-text('Dones') + div").first()
+    return this.page.locator("textarea.done-entry").first().locator("..")
   }
 
   firstDoneEntryInput() {
-    // Finds the first textarea after the "Dones" heading
-    return this.donesArea().locator("textarea").first()
+    return this.page.locator("textarea.done-entry").first()
   }
 
   async createDone(doneText: string) {

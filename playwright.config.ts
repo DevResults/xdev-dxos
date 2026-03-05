@@ -47,8 +47,10 @@ export default defineConfig({
 
   projects: isCI
     ? [
+        { name: "setup", testMatch: /auth\.setup\.ts/ },
         {
           name: "chromium",
+          dependencies: ["setup"],
           use: {
             ...devices["Desktop Chrome"],
             permissions: ["clipboard-read", "clipboard-write"],
@@ -74,8 +76,10 @@ export default defineConfig({
         },
       ]
     : [
+        { name: "setup", testMatch: /auth\.setup\.ts/ },
         {
           name: "chromium",
+          dependencies: ["setup"],
           use: {
             ...devices["Desktop Chrome"],
             permissions: ["clipboard-read", "clipboard-write"],

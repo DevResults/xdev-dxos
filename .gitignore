@@ -11,5 +11,6 @@
 # vscode
 /.vscode/
 test-results
+test/.browser-state
 storybook-static
 dist
