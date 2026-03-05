@@ -9,6 +9,7 @@ import { useDatabase } from "~/hooks/useDatabase"
 import { useLocalState } from "~/hooks/useLocalState"
 import { useSelectedWeek } from "~/hooks/useSelectedWeek"
 import { useTeam } from "~/hooks/useTeam"
+import { isActiveContact } from "~/lib/isActiveContact"
 import { Heading } from "~/ui/Heading"
 
 export default function MyWeek$DatePage() {
@@ -61,7 +62,7 @@ export default function MyWeek$DatePage() {
               projects,
               clients,
               self,
-              contacts,
+              contacts: contacts.filter(isActiveContact),
               onAddDone: d => space?.db.add(d),
               onRemoveDone: d => space?.db.remove(d),
               onAddTime: d => space?.db.add(d),

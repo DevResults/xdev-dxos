@@ -5,6 +5,7 @@ import { WeekNav } from "ui/WeekNav"
 import { useDatabase } from "~/hooks/useDatabase"
 import { useSelectedWeek } from "~/hooks/useSelectedWeek"
 import { useTeam } from "~/hooks/useTeam"
+import { isActiveContact } from "~/lib/isActiveContact"
 import { Heading } from "~/ui/Heading"
 
 export default function Dones$DatePage() {
@@ -30,7 +31,7 @@ export default function Dones$DatePage() {
     >
       <Pane>
         <div className="flex flex-col gap-2">
-          <TeamDones dones={dones} contacts={contacts} self={self} />
+          <TeamDones dones={dones} contacts={contacts.filter(isActiveContact)} self={self} />
         </div>
       </Pane>
     </PageLayout>

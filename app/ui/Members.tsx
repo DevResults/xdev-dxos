@@ -1,7 +1,10 @@
 import { Button } from "@ui/button"
+import { Checkbox } from "@ui/checkbox"
+import { useState } from "react"
 import { Link } from "react-router"
 import { by } from "~/lib/by"
 import { cx } from "~/lib/cx"
+import { isActiveContact } from "~/lib/isActiveContact"
 import type { ExtendedContact } from "~/schema/Contact"
 import { Avatar } from "~/ui/Avatar"
 import { getContactMembershipDisplay } from "~/ui/getContactMembershipDisplay"
@@ -16,15 +19,40 @@ export const Members = ({
   onInvite = () => {},
   onAddContact = () => {},
 }: Props) => {
+  const [showInactive, setShowInactive] = useState(false)
+
+  /** Filter out inactive contacts unless the toggle is on. */
+  const visibleContacts = contacts?.filter(c => showInactive || isActiveContact(c))
   const adminIcon = <IconCircleKey className="size-5 text-primary-500" />
 
-  if (!self || !contacts) {
+  if (!self || !visibleContacts) {
     return null
   }
 
+  const hasInactiveContacts = contacts?.some(c => !isActiveContact(c)) ?? false
+
   return (
     <>
-      <Heading level={2}>Members</Heading>
+      <div className="flex items-center gap-4">
+        <Heading level={2}>Members</Heading>
+        {hasInactiveContacts && (
+          <div className="flex items-center space-x-1">
+            <Checkbox
+              id="ShowInactive"
+              checked={showInactive}
+              onCheckedChange={e => {
+                setShowInactive(e === true)
+              }}
+            />
+            <label
+              htmlFor="ShowInactive"
+              className="text-xs leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            >
+              Show inactive
+            </label>
+          </div>
+        )}
+      </div>
       <div
         className="Members my-3 grid w-full min-w-[35em] max-w-xl gap-x-4 border-t text-sm"
         style={{
@@ -32,7 +60,7 @@ export const Members = ({
         }}
       >
         {/* One row per member */}
-        {contacts.toSorted(by("lastName")).map(contact => {
+        {visibleContacts.toSorted(by("lastName")).map(contact => {
           // Admin users can toggle status for team members other than themselves
           const canChangeAdminStatus = self.isAdmin && !contact.isSelf
           const { statusLabel, canInvite, canRevoke, canViewInvitation } =

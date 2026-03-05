@@ -77,6 +77,26 @@ export const ShowsAddMemberButton: Story = {
   },
 }
 
+/** Hides inactive contacts by default, shows toggle to reveal them. */
+export const WithInactiveContacts: Story = {
+  ...makeStory([
+    storyContact("ritika", { admin: true, self: true }),
+    storyContact("fred", { admin: false }),
+    storyContact("herb", { admin: false, status: "inactive" }),
+  ]),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    // Inactive contact should be hidden by default
+    expect(canvas.queryByText("Herb Caudill")).not.toBeInTheDocument()
+    // Toggle should be visible
+    const toggle = canvas.getByLabelText("Show inactive")
+    expect(toggle).toBeInTheDocument()
+    // Click toggle to show inactive
+    await userEvent.click(toggle)
+    expect(canvas.getByText("Herb Caudill")).toBeInTheDocument()
+  },
+}
+
 /** Clicking "Add member" calls onAddContact. */
 export const ClickAddMember: Story = {
   ...makeStory([storyContact("herb", { admin: true, self: true })]),

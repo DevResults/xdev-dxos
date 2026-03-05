@@ -4,11 +4,12 @@ import type { ExtendedContact } from "schema/Contact"
 /** Create a mock ExtendedContact for stories. */
 export function storyContact(
   firstName: string,
-  { admin = false, self = false }: StoryContactOptions = {},
+  { admin = false, self = false, status }: StoryContactOptions = {},
 ): ExtendedContact {
   const c = contacts.find(contact => contact.id === firstName.toLowerCase())!
   return {
     ...c,
+    ...(status != null ? { status } : {}),
     contact: c,
     member: undefined,
     selfIdentity: undefined,
@@ -27,4 +28,5 @@ export function storyContact(
 type StoryContactOptions = {
   admin?: boolean
   self?: boolean
+  status?: "active" | "inactive"
 }

@@ -8,6 +8,7 @@ import { useRedirect } from "~/hooks/useRedirect"
 import { useSelectedYear } from "~/hooks/useSelectedYear"
 import { useTeam } from "~/hooks/useTeam"
 import { getCurrentYear } from "~/lib/getCurrentYear"
+import { isActiveContact } from "~/lib/isActiveContact"
 import { Heading } from "~/ui/Heading"
 
 export default function Hours$YearPage() {
@@ -37,7 +38,7 @@ export default function Hours$YearPage() {
       }
     >
       <Pane>
-        <HoursReport {...{ self, year, contacts, timeEntries }} />
+        <HoursReport {...{ self, year, contacts: contacts.filter(isActiveContact), timeEntries }} />
       </Pane>
     </PageLayout>
   )
