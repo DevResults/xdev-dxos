@@ -109,12 +109,6 @@ export function ContactForm({
             </div>
           </section>
 
-          {/* Contact */}
-          <section className="grid gap-4">
-            <Heading level={3}>Contact</Heading>
-            <TextInput form={form} name="phone" label="Phone" saveOnBlur={saveOnBlur} />
-          </section>
-
           {/* Home address */}
           <section className="grid gap-4">
             <Heading level={3}>Home address</Heading>
@@ -130,6 +124,7 @@ export function ContactForm({
               <TextInput form={form} name="homeZip" label="Zip" saveOnBlur={saveOnBlur} />
             </div>
             <TextInput form={form} name="country" label="Country" saveOnBlur={saveOnBlur} />
+            <TextInput form={form} name="phone" label="Phone" saveOnBlur={saveOnBlur} />
           </section>
 
           {/* Work address */}
@@ -256,14 +251,13 @@ export const ContactFormSchema = Contact.pipe(
     "birthdate",
     "startDate",
     "title",
-    // Contact
-    "phone",
     // Home address
     "homeAddress",
     "homeCity",
     "homeState",
     "homeZip",
     "country",
+    "phone",
     // Work address
     "workAddress",
     "workCity",
