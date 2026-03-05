@@ -14,6 +14,12 @@ export const contactData = [
   { userName: "nathan", firstName: "Nathan", lastName: "Gerhart" },
   { userName: "fred", firstName: "Fred", lastName: "Pinto" },
   { userName: "colleen", firstName: "Colleen", lastName: "Williams" },
+
+  // Former team members
+  { userName: "diego", firstName: "Diego", lastName: "Mijelsohn", status: "inactive" as const },
+  { userName: "jeff", firstName: "Jeff", lastName: "Swenson", status: "inactive" as const },
+  { userName: "nancy", firstName: "Nancy", lastName: "Hawa", status: "inactive" as const },
+  { userName: "sam", firstName: "Sam", lastName: "Sesay", status: "inactive" as const },
 ].map(c => ({ ...c, avatarUrl: avatars[c.userName] ?? "" }))
 
 /** Plain contact objects for use in tests. */
