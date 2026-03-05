@@ -23,8 +23,8 @@ export async function resizeImage(
   const blob = await canvas.convertToBlob({ type: "image/jpeg", quality })
   return new Promise<string>((resolve, reject) => {
     const reader = new FileReader()
-    reader.onload = () => resolve(reader.result as string)
-    reader.onerror = () => reject(new Error("Failed to read resized image"))
+    reader.addEventListener("load", () => resolve(reader.result as string))
+    reader.addEventListener("error", () => reject(new Error("Failed to read resized image")))
     reader.readAsDataURL(blob)
   })
 }
