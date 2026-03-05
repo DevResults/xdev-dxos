@@ -81,14 +81,8 @@ export function ContactForm({
               <TextInput form={form} name="lastName" label="Last name" saveOnBlur={saveOnBlur} />
               <TextInput form={form} name="suffix" label="Suffix" saveOnBlur={saveOnBlur} />
             </div>
-            <TextInput form={form} name="userName" label="Username" saveOnBlur={saveOnBlur} />
-          </section>
-
-          {/* Personal info */}
-          <section className="grid gap-4">
-            <Heading level={3}>Personal info</Heading>
-            <TextInput form={form} name="pronouns" label="Pronouns" saveOnBlur={saveOnBlur} />
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-3 gap-4">
+              <TextInput form={form} name="userName" label="Username" saveOnBlur={saveOnBlur} />
               <TextInput
                 form={form}
                 name="legalFirstName"
@@ -102,6 +96,12 @@ export function ContactForm({
                 saveOnBlur={saveOnBlur}
               />
             </div>
+          </section>
+
+          {/* Personal info */}
+          <section className="grid gap-4">
+            <Heading level={3}>Personal info</Heading>
+            <TextInput form={form} name="pronouns" label="Pronouns" saveOnBlur={saveOnBlur} />
             <TextInput form={form} name="title" label="Title" saveOnBlur={saveOnBlur} />
             <div className="grid grid-cols-2 gap-4">
               <DateInput form={form} name="birthdate" label="Birthdate" saveOnBlur={saveOnBlur} />
