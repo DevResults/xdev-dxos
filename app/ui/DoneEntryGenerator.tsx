@@ -4,7 +4,7 @@ import { NO_OP } from "lib/constants"
 import { generateDones } from "lib/generateDones"
 import { useState } from "react"
 import type { Contact } from "schema/Contact"
-import type { DoneEntry } from "schema/DoneEntry"
+import type { DoneEntryEncoded } from "schema/DoneEntry"
 import { RadioGroup } from "ui/RadioGroup"
 
 export const DoneEntryGenerator = ({ destroyAll = NO_OP, add = () => {}, contacts }: Props) => {
@@ -89,5 +89,5 @@ export const DoneEntryGenerator = ({ destroyAll = NO_OP, add = () => {}, contact
 type Props = {
   contacts: Contact[]
   destroyAll(): void
-  add(done: Omit<DoneEntry, "id">): void
+  add(done: Omit<DoneEntryEncoded, "id">): void
 }
