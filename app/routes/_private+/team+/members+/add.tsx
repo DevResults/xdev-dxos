@@ -31,7 +31,7 @@ export default function MembersAddContactPage() {
 
   return (
     <ContactForm
-      defaultValues={{ firstName: "", lastName: "", userName: "", avatarUrl: "" }}
+      defaultValues={{ firstName: "", lastName: "", userName: "", avatarUrl: "", status: "active" }}
       onSaveField={handleSaveField}
       onDone={handleDone}
       onCancel={handleCancel}

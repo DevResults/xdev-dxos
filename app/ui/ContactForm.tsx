@@ -7,6 +7,8 @@ import { useAutoSaveForm } from "~/hooks/useAutoSaveForm"
 import { Contact } from "~/schema/Contact"
 import { S } from "~/schema/lib/Effect"
 import { Heading } from "~/ui/Heading"
+import { Label } from "~/ui/shadcn/label"
+import { Switch } from "~/ui/shadcn/switch"
 
 /** Unified form for creating and editing contacts, with per-field auto-save on blur. */
 export function ContactForm({
@@ -57,6 +59,19 @@ export function ContactForm({
           </div>
           <TextInput form={form} name="userName" label="Username" saveOnBlur={saveOnBlur} />
 
+          <div className="flex items-center gap-2">
+            <Switch
+              id="status"
+              checked={(form.watch("status") ?? "active") === "active"}
+              onCheckedChange={checked => {
+                const value = checked ? "active" : "inactive"
+                form.setValue("status", value as ContactFormValues["status"])
+                void saveOnBlur("status" as any)()
+              }}
+            />
+            <Label htmlFor="status">Active</Label>
+          </div>
+
           <div className="flex justify-end gap-2">
             {onCancel && (
               <Button type="button" intent="neutral" size="md" onClick={onCancel}>
@@ -74,7 +89,7 @@ export function ContactForm({
 }
 
 export const ContactFormSchema = Contact.pipe(
-  S.pick("firstName", "lastName", "userName", "avatarUrl"),
+  S.pick("firstName", "lastName", "userName", "avatarUrl", "status"),
 )
 
 export type ContactFormValues = S.Schema.Type<typeof ContactFormSchema>
@@ -83,7 +98,7 @@ export type Props = {
   /** Initial form values. */
   defaultValues: ContactFormValues
   /** Called on valid blur with the field name and its new value. */
-  onSaveField: (name: FieldPath<ContactFormValues>, value: string) => Promise<void>
+  onSaveField: (name: FieldPath<ContactFormValues>, value: string | undefined) => Promise<void>
   /** Called when the user clicks Done (after validation passes). Receives the final form values. */
   onDone: (values: ContactFormValues) => void
   /** Optional cancel handler (used in add flow). */

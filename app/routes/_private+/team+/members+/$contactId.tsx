@@ -17,9 +17,9 @@ export default function EditContactPage() {
   const contact = contacts.find(({ id }) => id === contactId)
 
   const handleSaveField = useCallback(
-    async (name: FieldPath<ContactFormValues>, value: string) => {
+    async (name: FieldPath<ContactFormValues>, value: string | undefined) => {
       if (!contact) return
-      contact[name] = value
+      ;(contact as any)[name] = value
       await space?.db.flush()
     },
     [contact, space],
@@ -45,6 +45,7 @@ export default function EditContactPage() {
         lastName: contact.lastName ?? "",
         userName: contact.userName ?? "",
         avatarUrl: contact.avatarUrl ?? "",
+        status: contact.contact.status ?? "active",
       }}
       onSaveField={handleSaveField}
       onDone={handleDone}

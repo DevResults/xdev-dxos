@@ -1,5 +1,12 @@
 // @vitest-environment jsdom
 
+/** Polyfill ResizeObserver for jsdom (required by Radix UI Switch). */
+globalThis.ResizeObserver ??= class {
+  observe() {}
+  unobserve() {}
+  disconnect() {}
+} as any
+
 import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react"
 import React from "react"
 import { MemoryRouter } from "react-router"
@@ -11,6 +18,7 @@ const DEFAULT_VALUES: ContactFormValues = {
   lastName: "Lovelace",
   userName: "ada",
   avatarUrl: "https://example.com/ada.png",
+  status: "active",
 }
 
 const EMPTY_VALUES: ContactFormValues = {
@@ -18,6 +26,7 @@ const EMPTY_VALUES: ContactFormValues = {
   lastName: "",
   userName: "",
   avatarUrl: "",
+  status: "active",
 }
 
 /** Render the ContactForm for interaction tests. */
@@ -161,5 +170,35 @@ describe("ContactForm", () => {
 
     fireEvent.click(screen.getByRole("button", { name: "Cancel" }))
     expect(onCancel).toHaveBeenCalledTimes(1)
+  })
+
+  test("active toggle is checked by default", () => {
+    renderForm()
+    const toggle = screen.getByRole("switch")
+    expect(toggle.getAttribute("data-state")).toBe("checked")
+  })
+
+  test("active toggle defaults to checked when status is undefined", () => {
+    const values = { ...DEFAULT_VALUES }
+    delete (values as any).status
+    renderForm({ defaultValues: values })
+    const toggle = screen.getByRole("switch")
+    expect(toggle.getAttribute("data-state")).toBe("checked")
+  })
+
+  test("active toggle is unchecked when status is inactive", () => {
+    renderForm({ defaultValues: { ...DEFAULT_VALUES, status: "inactive" } })
+    const toggle = screen.getByRole("switch")
+    expect(toggle.getAttribute("data-state")).toBe("unchecked")
+  })
+
+  test("toggling calls onSaveField with status", async () => {
+    const { onSaveField } = renderForm()
+    const toggle = screen.getByRole("switch")
+    fireEvent.click(toggle)
+
+    await waitFor(() => {
+      expect(onSaveField).toHaveBeenCalledWith("status", "inactive")
+    })
   })
 })
