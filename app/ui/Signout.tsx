@@ -2,8 +2,8 @@ import { Button } from "@ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@ui/card"
 import { Link } from "react-router"
 
-export const Signout = ({ confirmed = false, onConfirm = () => {} }: Props) => {
-  const warning = (
+export const Signout = ({ onConfirm = () => {} }: Props) => {
+  return (
     <Card className="w-full max-w-lg overflow-clip border-danger-700">
       <CardHeader className="bg-danger-700">
         <CardTitle className="flex flex-row items-center text-white">
@@ -35,26 +35,8 @@ export const Signout = ({ confirmed = false, onConfirm = () => {} }: Props) => {
       </CardFooter>
     </Card>
   )
-  const confirmation = (
-    <Card className="w-full max-w-xs">
-      <CardHeader className="text-center">You've been signed out.</CardHeader>
-      <CardFooter className="justify-center">
-        <Button
-          size="md"
-          intent="primary"
-          onClick={() => {
-            window.location.href = "/"
-          }}
-        >
-          Sign in again
-        </Button>
-      </CardFooter>
-    </Card>
-  )
-  return confirmed ? confirmation : warning
 }
 
 type Props = {
-  confirmed?: boolean
   onConfirm?: () => void
 }
