@@ -16,22 +16,24 @@ export const runTestCases = <
   label?: (testCase: TestCase) => string
 }) => {
   for (const testCase of testCases) {
-    const { input, error, only, skip } = testCase
+    const { input: testInput, error, only, skip } = testCase
     const test = only ? _test.only : skip ? _test.skip : _test
 
-    const decode = (input: string) =>
+    const decode = (text: string) =>
       pipe(
-        input, //
+        text, //
         decoder,
         E.either,
         E.runSync,
       )
 
     const errorPadding = Math.max(...testCases.filter(tc => tc.error).map(tc => label(tc).length))
-    const testName = error ? `⛔ ${input.padEnd(errorPadding)} ${error}` : `✅ ${label(testCase)}`
+    const testName = error
+      ? `⛔ ${testInput.padEnd(errorPadding)} ${error}`
+      : `✅ ${label(testCase)}`
 
     test(testName, () => {
-      const result = decode(input)
+      const result = decode(testInput)
       if (Either.isLeft(result)) {
         const actualError = result.left as Error & { _tag: string }
         assert(error, `expected success but got error ${actualError.toString()}`)

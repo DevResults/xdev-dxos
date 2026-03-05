@@ -23,7 +23,7 @@ export const DailyTimeEntries = ({
   const [focus, setFocus] = useState<number>(-1) // Nothing focused by default
 
   const sDate = date.toString()
-  const entries = timeEntries.filter(({ date }) => date === sDate)
+  const entries = timeEntries.filter(({ date: entryDate }) => entryDate === sDate)
 
   const onFocusNext = () => {
     setFocus((f: number) => f + 1)

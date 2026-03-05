@@ -88,8 +88,8 @@ export const AutocompleteTextarea = forwardRef<HTMLTextAreaElement, Props>(
             }}
             onInput={e => {
               const textarea = e.target as HTMLTextAreaElement
-              const { value, selectionStart } = textarea
-              const query = findAutocompleteQuery(value, selectionStart, modes)
+              const { value: textareaValue, selectionStart } = textarea
+              const query = findAutocompleteQuery(textareaValue, selectionStart, modes)
               setQueryState(query)
               if (query) {
                 const { top, left, height } = Caret.getRelativePosition(textarea)

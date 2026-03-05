@@ -26,7 +26,7 @@ export function RadioGroup<T extends string | number | boolean>({
       <div className="isolate inline-flex">
         {options.map((o, i) => {
           const option = typeof o === "string" ? { value: o, label: o, title: undefined } : o
-          const { value, label = value.toString(), title } = option
+          const { value, label: optionLabel = value.toString(), title } = option
           return (
             <Headless.Radio
               key={i}
@@ -52,7 +52,7 @@ export function RadioGroup<T extends string | number | boolean>({
               }
               title={title}
             >
-              {label}
+              {optionLabel}
             </Headless.Radio>
           )
         })}

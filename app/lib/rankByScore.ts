@@ -9,7 +9,7 @@ export const rankByScore = (items: Item[]) => {
     A.sortWith(item => item.score, Order.number),
     A.groupWith((a, b) => a.score === b.score),
   )
-  return new Map(itemsByRank.map((items, index) => [index, items.map(item => item.id)]))
+  return new Map(itemsByRank.map((group, index) => [index, group.map(item => item.id)]))
 }
 
 type Item = { id: string; score: number }

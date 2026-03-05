@@ -6,7 +6,7 @@ export function storyContact(
   firstName: string,
   { admin = false, self = false }: StoryContactOptions = {},
 ): ExtendedContact {
-  const c = contacts.find(c => c.id === firstName.toLowerCase())!
+  const c = contacts.find(contact => contact.id === firstName.toLowerCase())!
   return {
     ...c,
     contact: c,

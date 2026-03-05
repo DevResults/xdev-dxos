@@ -17,7 +17,7 @@ describe("TimeEntry", () => {
   const parse = (input: string) =>
     pipe(
       input,
-      input => ({ contactId: "1234" as ContactId, date: "2024-06-10", input }), // This stuff is provided by the app when an entry is made
+      text => ({ contactId: "1234" as ContactId, date: "2024-06-10", input: text }), // This stuff is provided by the app when an entry is made
       parseTimeEntry,
       E.provideService(ProvidedProjects, projects),
       E.provideService(ProvidedClients, clients),

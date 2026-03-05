@@ -82,15 +82,15 @@ export const DoneInput = ({
         setEditing(true)
       }}
       onBlur={e => {
-        const newContent = e.target.value.trim()
+        const trimmedContent = e.target.value.trim()
 
         // If user has removed all the content of the done, delete it
-        if (newContent.length === 0) {
+        if (trimmedContent.length === 0) {
           onDestroy()
         }
         // Otherwise, update the content
         else {
-          onChange(newContent)
+          onChange(trimmedContent)
         }
 
         setEditing(false)

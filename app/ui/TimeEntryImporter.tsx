@@ -37,9 +37,9 @@ export const TimeEntryImporter = ({
   const onImportDataChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     const csv = event.target.value
     setImportData(csv)
-    const [errors, timeEntries] = decode(csv)
-    setErrors(errors)
-    setTimes(timeEntries)
+    const [decodeErrors, decodedEntries] = decode(csv)
+    setErrors(decodeErrors)
+    setTimes(decodedEntries)
   }
 
   const onImport = () => {

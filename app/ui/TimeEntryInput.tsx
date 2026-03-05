@@ -94,16 +94,16 @@ export const TimeEntryInput = ({
    * Records any errors, and if there are none commits the entries. If the input is empty, the entry
    * is destroyed.
    */
-  const commit = (content: string) => {
-    content = content.trim()
+  const commit = (inputContent: string) => {
+    const trimmedContent = inputContent.trim()
 
     // Empty content means the entry should be removed
-    if (content.length === 0) {
+    if (trimmedContent.length === 0) {
       onDestroy()
     } else {
       // Process each line as a separate entry
-      const [errors, parsedEntries] = parseTimeEntries({
-        input: content,
+      const [parseErrors, parsedEntries] = parseTimeEntries({
+        input: trimmedContent,
         contactId: self.id,
         date: date.toString(),
         projects,
@@ -111,10 +111,10 @@ export const TimeEntryInput = ({
       })
 
       // Errors will be displayed in the popover
-      setErrors(errors)
+      setErrors(parseErrors)
 
       // Only commit if there are no errors
-      if (errors.length === 0) {
+      if (parseErrors.length === 0) {
         for (const entry of parsedEntries) {
           onCommit(entry)
           onFocusNext()

@@ -19,7 +19,9 @@ export const generateDones = ({ today, weeks, productivity, enthusiasm, contacts
     const { id } = randomElement(contacts)
     const date = getRandomWorkday(today, weeks)
     const content = randomElement(dummyDones)
-    const likes = contacts.filter(() => Math.random() < enthusiasm).map(({ id }) => id)
+    const likes = contacts
+      .filter(() => Math.random() < enthusiasm)
+      .map(({ id: contactId }) => contactId)
     result.push({
       content,
       date: date.toString(),

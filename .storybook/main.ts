@@ -28,9 +28,7 @@ function fullPath(dir: fs.Dirent) {
 // recurse through all folders  and return relative paths to all directories named "ui"
 function getUiDirs(dir: string = path.join(__dirname, "../app")): string[] {
   const dirs = fs.readdirSync(dir, { withFileTypes: true }).filter(dirent => dirent.isDirectory())
-  const uiDirs = dirs
-    .filter(dir => dir.name === "ui")
-    .map(dir => path.relative(__dirname, fullPath(dir)))
-  const otherDirs = dirs.filter(dir => dir.name !== "ui")
+  const uiDirs = dirs.filter(d => d.name === "ui").map(d => path.relative(__dirname, fullPath(d)))
+  const otherDirs = dirs.filter(d => d.name !== "ui")
   return uiDirs.concat(otherDirs.flatMap(subDir => getUiDirs(fullPath(subDir)).sort()))
 }

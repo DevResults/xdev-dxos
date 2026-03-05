@@ -10,8 +10,8 @@ export function Munge({ children }: { children: string }) {
 const munge = (text: string, words: string[]) =>
   words.reduce(
     (result, word) =>
-      result.replaceAll(new RegExp(word, "gi"), (word: string) =>
-        [...word].join("&ZeroWidthSpace;"),
+      result.replaceAll(new RegExp(word, "gi"), (matched: string) =>
+        [...matched].join("&ZeroWidthSpace;"),
       ),
     text,
   )

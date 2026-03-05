@@ -18,8 +18,8 @@ export default function DangerPage() {
   const { clients, contacts, doneEntries, projects, timeEntries } = useDatabase()
 
   const addDone = (done: Omit<DoneEntry, "id">) => space?.db.add(makeDoneEntry(done) as DoneEntry)
-  const addTimeEntries = (timeEntries: Array<Omit<TimeEntry, "id">>) => {
-    for (const timeEntry of timeEntries) {
+  const addTimeEntries = (entries: Array<Omit<TimeEntry, "id">>) => {
+    for (const timeEntry of entries) {
       space?.db.add(makeTimeEntry(timeEntry) as TimeEntry)
     }
   }

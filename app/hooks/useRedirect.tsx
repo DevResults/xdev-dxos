@@ -21,21 +21,21 @@ export function useRedirect({ from, to, condition = true, localState = undefined
       return
     }
 
-    const from = fromRef.current
-    const localState = localStateRef.current
+    const currentFrom = fromRef.current
+    const currentLocalState = localStateRef.current
 
-    if (typeof from === "string" && pathname === from) {
+    if (typeof currentFrom === "string" && pathname === currentFrom) {
       // Exact match
-      if (localState) {
-        update(localState)
+      if (currentLocalState) {
+        update(currentLocalState)
       }
 
       void navigate(to, { state })
-    } else if (from instanceof RegExp && from.test(pathname)) {
+    } else if (currentFrom instanceof RegExp && currentFrom.test(pathname)) {
       // Regex match
-      const newTo = pathname.replace(from, to)
-      if (localState) {
-        update(localState)
+      const newTo = pathname.replace(currentFrom, to)
+      if (currentLocalState) {
+        update(currentLocalState)
       }
 
       void navigate(newTo, { state })

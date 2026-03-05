@@ -53,10 +53,10 @@ const testCases = [
   },
 ] as TestCase[]
 
-const label = ({ label, input }: TestCase) =>
+const getLabel = ({ label, input }: TestCase) =>
   label ?? (input.length > 0 ? `\`${input}\`` : "(empty)")
 
-const errorPadding = Math.max(...testCases.filter(tc => tc.error).map(tc => label(tc).length))
+const errorPadding = Math.max(...testCases.filter(tc => tc.error).map(tc => getLabel(tc).length))
 
 const decode = (csv: string) =>
   pipe(csv, csvToDoneEntries, E.provideService(ProvidedContacts, contacts), E.runSync)
@@ -66,8 +66,8 @@ for (const testCase of testCases) {
 
   const testName =
     "error" in testCase && testCase.error
-      ? `⛔ ${label(testCase).padEnd(errorPadding)} ${testCase.error}`
-      : `✅ ${label(testCase)}`
+      ? `⛔ ${getLabel(testCase).padEnd(errorPadding)} ${testCase.error}`
+      : `✅ ${getLabel(testCase)}`
 
   const _test = only ? test.only : skip ? test.skip : test
 

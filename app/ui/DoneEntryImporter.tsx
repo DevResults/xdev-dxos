@@ -21,8 +21,8 @@ export const DoneEntryImporter = ({ add = NO_OP, destroyAll = NO_OP, contacts = 
     setImportData(csv)
 
     const decodeResult = decode(csv)
-    const [errors, dones] = decodeResult
-    setErrors(errors)
+    const [decodeErrors, dones] = decodeResult
+    setErrors(decodeErrors)
     setDones(dones)
   }
 
