@@ -19,8 +19,11 @@ export default function Private() {
   useEffect(() => {
     if (!identity) {
       void navigate("/auth/begin")
+    } else if (!spaceKey) {
+      // Identity exists but no team — e.g. client.reset() didn't fully clear IndexedDB
+      void navigate("/auth/setup")
     }
-  }, [identity, navigate])
+  }, [identity, spaceKey, navigate])
 
   useEffect(() => {
     const members = space?.members.get()

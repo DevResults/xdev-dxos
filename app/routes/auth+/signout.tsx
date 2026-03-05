@@ -6,8 +6,11 @@ export default function SignOutPage() {
 
   return (
     <Signout
-      onConfirm={async () => {
-        await signOut()
+      onConfirm={() => {
+        // Fire signOut without awaiting — client.reset() communicates with the
+        // SharedWorker and may hang, which would prevent the redirect from firing.
+        // The hard reload will cause DXOS to re-initialize from scratch.
+        void signOut()
         window.location.href = "/"
       }}
     />
