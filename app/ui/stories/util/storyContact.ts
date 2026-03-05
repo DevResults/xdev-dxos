@@ -18,6 +18,9 @@ export function storyContact(
     isAdmin: admin,
     isSelf: self,
     isMember: false,
+    get fullName() {
+      return `${c.firstName} ${c.lastName}`
+    },
   } as ExtendedContact
 }
 

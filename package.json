@@ -24,6 +24,7 @@
     "test:pw": "cross-env PERSIST=1 SIGNAL=1 pnpm playwright test --project=chromium",
     "test:pw:exec:ui": "pnpm playwright test --project=chromium --ui",
     "test:pw:ui": "cross-env PLAYWRIGHT_UI=1 run-p dev test:pw:exec:ui",
+    "test:sb": "test-storybook",
     "ralph": "ralph"
   },
   "dependencies": {
@@ -99,6 +100,7 @@
     "@storybook/react": "^8.5.8",
     "@storybook/react-vite": "^8.5.8",
     "@storybook/test": "^8.5.8",
+    "@storybook/test-runner": "^0.24.2",
     "@tailwindcss/forms": "^0.5.10",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^14.6.1",
