@@ -180,13 +180,13 @@ export function ContactForm({
                 label="Passport country"
                 saveOnBlur={saveOnBlur}
               />
-              <TextInput
+              <DateInput
                 form={form}
                 name="passportIssueDate"
                 label="Issue date"
                 saveOnBlur={saveOnBlur}
               />
-              <TextInput
+              <DateInput
                 form={form}
                 name="passportExpirationDate"
                 label="Expiration date"
@@ -205,7 +205,7 @@ export function ContactForm({
                 label="Driver's license"
                 saveOnBlur={saveOnBlur}
               />
-              <TextInput
+              <DateInput
                 form={form}
                 name="driversLicenseExpiration"
                 label="License expiration"
