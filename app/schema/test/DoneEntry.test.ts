@@ -1,5 +1,4 @@
 import { describe, expect, expectTypeOf, it } from "vitest"
-import { type ContactId } from "../Contact"
 import {
   decodeDoneEntry,
   encodeDoneEntry,
@@ -11,13 +10,13 @@ import {
 describe("DoneEntry", () => {
   it("constructs a DoneEntry", () => {
     const decoded = makeDoneEntry({
-      contactId: "0001" as ContactId,
+      contactId: "0001",
       date: "2024-06-10",
       content: "Coded and compiled terabytes of data",
     })
 
-    // contactId was cast as a ContactId
-    expectTypeOf(decoded.contactId).toEqualTypeOf<ContactId>()
+    // contactId is a string (the schema stores it as a plain string)
+    expectTypeOf(decoded.contactId).toEqualTypeOf<string>()
 
     // id was populated
     expect(decoded.id).toBeTypeOf("string")
@@ -41,7 +40,7 @@ describe("DoneEntry", () => {
 
   it("encodes and decodes DoneEntry", () => {
     const decoded = makeDoneEntry({
-      contactId: "0001" as ContactId,
+      contactId: "0001",
       date: "2024-06-10",
       content: "Coded and compiled terabytes of data",
       likes: [],
