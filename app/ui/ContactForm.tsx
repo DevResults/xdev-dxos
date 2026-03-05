@@ -176,7 +176,7 @@ export function ContactForm({
           {/* Passport */}
           <section className="grid gap-4">
             <Heading level={3}>Passport</Heading>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-4 gap-4">
               <TextInput
                 form={form}
                 name="passportNumber"
@@ -189,8 +189,6 @@ export function ContactForm({
                 label="Passport country"
                 saveOnBlur={saveOnBlur}
               />
-            </div>
-            <div className="grid grid-cols-2 gap-4">
               <TextInput
                 form={form}
                 name="passportIssueDate"
