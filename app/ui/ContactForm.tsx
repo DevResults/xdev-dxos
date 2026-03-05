@@ -38,7 +38,7 @@ export function ContactForm({
 
         <form
           data-testid="contact-form"
-          className="grid gap-6"
+          className="grid gap-8"
           onSubmit={event => {
             event.preventDefault()
             void handleDone()
@@ -49,7 +49,7 @@ export function ContactForm({
             <div className="w-[10em]">
               <ImageUpload form={form} name="avatarUrl" label="Avatar" saveOnBlur={saveOnBlur} />
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-[3fr_2fr_3fr_1fr] gap-4">
               <TextInput
                 form={form}
                 name="firstName"
@@ -57,7 +57,14 @@ export function ContactForm({
                 autoFocus
                 saveOnBlur={saveOnBlur}
               />
+              <TextInput
+                form={form}
+                name="middleName"
+                label="Middle name"
+                saveOnBlur={saveOnBlur}
+              />
               <TextInput form={form} name="lastName" label="Last name" saveOnBlur={saveOnBlur} />
+              <TextInput form={form} name="suffix" label="Suffix" saveOnBlur={saveOnBlur} />
             </div>
             <TextInput form={form} name="userName" label="Username" saveOnBlur={saveOnBlur} />
             <div className="flex items-center gap-2">
@@ -77,16 +84,7 @@ export function ContactForm({
           {/* Personal info */}
           <section className="grid gap-4">
             <Heading level={3}>Personal info</Heading>
-            <div className="grid grid-cols-3 gap-4">
-              <TextInput
-                form={form}
-                name="middleName"
-                label="Middle name"
-                saveOnBlur={saveOnBlur}
-              />
-              <TextInput form={form} name="suffix" label="Suffix" saveOnBlur={saveOnBlur} />
-              <TextInput form={form} name="pronouns" label="Pronouns" saveOnBlur={saveOnBlur} />
-            </div>
+            <TextInput form={form} name="pronouns" label="Pronouns" saveOnBlur={saveOnBlur} />
             <div className="grid grid-cols-2 gap-4">
               <TextInput
                 form={form}
