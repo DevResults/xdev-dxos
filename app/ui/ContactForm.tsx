@@ -46,8 +46,22 @@ export function ContactForm({
         >
           {/* Basic info */}
           <section className="grid gap-4">
-            <div className="w-[10em]">
-              <ImageUpload form={form} name="avatarUrl" label="Avatar" saveOnBlur={saveOnBlur} />
+            <div className="flex items-start justify-between">
+              <div className="w-[10em]">
+                <ImageUpload form={form} name="avatarUrl" label="Avatar" saveOnBlur={saveOnBlur} />
+              </div>
+              <div className="flex items-center gap-2">
+                <Switch
+                  id="status"
+                  checked={(form.watch("status") ?? "active") === "active"}
+                  onCheckedChange={checked => {
+                    const value = checked ? "active" : "inactive"
+                    form.setValue("status", value as ContactFormValues["status"])
+                    void saveOnBlur("status" as any)()
+                  }}
+                />
+                <Label htmlFor="status">Active</Label>
+              </div>
             </div>
             <div className="grid grid-cols-[3fr_2fr_3fr_1fr] gap-4">
               <TextInput
@@ -67,18 +81,6 @@ export function ContactForm({
               <TextInput form={form} name="suffix" label="Suffix" saveOnBlur={saveOnBlur} />
             </div>
             <TextInput form={form} name="userName" label="Username" saveOnBlur={saveOnBlur} />
-            <div className="flex items-center gap-2">
-              <Switch
-                id="status"
-                checked={(form.watch("status") ?? "active") === "active"}
-                onCheckedChange={checked => {
-                  const value = checked ? "active" : "inactive"
-                  form.setValue("status", value as ContactFormValues["status"])
-                  void saveOnBlur("status" as any)()
-                }}
-              />
-              <Label htmlFor="status">Active</Label>
-            </div>
           </section>
 
           {/* Personal info */}
