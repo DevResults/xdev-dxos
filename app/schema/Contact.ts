@@ -103,6 +103,9 @@ type ContactExtensions = {
   readonly fullName: string
 }
 
-type ExtendedContactProps = Omit<ContactExtensions, "isMember" | "identity" | "isAdmin" | "isSelf">
+type ExtendedContactProps = Omit<
+  ContactExtensions,
+  "isMember" | "identity" | "isAdmin" | "isSelf" | "fullName"
+>
 
 export type ContactInvitationStatus = "NOT_INVITED" | "PENDING" | "ACCEPTED" | "REVOKED" | "EXPIRED"

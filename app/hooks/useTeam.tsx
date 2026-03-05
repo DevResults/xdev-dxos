@@ -1,11 +1,5 @@
 import { useMulticastObservable } from "@dxos/react-client"
-import {
-  type MulticastObservable,
-  Filter,
-  useQuery,
-  useSpace,
-  type SpaceMember,
-} from "@dxos/react-client/echo"
+import { Filter, useQuery, useSpace, type SpaceMember } from "@dxos/react-client/echo"
 import { DeviceKind, useDevices, useIdentity } from "@dxos/react-client/halo"
 import { useMemo } from "react"
 import { getContactInvitation } from "./getContactInvitation"
@@ -31,9 +25,8 @@ export const useTeam = () => {
   const space = useSpace(spaceKey)
   const emptyObservable = useMemo(createEmptyObservable, [])
   const members: SpaceMember[] =
-    useMulticastObservable(
-      (space?.members ?? emptyObservable) as MulticastObservable<SpaceMember[]>,
-    ) ?? []
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    useMulticastObservable((space?.members ?? emptyObservable) as any) ?? []
   /* eslint-enable @typescript-eslint/no-unsafe-argument */
   const rawContacts = useQuery(space, Filter.type(Contact))
   const invitations = useQuery(space, Filter.type(Invitation))
