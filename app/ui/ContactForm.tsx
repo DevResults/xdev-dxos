@@ -172,9 +172,9 @@ export function ContactForm({
             </div>
           </section>
 
-          {/* Travel documents */}
+          {/* Passport */}
           <section className="grid gap-4">
-            <Heading level={3}>Travel documents</Heading>
+            <Heading level={3}>Passport</Heading>
             <div className="grid grid-cols-2 gap-4">
               <TextInput
                 form={form}
@@ -203,6 +203,11 @@ export function ContactForm({
                 saveOnBlur={saveOnBlur}
               />
             </div>
+          </section>
+
+          {/* Driver's license */}
+          <section className="grid gap-4">
+            <Heading level={3}>Driver's license</Heading>
             <div className="grid grid-cols-2 gap-4">
               <TextInput
                 form={form}
@@ -269,11 +274,12 @@ export const ContactFormSchema = Contact.pipe(
     "emergencyContactName",
     "emergencyContactRelationship",
     "emergencyContactPhone",
-    // Travel documents
+    // Passport
     "passportNumber",
     "passportIssueDate",
     "passportExpirationDate",
     "passportCountry",
+    // Driver's license
     "driversLicense",
     "driversLicenseExpiration",
   ),
