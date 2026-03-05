@@ -26,7 +26,9 @@ crs
 dexis
 eaa
 eap
+endevbenin
 episcopalrelief
+eu
 expertisefrance
 feedthechildren
 fema
@@ -42,11 +44,13 @@ guidehouse
 heifer
 helpage
 hki
+hopeandhealing
 hrsm
 ht
 iavi
 ibtci
 iesc
+ifad
 ifaw
 ifdc
 ifes
@@ -75,6 +79,7 @@ mwi
 navanti
 nca
 ndi
+norgesvel
 oas
 opendoors
 osf
@@ -90,18 +95,22 @@ raleighinternational
 relief
 restless
 ri
+roomtoread
 rootcapital
 rti
 rtieducation
 rtp
 sarep
 shejehsalam
+sida
 startearly
+state
 stdf
 stopspillover
 surges
 syriamel
 technoserve
+trickleup
 uganda
 undp
 unhcr
@@ -121,7 +130,9 @@ worldrenew
 wri
 wvus
 wwb
-zam`
+zam
+dfat
+savethechildren`
 
 /** Plain client data for use in tests */
 export const clients = clientCodes
