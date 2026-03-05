@@ -25,7 +25,7 @@ export const Contact = ContactFields.pipe(
     version: "0.1.0",
   }),
 )
-export type Contact = S.Schema.Type<typeof Contact>
+export type Contact = Omit<S.Schema.Type<typeof Contact>, "id"> & { readonly id: ContactId }
 export type EncodedContact = S.Schema.Encoded<typeof Contact>
 
 /** Create a new Contact object. Accepts an Identity instead of a raw identityId string. */

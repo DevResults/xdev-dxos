@@ -41,7 +41,7 @@ export const useTeam = () => {
     const member = members.find(m => m.identity.identityKey.toString() === c.identityId)
     const invitation = getContactInvitation(c.id, invitations)
     return extendContact({
-      contact: c,
+      contact: c as Contact,
       member,
       selfIdentity: identity ?? undefined,
       invitation,

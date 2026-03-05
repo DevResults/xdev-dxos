@@ -9,7 +9,7 @@ import { TimeEntry } from "~/schema/TimeEntry"
 export const useDatabase = () => {
   const { spaceKey } = useLocalState()
   const space = useSpace(spaceKey)
-  const contacts = useQuery(space, Filter.type(Contact))
+  const contacts = useQuery(space, Filter.type(Contact)) as Contact[]
   const clients = useQuery(space, Filter.type(Client))
   const doneEntries = useQuery(space, Filter.type(DoneEntry))
   const projects = useQuery(space, Filter.type(Project))
