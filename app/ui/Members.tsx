@@ -9,6 +9,7 @@ import type { ExtendedContact } from "~/schema/Contact"
 import { Avatar } from "~/ui/Avatar"
 import { getContactMembershipDisplay } from "~/ui/getContactMembershipDisplay"
 import { Heading } from "~/ui/Heading"
+import { Popover, PopoverContent, PopoverTrigger } from "~/ui/shadcn/popover"
 
 export const Members = ({
   self,
@@ -33,24 +34,36 @@ export const Members = ({
 
   return (
     <>
-      <div className="flex items-center gap-4">
+      <div className="flex items-center justify-between">
         <Heading level={2}>Members</Heading>
         {hasInactiveContacts && (
-          <div className="flex items-center space-x-1">
-            <Checkbox
-              id="ShowInactive"
-              checked={showInactive}
-              onCheckedChange={e => {
-                setShowInactive(e === true)
-              }}
-            />
-            <label
-              htmlFor="ShowInactive"
-              className="text-xs leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-            >
-              Show inactive
-            </label>
-          </div>
+          <Popover>
+            <PopoverTrigger asChild>
+              <button
+                className="cursor-pointer rounded p-1 text-neutral-400 hover:bg-neutral-100 hover:text-neutral-600"
+                title="Filters"
+              >
+                <IconFilter className="size-5" />
+              </button>
+            </PopoverTrigger>
+            <PopoverContent align="end" className="w-48 rounded-md border bg-white p-3 shadow-md">
+              <div className="flex items-center space-x-2">
+                <Checkbox
+                  id="ShowInactive"
+                  checked={showInactive}
+                  onCheckedChange={e => {
+                    setShowInactive(e === true)
+                  }}
+                />
+                <label
+                  htmlFor="ShowInactive"
+                  className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                >
+                  Show inactive
+                </label>
+              </div>
+            </PopoverContent>
+          </Popover>
         )}
       </div>
       <div
