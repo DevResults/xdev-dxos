@@ -1,13 +1,18 @@
-import { useSpaces } from "@dxos/react-client/echo"
 import { Tabs, TabsList, TabsContent, TabsTrigger } from "@ui/tabs"
 import "react-json-view-lite/dist/index.css"
 import { JsonView, defaultStyles } from "react-json-view-lite"
+import { useDatabase } from "~/hooks/useDatabase"
 import { Pane } from "ui/layouts/Pane"
 
 export default function InspectorPage() {
-  const spaces = useSpaces()
-  if (!spaces) {
-    return null
+  const { clients, contacts, doneEntries, projects, timeEntries } = useDatabase()
+
+  const collections = {
+    Contacts: contacts,
+    Clients: clients,
+    Projects: projects,
+    "Time entries": timeEntries,
+    "Done entries": doneEntries,
   }
 
   const styles = {
@@ -18,25 +23,27 @@ export default function InspectorPage() {
     noQuotesForStringValues: true,
   }
 
+  const defaultTab = Object.keys(collections)[0]
+
   return (
     <Pane>
       <div className="flex h-full">
-        <Tabs defaultValue={spaces[0].id} className="flex grow flex-col">
+        <Tabs defaultValue={defaultTab} className="flex grow flex-col">
           <div>
-            <TabsList className="">
-              {spaces.map(space => (
-                <TabsTrigger key={space.id} value={space.id}>
-                  <span className="mr-1">{space.id}</span>
-                  {/* <span className="text-xs font-light text-neutral-400">({count})</span> */}
+            <TabsList>
+              {Object.entries(collections).map(([name, items]) => (
+                <TabsTrigger key={name} value={name}>
+                  <span className="mr-1">{name}</span>
+                  <span className="text-xs font-light text-neutral-400">({items.length})</span>
                 </TabsTrigger>
               ))}
             </TabsList>
           </div>
           <div className="grow overflow-scroll">
-            {spaces.map(space => (
-              <TabsContent key={space.id} value={space.id}>
+            {Object.entries(collections).map(([name, items]) => (
+              <TabsContent key={name} value={name}>
                 <JsonView
-                  data={space}
+                  data={items}
                   style={styles}
                   shouldExpandNode={level => level < 2}
                   clickToExpandNode={true}
