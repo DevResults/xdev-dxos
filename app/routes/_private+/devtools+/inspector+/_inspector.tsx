@@ -1,19 +1,18 @@
+import { Obj } from "@dxos/echo"
+import { Filter, useQuery, useSpace } from "@dxos/react-client/echo"
 import { Tabs, TabsList, TabsContent, TabsTrigger } from "@ui/tabs"
+import { useMemo } from "react"
 import "react-json-view-lite/dist/index.css"
 import { JsonView, defaultStyles } from "react-json-view-lite"
-import { useDatabase } from "~/hooks/useDatabase"
 import { Pane } from "ui/layouts/Pane"
+import { useLocalState } from "~/hooks/useLocalState"
 
 export default function InspectorPage() {
-  const { clients, contacts, doneEntries, projects, timeEntries } = useDatabase()
+  const { spaceKey } = useLocalState()
+  const space = useSpace(spaceKey)
+  const allObjects = useQuery(space, Filter.everything())
 
-  const collections = {
-    Contacts: contacts,
-    Clients: clients,
-    Projects: projects,
-    "Time entries": timeEntries,
-    "Done entries": doneEntries,
-  }
+  const collections = useMemo(() => groupByTypename(allObjects), [allObjects])
 
   const styles = {
     ...defaultStyles,
@@ -23,7 +22,8 @@ export default function InspectorPage() {
     noQuotesForStringValues: true,
   }
 
-  const defaultTab = Object.keys(collections)[0]
+  const entries = Array.from(collections.entries())
+  const defaultTab = entries[0]?.[0]
 
   return (
     <Pane>
@@ -31,7 +31,7 @@ export default function InspectorPage() {
         <Tabs defaultValue={defaultTab} className="flex grow flex-col">
           <div>
             <TabsList>
-              {Object.entries(collections).map(([name, items]) => (
+              {entries.map(([name, items]) => (
                 <TabsTrigger key={name} value={name}>
                   <span className="mr-1">{name}</span>
                   <span className="text-xs font-light text-neutral-400">({items.length})</span>
@@ -40,7 +40,7 @@ export default function InspectorPage() {
             </TabsList>
           </div>
           <div className="grow overflow-scroll">
-            {Object.entries(collections).map(([name, items]) => (
+            {entries.map(([name, items]) => (
               <TabsContent key={name} value={name}>
                 <JsonView
                   data={items}
@@ -55,4 +55,17 @@ export default function InspectorPage() {
       </div>
     </Pane>
   )
+}
+
+/** Group objects by their DXOS typename, using the short name (after the last `/`). */
+const groupByTypename = (objects: Obj.Any[]) => {
+  const grouped = new Map<string, Obj.Any[]>()
+  for (const obj of objects) {
+    const fullTypename = Obj.getTypename(obj) ?? "Unknown"
+    const shortName = fullTypename.split("/").pop() ?? fullTypename
+    const list = grouped.get(shortName) ?? []
+    list.push(obj)
+    grouped.set(shortName, list)
+  }
+  return new Map([...grouped.entries()].sort(([a], [b]) => a.localeCompare(b)))
 }
