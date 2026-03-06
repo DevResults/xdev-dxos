@@ -99,7 +99,7 @@ const FormControl = React.forwardRef<
         {...props}
       />
       <IconExclamationCircle
-        className={cx(["absolute right-2 top-2 size-6 text-red-500", { hidden: !error }])}
+        className={cx(["absolute right-2 top-2 size-4 text-red-500", { hidden: !error }])}
       />
     </div>
   )
@@ -138,7 +138,7 @@ const FormMessage = React.forwardRef<
     <p
       ref={ref}
       id={formMessageId}
-      className={cx("text-sm font-medium text-red-500", className)}
+      className={cx("text-xs font-medium text-red-500", className)}
       {...props}
     >
       {body}
