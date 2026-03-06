@@ -31,7 +31,7 @@ export function DateInput<T extends FieldValues>({ form, name, label, saveOnBlur
           <FormItem>
             <FormLabel>{label}</FormLabel>
             <Popover open={open} onOpenChange={setOpen}>
-              <PopoverAnchor asChild>
+              <PopoverAnchor>
                 <FormControl>
                   <InputGroup>
                     <InputGroupInput
