@@ -27,7 +27,7 @@ export const TimeEntryGenerator = ({
 
   const onConfirm = () => {
     run(async onProgress => {
-      destroyAll()
+      await destroyAll(p => onProgress(p * 0.5))
       const timeEntries = generateTimeEntries({
         startDate: getSunday(LocalDate.now().minusWeeks(weeks - 1)),
         weekCount: weeks,
@@ -37,7 +37,7 @@ export const TimeEntryGenerator = ({
         procrastinators: ["Herb", "Aasit"],
         omit: ["Colleen"],
       })
-      await processBatch(timeEntries, add, onProgress)
+      await processBatch(timeEntries, add, p => onProgress(0.5 + p * 0.5))
       return `Generated ${timeEntries.length} entries`
     })
   }
@@ -72,6 +72,6 @@ type Props = {
   contacts: Contact[]
   projects: Project[]
   clients: Client[]
-  destroyAll(): void
+  destroyAll(onProgress?: (progress: number) => void): Promise<void>
   add(entry: Omit<TimeEntryEncoded, "id">): void
 }

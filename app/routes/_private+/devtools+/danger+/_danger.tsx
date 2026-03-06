@@ -6,6 +6,7 @@ import { Pane } from "ui/layouts/Pane"
 import { TimeEntryGenerator } from "ui/TimeEntryGenerator"
 import { TimeEntryImporter } from "ui/TimeEntryImporter"
 import { useLocalState } from "~/hooks/useLocalState"
+import { processBatch } from "~/lib/processBatch"
 import { Client } from "~/schema/Client"
 import { Contact } from "~/schema/Contact"
 import { DoneEntry, makeDoneEntry } from "~/schema/DoneEntry"
@@ -26,12 +27,13 @@ export default function DangerPage() {
   const addTimeEntry = (entry: Omit<TimeEntry, "id">) =>
     space?.db.add(makeTimeEntry(entry) as TimeEntry)
 
-  async function destroyAllOfType(schema: typeof TimeEntry | typeof DoneEntry) {
+  async function destroyAllOfType(
+    schema: typeof TimeEntry | typeof DoneEntry,
+    onProgress?: (progress: number) => void,
+  ) {
     if (!space) return
     const { objects } = await space.db.query(Filter.type(schema)).run()
-    for (const item of objects) {
-      space.db.remove(item)
-    }
+    await processBatch(objects, item => space.db.remove(item), onProgress, 50)
   }
 
   return (
@@ -53,7 +55,7 @@ export default function DangerPage() {
                   <DoneEntryGenerator
                     contacts={contacts}
                     add={addDone}
-                    destroyAll={() => destroyAllOfType(DoneEntry)}
+                    destroyAll={p => destroyAllOfType(DoneEntry, p)}
                   />
                 </div>
               ),
@@ -64,7 +66,7 @@ export default function DangerPage() {
                 <DoneEntryImporter
                   contacts={contacts}
                   add={addDone}
-                  destroyAll={() => destroyAllOfType(DoneEntry)}
+                  destroyAll={p => destroyAllOfType(DoneEntry, p)}
                 />
               ),
             },
@@ -77,7 +79,7 @@ export default function DangerPage() {
                     clients={clients}
                     projects={projects}
                     add={addTimeEntry}
-                    destroyAll={() => destroyAllOfType(TimeEntry)}
+                    destroyAll={p => destroyAllOfType(TimeEntry, p)}
                   />
                 </div>
               ),
@@ -88,7 +90,7 @@ export default function DangerPage() {
                 <div>
                   <TimeEntryImporter
                     defaultOpen={true}
-                    destroyAll={() => destroyAllOfType(TimeEntry)}
+                    destroyAll={p => destroyAllOfType(TimeEntry, p)}
                     add={addTimeEntry}
                     contacts={contacts}
                     clients={clients}

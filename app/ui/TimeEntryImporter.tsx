@@ -46,8 +46,8 @@ export const TimeEntryImporter = ({
 
   const onImport = () => {
     run(async onProgress => {
-      destroyAll()
-      await processBatch(timeEntries, add, onProgress)
+      await destroyAll(p => onProgress(p * 0.5))
+      await processBatch(timeEntries, add, p => onProgress(0.5 + p * 0.5))
       return `Imported ${timeEntries.length} entries`
     })
   }
@@ -110,6 +110,6 @@ type Props = {
   contacts: Contact[]
   projects: Project[]
   clients: Client[]
-  destroyAll(): void
+  destroyAll(onProgress?: (progress: number) => void): Promise<void>
   add(entry: Omit<TimeEntryEncoded, "id">): void
 }

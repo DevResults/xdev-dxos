@@ -31,7 +31,7 @@ export const DoneEntryGenerator = ({ destroyAll = NO_OP, add = () => {}, contact
 
   const onConfirm = () => {
     run(async onProgress => {
-      destroyAll()
+      await destroyAll(p => onProgress(p * 0.5))
       const dones = generateDones({
         today: LocalDate.now(),
         weeks,
@@ -39,7 +39,7 @@ export const DoneEntryGenerator = ({ destroyAll = NO_OP, add = () => {}, contact
         enthusiasm,
         contacts,
       })
-      await processBatch(dones, add, onProgress)
+      await processBatch(dones, add, p => onProgress(0.5 + p * 0.5))
       return `Generated ${dones.length} dones`
     })
   }
@@ -87,6 +87,6 @@ export const DoneEntryGenerator = ({ destroyAll = NO_OP, add = () => {}, contact
 
 type Props = {
   contacts: Contact[]
-  destroyAll(): void
+  destroyAll(onProgress?: (progress: number) => void): Promise<void>
   add(done: Omit<DoneEntryEncoded, "id">): void
 }

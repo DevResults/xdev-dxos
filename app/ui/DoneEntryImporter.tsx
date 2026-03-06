@@ -31,8 +31,8 @@ export const DoneEntryImporter = ({ add = NO_OP, destroyAll = NO_OP, contacts = 
 
   const onImport = () => {
     run(async onProgress => {
-      destroyAll()
-      await processBatch(doneEntries, add, onProgress)
+      await destroyAll(p => onProgress(p * 0.5))
+      await processBatch(doneEntries, add, p => onProgress(0.5 + p * 0.5))
       return `Imported ${doneEntries.length} dones`
     })
   }
@@ -92,5 +92,5 @@ export const DoneEntryImporter = ({ add = NO_OP, destroyAll = NO_OP, contacts = 
 type Props = {
   contacts: Contact[]
   add(d: Omit<DoneEntryEncoded, "id">): void
-  destroyAll(): void
+  destroyAll(onProgress?: (progress: number) => void): Promise<void>
 }
