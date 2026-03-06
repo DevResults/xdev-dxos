@@ -58,7 +58,7 @@ const columns: ColumnDef<Project, any>[] = [
       />
     ),
   },
-{
+  {
     accessorKey: "description",
     header: "Description",
     cell: ({ row }) => (
