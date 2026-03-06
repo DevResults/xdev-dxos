@@ -2,6 +2,7 @@ import type { Space } from "@dxos/react-client/echo"
 import { type ColumnDef } from "@tanstack/react-table"
 import { makeFullCode, makeProject, type Project } from "~/schema/Project"
 import { EditableCheckboxCell } from "~/ui/EditableCheckboxCell"
+import { EditableColorCell } from "~/ui/EditableColorCell"
 import { EditableTable } from "~/ui/EditableTable"
 import { EditableTextCell } from "~/ui/EditableTextCell"
 
@@ -86,7 +87,7 @@ const columns: ColumnDef<Project, any>[] = [
     accessorKey: "color",
     header: "Color",
     cell: ({ row }) => (
-      <EditableTextCell
+      <EditableColorCell
         value={row.original.color ?? ""}
         onSave={v => {
           row.original.color = v
