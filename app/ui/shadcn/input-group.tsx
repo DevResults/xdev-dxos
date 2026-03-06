@@ -11,6 +11,7 @@ function InputGroup({ className, ...props }: React.ComponentProps<"div">) {
       className={cx(
         "shadow-xs relative flex w-full items-center rounded-md border border-neutral-200 bg-white",
         "min-w-0",
+        "ring-1 ring-inset ring-white/10",
         "has-[>[data-align=inline-start]]:[&>input]:pl-2",
         "has-[>[data-align=inline-end]]:[&>input]:pr-2",
         "has-[[data-slot=input-group-control]:focus-visible]:ring-1 has-[[data-slot=input-group-control]:focus-visible]:ring-inset has-[[data-slot=input-group-control]:focus-visible]:ring-primary-500",
@@ -53,7 +54,7 @@ const InputGroupInput = React.forwardRef<HTMLInputElement, React.ComponentProps<
       ref={ref}
       data-slot="input-group-control"
       className={cx(
-        "flex-1 rounded-none border-0 bg-transparent shadow-none ring-0 focus-visible:ring-0",
+        "flex-1 rounded-none border-0 bg-transparent shadow-none ring-0 focus-visible:ring-0 focus-visible:outline-none outline-none",
         className,
       )}
       {...props}
