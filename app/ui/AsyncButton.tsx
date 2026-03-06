@@ -12,18 +12,22 @@ export const AsyncButton = ({
 }: Props) => {
   return (
     <div className="py-4">
-      <Button intent={intent} onClick={onClick} disabled={disabled || isRunning}>
+      <Button
+        intent={intent}
+        onClick={isRunning ? undefined : onClick}
+        disabled={disabled && !isRunning}
+        className={isRunning ? "cursor-not-allowed" : undefined}
+        style={
+          isRunning
+            ? {
+                background: `linear-gradient(to right, var(--color-danger-800) ${progress * 100}%, var(--color-danger-600) ${progress * 100}%)`,
+              }
+            : undefined
+        }
+      >
         {isRunning ? <IconLoader2 className="animate-spin" /> : null}
         {children}
       </Button>
-      {isRunning ? (
-        <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-neutral-200">
-          <div
-            className="h-full rounded-full bg-danger-500 transition-all duration-150"
-            style={{ width: `${Math.round(progress * 100)}%` }}
-          />
-        </div>
-      ) : null}
       {result ? (
         <div className="mt-2 flex flex-row items-center gap-2 text-sm">
           <IconCircleCheckFilled className="text-lg text-success" />
