@@ -6,8 +6,14 @@ export const parseCsv = <K extends string, T extends Record<K, string>>(
   columns: K[],
 ) => {
   const rows = csvData.trim().split("\n")
+  const columnSet = new Set(columns.map(c => c.toLowerCase()))
   const parsedRows = rows
     .filter(row => row.length > 0)
+    .filter(row => {
+      // Skip header rows whose fields all match the expected column names
+      const fields = row.split(",").map(f => f.trim().toLowerCase())
+      return !fields.every(f => columnSet.has(f))
+    })
     .map((input, index) => {
       const parsedRow = parse(input, {
         columns: columns as string[],

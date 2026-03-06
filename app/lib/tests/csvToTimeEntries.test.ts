@@ -66,10 +66,10 @@ const testCases = [
   },
 
   {
-    text: "actual hours dataset",
+    text: "actual hours dataset (with header row)",
     input: actualHoursCsv.split("\n").slice(0, 5000).join("\n"),
     entries: 4998,
-    errors: 2,
+    errors: 1,
   },
 ] as TestCase[]
 
