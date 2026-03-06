@@ -5,6 +5,7 @@ import { useRef, useState } from "react"
 import type { FieldPath, FieldValues, UseFormReturn } from "react-hook-form"
 import { cx } from "~/lib/cx"
 import { Calendar } from "~/ui/shadcn/calendar"
+import { InputGroup, InputGroupAddon, InputGroupInput } from "~/ui/shadcn/input-group"
 import { Popover, PopoverContent, PopoverTrigger } from "~/ui/shadcn/popover"
 
 /** A labeled date input that accepts typed dates in any format, with a calendar picker. */
@@ -30,20 +31,13 @@ export function DateInput<T extends FieldValues>({ form, name, label, saveOnBlur
           <FormItem>
             <FormLabel>{label}</FormLabel>
             <Popover open={open} onOpenChange={setOpen}>
-              <div className="relative">
-                <FormControl>
-                  <input
+              <FormControl>
+                <InputGroup>
+                  <InputGroupInput
                     ref={inputRef}
-                    type="text"
                     placeholder="Pick a date"
                     value={displayValue}
-                    className={cx(
-                      "flex h-9 w-full rounded-md border border-neutral-200 bg-transparent px-3 py-1",
-                      "shadow-xs text-left text-sm",
-                      "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950",
-                      "disabled:cursor-not-allowed disabled:opacity-50",
-                      !dateValue && !isEditing && "text-neutral-400",
-                    )}
+                    className={cx(!dateValue && !isEditing && "text-neutral-400")}
                     onFocus={() => {
                       setIsEditing(true)
                       setTextValue(dateValue ? format(dateValue, "MMM d, yyyy") : "")
@@ -65,20 +59,19 @@ export function DateInput<T extends FieldValues>({ form, name, label, saveOnBlur
                       }
                     }}
                   />
-                </FormControl>
-                <PopoverTrigger asChild>
-                  <button
-                    type="button"
-                    className={cx(
-                      "absolute right-1 top-1/2 -translate-y-1/2 rounded p-1",
-                      "text-neutral-400 hover:text-neutral-600",
-                    )}
-                    tabIndex={-1}
-                  >
-                    <IconCalendar className="size-4" />
-                  </button>
-                </PopoverTrigger>
-              </div>
+                  <InputGroupAddon align="inline-end">
+                    <PopoverTrigger asChild>
+                      <button
+                        type="button"
+                        className="rounded p-1 text-neutral-400 hover:text-neutral-600"
+                        tabIndex={-1}
+                      >
+                        <IconCalendar className="size-4" />
+                      </button>
+                    </PopoverTrigger>
+                  </InputGroupAddon>
+                </InputGroup>
+              </FormControl>
               <PopoverContent
                 className="w-auto rounded-md border bg-white p-0 shadow-md"
                 align="start"
