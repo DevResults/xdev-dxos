@@ -1,12 +1,15 @@
 import { LocalDate } from "@js-joda/core"
-import { Button } from "@ui/button"
 import { useState } from "react"
 import { generateTimeEntries } from "../lib/generateTimeEntries"
+import { AsyncButton } from "./AsyncButton"
 import { RadioGroup } from "./RadioGroup"
+import { useBatchWork } from "~/hooks/useBatchWork"
 import { getSunday } from "~/lib/getSunday"
+import { processBatch } from "~/lib/processBatch"
 import type { Client } from "~/schema/Client"
 import type { Contact } from "~/schema/Contact"
 import type { Project } from "~/schema/Project"
+import type { TimeEntryEncoded } from "~/schema/TimeEntry"
 
 export const TimeEntryGenerator = ({
   destroyAll = () => {},
@@ -18,21 +21,23 @@ export const TimeEntryGenerator = ({
   const weekOptions = ["1", "2", "5", "10", "20", "50", "100"]
   const [weeks, setWeeks] = useState(Number(weekOptions[2]))
 
-  const [successMessage, setSuccessMessage] = useState<string | undefined>(undefined)
+  const { isRunning, progress, result, run } = useBatchWork()
 
   const onConfirm = () => {
-    destroyAll()
-    const timeEntries = generateTimeEntries({
-      startDate: getSunday(LocalDate.now().minusWeeks(weeks - 1)),
-      weekCount: weeks,
-      contacts,
-      projects,
-      clients,
-      procrastinators: ["Herb", "Aasit"],
-      omit: ["Colleen"],
+    run(async onProgress => {
+      destroyAll()
+      const timeEntries = generateTimeEntries({
+        startDate: getSunday(LocalDate.now().minusWeeks(weeks - 1)),
+        weekCount: weeks,
+        contacts,
+        projects,
+        clients,
+        procrastinators: ["Herb", "Aasit"],
+        omit: ["Colleen"],
+      })
+      await processBatch(timeEntries, add, onProgress)
+      return `Generated ${timeEntries.length} entries`
     })
-    add(timeEntries)
-    setSuccessMessage(`Generated ${timeEntries.length} entries`)
   }
 
   return (
@@ -47,17 +52,9 @@ export const TimeEntryGenerator = ({
           options={weekOptions}
         />
       </div>
-      <div className="py-4">
-        <Button intent="danger" onClick={onConfirm}>
-          Replace ALL hours with dummy data
-        </Button>
-        {successMessage ? (
-          <div className="mt-2 flex flex-row items-center gap-2 text-sm">
-            <IconCircleCheckFilled className="text-lg text-success" />
-            {successMessage}
-          </div>
-        ) : null}
-      </div>
+      <AsyncButton onClick={onConfirm} isRunning={isRunning} progress={progress} result={result}>
+        Replace ALL hours with dummy data
+      </AsyncButton>
     </>
   )
 }
@@ -67,5 +64,5 @@ type Props = {
   projects: Project[]
   clients: Client[]
   destroyAll(): void
-  add(entries: any[]): void
+  add(entry: Omit<TimeEntryEncoded, "id">): void
 }

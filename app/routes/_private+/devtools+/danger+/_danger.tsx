@@ -18,11 +18,8 @@ export default function DangerPage() {
   const { clients, contacts, doneEntries, projects, timeEntries } = useDatabase()
 
   const addDone = (done: Omit<DoneEntry, "id">) => space?.db.add(makeDoneEntry(done) as DoneEntry)
-  const addTimeEntries = (entries: Array<Omit<TimeEntry, "id">>) => {
-    for (const timeEntry of entries) {
-      space?.db.add(makeTimeEntry(timeEntry) as TimeEntry)
-    }
-  }
+  const addTimeEntry = (entry: Omit<TimeEntry, "id">) =>
+    space?.db.add(makeTimeEntry(entry) as TimeEntry)
 
   function destroyAll(list: Obj.Any[]) {
     for (const item of list) {
@@ -76,7 +73,7 @@ export default function DangerPage() {
                     contacts={contacts}
                     clients={clients}
                     projects={projects}
-                    add={addTimeEntries}
+                    add={addTimeEntry}
                     destroyAll={() => {
                       destroyAll(timeEntries)
                     }}
@@ -93,7 +90,7 @@ export default function DangerPage() {
                     destroyAll={() => {
                       destroyAll(timeEntries)
                     }}
-                    add={addTimeEntries}
+                    add={addTimeEntry}
                     contacts={contacts}
                     clients={clients}
                     projects={projects}

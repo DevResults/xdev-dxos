@@ -1,17 +1,20 @@
-import { Button } from "@ui/button"
 import { useState } from "react"
 import { csvToDoneEntries } from "../lib/csvToDoneEntries"
+import { useBatchWork } from "~/hooks/useBatchWork"
 import { NO_OP } from "~/lib/constants"
+import { processBatch } from "~/lib/processBatch"
 import type { Contact } from "~/schema/Contact"
 import { ProvidedContacts } from "~/schema/ContactCollection"
 import type { DoneEntryEncoded } from "~/schema/DoneEntry"
 import { pipe, E } from "~/schema/lib/Effect"
+import { AsyncButton } from "~/ui/AsyncButton"
 
 export const DoneEntryImporter = ({ add = NO_OP, destroyAll = NO_OP, contacts = [] }: Props) => {
   const [importData, setImportData] = useState("")
   const [errors, setErrors] = useState<Error[]>([])
   const [doneEntries, setDones] = useState<Array<Omit<DoneEntryEncoded, "id">>>([])
-  const [successMessage, setSuccessMessage] = useState<string | undefined>(undefined)
+
+  const { isRunning, progress, result, run } = useBatchWork()
 
   const decode = (csv: string) =>
     pipe(csv, csvToDoneEntries, E.provideService(ProvidedContacts, contacts), E.runSync)
@@ -27,12 +30,11 @@ export const DoneEntryImporter = ({ add = NO_OP, destroyAll = NO_OP, contacts = 
   }
 
   const onImport = () => {
-    destroyAll()
-    for (const d of doneEntries) {
-      add(d)
-    }
-
-    setSuccessMessage(`Imported ${doneEntries.length} dones`)
+    run(async onProgress => {
+      destroyAll()
+      await processBatch(doneEntries, add, onProgress)
+      return `Imported ${doneEntries.length} dones`
+    })
   }
 
   return (
@@ -73,21 +75,15 @@ export const DoneEntryImporter = ({ add = NO_OP, destroyAll = NO_OP, contacts = 
           ) : null}
         </div>
       </div>
-      <div className="py-4">
-        <Button
-          onClick={onImport}
-          intent="danger"
-          disabled={doneEntries.length === 0 || errors.length > 0}
-        >
-          Replace ALL dones with imported data
-        </Button>
-        {successMessage ? (
-          <div className="mt-2 flex flex-row items-center gap-2 text-sm">
-            <IconCircleCheckFilled className="text-lg text-success" />
-            {successMessage}
-          </div>
-        ) : null}
-      </div>
+      <AsyncButton
+        onClick={onImport}
+        disabled={doneEntries.length === 0 || errors.length > 0}
+        isRunning={isRunning}
+        progress={progress}
+        result={result}
+      >
+        Replace ALL dones with imported data
+      </AsyncButton>
     </>
   )
 }

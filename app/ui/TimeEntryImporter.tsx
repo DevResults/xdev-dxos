@@ -1,7 +1,8 @@
-import { Button } from "@ui/button"
 import { useState } from "react"
 import { csvToTimeEntries } from "../lib/csvToTimeEntries"
+import { useBatchWork } from "~/hooks/useBatchWork"
 import { NO_OP } from "~/lib/constants"
+import { processBatch } from "~/lib/processBatch"
 import type { Client } from "~/schema/Client"
 import { ProvidedClients } from "~/schema/ClientCollection"
 import type { Contact } from "~/schema/Contact"
@@ -10,6 +11,7 @@ import { E, pipe } from "~/schema/lib/Effect"
 import type { Project } from "~/schema/Project"
 import { ProvidedProjects } from "~/schema/ProjectCollection"
 import type { TimeEntryEncoded } from "~/schema/TimeEntry"
+import { AsyncButton } from "~/ui/AsyncButton"
 
 export const TimeEntryImporter = ({
   add = NO_OP,
@@ -22,7 +24,7 @@ export const TimeEntryImporter = ({
   const [errors, setErrors] = useState<Error[]>([])
   const [timeEntries, setTimes] = useState<Array<Omit<TimeEntryEncoded, "id">>>([])
 
-  const [successMessage, setSuccessMessage] = useState<string | undefined>(undefined)
+  const { isRunning, progress, result, run } = useBatchWork()
 
   const decode = (csv: string) =>
     pipe(
@@ -43,9 +45,11 @@ export const TimeEntryImporter = ({
   }
 
   const onImport = () => {
-    destroyAll()
-    add(timeEntries)
-    setSuccessMessage(`Imported ${timeEntries.length} entries`)
+    run(async onProgress => {
+      destroyAll()
+      await processBatch(timeEntries, add, onProgress)
+      return `Imported ${timeEntries.length} entries`
+    })
   }
 
   return (
@@ -87,21 +91,15 @@ export const TimeEntryImporter = ({
           ) : undefined}
         </div>
       </div>
-      <div className="py-4">
-        <Button
-          onClick={onImport}
-          intent="danger"
-          disabled={timeEntries.length === 0 || errors.length > 0}
-        >
-          Replace ALL hours with imported data
-        </Button>
-        {successMessage ? (
-          <div className="mt-2 flex flex-row items-center gap-2 text-sm">
-            <IconCircleCheckFilled className="text-lg text-success" />
-            {successMessage}
-          </div>
-        ) : undefined}
-      </div>
+      <AsyncButton
+        onClick={onImport}
+        disabled={timeEntries.length === 0 || errors.length > 0}
+        isRunning={isRunning}
+        progress={progress}
+        result={result}
+      >
+        Replace ALL hours with imported data
+      </AsyncButton>
     </>
   )
 }
@@ -112,5 +110,5 @@ type Props = {
   projects: Project[]
   clients: Client[]
   destroyAll(): void
-  add(ts: Array<Omit<TimeEntryEncoded, "id">>): void
+  add(entry: Omit<TimeEntryEncoded, "id">): void
 }

@@ -1,17 +1,17 @@
 import { LocalDate } from "@js-joda/core"
-import { Button } from "@ui/button"
 import { NO_OP } from "lib/constants"
 import { generateDones } from "lib/generateDones"
 import { useState } from "react"
 import type { Contact } from "schema/Contact"
 import type { DoneEntryEncoded } from "schema/DoneEntry"
+import { AsyncButton } from "ui/AsyncButton"
 import { RadioGroup } from "ui/RadioGroup"
+import { useBatchWork } from "~/hooks/useBatchWork"
+import { processBatch } from "~/lib/processBatch"
 
 export const DoneEntryGenerator = ({ destroyAll = NO_OP, add = () => {}, contacts }: Props) => {
   const weekOptions = ["1", "2", "5", "10", "20", "50", "200"]
   const [weeks, setWeeks] = useState(Number(weekOptions[2]))
-
-  const [successMessage, setSuccessMessage] = useState<string | undefined>(undefined)
 
   const productivityOptions = [
     { value: ".5", label: "chill", title: "3-4 dones per person, per week" },
@@ -27,20 +27,21 @@ export const DoneEntryGenerator = ({ destroyAll = NO_OP, add = () => {}, contact
   ]
   const [enthusiasm, setEnthusiasm] = useState(Number(enthusiasmOptions[1].value))
 
-  const onConfirm = () => {
-    destroyAll()
-    const dones = generateDones({
-      today: LocalDate.now(),
-      weeks,
-      productivity,
-      enthusiasm,
-      contacts,
-    })
-    for (const done of dones) {
-      add(done)
-    }
+  const { isRunning, progress, result, run } = useBatchWork()
 
-    setSuccessMessage(`Generated ${dones.length} dones`)
+  const onConfirm = () => {
+    run(async onProgress => {
+      destroyAll()
+      const dones = generateDones({
+        today: LocalDate.now(),
+        weeks,
+        productivity,
+        enthusiasm,
+        contacts,
+      })
+      await processBatch(dones, add, onProgress)
+      return `Generated ${dones.length} dones`
+    })
   }
 
   return (
@@ -71,17 +72,9 @@ export const DoneEntryGenerator = ({ destroyAll = NO_OP, add = () => {}, contact
           options={enthusiasmOptions}
         />
       </div>
-      <div className="py-4">
-        <Button intent="danger" onClick={onConfirm}>
-          Replace ALL dones with dummy data
-        </Button>
-        {successMessage ? (
-          <div className="mt-2 flex flex-row items-center gap-2 text-sm">
-            <IconCircleCheckFilled className="text-lg text-success" />
-            {successMessage}
-          </div>
-        ) : null}
-      </div>
+      <AsyncButton onClick={onConfirm} isRunning={isRunning} progress={progress} result={result}>
+        Replace ALL dones with dummy data
+      </AsyncButton>
     </>
   )
 }
