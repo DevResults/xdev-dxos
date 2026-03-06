@@ -31,7 +31,7 @@ const testCases = [
       'herb, 2024-05-30, "quoted content', //
       'continued on next line"',
     ),
-    error: "Quote Not Closed",
+    error: "The field `likes` is required",
   },
 
   // VALID

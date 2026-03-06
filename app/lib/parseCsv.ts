@@ -5,24 +5,25 @@ export const parseCsv = <K extends string, T extends Record<K, string>>(
   csvData: string,
   columns: K[],
 ) => {
-  const rows = csvData.trim().split("\n")
   const columnSet = new Set(columns.map(c => c.toLowerCase()))
-  const parsedRows = rows
-    .filter(row => row.length > 0)
-    .filter(row => {
+
+  const records = parse(csvData, {
+    columns: columns as string[],
+    relax_column_count: true,
+    trim: true,
+    skip_empty_lines: true,
+  }) as T[]
+
+  return records
+    .filter(record => {
       // Skip header rows whose fields all match the expected column names
-      const fields = row.split(",").map(f => f.trim().toLowerCase())
-      return !fields.every(f => columnSet.has(f))
+      const values = Object.values(record) as string[]
+      return !values.every(v => columnSet.has(v.toLowerCase()))
     })
-    .map((input, index) => {
-      const parsedRow = parse(input, {
-        columns: columns as string[],
-        relax_column_count: true,
-        trim: true,
-      })[0] as T
-      return { input, index, ...parsedRow }
+    .map((record, index) => {
+      const input = columns.map(c => record[c] ?? "").join(",")
+      return { input, index, ...record }
     })
-  return parsedRows
 }
 
 export const csvToSchema = <
