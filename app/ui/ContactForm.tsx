@@ -46,7 +46,7 @@ export function ContactForm({
             void handleDone()
           }}
         >
-          {/* Basic info */}
+          {/* Personal info */}
           <section className="grid gap-4">
             <div className="flex items-start justify-between">
               <div className="w-[10em]">
@@ -67,23 +67,14 @@ export function ContactForm({
                 </div>
               )}
             </div>
-            <div className="grid grid-cols-3 gap-4">
-              <TextInput
-                form={form}
-                name="preferredName"
-                label="Preferred name"
-                autoFocus
-                saveOnBlur={saveOnBlur}
-              />
+            <div className="grid grid-cols-[2fr_1fr_2fr_1fr] gap-4">
               <TextInput
                 form={form}
                 name="firstName"
-                label="First name (legal)"
+                label="First name"
+                autoFocus
                 saveOnBlur={saveOnBlur}
               />
-              <TextInput form={form} name="userName" label="Username" saveOnBlur={saveOnBlur} />
-            </div>
-            <div className="grid grid-cols-[2fr_3fr_1fr] gap-4">
               <TextInput
                 form={form}
                 name="middleName"
@@ -93,11 +84,15 @@ export function ContactForm({
               <TextInput form={form} name="lastName" label="Last name" saveOnBlur={saveOnBlur} />
               <TextInput form={form} name="suffix" label="Suffix" saveOnBlur={saveOnBlur} />
             </div>
-          </section>
-
-          {/* Personal info */}
-          <section className="grid gap-4">
-            <Heading level={3}>Personal info</Heading>
+            <div className="grid grid-cols-2 gap-4">
+              <TextInput
+                form={form}
+                name="preferredName"
+                label="Preferred name"
+                saveOnBlur={saveOnBlur}
+              />
+              <TextInput form={form} name="userName" label="Username" saveOnBlur={saveOnBlur} />
+            </div>
             <div className="grid grid-cols-2 gap-4">
               <TextInput form={form} name="title" label="Title" saveOnBlur={saveOnBlur} />
               <DateInput form={form} name="startDate" label="Start date" saveOnBlur={saveOnBlur} />
