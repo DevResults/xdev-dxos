@@ -7,6 +7,7 @@ export const AsyncButton = ({
   isRunning,
   progress,
   result,
+  error,
   intent = "danger",
   children,
 }: Props) => {
@@ -31,6 +32,12 @@ export const AsyncButton = ({
           {children}
         </span>
       </Button>
+      {error ? (
+        <div className="mt-2 flex flex-row items-center gap-2 text-sm text-danger-600">
+          <IconExclamationCircleFilled className="text-lg" />
+          {error}
+        </div>
+      ) : null}
       {result ? (
         <div className="mt-2 flex flex-row items-center gap-2 text-sm">
           <IconCircleCheckFilled className="text-lg text-success" />
@@ -47,6 +54,7 @@ type Props = {
   isRunning: boolean
   progress: number
   result?: string
+  error?: string
   intent?: ButtonProps["intent"]
   children: React.ReactNode
 }

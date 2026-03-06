@@ -21,7 +21,7 @@ export const TimeEntryGenerator = ({
   const weekOptions = ["1", "2", "5", "10", "20", "50", "100"]
   const [weeks, setWeeks] = useState(Number(weekOptions[2]))
 
-  const { isRunning, progress, result, run } = useBatchWork()
+  const { isRunning, progress, result, error, run } = useBatchWork()
 
   const onConfirm = () => {
     run(async onProgress => {
@@ -52,7 +52,13 @@ export const TimeEntryGenerator = ({
           options={weekOptions}
         />
       </div>
-      <AsyncButton onClick={onConfirm} isRunning={isRunning} progress={progress} result={result}>
+      <AsyncButton
+        onClick={onConfirm}
+        isRunning={isRunning}
+        progress={progress}
+        result={result}
+        error={error}
+      >
         Replace ALL hours with dummy data
       </AsyncButton>
     </>

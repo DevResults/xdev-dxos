@@ -24,7 +24,7 @@ export const TimeEntryImporter = ({
   const [errors, setErrors] = useState<Error[]>([])
   const [timeEntries, setTimes] = useState<Array<Omit<TimeEntryEncoded, "id">>>([])
 
-  const { isRunning, progress, result, run } = useBatchWork()
+  const { isRunning, progress, result, error, run } = useBatchWork()
 
   const decode = (csv: string) =>
     pipe(
@@ -97,6 +97,7 @@ export const TimeEntryImporter = ({
         isRunning={isRunning}
         progress={progress}
         result={result}
+        error={error}
       >
         Replace ALL hours with imported data
       </AsyncButton>

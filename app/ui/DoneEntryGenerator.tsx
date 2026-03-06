@@ -27,7 +27,7 @@ export const DoneEntryGenerator = ({ destroyAll = NO_OP, add = () => {}, contact
   ]
   const [enthusiasm, setEnthusiasm] = useState(Number(enthusiasmOptions[1].value))
 
-  const { isRunning, progress, result, run } = useBatchWork()
+  const { isRunning, progress, result, error, run } = useBatchWork()
 
   const onConfirm = () => {
     run(async onProgress => {
@@ -72,7 +72,13 @@ export const DoneEntryGenerator = ({ destroyAll = NO_OP, add = () => {}, contact
           options={enthusiasmOptions}
         />
       </div>
-      <AsyncButton onClick={onConfirm} isRunning={isRunning} progress={progress} result={result}>
+      <AsyncButton
+        onClick={onConfirm}
+        isRunning={isRunning}
+        progress={progress}
+        result={result}
+        error={error}
+      >
         Replace ALL dones with dummy data
       </AsyncButton>
     </>

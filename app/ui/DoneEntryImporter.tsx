@@ -14,7 +14,7 @@ export const DoneEntryImporter = ({ add = NO_OP, destroyAll = NO_OP, contacts = 
   const [errors, setErrors] = useState<Error[]>([])
   const [doneEntries, setDones] = useState<Array<Omit<DoneEntryEncoded, "id">>>([])
 
-  const { isRunning, progress, result, run } = useBatchWork()
+  const { isRunning, progress, result, error, run } = useBatchWork()
 
   const decode = (csv: string) =>
     pipe(csv, csvToDoneEntries, E.provideService(ProvidedContacts, contacts), E.runSync)
@@ -81,6 +81,7 @@ export const DoneEntryImporter = ({ add = NO_OP, destroyAll = NO_OP, contacts = 
         isRunning={isRunning}
         progress={progress}
         result={result}
+        error={error}
       >
         Replace ALL dones with imported data
       </AsyncButton>
