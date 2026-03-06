@@ -6,7 +6,7 @@ import type { FieldPath, FieldValues, UseFormReturn } from "react-hook-form"
 import { cx } from "~/lib/cx"
 import { Calendar } from "~/ui/shadcn/calendar"
 import { InputGroup, InputGroupAddon, InputGroupInput } from "~/ui/shadcn/input-group"
-import { Popover, PopoverContent, PopoverTrigger } from "~/ui/shadcn/popover"
+import { Popover, PopoverAnchor, PopoverContent, PopoverTrigger } from "~/ui/shadcn/popover"
 
 /** A labeled date input that accepts typed dates in any format, with a calendar picker. */
 export function DateInput<T extends FieldValues>({ form, name, label, saveOnBlur }: Props<T>) {
@@ -31,47 +31,49 @@ export function DateInput<T extends FieldValues>({ form, name, label, saveOnBlur
           <FormItem>
             <FormLabel>{label}</FormLabel>
             <Popover open={open} onOpenChange={setOpen}>
-              <FormControl>
-                <InputGroup>
-                  <InputGroupInput
-                    ref={inputRef}
-                    placeholder="Pick a date"
-                    value={displayValue}
-                    className={cx(!dateValue && !isEditing && "text-neutral-400")}
-                    onFocus={() => {
-                      setIsEditing(true)
-                      setTextValue(dateValue ? format(dateValue, "MMM d, yyyy") : "")
-                    }}
-                    onChange={e => {
-                      setTextValue(e.target.value)
-                    }}
-                    onBlur={() => {
-                      commitTextValue(textValue, field.onChange)
-                      setIsEditing(false)
-                      void saveOnBlur(name)()
-                    }}
-                    onKeyDown={e => {
-                      if (e.key === "Enter") {
-                        e.preventDefault()
+              <PopoverAnchor asChild>
+                <FormControl>
+                  <InputGroup>
+                    <InputGroupInput
+                      ref={inputRef}
+                      placeholder="Pick a date"
+                      value={displayValue}
+                      className={cx(!dateValue && !isEditing && "text-neutral-400")}
+                      onFocus={() => {
+                        setIsEditing(true)
+                        setTextValue(dateValue ? format(dateValue, "MMM d, yyyy") : "")
+                      }}
+                      onChange={e => {
+                        setTextValue(e.target.value)
+                      }}
+                      onBlur={() => {
                         commitTextValue(textValue, field.onChange)
                         setIsEditing(false)
-                        inputRef.current?.blur()
-                      }
-                    }}
-                  />
-                  <InputGroupAddon align="inline-end">
-                    <PopoverTrigger asChild>
-                      <button
-                        type="button"
-                        className="rounded p-1 text-neutral-400 hover:text-neutral-600"
-                        tabIndex={-1}
-                      >
-                        <IconCalendar className="size-4" />
-                      </button>
-                    </PopoverTrigger>
-                  </InputGroupAddon>
-                </InputGroup>
-              </FormControl>
+                        void saveOnBlur(name)()
+                      }}
+                      onKeyDown={e => {
+                        if (e.key === "Enter") {
+                          e.preventDefault()
+                          commitTextValue(textValue, field.onChange)
+                          setIsEditing(false)
+                          inputRef.current?.blur()
+                        }
+                      }}
+                    />
+                    <InputGroupAddon align="inline-end">
+                      <PopoverTrigger asChild>
+                        <button
+                          type="button"
+                          className="rounded p-1 text-neutral-400 hover:text-neutral-600"
+                          tabIndex={-1}
+                        >
+                          <IconCalendar className="size-4" />
+                        </button>
+                      </PopoverTrigger>
+                    </InputGroupAddon>
+                  </InputGroup>
+                </FormControl>
+              </PopoverAnchor>
               <PopoverContent
                 className="w-auto rounded-md border bg-white p-0 shadow-md"
                 align="start"
