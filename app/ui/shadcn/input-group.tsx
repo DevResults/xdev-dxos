@@ -47,9 +47,10 @@ function InputGroupAddon({
 }
 
 /** An input styled to sit inside an InputGroup (no border or shadow of its own). */
-function InputGroupInput({ className, ...props }: React.ComponentProps<"input">) {
-  return (
+const InputGroupInput = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
+  ({ className, ...props }, ref) => (
     <Input
+      ref={ref}
       data-slot="input-group-control"
       className={cx(
         "flex-1 rounded-none border-0 bg-transparent shadow-none focus-visible:ring-0",
@@ -57,7 +58,7 @@ function InputGroupInput({ className, ...props }: React.ComponentProps<"input">)
       )}
       {...props}
     />
-  )
-}
+  ),
+)
 
 export { InputGroup, InputGroupAddon, InputGroupInput }
