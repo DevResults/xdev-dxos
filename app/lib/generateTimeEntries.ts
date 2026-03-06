@@ -20,7 +20,13 @@ export function generateTimeEntries({
   seed = "1234",
 }: Inputs) {
   const random = makeRandom(seed)
-  const OUT = projects.find(d => d.code.toLowerCase() === "out")!.id
+  const outProject = projects.find(d => d.code.toLowerCase() === "out")
+  if (!outProject) {
+    throw new Error(
+      `No project with code "Out" found. Available codes: ${projects.map(p => p.code).join(", ")}`,
+    )
+  }
+  const OUT = outProject.id
   const timeEntries: Array<Omit<TimeEntryEncoded, "id">> = []
 
   // Assign a timekeeping style to each contact

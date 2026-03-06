@@ -23,6 +23,8 @@ export const TimeEntryGenerator = ({
 
   const { isRunning, progress, result, error, run } = useBatchWork()
 
+  const hasData = contacts.length > 0 && projects.length > 0 && clients.length > 0
+
   const onConfirm = () => {
     run(async onProgress => {
       destroyAll()
@@ -58,6 +60,7 @@ export const TimeEntryGenerator = ({
         progress={progress}
         result={result}
         error={error}
+        disabled={!hasData}
       >
         Replace ALL hours with dummy data
       </AsyncButton>
