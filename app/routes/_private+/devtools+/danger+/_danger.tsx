@@ -1,29 +1,36 @@
-import type { Obj } from "@dxos/echo"
-import { useSpace } from "@dxos/react-client/echo"
+import { Filter, useQuery, useSpace } from "@dxos/react-client/echo"
 import { Alert, AlertDescription } from "@ui/alert"
 import { DoneEntryGenerator } from "ui/DoneEntryGenerator"
 import { DoneEntryImporter } from "ui/DoneEntryImporter"
 import { Pane } from "ui/layouts/Pane"
 import { TimeEntryGenerator } from "ui/TimeEntryGenerator"
 import { TimeEntryImporter } from "ui/TimeEntryImporter"
-import { useDatabase } from "~/hooks/useDatabase"
 import { useLocalState } from "~/hooks/useLocalState"
-import { makeDoneEntry, type DoneEntry } from "~/schema/DoneEntry"
-import { makeTimeEntry, type TimeEntry } from "~/schema/TimeEntry"
+import { Client } from "~/schema/Client"
+import { Contact } from "~/schema/Contact"
+import { DoneEntry, makeDoneEntry } from "~/schema/DoneEntry"
+import { Project } from "~/schema/Project"
+import { makeTimeEntry, TimeEntry } from "~/schema/TimeEntry"
 import { Heading } from "~/ui/Heading"
 
 export default function DangerPage() {
   const { spaceKey } = useLocalState()
   const space = useSpace(spaceKey)
-  const { clients, contacts, doneEntries, projects, timeEntries } = useDatabase()
+
+  // Only query lightweight collections eagerly; time/done entries are loaded on demand
+  const contacts = useQuery(space, Filter.type(Contact)) as Contact[]
+  const clients = useQuery(space, Filter.type(Client))
+  const projects = useQuery(space, Filter.type(Project))
 
   const addDone = (done: Omit<DoneEntry, "id">) => space?.db.add(makeDoneEntry(done) as DoneEntry)
   const addTimeEntry = (entry: Omit<TimeEntry, "id">) =>
     space?.db.add(makeTimeEntry(entry) as TimeEntry)
 
-  function destroyAll(list: Obj.Any[]) {
-    for (const item of list) {
-      space?.db.remove(item)
+  async function destroyAllOfType(schema: typeof TimeEntry | typeof DoneEntry) {
+    if (!space) return
+    const { objects } = await space.db.query(Filter.type(schema)).run()
+    for (const item of objects) {
+      space.db.remove(item)
     }
   }
 
@@ -46,9 +53,7 @@ export default function DangerPage() {
                   <DoneEntryGenerator
                     contacts={contacts}
                     add={addDone}
-                    destroyAll={() => {
-                      destroyAll(doneEntries)
-                    }}
+                    destroyAll={() => destroyAllOfType(DoneEntry)}
                   />
                 </div>
               ),
@@ -59,9 +64,7 @@ export default function DangerPage() {
                 <DoneEntryImporter
                   contacts={contacts}
                   add={addDone}
-                  destroyAll={() => {
-                    destroyAll(doneEntries)
-                  }}
+                  destroyAll={() => destroyAllOfType(DoneEntry)}
                 />
               ),
             },
@@ -74,9 +77,7 @@ export default function DangerPage() {
                     clients={clients}
                     projects={projects}
                     add={addTimeEntry}
-                    destroyAll={() => {
-                      destroyAll(timeEntries)
-                    }}
+                    destroyAll={() => destroyAllOfType(TimeEntry)}
                   />
                 </div>
               ),
@@ -87,9 +88,7 @@ export default function DangerPage() {
                 <div>
                   <TimeEntryImporter
                     defaultOpen={true}
-                    destroyAll={() => {
-                      destroyAll(timeEntries)
-                    }}
+                    destroyAll={() => destroyAllOfType(TimeEntry)}
                     add={addTimeEntry}
                     contacts={contacts}
                     clients={clients}
