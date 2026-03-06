@@ -68,6 +68,7 @@ export default function ProfilePage() {
         }}
         onSaveField={handleSaveField}
         onDone={handleDone}
+        showStatusSwitch={false}
       />
     </Pane>
   )

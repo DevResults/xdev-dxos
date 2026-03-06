@@ -19,6 +19,7 @@ export function ContactForm({
   onCancel,
   title,
   description,
+  showStatusSwitch = true,
 }: Props) {
   const { form, saveOnBlur } = useAutoSaveForm(ContactFormSchema, onSaveField, defaultValues)
 
@@ -51,18 +52,20 @@ export function ContactForm({
               <div className="w-[10em]">
                 <ImageUpload form={form} name="avatarUrl" label="Avatar" saveOnBlur={saveOnBlur} />
               </div>
-              <div className="flex items-center gap-2">
-                <Switch
-                  id="status"
-                  checked={(form.watch("status") ?? "active") === "active"}
-                  onCheckedChange={checked => {
-                    const value = checked ? "active" : "inactive"
-                    form.setValue("status", value as ContactFormValues["status"])
-                    void saveOnBlur("status" as any)()
-                  }}
-                />
-                <Label htmlFor="status">Active</Label>
-              </div>
+              {showStatusSwitch && (
+                <div className="flex items-center gap-2">
+                  <Switch
+                    id="status"
+                    checked={(form.watch("status") ?? "active") === "active"}
+                    onCheckedChange={checked => {
+                      const value = checked ? "active" : "inactive"
+                      form.setValue("status", value as ContactFormValues["status"])
+                      void saveOnBlur("status" as any)()
+                    }}
+                  />
+                  <Label htmlFor="status">Active</Label>
+                </div>
+              )}
             </div>
             <div className="grid grid-cols-3 gap-4">
               <TextInput
@@ -288,4 +291,6 @@ export type Props = {
   title: string
   /** Form description text. */
   description?: string
+  /** Whether to show the active/inactive status switch. Defaults to true. */
+  showStatusSwitch?: boolean
 }
