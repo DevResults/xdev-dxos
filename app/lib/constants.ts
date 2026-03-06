@@ -5,3 +5,4 @@ export const DAY = 24 * HOUR
 export const WEEK = 7 * DAY
 
 export const NO_OP = () => {}
+export const NO_OP_ASYNC = async () => {}

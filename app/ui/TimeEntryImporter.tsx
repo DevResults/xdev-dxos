@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { csvToTimeEntries } from "../lib/csvToTimeEntries"
 import { useBatchWork } from "~/hooks/useBatchWork"
-import { NO_OP } from "~/lib/constants"
+import { NO_OP, NO_OP_ASYNC } from "~/lib/constants"
 import { processBatch } from "~/lib/processBatch"
 import type { Client } from "~/schema/Client"
 import { ProvidedClients } from "~/schema/ClientCollection"
@@ -15,7 +15,7 @@ import { AsyncButton } from "~/ui/AsyncButton"
 
 export const TimeEntryImporter = ({
   add = NO_OP,
-  destroyAll = NO_OP,
+  destroyAll = NO_OP_ASYNC,
   contacts = [],
   clients,
   projects,

@@ -1,5 +1,5 @@
 /** Default pause between batches in milliseconds. */
-const DEFAULT_BATCH_DELAY = 50
+const DEFAULT_BATCH_DELAY = 1
 
 /** Process items one by one, yielding to the browser periodically so the UI stays responsive. */
 export async function processBatch<T>(
@@ -9,7 +9,7 @@ export async function processBatch<T>(
   fn: (item: T) => void,
   /** Called with progress from 0 to 1 */
   onProgress?: (progress: number) => void,
-  /** Milliseconds to pause between batches (default 50ms), giving the database time to catch up */
+  /** Milliseconds to pause between batches, giving the database time to catch up */
   batchDelay = DEFAULT_BATCH_DELAY,
 ) {
   let lastYield = performance.now()

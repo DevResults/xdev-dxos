@@ -54,7 +54,7 @@ const InputGroupInput = React.forwardRef<HTMLInputElement, React.ComponentProps<
       ref={ref}
       data-slot="input-group-control"
       className={cx(
-        "flex-1 rounded-none border-0 bg-transparent shadow-none ring-0 focus-visible:ring-0 focus-visible:outline-none outline-none",
+        "flex-1 rounded-none border-0 bg-transparent shadow-none outline-none ring-0 focus-visible:outline-none focus-visible:ring-0",
         className,
       )}
       {...props}

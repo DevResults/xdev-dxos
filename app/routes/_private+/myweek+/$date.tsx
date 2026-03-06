@@ -5,16 +5,23 @@ import { PageLayout } from "ui/layouts/PageLayout"
 import { Pane } from "ui/layouts/Pane"
 import { MyWeek } from "ui/MyWeek"
 import { WeekNav } from "ui/WeekNav"
-import { useDatabase } from "~/hooks/useDatabase"
+import { useDbQuery } from "~/hooks/useDbQuery"
 import { useLocalState } from "~/hooks/useLocalState"
 import { useSelectedWeek } from "~/hooks/useSelectedWeek"
 import { useTeam } from "~/hooks/useTeam"
 import { isActiveContact } from "~/lib/isActiveContact"
+import { Client } from "~/schema/Client"
+import { DoneEntry } from "~/schema/DoneEntry"
+import { Project } from "~/schema/Project"
+import { TimeEntry } from "~/schema/TimeEntry"
 import { Heading } from "~/ui/Heading"
 
 export default function MyWeek$DatePage() {
   const { self, contacts } = useTeam()
-  const { doneEntries, timeEntries, projects, clients } = useDatabase()
+  const doneEntries = useDbQuery(DoneEntry)
+  const timeEntries = useDbQuery(TimeEntry)
+  const projects = useDbQuery(Project)
+  const clients = useDbQuery(Client)
   const [showWeekends, setShowWeekends] = useState(false)
   const { start, end } = useSelectedWeek()
   const { spaceKey } = useLocalState()

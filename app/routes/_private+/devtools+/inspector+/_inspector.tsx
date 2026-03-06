@@ -67,5 +67,5 @@ const groupByTypename = (objects: Obj.Any[]) => {
     list.push(obj)
     grouped.set(shortName, list)
   }
-  return new Map([...grouped.entries()].sort(([a], [b]) => a.localeCompare(b)))
+  return new Map([...grouped.entries()].toSorted(([a], [b]) => a.localeCompare(b)))
 }

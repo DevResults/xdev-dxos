@@ -1,12 +1,13 @@
 import { useSpace } from "@dxos/react-client/echo"
-import { useDatabase } from "~/hooks/useDatabase"
+import { useDbQuery } from "~/hooks/useDbQuery"
 import { useLocalState } from "~/hooks/useLocalState"
+import { Project } from "~/schema/Project"
 import { Pane } from "~/ui/layouts/Pane"
 import { ProjectsTable } from "~/ui/ProjectsTable"
 
 /** Page for editing the projects list. */
 export default function ProjectsPage() {
-  const { projects } = useDatabase()
+  const projects = useDbQuery(Project)
   const { spaceKey } = useLocalState()
   const space = useSpace(spaceKey)
 

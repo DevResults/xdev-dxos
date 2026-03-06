@@ -2,14 +2,15 @@ import { PageLayout } from "ui/layouts/PageLayout"
 import { Pane } from "ui/layouts/Pane"
 import { TeamDones } from "ui/TeamDones"
 import { WeekNav } from "ui/WeekNav"
-import { useDatabase } from "~/hooks/useDatabase"
+import { useDbQuery } from "~/hooks/useDbQuery"
 import { useSelectedWeek } from "~/hooks/useSelectedWeek"
 import { useTeam } from "~/hooks/useTeam"
 import { isActiveContact } from "~/lib/isActiveContact"
+import { DoneEntry } from "~/schema/DoneEntry"
 import { Heading } from "~/ui/Heading"
 
 export default function Dones$DatePage() {
-  const { doneEntries } = useDatabase()
+  const doneEntries = useDbQuery(DoneEntry)
   const { start, end } = useSelectedWeek()
   const { self, contacts } = useTeam()
 

@@ -3,16 +3,17 @@ import { HoursReport } from "ui/HoursReport"
 import { PageLayout } from "ui/layouts/PageLayout"
 import { Pane } from "ui/layouts/Pane"
 import { YearNav } from "ui/YearNav"
-import { useDatabase } from "~/hooks/useDatabase"
+import { useDbQuery } from "~/hooks/useDbQuery"
 import { useRedirect } from "~/hooks/useRedirect"
 import { useSelectedYear } from "~/hooks/useSelectedYear"
 import { useTeam } from "~/hooks/useTeam"
 import { getCurrentYear } from "~/lib/getCurrentYear"
 import { isActiveContact } from "~/lib/isActiveContact"
+import { TimeEntry } from "~/schema/TimeEntry"
 import { Heading } from "~/ui/Heading"
 
 export default function Hours$YearPage() {
-  const { timeEntries } = useDatabase()
+  const timeEntries = useDbQuery(TimeEntry)
   const currentYear = getCurrentYear()
   const year = useSelectedYear()
   const { self, contacts } = useTeam()

@@ -53,8 +53,8 @@ type Props = {
   disabled?: boolean
   isRunning: boolean
   progress: number
-  result?: string
-  error?: string
+  result: string | undefined
+  error: string | undefined
   intent?: ButtonProps["intent"]
   children: React.ReactNode
 }

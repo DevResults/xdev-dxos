@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { csvToDoneEntries } from "../lib/csvToDoneEntries"
 import { useBatchWork } from "~/hooks/useBatchWork"
-import { NO_OP } from "~/lib/constants"
+import { NO_OP, NO_OP_ASYNC } from "~/lib/constants"
 import { processBatch } from "~/lib/processBatch"
 import type { Contact } from "~/schema/Contact"
 import { ProvidedContacts } from "~/schema/ContactCollection"
@@ -9,7 +9,11 @@ import type { DoneEntryEncoded } from "~/schema/DoneEntry"
 import { pipe, E } from "~/schema/lib/Effect"
 import { AsyncButton } from "~/ui/AsyncButton"
 
-export const DoneEntryImporter = ({ add = NO_OP, destroyAll = NO_OP, contacts = [] }: Props) => {
+export const DoneEntryImporter = ({
+  add = NO_OP,
+  destroyAll = NO_OP_ASYNC,
+  contacts = [],
+}: Props) => {
   const [importData, setImportData] = useState("")
   const [errors, setErrors] = useState<Error[]>([])
   const [doneEntries, setDones] = useState<Array<Omit<DoneEntryEncoded, "id">>>([])

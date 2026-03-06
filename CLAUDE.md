@@ -27,7 +27,7 @@ app/
 ├── schema/              # DXOS data models (TimeEntry, DoneEntry, Contact, Project, Client, Invitation)
 ├── ui/                  # React components
 │   └── shadcn/          # shadcn/ui primitives
-├── hooks/               # Custom hooks (useDatabase, useTeam, useLocalState, etc.)
+├── hooks/               # Custom hooks (useDbQuery, useTeam, useLocalState, etc.)
 ├── lib/                 # Utilities (date, time, CSV parsing)
 ├── data/                # Static/seed data
 └── types/               # TypeScript types
@@ -36,12 +36,12 @@ test/                    # Playwright E2E tests
 
 ## Key Files
 
-| File                                         | Purpose                                               |
-| -------------------------------------------- | ----------------------------------------------------- |
-| [root.tsx](app/root.tsx)                     | Root layout, DXOS ClientProvider, schema registration |
-| [useDatabase.tsx](app/hooks/useDatabase.tsx) | Main hook for querying DXOS space                     |
-| [schema/](app/schema/)                       | Data models with Effect/Schema validation             |
-| [vite.config.ts](vite.config.ts)             | Build config with PWA, icons, WASM                    |
+| File                                       | Purpose                                               |
+| ------------------------------------------ | ----------------------------------------------------- |
+| [root.tsx](app/root.tsx)                   | Root layout, DXOS ClientProvider, schema registration |
+| [useDbQuery.tsx](app/hooks/useDbQuery.tsx) | Typed query hook, binds to current space              |
+| [schema/](app/schema/)                     | Data models with Effect/Schema validation             |
+| [vite.config.ts](vite.config.ts)           | Build config with PWA, icons, WASM                    |
 
 ## Commands
 
@@ -76,7 +76,7 @@ pnpm lint:fix     # Auto-fix lint issues (run after every change)
 
 - Schema types registered in [root.tsx](app/root.tsx)
 - Query data via `useQuery()` from `@dxos/react-client/echo`
-- Space accessed via `useDatabase()` hook
+- Space accessed via `useDbQuery()` hook
 - Objects are reactive (CRDT-backed)
 
 When debugging dxos-related things, you can reference the local copy of the dxos monorepo at ~/code/dxos/dxos
