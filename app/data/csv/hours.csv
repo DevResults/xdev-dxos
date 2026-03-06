@@ -2926,7 +2926,7 @@ reid,2019-04-01,0.5,Support: Ongoing,cepps,Tickets - https://devresults.freshdes
 reid,2019-04-01,0.5,Support: Ongoing,cepps,Tickets - https://devresults.freshdesk.com/a/tickets/3806
 ritika,2019-04-01,2,Overhead,,salary stuff
 ritika,2019-04-01,4,Overhead,,data spring cleaning/planning
-shane,2019-04-01,8,,,"Company sabatical google document, assign tasks, sprint 1 planning, talk to moo, decide to keep subscription, colleen onboarding checklist, parse mail, cashflow, benifits enrollment, computer snafu, etc"
+shane,2019-04-01,8,Overhead,,"Company sabatical google document, assign tasks, sprint 1 planning, talk to moo, decide to keep subscription, colleen onboarding checklist, parse mail, cashflow, benifits enrollment, computer snafu, etc"
 aasit,2019-04-02,2,Overhead,,BD finances
 aasit,2019-04-02,1,Business: Marketing,,SIDW
 aasit,2019-04-02,5,Overhead,,Doctors
@@ -5679,7 +5679,7 @@ ritika,2019-08-22,5,Support: Setup,inlmexico,setup
 ritika,2019-08-22,2,Support: Ongoing,civicus,check-in
 ritika,2019-08-22,3,Support: Ongoing,winrock,help ticket
 shane,2019-08-22,8,Overhead,,"Bonus team meeting, ABA new agreement, send herb bonus team meeting notes/concerns/next steps, attrition calculation, bob meyers employment verification, review nda/respond aasit with notes/concerns, pwc exchange rate descrepency, meeting, etc"
-aasit,2019-08-23,4,,,
+aasit,2019-08-23,4,Overhead,,
 aasit,2019-08-23,1,Overhead,,Pairing
 aasit,2019-08-23,1,Overhead,,Weekly
 aasit,2019-08-23,1,Overhead,,Meeting
@@ -6284,7 +6284,7 @@ ritika,2019-10-01,3,Overhead,,
 ritika,2019-10-01,3,Support: Ongoing,,
 ritika,2019-10-01,3,Overhead,,internal sector analysis
 shane,2019-10-01,8,Overhead,,"Bonus spreadsheet work/convos, employee contracts, first october pay checks, ABA contract rewnewal, meeting, move $ to cover weekly shortfall, haiti contract, company credit card issues, ping overdue customers + monthly billing run, etc"
-aasit,2019-10-02,2,,,
+aasit,2019-10-02,2,Overhead,,
 aasit,2019-10-02,3,Overhead,,Sick / Drs.
 brent,2019-10-02,1,Overhead,,"Email/slack/hours; meet w Reid about qGIS, etc)"
 brent,2019-10-02,5,Feature: Notifications,,"Review PRs 1341 (SentNotification tests), 1345 (validate schedules in API); PR 1346 (suggested changed to 1345)"
@@ -7644,10 +7644,10 @@ ritika,2019-12-13,7,Support: Ongoing,inlmexico,training prep and then training a
 shane,2019-12-13,8,Overhead,,TODO
 diego,2019-12-14,2,Tech wealth: Other,,
 nathan,2019-12-14,5,Overhead,,Advent of Code
-aasit,2019-12-16,2,,,
-aasit,2019-12-16,2,,,
-aasit,2019-12-16,2,,,
-aasit,2019-12-16,2,,,
+aasit,2019-12-16,2,Overhead,,
+aasit,2019-12-16,2,Overhead,,
+aasit,2019-12-16,2,Overhead,,
+aasit,2019-12-16,2,Overhead,,
 diego,2019-12-16,2,Feature: Matrix,,
 diego,2019-12-16,5,Feature: Too small to name,,
 diego,2019-12-16,1,Tech wealth: Bug fixin,,
@@ -13615,7 +13615,7 @@ brent,2021-01-04,1,Overhead,,Email/slack/asana/hours; Catch up after time off
 brent,2021-01-04,0.5,Feature: Too small to name,,drcli: Review PR 1 (count lines in tsconv)
 brent,2021-01-04,6.5,Security,,Work on developer database setup
 diego,2021-01-04,8,Tech wealth: Bug fixin,,
-fred,2021-01-04,0,,,placeholders for the summary graph
+fred,2021-01-04,0,Overhead,,placeholders for the summary graph
 herb,2021-01-04,8,Out,,
 leslie,2021-01-04,1,Out,,Slack was down and I was lost
 leslie,2021-01-04,1,Support: Ongoing,uganda,Prep for meeting Tues
@@ -13630,7 +13630,7 @@ reid,2021-01-04,4,Out,,Migraine
 ritika,2021-01-04,3,Support: Ongoing,ndi,
 ritika,2021-01-04,2,Overhead,,hiring support
 ritika,2021-01-04,3,Security,,pen test
-sam,2021-01-04,0,,,placeholders for the summary graph
+sam,2021-01-04,0,Overhead,,placeholders for the summary graph
 shane,2021-01-04,8,Overhead,,"Weekly review, monthly review, weekly cashflow, catch up from being off, internet outage, hsa 2021 tweaks, mortage checks nancy, chemonics contract/signatures/emails, winrock outstanding 2021 task orders/sign task orders/emails/etc, TD Bank wire limit increase/emails, renew devresults google voice phone number, USP ACH paperwork, expensify reports/answer expensify questions, wwb new contract, fedramp invoices, bulletproof wire issues, etc"
 aasit,2021-01-05,3,Business: Outreach,,Chris / Bobby Meeting
 aasit,2021-01-05,3,Business: Proposals,,Update INL doc
@@ -13752,7 +13752,7 @@ brent,2021-01-11,1.5,Tech wealth: Other,,PR 2241 (DbRefresh updates: extracted f
 brent,2021-01-11,1,Tech wealth: TypeScript,,PR 2240 (directive TS migration)
 brent,2021-01-11,0.5,Tech wealth: Other,,PR 2242 (add EnforceDynamicTablesCommand)
 diego,2021-01-11,8,Tech wealth: TypeScript,,
-fred,2021-01-11,0,,,placeholders for the summary graph
+fred,2021-01-11,0,Overhead,,placeholders for the summary graph
 herb,2021-01-11,1,Overhead,,
 herb,2021-01-11,5,Feature: Project X,,taco-chat; mermaid-js
 herb,2021-01-11,2,Overhead,,
@@ -13769,7 +13769,7 @@ ritika,2021-01-11,1,Overhead,,Herb
 ritika,2021-01-11,3,Security,,"Meeting with BK, meeting with Vero, paying for Tenable"
 ritika,2021-01-11,4,Support: Ongoing,,PR reviews and help tickets
 ritika,2021-01-11,1,Security,,Wiki
-sam,2021-01-11,0,,,placeholders for the summary graph
+sam,2021-01-11,0,Overhead,,placeholders for the summary graph
 shane,2021-01-11,8,Overhead,,"Weekly review, weekly cashflow, annual bonus work/meetings/emails lots, background check work - update wiki/run test background check/emails lots, credit card questions, winrock final instances/invoicing, monthly billing run catchup, etc"
 aasit,2021-01-12,5,Business: Outreach,,ACDI Voca meeting
 aasit,2021-01-12,3,Business: Contracts,,WRI call to discuss another WRI call / GIZ
@@ -13899,7 +13899,7 @@ brent,2021-01-18,0.5,Feature: Too small to name,,Review PR 2239 (add mechanism f
 brent,2021-01-18,0.5,Overhead,,Comment on DD thread; review & add to virtual retreat project
 brent,2021-01-18,0.5,Feature: Too small to name,,PR 2255 (ResultsFrameworks.ts)
 diego,2021-01-18,8,Tech wealth: Other,,
-fred,2021-01-18,0,,,placeholders for the summary graph
+fred,2021-01-18,0,Overhead,,placeholders for the summary graph
 herb,2021-01-18,4,Feature: Project X,,taco-chat
 leslie,2021-01-18,1,Support: Setup,winrock,On call help: template review for RP's new site
 leslie,2021-01-18,0.5,Support: Ongoing,gpe,On call: DT support
@@ -13911,7 +13911,7 @@ nathan,2021-01-18,8,Out,,holiday
 nathan,2021-01-18,4,Overhead,,hiring
 reid,2021-01-18,8,Out,,Out
 ritika,2021-01-18,8,Out,,
-sam,2021-01-18,0,,,placeholders for the summary graph
+sam,2021-01-18,0,Overhead,,placeholders for the summary graph
 shane,2021-01-18,8,Overhead,,"General computer slowness, lots of fedramp diagram updates/emails, meetings/emails to start enrollment period/post new github issue, zoom configuration tests (etc), CAGE setup/emails aasit, send out invoices lots, PwC supplier form + invoice updates, etc"
 aasit,2021-01-19,3,Overhead,,internal meetings
 aasit,2021-01-19,2,Support: Ongoing,,inl
@@ -14036,7 +14036,7 @@ brent,2021-01-25,4.5,Feature: Google Drive integration,,PR 2276 (StorageConfigur
 brent,2021-01-25,1,Overhead,,Azure Sentinel learning
 brent,2021-01-25,2,Tech wealth: TypeScript,,Convert CurrentInstanceService to TS
 diego,2021-01-25,8,Out,,
-fred,2021-01-25,0,,,placeholders for the summary graph
+fred,2021-01-25,0,Overhead,,placeholders for the summary graph
 herb,2021-01-25,4,Overhead,,blog
 herb,2021-01-25,1,Overhead,,
 leslie,2021-01-25,2.5,Support: Setup,inl,Meeting prep / guidehouse meeting / follow-up work
@@ -14056,7 +14056,7 @@ reid,2021-01-25,2,Business: Proposals,fema,demo site build
 reid,2021-01-25,2.5,Overhead,,email
 ritika,2021-01-25,4,Feature: Too small to name,,PR reviews
 ritika,2021-01-25,4,Out,,
-sam,2021-01-25,0,,,placeholders for the summary graph
+sam,2021-01-25,0,Overhead,,placeholders for the summary graph
 shane,2021-01-25,8,Overhead,,
 aasit,2021-01-26,4,Overhead,,Meetings
 aasit,2021-01-26,4,Out,,Doctors
@@ -14183,7 +14183,7 @@ brent,2021-02-01,1,Feature: IATI,,Sprint 2021-03 tasking
 brent,2021-02-01,2,DevOps: General,,Use powershell to disable pentest heartbeat job; updated pen test env wiki
 brent,2021-02-01,0.5,Tech wealth: Bug fixin,,Review PR 2284 (multimatrix total cell formatString fix)
 diego,2021-02-01,8,Out,,
-fred,2021-02-01,0,,,placeholders for the summary graph
+fred,2021-02-01,0,Overhead,,placeholders for the summary graph
 herb,2021-02-01,4,Overhead,,network issues
 leslie,2021-02-01,2,Support: Ongoing,uganda,Meeting about PPR
 leslie,2021-02-01,0.5,Support: Ongoing,uganda,On call: MM totals bug
@@ -14202,7 +14202,7 @@ reid,2021-02-01,2,Overhead,,email
 ritika,2021-02-01,3,Overhead,,
 ritika,2021-02-01,3,Support: Setup,ndi,
 ritika,2021-02-01,2,Support: Ongoing,ifes,
-sam,2021-02-01,0,,,placeholders for the summary graph
+sam,2021-02-01,0,Overhead,,placeholders for the summary graph
 shane,2021-02-01,8,Overhead,,"Weekly review, weekly cashflow, desk setup changes - learn/install new keyboard, diego new computer, confirm receipt art wire, check in lab/final new contract issues/send invoice, schellman invoices, mexico final monthly invoice debacle, bulletproof invoice issues, ping all overdue customers, monthly review, catch up on github issues lots, winrock bsafe next steps, international background check next steps diego, update github issue with next steps background checks, invoices for background screening, etc"
 aasit,2021-02-02,3,Overhead,,internal Meetings
 aasit,2021-02-02,4,Business: Outreach,,
@@ -14332,7 +14332,7 @@ brent,2021-02-08,1,Overhead,,Review candidate resume & karat overview; start rev
 brent,2021-02-08,4,Feature: IATI,,AsyncRequests system: write spec
 brent,2021-02-08,2,Security,,FedRAMP meeting w FITS & debrief
 diego,2021-02-08,8,Tech wealth: Other,,
-fred,2021-02-08,0,,,placeholders for the summary graph
+fred,2021-02-08,0,Overhead,,placeholders for the summary graph
 herb,2021-02-08,2.5,Feature: Project X,,
 herb,2021-02-08,1.3,Feature: Project X,,
 leslie,2021-02-08,2.5,Support: Training,wwb,Prep for + training
@@ -14354,7 +14354,7 @@ reid,2021-02-08,1.5,Support: Ongoing,winrock,ticket
 ritika,2021-02-08,2,Feature: Matrix,,catmumbo
 ritika,2021-02-08,2,Support: Ongoing,civicus,
 ritika,2021-02-08,4,Security,,
-sam,2021-02-08,0,,,placeholders for the summary graph
+sam,2021-02-08,0,Overhead,,placeholders for the summary graph
 shane,2021-02-08,8,Overhead,,"Weekly review, weekly cashflow, prep for FITs meeting + emails, various administrative, Fedramp documentation lots, herb+shane, meeting tom taylor, fits + devresults meeting, ship deigo computer, ritika sympathy work lots, etc"
 aasit,2021-02-09,8,Out,,Birthday
 brent,2021-02-09,1.5,Overhead,,Email/slack/asana/hours; geuguessr hour; some child care time
@@ -14484,7 +14484,7 @@ brent,2021-02-15,1.5,Feature: ContentObject Validation,,PR 2299 (Create BulkDele
 brent,2021-02-15,3,Feature: IATI,,"PR 2302 (Work on AsyncRequestQueueWorker, IAsyncRequestHandler, AwardReportingPeriodExportRequestHandler)"
 brent,2021-02-15,1,DevOps: CI configuration,,Review PR 2298 (remove team-city-reporter)
 diego,2021-02-15,8,Out,,
-fred,2021-02-15,0,,,placeholders for the summary graph
+fred,2021-02-15,0,Overhead,,placeholders for the summary graph
 herb,2021-02-15,4.5,Overhead,,writing
 herb,2021-02-15,1,Overhead,,
 leslie,2021-02-15,1,Overhead,,Asana/Slack/email
@@ -14500,7 +14500,7 @@ reid,2021-02-15,2,Out,,out
 reid,2021-02-15,2,Support: Ongoing,cordaid,ticket/data restore
 ritika,2021-02-15,5,Out,,
 ritika,2021-02-15,3,Security,,
-sam,2021-02-15,0,,,placeholders for the summary graph
+sam,2021-02-15,0,Overhead,,placeholders for the summary graph
 shane,2021-02-15,4,Support: Ongoing,,"FD5876, FD5875"
 shane,2021-02-15,4,Overhead,,"Weekly review, weekly cashflow, HR one on one work/emails lots, expensify reimbursements and reports, ping all overdue customers, USP ACH/electronic payment setup, Diego care package work lots, find company checks at office, etc"
 aasit,2021-02-16,2,Overhead,,Internal Meetings
@@ -14631,7 +14631,7 @@ brent,2021-02-22,1,Overhead,,Email/slack/asana/hours; help HC & LS w Forms code 
 brent,2021-02-22,2,Feature: IATI,,Review PR 2317 (IatiActivityExportRequestHandler)
 brent,2021-02-22,5,Security,,Review FedRAMP controls docs; pair w Ritika on Tenable scans; meet with FITS
 diego,2021-02-22,8,Overhead,,
-fred,2021-02-22,0,,,placeholders for the summary graph
+fred,2021-02-22,0,Overhead,,placeholders for the summary graph
 herb,2021-02-22,4.5,Feature: Project X,,taco-chat
 herb,2021-02-22,1.5,Overhead,,
 herb,2021-02-22,2,Overhead,,Writing
@@ -14650,7 +14650,7 @@ reid,2021-02-22,2,Support: Training,winrock,refresher training
 reid,2021-02-22,4,Support: Training,shejehsalam,training
 reid,2021-02-22,2,Overhead,,"email, slack, github issues"
 ritika,2021-02-22,9,Security,,
-sam,2021-02-22,0,,,placeholders for the summary graph
+sam,2021-02-22,0,Overhead,,placeholders for the summary graph
 shane,2021-02-22,2,Support: Ongoing,,On call
 shane,2021-02-22,6,Overhead,,"Fedramp, Fedramp meetings, TODO"
 aasit,2021-02-23,5,Overhead,,internal meetings
@@ -14774,7 +14774,7 @@ brent,2021-03-01,5.5,Security,,"Azure: Application gateway configuration, resear
 brent,2021-03-01,1.5,Security,,"Meetings with Shane, Ritika, Vero to review FedRAMP controls and questions"
 diego,2021-03-01,2,Overhead,,
 diego,2021-03-01,6,Tech wealth: Other,,
-fred,2021-03-01,0,,,placeholders for the summary graph
+fred,2021-03-01,0,Overhead,,placeholders for the summary graph
 herb,2021-03-01,5,Overhead,,blog
 herb,2021-03-01,2,Overhead,,
 leslie,2021-03-01,2.5,Support: Setup,inl,"Prep, check-in, data lit meeting, follow-up editing"
@@ -14787,7 +14787,7 @@ reid,2021-03-01,1,Feature: IATI,,https://github.com/DevResults/DevResults/pull/2
 reid,2021-03-01,2,Support: Ongoing,,small tickets for various
 reid,2021-03-01,4.5,Support: Setup,aba,migration script editing
 ritika,2021-03-01,10,Security,,
-sam,2021-03-01,0,,,placeholders for the summary graph
+sam,2021-03-01,0,Overhead,,placeholders for the summary graph
 shane,2021-03-01,1,Support: Ongoing,,On call
 shane,2021-03-01,7,Overhead,,"TD Bank x 3, Fedramp, Fedramp meetings, TODO"
 aasit,2021-03-02,4,Overhead,,Internal calls
@@ -14922,7 +14922,7 @@ brent,2021-03-08,1,Overhead,,SAML learning
 diego,2021-03-08,0.5,Overhead,,
 diego,2021-03-08,1,Out,,
 diego,2021-03-08,6.5,Tech wealth: Other,,
-fred,2021-03-08,0,,,placeholders for the summary graph
+fred,2021-03-08,0,Overhead,,placeholders for the summary graph
 herb,2021-03-08,7.3,Feature: Project X,,taco-chat
 leslie,2021-03-08,1.5,Overhead,,Asana/Slack/email
 leslie,2021-03-08,3.5,Support: Setup,inl,Standing meeting; data lit meeting; follow-up work
@@ -14935,7 +14935,7 @@ reid,2021-03-08,1,Tech wealth: Other,,https://github.com/DevResults/DevResults/p
 reid,2021-03-08,4,Support: Training,shejehsalam,training
 reid,2021-03-08,3.5,Support: Ongoing,cordaid,ticket
 ritika,2021-03-08,12,Security,,
-sam,2021-03-08,0,,,placeholders for the summary graph
+sam,2021-03-08,0,Overhead,,placeholders for the summary graph
 shane,2021-03-08,8,Overhead,,"Weekly review, weekly cashflow, fedramp diagram changes, catch up on hours, TASC account rep issues/updates to github issues with HRA quote, winrock new task order/invoices/emails, sql server management studio crashing + general computer slowness issues, invoicing/MWI renewal, DevResults company insurance updates, etc"
 aasit,2021-03-09,3,Thought Leadership,,ICT meeting
 aasit,2021-03-09,4,Business: Outreach,,Demos
@@ -15079,7 +15079,7 @@ brent,2021-03-15,1.5,Security,,More investigation of devresults.onmicrosoft.com 
 brent,2021-03-15,1.5,Tech wealth: Bug fixin,,PR 2359 (PhotosController updates from PR review)
 diego,2021-03-15,4,Tech wealth: Other,,
 diego,2021-03-15,4,Feature: Too small to name,,
-fred,2021-03-15,0,,,placeholders for the summary graph
+fred,2021-03-15,0,Overhead,,placeholders for the summary graph
 herb,2021-03-15,3,Feature: Project X,,taco-chat
 herb,2021-03-15,3.3,Overhead,,
 leslie,2021-03-15,2,Support: Setup,inl,Check-in with Guidehouse/INL (+ follow up chat about Mexico)
@@ -15093,7 +15093,7 @@ reid,2021-03-15,0.5,Overhead,,BD check-in
 reid,2021-03-15,5.5,Support: Setup,,migration script editing
 reid,2021-03-15,5.5,Support: Setup,,migration script editing
 ritika,2021-03-15,10,Security,,
-sam,2021-03-15,0,,,placeholders for the summary graph
+sam,2021-03-15,0,Overhead,,placeholders for the summary graph
 shane,2021-03-15,8,Overhead,,"Weekly review, weekly cashflow, open/scan mail, catch up expenses, figure out trips to bank/wires for this week, azure loging issues, 2021 open enrollment kit, final steps healthcare renewal, feed SOC report, etc"
 aasit,2021-03-16,2,Business: Outreach,,USAID DIS
 aasit,2021-03-16,2,Business: Marketing,,Data migration plan for all Missions work / brain storming
@@ -15216,7 +15216,7 @@ brent,2021-03-22,1.5,Tech wealth: Other,,PR 2378 (Work on improvements for Clone
 brent,2021-03-22,0.5,Feature: Dashboard,,Review PR 2377 (choropleth overlays)
 brent,2021-03-22,1,Feature: EditGrid,,PR 2379 (hide Details button for ResultsFrameworks insert row)
 diego,2021-03-22,8,Tech wealth: Bug fixin,,
-fred,2021-03-22,0,,,placeholders for the summary graph
+fred,2021-03-22,0,Overhead,,placeholders for the summary graph
 herb,2021-03-22,6.8,Overhead,,
 leslie,2021-03-22,1,Support: Training,wwb,Demo-training for leadership/wider audience
 leslie,2021-03-22,1,Overhead,,Asana/Slack/email
@@ -15236,7 +15236,7 @@ ritika,2021-03-22,2,Support: Ongoing,ndi,
 ritika,2021-03-22,2,Support: Ongoing,cepps,
 ritika,2021-03-22,3,Security,,
 ritika,2021-03-22,1,Out,,
-sam,2021-03-22,0,,,placeholders for the summary graph
+sam,2021-03-22,0,Overhead,,placeholders for the summary graph
 shane,2021-03-22,8,Overhead,,"TD bank wire trace, deferred revenue/taxes work, lots of annual bonus/profit sharing work + emails, weekly meeting, wwb invoice, github issues - default deciders/new relic/employee background screening, setup fedramp max acocunt/parse feedback fedramp kickoff meeting/scheduling for 3pao, update out of office schedule cadenance calendar, invoices/ping everyone overdue, expensify expenses/questions, shane + reid pairing, etc"
 aasit,2021-03-23,2,Business: Contracts,,finalization of JSI and Tufts
 aasit,2021-03-23,2,Business: Outreach,,Demos
@@ -15373,7 +15373,7 @@ brent,2021-03-29,0.5,Feature: Pseudonyms,,Review PR 2390 (Minor pseudonym improv
 brent,2021-03-29,1.5,Tech wealth: Other,,"Review PRs 2395 (use FeatureCodes constants), 2396 (linq.js conversion)"
 brent,2021-03-29,1.5,Tech wealth: Bug fixin,,FD 6020 (consolidate calculated indicator data messages)
 diego,2021-03-29,8,Out,,
-fred,2021-03-29,0,,,placeholders for the summary graph
+fred,2021-03-29,0,Overhead,,placeholders for the summary graph
 herb,2021-03-29,6.5,Overhead,,writing
 leslie,2021-03-29,4.5,Support: Setup,inl,Work on data lit presentation / 2x dry runs / more edits
 leslie,2021-03-29,1,Overhead,,Asana/Slack/email
@@ -15384,7 +15384,7 @@ reid,2021-03-29,3,Support: Ongoing,syriamel,meeting
 reid,2021-03-29,5,Out,,out
 ritika,2021-03-29,8,Security,,
 ritika,2021-03-29,2,Feature: Matrix,,pitch writing?
-sam,2021-03-29,0,,,placeholders for the summary graph
+sam,2021-03-29,0,Overhead,,placeholders for the summary graph
 shane,2021-03-29,8,Overhead,,
 aasit,2021-03-30,2,Thought Leadership,,
 aasit,2021-03-30,3,Business: Proposals,,
@@ -15501,7 +15501,7 @@ brent,2021-04-05,2,Tech wealth: Other,,PR 2417 (Clean up IndicatorToken and lega
 brent,2021-04-05,1.5,Tech wealth: Other,,PR 2418 (Remove GroupChooser.ascx)
 diego,2021-04-05,1,Overhead,,
 diego,2021-04-05,6,Tech wealth: Other,,
-fred,2021-04-05,0,,,placeholders for the summary graph
+fred,2021-04-05,0,Overhead,,placeholders for the summary graph
 herb,2021-04-05,8,Out,,
 leslie,2021-04-05,1,Support: Setup,inl,Guidehouse checkin; communicating about data lit topics
 leslie,2021-04-05,0.5,Support: Ongoing,inlmexico,Comms about site-specific dashboard defaults
@@ -15518,7 +15518,7 @@ nathan,2021-04-05,4,Tech wealth: Bug fixin,,prs
 reid,2021-04-05,8,out,,packing
 ritika,2021-04-05,6,Security,,
 ritika,2021-04-05,2,Out,,
-sam,2021-04-05,0,,,placeholders for the summary graph
+sam,2021-04-05,0,Overhead,,placeholders for the summary graph
 shane,2021-04-05,3,Overhead,,
 shane,2021-04-05,5,Support: Ongoing,,On call
 aasit,2021-04-06,4,Overhead,,Internal Meetings
@@ -15661,7 +15661,7 @@ nathan,2021-04-12,1.5,Out,,jab jab jab
 reid,2021-04-12,8,out,,moving
 ritika,2021-04-12,4,Support: Training,worldlearning,
 ritika,2021-04-12,4,Security,,
-sam,2021-04-12,0,,,placeholders for the summary graph
+sam,2021-04-12,0,Overhead,,placeholders for the summary graph
 shane,2021-04-12,8,Overhead,,"Boundary diagram changes lots, dates signed up for asana + slack, 401k meeting/recording, leslie donut, etc"
 aasit,2021-04-13,8,Business: Contracts,,FEMA
 aasit,2021-04-13,8,Business: Contracts,,FEMA
@@ -15804,7 +15804,7 @@ leslie,2021-04-19,2,Support: Setup,inl,Russia geography work
 nathan,2021-04-19,8,Tech wealth: TypeScript,,pr machine
 reid,2021-04-19,8,out,,unpacking
 ritika,2021-04-19,8,Security,,
-sam,2021-04-19,0,,,placeholders for the summary graph
+sam,2021-04-19,0,Overhead,,placeholders for the summary graph
 shane,2021-04-19,8,Overhead,,"Chemonics renewal contract/email updates/setup meeting, replacment cable for headset, wwb new contract, catch up on invoicing/billing run lots, finish catching up on reimbursements, fedramp donut/fedramp meeting prep/email updates to schellman, phone calls and emails to TD bank to find wire/report back to bulletproof, finalize annual bonus numbers/setup meeting/slack convos/cancel meeting/emails with questions, etc"
 aasit,2021-04-20,8,Out,,Vacation
 brent,2021-04-20,1.5,Overhead,,Email/slack/asana/hours/FD; log vegetables hours
@@ -15958,7 +15958,7 @@ reid,2021-04-26,3,Out,,Headache
 ritika,2021-04-26,2,Business: Proposals,iri,
 ritika,2021-04-26,4,Security,,
 ritika,2021-04-26,3,Support: Ongoing,,
-sam,2021-04-26,0,,,placeholders for the summary graph
+sam,2021-04-26,0,Overhead,,placeholders for the summary graph
 shane,2021-04-26,8,Overhead,,"Lots of work on annual bonus final numbers and payouts/401k/emails/type up github issues/slack convos, default decider github issue, payment info for tenant, review notes fedramp kickoff - create tasks as appropriate, new relic shutdown lots/inventory checks/post findings to github issues/assign tasks, fedramp timing emails/convos, winrock renewals lots/update our records/emails/research situation of nigeria project, background check work lots, second round of PPP, etc"
 aasit,2021-04-27,4,Overhead,,internal meetings
 aasit,2021-04-27,4,Business: Outreach,iri,3 demos in a day + prep
@@ -16159,7 +16159,7 @@ ritika,2021-05-03,1,Support: Setup,rti,
 ritika,2021-05-03,1,Support: Ongoing,ndi,
 ritika,2021-05-03,0.5,Support: Ongoing,ifes,
 ritika,2021-05-03,0.5,Support: Ongoing,cordaid,
-sam,2021-05-03,0,,,placeholders for the summary graph
+sam,2021-05-03,0,Overhead,,placeholders for the summary graph
 shane,2021-05-03,8,Overhead,,
 aasit,2021-05-04,4,Overhead,,internal meetings
 aasit,2021-05-04,4,Business: Proposals,,FEMA
@@ -16326,14 +16326,14 @@ ritika,2021-05-10,0.5,Support: Ongoing,jor,Help
 ritika,2021-05-10,1,Support: Setup,,Prep for kick off
 ritika,2021-05-10,1,Support: Setup,jsi,DevResults Kick Off Sessions
 ritika,2021-05-10,0.5,Support: Ongoing,jor,Help
-ritika,2021-05-10,1,,,Slack + Emails
+ritika,2021-05-10,1,Overhead,,Slack + Emails
 ritika,2021-05-10,1,Support: Setup,jsi,JSI CHISU review
 ritika,2021-05-10,1,Support: Setup,rti,Email to RTI
-ritika,2021-05-10,1,,,FedRAMP emails
+ritika,2021-05-10,1,Overhead,,FedRAMP emails
 ritika,2021-05-10,0.5,Support: Ongoing,ndi,Tanger-Tetouan-Al Hoceima NDI
 ritika,2021-05-10,0.5,Support: Ongoing,cepps,FD 6234
 ritika,2021-05-10,0.5,Tech wealth: Other,,PR 2515
-sam,2021-05-10,0,,,placeholders for the summary graph
+sam,2021-05-10,0,Overhead,,placeholders for the summary graph
 shane,2021-05-10,8,Overhead,,"Weekly GTD Review, weekly cashflow and $ planning, dc healthlink renewal github issue + emails, disable zambia instance/emails, new relic, fits/fedramp emails, updates to various invoices - dt global/etc, pwc setup paperwork, issues updating invoices/emials colleen, meetings x 2, etc"
 aasit,2021-05-11,3,Business: Contracts,,SAM
 aasit,2021-05-11,3,Business: Outreach,,Corus / Palladium / Proposal calls
@@ -16533,7 +16533,7 @@ ritika,2021-05-17,1,Security,,prep docs
 ritika,2021-05-17,0.5,Security,,upload docs
 ritika,2021-05-17,5,Security,,
 ritika,2021-05-17,3,Support: Setup,jsi,
-sam,2021-05-17,0,,,placeholders for the summary graph
+sam,2021-05-17,0,Overhead,,placeholders for the summary graph
 shane,2021-05-17,8,Overhead,,"Weekly review, weekly cashflow, fedramp diagram changes, catch up on hours, TASC account rep issues/updates to github issues with HRA quote, winrock new task order/invoices/emails, sql server management studio crashing + general computer slowness issues, invoicing/MWI renewal, DevResults company insurance updates, etc"
 aasit,2021-05-18,2,Business: Contracts,,WRI / JSI contract intel gathering
 aasit,2021-05-18,2,Business: Proposals,,Corus / palladium
@@ -16732,7 +16732,7 @@ reid,2021-05-24,2.5,Support: Ongoing,jor,https://devresults.freshdesk.com/a/tick
 reid,2021-05-24,2,Support: Ongoing,cordaid,https://devresults.freshdesk.com/a/tickets/6263
 ritika,2021-05-24,6,Out,,out
 ritika,2021-05-24,2,Security,,Scans
-sam,2021-05-24,0,,,placeholders for the summary graph
+sam,2021-05-24,0,Overhead,,placeholders for the summary graph
 shane,2021-05-24,8,Overhead,,"Weekly review, weekly cashflow, open/scan mail, catch up expenses, figure out trips to bank/wires for this week, azure loging issues, 2021 open enrollment kit, final steps healthcare renewal, feed SOC report, etc"
 aasit,2021-05-25,3,Thought Leadership,,
 aasit,2021-05-25,3,Business: Proposals,,palldium
@@ -16888,7 +16888,7 @@ reid,2021-05-31,8,Out,,Out - MDW
 reid,2021-05-31,1,Overhead,,Slack convos
 ritika,2021-05-31,3,Security,,FedRAMP deck
 ritika,2021-05-31,8,Out,,
-sam,2021-05-31,0,,,placeholders for the summary graph
+sam,2021-05-31,0,Overhead,,placeholders for the summary graph
 shane,2021-05-31,8,Out,,Out
 aasit,2021-06-01,8,Out,,personal
 brent,2021-06-01,1.5,Overhead,,Email/slack/asana/hours/threads
@@ -17056,7 +17056,7 @@ reid,2021-06-07,1,Business: Proposals,corus,technical proposal review
 ritika,2021-06-07,1.8,Support: Setup,rti,RTI setup
 ritika,2021-06-07,1.3,Out,,Out
 ritika,2021-06-07,2,Overhead,,emails + slack
-sam,2021-06-07,0,,,placeholders for the summary graph
+sam,2021-06-07,0,Overhead,,placeholders for the summary graph
 shane,2021-06-07,6.5,Overhead,,
 shane,2021-06-07,1.5,Support: Ongoing,,On call
 aasit,2021-06-08,4,Overhead,,
@@ -17151,7 +17151,7 @@ shane,2021-06-10,4,Support: Ongoing,,On call
 aasit,2021-06-11,1,Overhead,,weekly
 aasit,2021-06-11,7,Overhead,,computer issues - security / antivirus / lastpass
 brent,2021-06-11,8,Out,,
-diego,2021-06-11,0,,,placeholders for the summary graph
+diego,2021-06-11,0,Overhead,,placeholders for the summary graph
 fred,2021-06-11,1,Overhead,,Writing my comment regarding the thread #110
 fred,2021-06-11,1,Overhead,,Weekly staff meeting
 fred,2021-06-11,3,Support: Ongoing,,Reviewing PR#2585 and thinking about if we should allow the import of spreadsheets without Lineage for Admin Divisions (duplicate names)
@@ -17211,7 +17211,7 @@ reid,2021-06-14,1.5,Business: Proposals,stdf,demo site build
 ritika,2021-06-14,2.5,Support: Setup,rti,RTI setup
 ritika,2021-06-14,2.3,Support: Ongoing,,Help tickets
 ritika,2021-06-14,1.5,Support: Ongoing,,Help tickets
-sam,2021-06-14,0,,,placeholders for the summary graph
+sam,2021-06-14,0,Overhead,,placeholders for the summary graph
 shane,2021-06-14,5,Overhead,,
 shane,2021-06-14,3,Support: Ongoing,,On call
 aasit,2021-06-15,2,Business: Proposals,,WTO PORTAL PORTALING
@@ -17310,7 +17310,7 @@ brent,2021-06-18,0.5,Tech wealth: Bug fixin,,Review PR 2595 (fix google map type
 brent,2021-06-18,1,Tech wealth: TypeScript,,Review PR 2590 (d3 component decaf)
 brent,2021-06-18,0.5,Tech wealth: Other,,Try to remove NewRelic APM; other misc task review
 brent,2021-06-18,3,Out,,Juneteenth
-diego,2021-06-18,0,,,placeholders for the summary graph
+diego,2021-06-18,0,Overhead,,placeholders for the summary graph
 herb,2021-06-18,1.5,Feature: Project X,,
 leslie,2021-06-18,8,Out,,Juneteenth!
 nathan,2021-06-18,4,Feature: Standard RP Picker,,
@@ -17355,7 +17355,7 @@ ritika,2021-06-21,1.8,Support: Ongoing,ndi,BK <> RB on targets/enterprise publis
 ritika,2021-06-21,0.9,Support: Ongoing,ndi,NDI custom query
 ritika,2021-06-21,0.8,Support: Ongoing,chemonics,Ritika <> Zoltan
 ritika,2021-06-21,1.5,Support: Ongoing,ifes,IFES site build
-sam,2021-06-21,0,,,placeholders for the summary graph
+sam,2021-06-21,0,Overhead,,placeholders for the summary graph
 shane,2021-06-21,8,Out,,Out
 aasit,2021-06-22,1,Support: Setup,,QED work
 aasit,2021-06-22,1,Business: Marketing,,WRI
@@ -17461,7 +17461,7 @@ brent,2021-06-25,2,Overhead,,Email/slack/asana/hours/threads; Weekly meeting; in
 brent,2021-06-25,1,Feature: Indexify,,Indexify Chooser sprint setup
 brent,2021-06-25,1,Overhead,,Reid champion check-in
 brent,2021-06-25,3.5,Tech wealth: TypeScript,,PR 2621: Decaf some DT directives
-diego,2021-06-25,0,,,placeholders for the summary graph
+diego,2021-06-25,0,Overhead,,placeholders for the summary graph
 fred,2021-06-25,1.5,Overhead,,Separating a time to check the pitches again and adding input for on-call work for weekly + Weekly meeting
 fred,2021-06-25,3,Support: Ongoing,,Started investigating FD#6371 ticket
 fred,2021-06-25,2.5,Support: Ongoing,,Discussion with NG of how to proceed with fixes for FD#6323 and working on fixes + creating PR
@@ -17510,7 +17510,7 @@ reid,2021-06-28,3,Out,,watching kids
 reid,2021-06-28,1,Business: Proposals,stdf,proposal submission
 reid,2021-06-28,0.5,Support: Ongoing,inl,check-in
 ritika,2021-06-28,8,Out,,Out
-sam,2021-06-28,0,,,placeholders for the summary graph
+sam,2021-06-28,0,Overhead,,placeholders for the summary graph
 shane,2021-06-28,8,Out,,Out
 aasit,2021-06-29,4,Business: Outreach,,pipeline development
 aasit,2021-06-29,4,Business: Outreach,,pipeline development
@@ -17620,7 +17620,7 @@ brent,2021-07-02,1.5,DevOps: General,,Start setting up Training Refresh runbook
 brent,2021-07-02,1,Tech wealth: TypeScript,,Decaffeinate Editable by bigdogwillfeed · Pull Request #2627 · DevResults/DevResults
 brent,2021-07-02,1,Tech wealth: TypeScript,,Decaf organization finance directives
 brent,2021-07-02,1.5,Out,,
-diego,2021-07-02,0,,,placeholders for the summary graph
+diego,2021-07-02,0,Overhead,,placeholders for the summary graph
 fred,2021-07-02,1,Overhead,,Weekly meeting with team
 fred,2021-07-02,4,Support: Ongoing,,Finishing changes in the FD-6371 and creating the PR#2628
 fred,2021-07-02,3,Support: Ongoing,,Working on fixing FD-6391
@@ -17654,7 +17654,7 @@ leslie,2021-07-05,8,Out,,Federal holiday
 nathan,2021-07-05,8,Out,,holiday
 reid,2021-07-05,8,Out,,child care
 ritika,2021-07-05,8,Out,,
-sam,2021-07-05,0,,,placeholders for the summary graph
+sam,2021-07-05,0,Overhead,,placeholders for the summary graph
 shane,2021-07-05,8,Out,,Out
 aasit,2021-07-06,2,Business: Contracts,,
 aasit,2021-07-06,2,Business: Outreach,,
@@ -17758,7 +17758,7 @@ brent,2021-07-09,1.5,Overhead,,Donut pairing w Aasit & Shane
 brent,2021-07-09,1.5,Out,,Child care
 brent,2021-07-09,1.5,Feature: Too small to name,,Show inactive indicators on Award_Performance
 brent,2021-07-09,0.5,Tech wealth: Bug fixin,,PR 2638: Fix error with CreateBlobBackupSync in AzureBlobService
-diego,2021-07-09,0,,,placeholders for the summary graph
+diego,2021-07-09,0,Overhead,,placeholders for the summary graph
 fred,2021-07-09,3,Tech wealth: TypeScript,,"Finishing work for decaffeination of QuickSearch, OptionList and NotificationSettings directives and creating PR"
 fred,2021-07-09,1,Overhead,,Weekly team meeting
 fred,2021-07-09,0.5,Tech wealth: TypeScript,,Reviewing PR#2629 and PR#2634 after changes
@@ -17810,7 +17810,7 @@ ritika,2021-07-12,1.3,Support: Ongoing,jsi,CHISU stuff
 ritika,2021-07-12,1.3,Out,,Out
 ritika,2021-07-12,0.8,Overhead,,Emails
 ritika,2021-07-12,1.3,Out,,Out
-sam,2021-07-12,0,,,placeholders for the summary graph
+sam,2021-07-12,0,Overhead,,placeholders for the summary graph
 shane,2021-07-12,8,Overhead,,"Company insurance phone call with mark, expensify charge back issue + dispute, MTAPS training invoice,  invoices for NDI sows, meeting with tammy employers advantage, FedRamp, catch up on historical hours, fix deversults google apps subscription, etc"
 aasit,2021-07-13,2,Overhead,,virtual retreat
 aasit,2021-07-13,2,Business: Contracts,,billing
@@ -17918,7 +17918,7 @@ brent,2021-07-16,2.5,Overhead,,Email/slack/asana/hours/threads; Weekly meeting &
 brent,2021-07-16,3.5,Tech wealth: Other,,PR 2649: Migrate logic check index from dev-table
 brent,2021-07-16,1,Overhead,,Read 2020 vision and respond to strategy thread
 brent,2021-07-16,1,Out,,
-diego,2021-07-16,0,,,placeholders for the summary graph
+diego,2021-07-16,0,Overhead,,placeholders for the summary graph
 fred,2021-07-16,1,Overhead,,Weekly staff meeting
 fred,2021-07-16,0.5,Tech wealth: Other,,Reviewing PR#2 (DevResults-cli)
 fred,2021-07-16,1,Tech wealth: TypeScript,,Reviewing PR#2647 (curly braces lint rules)  PR#2648 (lint function style)
@@ -17984,7 +17984,7 @@ reid,2021-07-19,2,Out,,lunch/nap (feeling sick)
 reid,2021-07-19,0.5,Feature: EditGrid,,https://github.com/DevResults/DevResults/pull/2651
 reid,2021-07-19,0.5,Overhead,,email
 ritika,2021-07-19,8,Out,,Out
-sam,2021-07-19,0,,,placeholders for the summary graph
+sam,2021-07-19,0,Overhead,,placeholders for the summary graph
 shane,2021-07-19,8,Out,,Out
 aasit,2021-07-20,2,Business: Proposals,,Global Water review / tufts review
 aasit,2021-07-20,2,Business: Outreach,,emails to clients
@@ -18081,7 +18081,7 @@ aasit,2021-07-23,8,Overhead,,Meeting marathon
 brent,2021-07-23,3,Overhead,,Email/slack/asana/hours/threads; weekly meeting & prep
 brent,2021-07-23,4.5,Feature: Indexify,,Indexify Choosers planning
 brent,2021-07-23,0.5,Overhead,,On-call hand-off with Nathan
-diego,2021-07-23,0,,,placeholders for the summary graph
+diego,2021-07-23,0,Overhead,,placeholders for the summary graph
 fred,2021-07-23,1,Overhead,,Weekly staff meeting
 fred,2021-07-23,5.5,Tech wealth: Other,,Finishing working on adding filters for Data Table index page and creating the PR
 fred,2021-07-23,1.5,Tech wealth: Other,,Reviewing PR#2649 and checking issue with webpack when moving the function BK created.
@@ -18120,7 +18120,7 @@ ritika,2021-07-26,1.5,Support: Ongoing,ndi,NDI ticket
 ritika,2021-07-26,1.5,Support: Training,jsi,CHISU MIS: Reporting build out
 ritika,2021-07-26,2,Support: Ongoing,ndi,NDI ticket
 ritika,2021-07-26,1,Support: Training,rti,RTI setup
-sam,2021-07-26,0,,,placeholders for the summary graph
+sam,2021-07-26,0,Overhead,,placeholders for the summary graph
 shane,2021-07-26,8,Overhead,,"Boundary diagram changes lots, dates signed up for asana + slack, 401k meeting/recording, leslie donut, etc"
 aasit,2021-07-27,3,Business: Proposals,,"RTI USAID Phillippines, USAID Malawi, Help Age International"
 aasit,2021-07-27,2,Business: Contracts,,"Tufts STOP, Raleigh International"
@@ -18208,7 +18208,7 @@ brent,2021-07-30,1.5,Feature: Too small to name,,Review PR 2660: DT index sideba
 brent,2021-07-30,1,Feature: Too small to name,,Add CC emails to help tickets
 brent,2021-07-30,2,Tech wealth: Bug fixin,,Disable parallel disag setting for DT indicators
 brent,2021-07-30,0.5,Out,,
-diego,2021-07-30,0,,,placeholders for the summary graph
+diego,2021-07-30,0,Overhead,,placeholders for the summary graph
 fred,2021-07-30,1,Overhead,,Weekly staff meeting
 fred,2021-07-30,1,Tech wealth: Other,,Reviewing PR 2662
 fred,2021-07-30,5,Tech wealth: Other,,Finishing handling suggestions from PR review
@@ -18278,7 +18278,7 @@ ritika,2021-08-02,1,Overhead,,product thoughts
 ritika,2021-08-02,1,Overhead,,product convo
 ritika,2021-08-02,2,Overhead,,hiring stuff
 ritika,2021-08-02,2,Overhead,,Emails + slack
-sam,2021-08-02,0,,,placeholders for the summary graph
+sam,2021-08-02,0,Overhead,,placeholders for the summary graph
 shane,2021-08-02,8,Overhead,,"Weekly review, weekly cashflow, fix accounts fred visual studio, review tufts sla and msa, review modified purchase order malawi sign and return, fred credit card to canada, ninja hire/ad feedback, create/review/vote on virtual retreat topics, etc"
 aasit,2021-08-03,2,Overhead,,invoicing organization
 aasit,2021-08-03,2,Business: Contracts,,iri and stop
@@ -18391,7 +18391,7 @@ brent,2021-08-06,1,Feature: Indexify,,Create named toolbar slot for Index.ts
 brent,2021-08-06,1,Overhead,,Reid champion check-in
 brent,2021-08-06,4,Feature: Too small to name,,Review PR 2667: Award custom fields
 brent,2021-08-06,0.5,Feature: Dashboard,,Enable transferring dashboard ownership
-diego,2021-08-06,0,,,placeholders for the summary graph
+diego,2021-08-06,0,Overhead,,placeholders for the summary graph
 fred,2021-08-06,1,Overhead,,Weekly staff meeting
 fred,2021-08-06,7,Tech wealth: Other,,Working on solving issue with download label not coming wrapped. Need to be discussed with other engineers
 herb,2021-08-06,5,Feature: Project X,,
@@ -18454,7 +18454,7 @@ ritika,2021-08-09,1,Business: Outreach,,Reading WRI press release
 ritika,2021-08-09,1,Support: Setup,rti,RTI site work
 ritika,2021-08-09,2,Support: Ongoing,jsi,MIS check in
 ritika,2021-08-09,2,Overhead,,Emails + slack
-sam,2021-08-09,0,,,placeholders for the summary graph
+sam,2021-08-09,0,Overhead,,placeholders for the summary graph
 shane,2021-08-09,8,Overhead,,"IPP/State invoicing emails/config, Internet issues, post office - submit change of address for caudill web, expensify questions/approvals, various invoices employers advantage/FITs, parse wwb new contract/add to invoicing system, catch up on expenses, etc"
 aasit,2021-08-10,2,Business: Contracts,,Finalize STOP + IRI review
 aasit,2021-08-10,2,Business: Outreach,,Navanti Group + USAID Malawi
@@ -18534,7 +18534,7 @@ aasit,2021-08-13,3,Business: Marketing,,Tufts Blog / Guidehouse Partnership / Bi
 aasit,2021-08-13,3,Overhead,,internal meetings
 aasit,2021-08-13,2,Business: Outreach,,
 brent,2021-08-13,8,Out,,
-diego,2021-08-13,0,,,placeholders for the summary graph
+diego,2021-08-13,0,Overhead,,placeholders for the summary graph
 fred,2021-08-13,0.5,Overhead,,Reading emails and having weekly update with team on Zoom
 fred,2021-08-13,7.5,Feature: Indexify,,Working on making progress for SelectedItems directive. Some issue found in the path
 herb,2021-08-13,8,Out,,
@@ -18585,7 +18585,7 @@ reid,2021-08-16,1,Overhead,,email/threads
 reid,2021-08-16,1,Out,,picking up jessie early
 reid,2021-08-16,0.5,Business: Proposals,stdf,prep
 ritika,2021-08-16,8,Out,,
-sam,2021-08-16,0,,,placeholders for the summary graph
+sam,2021-08-16,0,Overhead,,placeholders for the summary graph
 shane,2021-08-16,8,Overhead,,"Background check testing/calls/emails/work lots, ping all overdue customers, billing run, annual bonus/profit sharing emails/documentation/calls lots, pairing nathan donut, winrock outstanding invoice summary/work/emails, tenable help, etc"
 aasit,2021-08-17,4,Business: Proposals,,Demo for WTO
 aasit,2021-08-17,4,Overhead,,
@@ -18669,7 +18669,7 @@ aasit,2021-08-20,8,Out,,Cape May
 brent,2021-08-20,2.5,Overhead,,Email/slack/asana/hours/threads; Weekly meeting & prep
 brent,2021-08-20,0.5,Feature: Notifications,,Pair w Reid on fixing C# tests
 brent,2021-08-20,5,Feature: Indexify,,Try out an IndicatorIndexService implementation
-diego,2021-08-20,0,,,placeholders for the summary graph
+diego,2021-08-20,0,Overhead,,placeholders for the summary graph
 fred,2021-08-20,1,Overhead,,Weekly staff meeting
 fred,2021-08-20,2,Feature: Indexify,,Doing PR review of PR#2690
 fred,2021-08-20,1,Feature: Indexify,,Doing PR review of PR#2691
@@ -18719,7 +18719,7 @@ reid,2021-08-23,1,Overhead,,emails
 ritika,2021-08-23,1,Support: Ongoing,jsi,CHISU check in
 ritika,2021-08-23,1,Overhead,,Interview stuff
 ritika,2021-08-23,5,Overhead,,Interview stuff
-sam,2021-08-23,0,,,placeholders for the summary graph
+sam,2021-08-23,0,Overhead,,placeholders for the summary graph
 shane,2021-08-23,8,Out,,Out
 aasit,2021-08-24,4,Overhead,,Interviews
 aasit,2021-08-24,4,Overhead,,interview prep / emails / internal work
@@ -18825,7 +18825,7 @@ brent,2021-08-27,0.5,Feature: Indexify,,Review PR 2707: Split index pages
 brent,2021-08-27,1.5,Feature: Indexify,,"PR 2699: Merge in main, do some testing, submit for review"
 brent,2021-08-27,2.5,Feature: Indexify,,Start using ContactIndex for dashboard bulk actions
 brent,2021-08-27,1,Out,,Melia bus late & leave for Matt's bday
-diego,2021-08-27,0,,,placeholders for the summary graph
+diego,2021-08-27,0,Overhead,,placeholders for the summary graph
 fred,2021-08-27,1,Overhead,,Writing some updates for on-call for weekly and weekly meeting with team
 fred,2021-08-27,3.5,Feature: Too small to name,,Finishing work in remaining RP-picker enhancements and creating PR#2708
 fred,2021-08-27,3.5,Feature: Too small to name,,Working on implementing RP-picker enhancement for disabling checkboxes if Auto is selected
@@ -18886,7 +18886,7 @@ ritika,2021-08-30,1,Feature: Indexify,,Index selection
 ritika,2021-08-30,1,Support: Ongoing,ndi,tickets
 ritika,2021-08-30,1,Feature: Too small to name,,Feature pairing and issue review
 ritika,2021-08-30,1,Support: Ongoing,cepps,tickets
-sam,2021-08-30,0,,,placeholders for the summary graph
+sam,2021-08-30,0,Overhead,,placeholders for the summary graph
 shane,2021-08-30,8,Overhead,,"Weekly review, weekly cashflow, fedramp diagram changes, catch up on hours, TASC account rep issues/updates to github issues with HRA quote, winrock new task order/invoices/emails, sql server management studio crashing + general computer slowness issues, invoicing/MWI renewal, DevResults company insurance updates, etc"
 aasit,2021-08-31,4,Business: Contracts,,IRI
 aasit,2021-08-31,2,Overhead,,Lots of discussions
@@ -19004,7 +19004,7 @@ brent,2021-09-03,1,Overhead,,Champions meeting w Ritika
 brent,2021-09-03,4,Feature: Indexify,,PR 2709: PR suggestions for ContactIndex on DashboardIndex
 brent,2021-09-03,1,Feature: Indexify,,Review PR 2718: Use IndicatorIndex for assigning activities
 brent,2021-09-03,0.5,Security,,"Report and investigate Github identified vulnerability with ""tar"""
-diego,2021-09-03,0,,,placeholders for the summary graph
+diego,2021-09-03,0,Overhead,,placeholders for the summary graph
 fred,2021-09-03,5,Support: Ongoing,,Finishing fixes for FD-6615 and creating PR#2719
 fred,2021-09-03,1,Overhead,,Weekly meeting with team
 fred,2021-09-03,2,Support: Ongoing,,Investigating and adding changes related to FD-6610
@@ -19038,7 +19038,7 @@ reid,2021-09-06,8,Out,,labor day
 ritika,2021-09-06,8,Out,,Out
 ritika,2021-09-06,0.5,Support: Ongoing,shejehsalam,Help desk
 ritika,2021-09-06,1,Support: Ongoing,jor,Help desk
-sam,2021-09-06,0,,,placeholders for the summary graph
+sam,2021-09-06,0,Overhead,,placeholders for the summary graph
 shane,2021-09-06,8,Overhead,,"Weekly review, weekly cashflow, open/scan mail, catch up expenses, figure out trips to bank/wires for this week, azure loging issues, 2021 open enrollment kit, final steps healthcare renewal, feed SOC report, etc"
 aasit,2021-09-07,8,Overhead,,Sick
 brent,2021-09-07,1.5,Overhead,,Email/slack/asana/hours/threads;
@@ -19139,7 +19139,7 @@ brent,2021-09-10,0.5,Feature: Indexify,,Sprint 2021-S10 task and PR management
 brent,2021-09-10,2.5,Feature: Indexify,,Use indexes for AwardContact bulk actions from activity/contact index pages
 brent,2021-09-10,0.5,Feature: Too small to name,,Review PR 2710: RP Picker improvements
 brent,2021-09-10,1,Out,,
-diego,2021-09-10,0,,,placeholders for the summary graph
+diego,2021-09-10,0,Overhead,,placeholders for the summary graph
 fred,2021-09-10,1.5,Overhead,,Weekly meeting with team and FeRAMP party #1
 fred,2021-09-10,2,Feature: Too small to name,,Handling PR#2708 suggestions
 fred,2021-09-10,2,Feature: Too small to name,,Handling PR#2710 suggestions
@@ -19198,7 +19198,7 @@ ritika,2021-09-13,2,Security,,Security cleanup
 ritika,2021-09-13,1,Business: Contracts,,IRI contracting stuff
 ritika,2021-09-13,3.3,Security,,Security cleanup
 ritika,2021-09-13,1.8,Overhead,,Emails + slack + checking FedRAMP site
-sam,2021-09-13,0,,,placeholders for the summary graph
+sam,2021-09-13,0,Overhead,,placeholders for the summary graph
 shane,2021-09-13,8,Overhead,,"Weekly review, weekly cashflow, update sam offer letter & send out, moz annual subscription emails/contract review, nora invoice, stop spillover year 1 invoice, IRI contract review + sign, research SID payment/respond, feed quarterly invoice, etc"
 aasit,2021-09-14,1,Overhead,,emails
 aasit,2021-09-14,4,Business: Proposals,,GIZ
@@ -19294,7 +19294,7 @@ shane,2021-09-16,8,Overhead,,"Ping everyone overdue invoices, meetings x 2, etc"
 brent,2021-09-17,5,Overhead,,Catch up after being out; weekly meeting; hours
 brent,2021-09-17,2,Tech wealth: Other,,PR 2740: Move DevResults.Geospatial into DevResults.Core
 brent,2021-09-17,1,Overhead,,Donut pairing w Nathan
-diego,2021-09-17,0,,,placeholders for the summary graph
+diego,2021-09-17,0,Overhead,,placeholders for the summary graph
 fred,2021-09-17,0.5,Support: Ongoing,,Reviewing PR#2738 regarding issue with importing indicators
 fred,2021-09-17,1,Overhead,,Reviewing job add PR#64 and adding quarter bonus vegetables
 fred,2021-09-17,3,Feature: Too small to name,,Finishing work BudgetCategories AgGrid - PR#2739 created
@@ -19361,7 +19361,7 @@ ritika,2021-09-20,1,Business: Outreach,,Bootstrap/CSS public page
 ritika,2021-09-20,1,Support: Setup,iri,Going over IRI setup
 ritika,2021-09-20,1.5,Business: Contracts,inl,INL convo
 ritika,2021-09-20,1.5,Overhead,,Slack + email
-sam,2021-09-20,0,,,placeholders for the summary graph
+sam,2021-09-20,0,Overhead,,placeholders for the summary graph
 shane,2021-09-20,8,Overhead,,"Weekly review, weekly cashflow, delete instances work, company insurance policy work, shutdown TeamPay account, etc"
 aasit,2021-09-21,2,Support: Setup,inl,INL Enterprise discussions
 aasit,2021-09-21,3,Business: Outreach,,"Discussions with Nigeria (Navanti), Ethiopia, DIS email, JSI call for MRITE, GIZ"
@@ -19464,7 +19464,7 @@ aasit,2021-09-24,8,out,,Vacation
 brent,2021-09-24,2,Overhead,,Email/slack/asana/hours/threads; Weekly meeting & prep
 brent,2021-09-24,0.5,Overhead,,Champions session w Ritika
 brent,2021-09-24,5.5,Tech wealth: Other,,Try out CSS grid for index layout
-diego,2021-09-24,0,,,placeholders for the summary graph
+diego,2021-09-24,0,Overhead,,placeholders for the summary graph
 fred,2021-09-24,1,Overhead,,Weekly meeting with team
 fred,2021-09-24,3,Feature: Too small to name,,Doing research and reading API permissions document. Adding my idea about it there too
 fred,2021-09-24,4,Feature: Too small to name,,Trying to solve issue for viz reported by Nathan on feedback but getting stuck with it
@@ -19511,7 +19511,7 @@ ritika,2021-09-27,2,Security,,SecFu day prep
 ritika,2021-09-27,1,Feature: Too small to name,,PRs
 ritika,2021-09-27,1,Business: Proposals,giz,Giz proposal
 ritika,2021-09-27,1,Overhead,,Emails + slack
-sam,2021-09-27,0,,,placeholders for the summary graph
+sam,2021-09-27,0,Overhead,,placeholders for the summary graph
 shane,2021-09-27,4,Overhead,,"Weekly review, weekly cashflow, knowledge owl billing issues, purging old customer data, meeting, employers advantage new contact/emails/updates, fedramp 2022 contract, etc"
 shane,2021-09-27,4,Support: Ongoing,,On Call
 aasit,2021-09-28,4,Out,,Vacation
@@ -19626,7 +19626,7 @@ aasit,2021-10-01,2,Business: Proposals,,GIZ
 aasit,2021-10-01,2,Business: Proposals,,Discussions on GC
 aasit,2021-10-01,1,Out,,Dr Apt for Rups
 brent,2021-10-01,8,Out,,
-diego,2021-10-01,0,,,placeholders for the summary graph
+diego,2021-10-01,0,Overhead,,placeholders for the summary graph
 fred,2021-10-01,1,Overhead,,Weekly meeting
 fred,2021-10-01,2,Feature: Too small to name,,Investigating TagMappings directive to see if it can be used for the bulk assign Tags
 fred,2021-10-01,3,Out,,Picking up a friend
@@ -19687,7 +19687,7 @@ ritika,2021-10-04,3,Security,,INL ATO documentation
 ritika,2021-10-04,2.5,Support: Ongoing,,tickets
 ritika,2021-10-04,1.3,Support: Ongoing,inl,INL ???
 ritika,2021-10-04,2,Support: Ongoing,,on-call
-sam,2021-10-04,0,,,placeholders for the summary graph
+sam,2021-10-04,0,Overhead,,placeholders for the summary graph
 shane,2021-10-04,5.5,Overhead,,"Monthly review, weekly review, weekly cashflow, tasc meeting home office reimbursement account, donut nathan, markdown ticket, fix credit cards various subscriptions lots, onboarding candyce employers advantage, delete instances work, etc"
 shane,2021-10-04,2.5,Support: Ongoing,,On call
 aasit,2021-10-05,1,Business: Outreach,,Dimagi partnership / integration discussion
@@ -19804,7 +19804,7 @@ brent,2021-10-08,2.3,Overhead,,Email/slack/asana/hours/threads/FD; weekly meetin
 brent,2021-10-08,1.8,Tech wealth: Bug fixin,,Look into devresults.com unknown page redirect
 brent,2021-10-08,3.5,Tech wealth: Bug fixin,,FD 6732: Quotes in SearchBox tokens don't work properly
 brent,2021-10-08,0.5,Tech wealth: Bug fixin,,FD 6733: Using dates in IndicatorDynamicTableMappingFilter not persisting
-diego,2021-10-08,0,,,placeholders for the summary graph
+diego,2021-10-08,0,Overhead,,placeholders for the summary graph
 fred,2021-10-08,8,Out,,Day off
 herb,2021-10-08,3.5,Out,,
 herb,2021-10-08,1.3,Feature: Project X,,
@@ -19837,7 +19837,7 @@ reid,2021-10-11,8,Out,,Indigenous People's Day
 ritika,2021-10-11,6,Out,,
 ritika,2021-10-11,1,Support: Ongoing,winrock,ticket
 ritika,2021-10-11,1,Support: Ongoing,gpe,ticket
-sam,2021-10-11,0,,,placeholders for the summary graph
+sam,2021-10-11,0,Overhead,,placeholders for the summary graph
 shane,2021-10-11,8,Overhead,,"Weekly review, weekly cashflow, lastpass issues - uninstall and reinstall, typeform billing issue, catch up on github issues, severance policy/work, expensify expenses lots, expense/reimbursement monthly work, etc"
 aasit,2021-10-12,2,Thought Leadership,,Cyber Planning Meeting with Panelists
 aasit,2021-10-12,2,Overhead,,SAM registration things
@@ -19962,7 +19962,7 @@ brent,2021-10-15,1,Feature: Public Site,,Review PR 70: More logos on public site
 brent,2021-10-15,0.3,Feature: Dashboard,,Work on activity targets in TargetsAndActualsGraph
 brent,2021-10-15,1,Feature: RDTs,,Investigate validating geography for DT count unique calculations
 brent,2021-10-15,1,Out,,"Not being productive, calling it a day"
-diego,2021-10-15,0,,,placeholders for the summary graph
+diego,2021-10-15,0,Overhead,,placeholders for the summary graph
 fred,2021-10-15,1.5,Support: Ongoing,,Reviewing PR#2773
 fred,2021-10-15,1.5,Feature: Ag Grid conversions,,Reviewing PR#2775
 fred,2021-10-15,1,Support: Ongoing,,Reviewing PR#2777
@@ -20122,7 +20122,7 @@ brent,2021-10-22,1.5,Overhead,,Email/slack/asana/hours/threads/FD; Weekly meetin
 brent,2021-10-22,1.5,Tech wealth: Bug fixin,,Investigate angular digest issues on cordaid
 brent,2021-10-22,4,Tech wealth: Bug fixin,,More experimenting with Index and Search performance
 brent,2021-10-22,1,Feature: Enterprise,,PR 2779: Test new enterprise publishing functionality
-diego,2021-10-22,0,,,placeholders for the summary graph
+diego,2021-10-22,0,Overhead,,placeholders for the summary graph
 fred,2021-10-22,0.5,Support: Ongoing,,Reviewing PR#2788
 fred,2021-10-22,1,Overhead,,Weekly staff meeting
 fred,2021-10-22,0.5,Support: Ongoing,,Reviewing PR#2791
@@ -20289,7 +20289,7 @@ brent,2021-10-29,0.5,Overhead,,Help Sam get DevResults_Public running locally
 brent,2021-10-29,0.5,Overhead,,Help RB & SS with MS account MFA setup
 brent,2021-10-29,2.5,Feature: Too small to name,,PR 2809: Set up Okta SSO
 brent,2021-10-29,1,Out,,
-diego,2021-10-29,0,,,placeholders for the summary graph
+diego,2021-10-29,0,Overhead,,placeholders for the summary graph
 fred,2021-10-29,1,Overhead,,Weekly meeting with team
 fred,2021-10-29,7,Feature: Ag Grid conversions,,Started creating directive to hold the TransactionsGrid replacement
 herb,2021-10-29,4,Out,,
@@ -20315,8 +20315,8 @@ herb,2021-10-31,4,Feature: Project X,,
 reid,2021-10-31,1,Overhead,,installing malwarebytes
 aasit,2021-11-01,3,Overhead,,Internal meetings
 aasit,2021-11-01,2,Business: Outreach,,Demo prep and demo palladium
-aasit,2021-11-01,2,,,
-aasit,2021-11-01,2,,,
+aasit,2021-11-01,2,Overhead,,
+aasit,2021-11-01,2,Overhead,,
 brent,2021-11-01,1,Overhead,,Email/slack/asana/hours/threads/FD;
 brent,2021-11-01,7,Feature: Too small to name,,PR 2809: Set up Okta SSO
 fred,2021-11-01,1,Overhead,,Meeting the team - Sam
@@ -20344,9 +20344,9 @@ sam,2021-11-01,1,Business: Proposals,,BD Weekly Update
 sam,2021-11-01,1,Overhead,,Catchup with Fred
 sam,2021-11-01,0.5,Support: Ongoing,inl,Catchup and Kickoff Meeting
 shane,2021-11-01,8,Overhead,,"Backupify login issues/contact support, weekly task review, weekly cashflow, prep for trip to TD bank, trip to TD bank, sam onboarding - add to expensify and get company credit card, ninja billing questions - create billing tasks as appropriate, add sam to distribution lists as applicable, monthly task review, ping outstanding invoices, etc"
-aasit,2021-11-02,4,,,
-aasit,2021-11-02,2,,,
-aasit,2021-11-02,2,,,
+aasit,2021-11-02,4,Overhead,,
+aasit,2021-11-02,2,Overhead,,
+aasit,2021-11-02,2,Overhead,,
 brent,2021-11-02,0.5,Overhead,,Email/slack/asana/hours/threads/FD;
 brent,2021-11-02,1,Overhead,,Donut pairing w Aasit
 brent,2021-11-02,0.5,Feature: Google Drive integration,,FD 6561: GoogleDrive auth issue
@@ -20381,10 +20381,10 @@ sam,2021-11-02,1,Overhead,,Meeting with Candace (HR)
 sam,2021-11-02,1,Overhead,,Team Happy Hour
 sam,2021-11-02,5,Overhead,,"HR Paperwork & Onboarding (Travel Insurance, Expensify, Microsoft 365 license/etc)"
 shane,2021-11-02,8,Overhead,,"Catch up on github issues, billing + invoices lots - get ready for winrock renewals, team happy hour, candyce washington HR onboarding, expensify expenses/get receipts and submit from email, research brent baby present ideas/list, severance policy work/review feedback from herb + colleen, call with coastal pension for 401k + annual bonus deposits, etc"
-aasit,2021-11-03,2,,,
-aasit,2021-11-03,2,,,
-aasit,2021-11-03,2,,,
-aasit,2021-11-03,2,,,
+aasit,2021-11-03,2,Overhead,,
+aasit,2021-11-03,2,Overhead,,
+aasit,2021-11-03,2,Overhead,,
+aasit,2021-11-03,2,Overhead,,
 brent,2021-11-03,2,Overhead,,Email/slack/asana/hours/threads/FD; Sprint check-in
 brent,2021-11-03,2,Feature: Enterprise,,Update enterprise activity publishing branch
 brent,2021-11-03,0.5,Feature: Ag Grid conversions,,Pair with Fred on Budget bulk import
@@ -20418,9 +20418,9 @@ sam,2021-11-03,1,Tech wealth: Other,,Sprint Cleanup Meeting
 sam,2021-11-03,6,Overhead,,DevResults Onboarding (Onboarding Assignment/Expensify/TypeForm/KnowledgeOwl/Backblaze/AutoHotKey/BusinessCard/etc)
 sam,2021-11-03,1,Business: Marketing,???,https://docs.google.com/document/d/1U_SI9OaIfXG28cjsqNdmMuyU7PCWIeZJNT-9o9g04PU/edit
 shane,2021-11-03,8,Overhead,,"USAID Haiti invoicing issues, IFDC pinging/end of subscription lots, CHISU invoices x 4, IRI invoice all setup, RTI invoice training, invoicing updates, tufts ach/electronic enrollment, ndi final setup, american bar association po review/emails/changes, mini billing run - invoice DT global, send candyce + sam benifits new enrollment paperwork, winrock December renewal emails + phone call, inl mexico saber rattling, etc"
-aasit,2021-11-04,3,,,
-aasit,2021-11-04,3,,,
-aasit,2021-11-04,2,,,
+aasit,2021-11-04,3,Overhead,,
+aasit,2021-11-04,3,Overhead,,
+aasit,2021-11-04,2,Overhead,,
 brent,2021-11-04,8,Out,,Parental leave
 fred,2021-11-04,6,Feature: Ag Grid conversions,,Working on changing GridTools to have dynamic modal Ids
 fred,2021-11-04,1,Overhead,,Engineering reflection meeting
@@ -20455,7 +20455,7 @@ shane,2021-11-04,4,Support: Ongoing,,"Get copy of latest db, get app running on 
 aasit,2021-11-05,4,Overhead,,Internal meetings and emails before OOO
 aasit,2021-11-05,4,Out,,Vacation
 brent,2021-11-05,8,Out,,Parental leave
-diego,2021-11-05,0,,,placeholders for the summary graph
+diego,2021-11-05,0,Overhead,,placeholders for the summary graph
 fred,2021-11-05,1,Tech wealth: Other,,Finishing updates libs for DevBot and updating node version to 14
 fred,2021-11-05,1,Overhead,,Weekly staff meeting
 fred,2021-11-05,4,Feature: Ag Grid conversions,,Working on PR review suggestions for PR#2808
@@ -20587,7 +20587,7 @@ sam,2021-11-11,8,Out,,Veterans Holiday
 shane,2021-11-11,8,Overhead,,"Ping GIZ - updates to invoices and re-fax, INL/AP new contract/send out quarterly invoice, schellman fedramp 2022 contract review/emails, brent benefits paperwork for molly, fred + sam shadow equity agreements, shut down backupify account, work on JSI CHISU quantify deliverable 5 activities/email back, catch up on historical hours, PCEP contract modifications/emails, etc"
 aasit,2021-11-12,8,Out,,Vacation
 brent,2021-11-12,8,Out,,Parental leave
-diego,2021-11-12,0,,,placeholders for the summary graph
+diego,2021-11-12,0,Overhead,,placeholders for the summary graph
 fred,2021-11-12,1,Feature: Ag Grid conversions,,Reviewing PR#2818
 fred,2021-11-12,0.8,Overhead,,Weekly staff meeting
 fred,2021-11-12,3.2,Feature: Ag Grid conversions,,"Handling PR#2814 suggestions, merging main to feature branch and creating PR#2819"
@@ -20771,7 +20771,7 @@ sam,2021-11-18,4,Overhead,,
 shane,2021-11-18,8,Overhead,,"Backupify account login issues, get feed invoice out the door, get cepps invoice out, jsi contract/send email to join/coordinate with ninjas, winrock renewals/emails/phone call/update ninjas, meetings x 2, research feed check that was lost in the mail, 2021 bonus options + logistics + emails, mini billing run before holiday - get out invoices/ping overdue customers/update bonus projections, etc"
 aasit,2021-11-19,8,Out,,Vacation
 brent,2021-11-19,8,Out,,Parental leave
-diego,2021-11-19,0,,,placeholders for the summary graph
+diego,2021-11-19,0,Overhead,,placeholders for the summary graph
 fred,2021-11-19,0.5,Support: Ongoing,,Investigating FD#6843 and replying back to client
 fred,2021-11-19,0.5,Tech wealth: Other,,Reviewing PR#2829
 fred,2021-11-19,1,Overhead,,Weekly meeting
@@ -20898,7 +20898,7 @@ ritika,2021-11-25,8,Out,,Out
 sam,2021-11-25,8,Overhead,,Thanksgiving Holiday
 shane,2021-11-25,8,Out,,
 brent,2021-11-26,8,Out,,Parental leave
-diego,2021-11-26,0,,,placeholders for the summary graph
+diego,2021-11-26,0,Overhead,,placeholders for the summary graph
 fred,2021-11-26,8,Out,,Thanksgiving holiday
 herb,2021-11-26,2.8,Out,,
 herb,2021-11-26,5.5,Feature: Project X,,
@@ -21023,7 +21023,7 @@ sam,2021-12-02,4,Overhead,,Wiki reviews
 shane,2021-12-02,8,Overhead,,"Bonus program logistics emails/github issue/survey/slack messages/friday meeting logistics/etc, cashflow updates, td bank trip research/prep, winrock renewals phone call/emails, dc office of family leave phone call/emails/etc, diego final severance payment research/emails, expensify updates, list of quarterly bugs, vegetables, bonus tracker updates, etc"
 aasit,2021-12-03,12,Business: Marketing,,GW Course Prep - M&E
 brent,2021-12-03,8,Out,,Parental leave
-diego,2021-12-03,0,,,placeholders for the summary graph
+diego,2021-12-03,0,Overhead,,placeholders for the summary graph
 fred,2021-12-03,1,Overhead,,Weekly meeting
 fred,2021-12-03,7,Tech wealth: Other,,Working on adding import export to Finance page
 herb,2021-12-03,4,Out,,
@@ -21197,7 +21197,7 @@ aasit,2021-12-10,3,Business: Proposals,,Palladium
 aasit,2021-12-10,2,Overhead,,"BD tools research (GovWin, AidKonnect, Joannes company)"
 aasit,2021-12-10,2,Overhead,,"internal document reviews (blog, wiki, threads)"
 brent,2021-12-10,8,Out,,Parental leave
-diego,2021-12-10,0,,,placeholders for the summary graph
+diego,2021-12-10,0,Overhead,,placeholders for the summary graph
 fred,2021-12-10,8,Out,,Trip to Barbados
 herb,2021-12-10,3,Out,,
 herb,2021-12-10,2.5,Overhead,,
@@ -21357,7 +21357,7 @@ sam,2021-12-16,1,Support: Ongoing,helpage,
 sam,2021-12-16,2,Overhead,,Ninja Meeting to discuss features
 shane,2021-12-16,8,Overhead,,"2021 bonus payment logistics + questions, end of year billing run - send invoices/ping overdue customers/lots, freshsales account support ticket, work on expensify receipts and reports for November 2021, carefirst insurance call, aba emails qbo updates, meetings x 2, update backup system for my local machine/shuffle data around just in case, etc"
 brent,2021-12-17,8,Out,,Parental leave
-diego,2021-12-17,0,,,placeholders for the summary graph
+diego,2021-12-17,0,Overhead,,placeholders for the summary graph
 fred,2021-12-17,2.5,Overhead,,Weekly staff meeting + Champions meeting with NG + Holidays HH
 fred,2021-12-17,1.5,Support: Ongoing,,Investigating issue for the disaggregation modal having css issues. Was not able to handle it properly atm
 fred,2021-12-17,5,Tech wealth: Other,,Handling PR#2855 feedback
@@ -21458,7 +21458,7 @@ ritika,2021-12-23,8,Out,,
 shane,2021-12-23,8,Out,,
 aasit,2021-12-24,40,Out,,Nathan made this up
 brent,2021-12-24,8,Out,,Parental leave
-diego,2021-12-24,0,,,placeholders for the summary graph
+diego,2021-12-24,0,Overhead,,placeholders for the summary graph
 fred,2021-12-24,8,Out,,Christmas holiday
 herb,2021-12-24,8,Out,,
 leslie,2021-12-24,8,Out,,
@@ -21516,7 +21516,7 @@ sam,2021-12-30,8,Out,,DevResults Closed
 shane,2021-12-30,8,Out,,
 aasit,2021-12-31,8,Out,,Sick
 brent,2021-12-31,8,Out,,Parental leave
-diego,2021-12-31,0,,,placeholders for the summary graph
+diego,2021-12-31,0,Overhead,,placeholders for the summary graph
 fred,2021-12-31,8,Out,,End of year company holidays
 herb,2021-12-31,8,Out,,
 leslie,2021-12-31,8,Out,,
@@ -21684,7 +21684,7 @@ sam,2022-01-10,1.5,Support: Ongoing,inl,DevResults Configuration w/ Leslie
 sam,2022-01-10,1,Tech wealth: Other,,Creation of wiki page
 sam,2022-01-10,0.5,Overhead,,BD check-in
 sam,2022-01-10,1,Overhead,,Cleaning out inbox
-sam,2022-01-10,1,,,DevResults Configuration
+sam,2022-01-10,1,Overhead,,DevResults Configuration
 shane,2022-01-10,5.5,Overhead,,"Weekly review, weekly cashflow, 2022 budget prototypes to visualize changes + meeting, catch up on github issues, next steps retreat dates + planning lots, config hard drive loss, CPARS system updates, donut sam + fred, debug local ssl errors lots, catch up hours lots, review pull requests x 2, ABA quick books online updates, etc"
 shane,2022-01-10,2.5,Support: Ongoing,,On call
 aasit,2022-01-11,2,Overhead,,BD + Shane check in
@@ -23372,7 +23372,7 @@ reid,2022-03-18,1,Overhead,,IATI due diligence
 reid,2022-03-18,1,Feature: Ag Grid conversions,,https://github.com/DevResults/DevResults/pull/2976
 reid,2022-03-18,1,Overhead,,email
 reid,2022-03-18,0.5,Overhead,,slack convos
-reid,2022-03-18,1,,,
+reid,2022-03-18,1,Overhead,,
 ritika,2022-03-18,2,Feature: Enterprise,,ATAP test
 ritika,2022-03-18,1,Overhead,,weekly staff meeting
 ritika,2022-03-18,1,Feature: Enterprise,,ATAP test
@@ -24134,7 +24134,7 @@ sam,2022-04-22,1,Overhead,,Proposalpalooza
 sam,2022-04-22,5,Business: Proposals,greenclimatefund,GCF Instance creation
 shane,2022-04-22,8,Overhead,,"Weekly Meeting, catchup devresults hour tracking, day planning/parse email, catch up slack, palladium contract review and notes and emails, GIZ green peoples energy contract extension slack and emails, microsoft customer relationship manager phone call, retreat prep lots - excursion research, email owner, TOOD, etc"
 aasit,2022-04-25,2,Business: Contracts,,
-aasit,2022-04-25,6,,,
+aasit,2022-04-25,6,Overhead,,
 brent,2022-04-25,1.7,Overhead,,Email/slack/hours/asana;
 brent,2022-04-25,5,Tech wealth: Other,,Migrate PhotoGallery.ascx to angular
 brent,2022-04-25,0.3,Tech wealth: Bug fixin,,"Review PR 3037: Prevent ""data would be truncated"" errors when rebuilding the quick search index"
@@ -24319,8 +24319,8 @@ sam,2022-05-02,2.5,Business: Marketing,,Comm's research
 shane,2022-05-02,8,Out,,
 aasit,2022-05-03,2,Business: Contracts,,
 aasit,2022-05-03,2,Business: Contracts,,
-aasit,2022-05-03,2,,,
-aasit,2022-05-03,2,,,
+aasit,2022-05-03,2,Overhead,,
+aasit,2022-05-03,2,Overhead,,
 brent,2022-05-03,1.6,Overhead,,Email/slack/hours/asana/other
 brent,2022-05-03,0.5,Tech wealth: Other,,Migrate PhotoGallery.ascx to angular
 brent,2022-05-03,1,Security,,FedRAMP Assessment interview
@@ -24345,11 +24345,11 @@ ritika,2022-05-03,8,Security,,audit
 sam,2022-05-03,4,Business: Proposals,,HKI Proposal Review
 sam,2022-05-03,4,Business: Marketing,,Comms documentation write up
 shane,2022-05-03,8,Out,,
-aasit,2022-05-04,1,,,
-aasit,2022-05-04,1,,,
-aasit,2022-05-04,2,,,
-aasit,2022-05-04,2,,,
-aasit,2022-05-04,1,,,
+aasit,2022-05-04,1,Overhead,,
+aasit,2022-05-04,1,Overhead,,
+aasit,2022-05-04,2,Overhead,,
+aasit,2022-05-04,2,Overhead,,
+aasit,2022-05-04,1,Overhead,,
 aasit,2022-05-04,1,Business: Contracts,,
 brent,2022-05-04,2.7,Overhead,,Email/slack/hours/asana/other
 brent,2022-05-04,0.5,Overhead,,Sprint check-in meeting
@@ -24385,9 +24385,9 @@ sam,2022-05-04,1.5,Support: Ongoing,helpage,Work Session: HelpAge - Dev results
 sam,2022-05-04,0.5,Business: Proposals,,HKI Proposal Handover
 sam,2022-05-04,4,Business: Marketing,,Comms documentation write up
 shane,2022-05-04,8,Out,,
-aasit,2022-05-05,2,,,
-aasit,2022-05-05,2,,,
-aasit,2022-05-05,2,,,
+aasit,2022-05-05,2,Overhead,,
+aasit,2022-05-05,2,Overhead,,
+aasit,2022-05-05,2,Overhead,,
 aasit,2022-05-05,2,Business: Contracts,,
 brent,2022-05-05,2.7,Overhead,,Email/slack/hours/asana/other
 brent,2022-05-05,0.3,Feature: Ag Grid conversions,,Review PR 3035: Adding logic to upload/delete documents to a Deliverable
@@ -24419,8 +24419,8 @@ sam,2022-05-05,1,Overhead,,Ninja Stand Up and Backlog
 sam,2022-05-05,1,Overhead,,Accountability meeting w/ RB
 sam,2022-05-05,6,Business: Marketing,,Comms documentation write up
 shane,2022-05-05,8,Out,,
-aasit,2022-05-06,4,,,
-aasit,2022-05-06,4,,,
+aasit,2022-05-06,4,Overhead,,
+aasit,2022-05-06,4,Overhead,,
 brent,2022-05-06,3.3,Overhead,,Email/slack/hours/asana/other; weekly meeting & prep
 brent,2022-05-06,2.3,Feature: Internal Tooling,,FD 7461: Instance data export
 brent,2022-05-06,1.5,Tech wealth: Other,,Migrate PhotoGallery.ascx to angular
@@ -24695,7 +24695,7 @@ ritika,2022-05-23,1.8,Out,,out (lack of internet)
 ritika,2022-05-23,4,Security,,catch up on audit
 sam,2022-05-23,1,Business: Proposals,usaid,DevResults Web-Based Monitoring System RFQ Response
 sam,2022-05-23,1,Overhead,,BD Weekly
-sam,2022-05-23,3,,,Comms site mock up
+sam,2022-05-23,3,Overhead,,Comms site mock up
 sam,2022-05-23,3,Support: Setup,palladium,KSW  Kick Off Email
 shane,2022-05-23,8,Overhead,,
 aasit,2022-05-24,3,Overhead,,
@@ -24891,10 +24891,10 @@ sam,2022-06-01,2,Support: Ongoing,,PR: https://github.com/DevResults/DevResults/
 sam,2022-06-01,2.5,Support: Ongoing,,PR: https://github.com/DevResults/DevResults/pull/3116
 shane,2022-06-01,8,Overhead,,
 aasit,2022-06-02,1,Business: Contracts,,
-aasit,2022-06-02,2,,,
-aasit,2022-06-02,2,,,
-aasit,2022-06-02,2,,,
-aasit,2022-06-02,1,,,
+aasit,2022-06-02,2,Overhead,,
+aasit,2022-06-02,2,Overhead,,
+aasit,2022-06-02,2,Overhead,,
+aasit,2022-06-02,1,Overhead,,
 brent,2022-06-02,1.7,Overhead,,Email/slack/hours/asana/other
 brent,2022-06-02,2,Out,,
 brent,2022-06-02,1,Feature: Partner Permissions,,"Add column for ""# activities"" to contact index"
@@ -24964,8 +24964,8 @@ sam,2022-06-03,1,Out,,Virtual Doctors Appointment
 sam,2022-06-03,1,Support: Ongoing,palladium,Annulé: DevResults & KSW Check-in
 sam,2022-06-03,1,Overhead,,Slack/email clean up
 shane,2022-06-03,8,Overhead,,
-aasit,2022-06-06,4,,,
-aasit,2022-06-06,4,,,
+aasit,2022-06-06,4,Overhead,,
+aasit,2022-06-06,4,Overhead,,
 brent,2022-06-06,2.4,Overhead,,Email/slack/hours/asana/other;
 brent,2022-06-06,0.3,Feature: Partner Permissions,,Review PR 3138: Add some partner permission warning messages
 brent,2022-06-06,1.8,Overhead,,Review healthcare plans; write engineering goals discussion
@@ -24999,9 +24999,9 @@ sam,2022-06-06,4,Support: Ongoing,,SACI invites sent and coordination
 sam,2022-06-06,4,Feature: SurveyCTO,,Testing integration for KSW
 shane,2022-06-06,8,Overhead,,
 aasit,2022-06-07,3,Business: Contracts,,
-aasit,2022-06-07,3,,,
-aasit,2022-06-07,1,,,
-aasit,2022-06-07,1,,,
+aasit,2022-06-07,3,Overhead,,
+aasit,2022-06-07,1,Overhead,,
+aasit,2022-06-07,1,Overhead,,
 brent,2022-06-07,0.9,Overhead,,Email/slack/hours/asana/other;
 brent,2022-06-07,0.3,Feature: Partner Permissions,,Review PR 3145: Updating Finalize sql
 brent,2022-06-07,0.5,Feature: Partner Permissions,,Add activity filter to contacts index
@@ -25028,9 +25028,9 @@ sam,2022-06-07,1,Overhead,,BD Check-in
 sam,2022-06-07,0.5,Overhead,,Shane billing question
 sam,2022-06-07,7,Overhead,,
 shane,2022-06-07,8,Overhead,,
-aasit,2022-06-08,2,,,
-aasit,2022-06-08,2,,,
-aasit,2022-06-08,2,,,
+aasit,2022-06-08,2,Overhead,,
+aasit,2022-06-08,2,Overhead,,
+aasit,2022-06-08,2,Overhead,,
 aasit,2022-06-08,2,Business: Contracts,,
 brent,2022-06-08,1.8,Overhead,,Email/slack/hours/asana/other;
 brent,2022-06-08,1,Overhead,,Donut pairing with Leslie and Shane
@@ -25068,10 +25068,10 @@ sam,2022-06-08,0.5,Business: Marketing,,Press Release follow up email to Stephan
 sam,2022-06-08,1.5,Support: External tooling,,KSW Update to SCTO/SCTO server setup
 sam,2022-06-08,6,Overhead,,Slack/email clean up
 shane,2022-06-08,8,Overhead,,
-aasit,2022-06-09,2,,,
+aasit,2022-06-09,2,Overhead,,
 aasit,2022-06-09,2,Business: Contracts,,
-aasit,2022-06-09,2,,,
-aasit,2022-06-09,2,,,
+aasit,2022-06-09,2,Overhead,,
+aasit,2022-06-09,2,Overhead,,
 brent,2022-06-09,1.3,Overhead,,Email/slack/hours/asana/other;
 brent,2022-06-09,1,Feature: IATI,,Pair with Reid on IATI validator API
 brent,2022-06-09,2,Overhead,,Continued Discussion of Sprint Features
@@ -25109,12 +25109,12 @@ sam,2022-06-09,1,Business: Proposals,hki,RP:RB:SS:AN discuss HKI
 sam,2022-06-09,1,Support: Ongoing,palladium,Meeting coordination/ SCTO email regarding invoice and cost
 sam,2022-06-09,0.5,Support: Ongoing,palladium,Palladium Keneya Sinsi Wale Update
 shane,2022-06-09,8,Overhead,,
-aasit,2022-06-10,1,,,
-aasit,2022-06-10,1,,,
-aasit,2022-06-10,1,,,
-aasit,2022-06-10,2,,,
-aasit,2022-06-10,1,,,
-aasit,2022-06-10,2,,,
+aasit,2022-06-10,1,Overhead,,
+aasit,2022-06-10,1,Overhead,,
+aasit,2022-06-10,1,Overhead,,
+aasit,2022-06-10,2,Overhead,,
+aasit,2022-06-10,1,Overhead,,
+aasit,2022-06-10,2,Overhead,,
 aasit,2022-06-10,1,Business: Contracts,,
 brent,2022-06-10,1.5,Overhead,,Email/slack/hours/asana/other; Weekly meeting & prep
 brent,2022-06-10,1.5,Feature: Partner Permissions,,Create option for importing user-activity assignments
@@ -25345,9 +25345,9 @@ nathan,2022-06-20,8,Out,,holiday
 reid,2022-06-20,8,Out,,Juneteenth
 sam,2022-06-20,8,Out,,Holiday
 shane,2022-06-20,8,Overhead,,
-aasit,2022-06-21,2,,,
-aasit,2022-06-21,2,,,
-aasit,2022-06-21,2,,,
+aasit,2022-06-21,2,Overhead,,
+aasit,2022-06-21,2,Overhead,,
+aasit,2022-06-21,2,Overhead,,
 aasit,2022-06-21,2,Business: Contracts,,
 brent,2022-06-21,1.7,Overhead,,Email/slack/hours/asana/other
 brent,2022-06-21,0.3,Security,,Review dependabot PRs
@@ -25382,11 +25382,11 @@ sam,2022-06-21,1,Overhead,,BD Check-in
 sam,2022-06-21,4,Support: Ongoing,,multiple SACIs
 sam,2022-06-21,2,Overhead,,Slack/email clean up
 shane,2022-06-21,8,Overhead,,
-aasit,2022-06-22,1,,,
+aasit,2022-06-22,1,Overhead,,
 aasit,2022-06-22,1,Business: Contracts,,
-aasit,2022-06-22,3,,,
-aasit,2022-06-22,3,,,
-aasit,2022-06-22,1,,,
+aasit,2022-06-22,3,Overhead,,
+aasit,2022-06-22,3,Overhead,,
+aasit,2022-06-22,1,Overhead,,
 brent,2022-06-22,0.9,Feature: Partner Permissions,,Review PR 3186: S08 - Adding one time script to add AwardContacts entries
 brent,2022-06-22,2.6,Overhead,,Email/slack/hours/asana/other
 brent,2022-06-22,0.6,Overhead,,Sprint check-in meeting
@@ -25416,10 +25416,10 @@ sam,2022-06-22,1,Overhead,,Sprint Check-in Retro
 sam,2022-06-22,1,Support: External tooling,palladium,SCTO Training Discussion
 sam,2022-06-22,4.5,Support: Scaling training & help,palladium,SCTO Training Documentation and French conversion
 shane,2022-06-22,8,Overhead,,
-aasit,2022-06-23,2,,,
-aasit,2022-06-23,2,,,
-aasit,2022-06-23,3,,,
-aasit,2022-06-23,3,,,
+aasit,2022-06-23,2,Overhead,,
+aasit,2022-06-23,2,Overhead,,
+aasit,2022-06-23,3,Overhead,,
+aasit,2022-06-23,3,Overhead,,
 brent,2022-06-23,1.5,Overhead,,Email/slack/hours/asana/other
 brent,2022-06-23,5.7,Feature: Too small to name,,Switch to grid list of documents. Ditch icons.
 brent,2022-06-23,0.8,Feature: RDTs,,Review PR 3195: Dynamic Tables: Switch partial exports to be made client-side
@@ -25451,8 +25451,8 @@ sam,2022-06-23,1,Overhead,,Ninja Stand up and Backlog
 sam,2022-06-23,2,Business: Proposals,giz,Instance creation
 sam,2022-06-23,2,Support: Scaling training & help,palladium,Setup template review
 shane,2022-06-23,8,Overhead,,
-aasit,2022-06-24,1,,,
-aasit,2022-06-24,1,,,
+aasit,2022-06-24,1,Overhead,,
+aasit,2022-06-24,1,Overhead,,
 aasit,2022-06-24,2,Business: Contracts,,
 brent,2022-06-24,0.3,Tech wealth: Other,,Review PR 3196: DevResults.UnitTests.VB: delete this folder of unused stuff
 brent,2022-06-24,2.3,Overhead,,Email/slack/hours/asana/other
@@ -25490,8 +25490,8 @@ sam,2022-06-24,1,Overhead,,Slack/email clean up
 sam,2022-06-24,6,Support: Scaling training & help,palladium,Setup template review and email
 shane,2022-06-24,8,Out,,Mini-backpacking
 ritika,2022-06-25,8,Out,,
-aasit,2022-06-27,3,,,
-aasit,2022-06-27,2,,,
+aasit,2022-06-27,3,Overhead,,
+aasit,2022-06-27,2,Overhead,,
 brent,2022-06-27,0.5,Feature: Dashboard,,Review PR 3197: Choropleth: Adding store bounds option to viz
 brent,2022-06-27,2.1,Overhead,,Email/slack/hours/asana/other
 brent,2022-06-27,3.2,Tech wealth: Other,,Upgrade cypress
@@ -25517,7 +25517,7 @@ sam,2022-06-27,1,Overhead,,BD Check In
 sam,2022-06-27,7,Support: Training,palladium,Training documents creation
 shane,2022-06-27,8,Overhead,,
 aasit,2022-06-28,4,Business: Contracts,,
-aasit,2022-06-28,4,,,
+aasit,2022-06-28,4,Overhead,,
 brent,2022-06-28,1.2,Overhead,,Email/slack/hours/asana/other
 brent,2022-06-28,0.8,Security,,Review dependabot PRs
 brent,2022-06-28,0.6,Security,,Review security project
@@ -25548,9 +25548,9 @@ sam,2022-06-28,1,Overhead,,Donut Pairing: Shane & Ritika
 sam,2022-06-28,1,Support: Training,palladium,Discussion with SurveyCTO and DevResults
 sam,2022-06-28,5,Support: Training,palladium,Training documents conversion to french
 shane,2022-06-28,8,Overhead,,
-aasit,2022-06-29,3,,,
-aasit,2022-06-29,3,,,
-aasit,2022-06-29,2,,,
+aasit,2022-06-29,3,Overhead,,
+aasit,2022-06-29,3,Overhead,,
+aasit,2022-06-29,2,Overhead,,
 aasit,2022-06-29,1,Business: Contracts,,
 brent,2022-06-29,1.3,Security,,Investigate updating Dropbox API keys
 brent,2022-06-29,1.8,Overhead,,Email/slack/hours/asana/other
@@ -25581,8 +25581,8 @@ sam,2022-06-29,1,Overhead,,Sprint Checkin and Retro
 sam,2022-06-29,2,Business: Proposals,pmspiraq,PMIS Demo
 sam,2022-06-29,6,Support: Training,palladium,"Training prep, script review, and site activity creation"
 shane,2022-06-29,8,Overhead,,
-aasit,2022-06-30,4,,,
-aasit,2022-06-30,4,,,
+aasit,2022-06-30,4,Overhead,,
+aasit,2022-06-30,4,Overhead,,
 brent,2022-06-30,8,Out,,Out
 fred,2022-06-30,0.5,Tech wealth: Other,,Reviewing PR#3210
 fred,2022-06-30,1,Overhead,,Sprint check-in meeting
@@ -25651,11 +25651,11 @@ reid,2022-07-04,8,Out,,July 4th
 ritika,2022-07-04,8,Out,,out
 sam,2022-07-04,8,Out,,Holiday
 shane,2022-07-04,8,Out,,
-aasit,2022-07-05,1,,,
-aasit,2022-07-05,2,,,
+aasit,2022-07-05,1,Overhead,,
+aasit,2022-07-05,2,Overhead,,
 aasit,2022-07-05,2,Business: Contracts,,
-aasit,2022-07-05,2,,,
-aasit,2022-07-05,1,,,
+aasit,2022-07-05,2,Overhead,,
+aasit,2022-07-05,1,Overhead,,
 brent,2022-07-05,1.7,Overhead,,Email/slack/hours/asana/other
 brent,2022-07-05,1,Security,,Review dependabot PRs
 brent,2022-07-05,2.4,Feature: ContentObject Validation,,Investigate enforcer violation help tickets
@@ -25683,10 +25683,10 @@ sam,2022-07-05,1,Support: Training,palladium,SCTO Training
 sam,2022-07-05,2,Support: Training,palladium,Next day training prep
 sam,2022-07-05,0.5,Overhead,,Slack/email
 shane,2022-07-05,8,Out,,
-aasit,2022-07-06,1,,,
-aasit,2022-07-06,2,,,
-aasit,2022-07-06,2,,,
-aasit,2022-07-06,2,,,
+aasit,2022-07-06,1,Overhead,,
+aasit,2022-07-06,2,Overhead,,
+aasit,2022-07-06,2,Overhead,,
+aasit,2022-07-06,2,Overhead,,
 aasit,2022-07-06,1,Business: Contracts,,
 brent,2022-07-06,1.9,Overhead,,Email/slack/hours/asana/other/FD
 brent,2022-07-06,1.3,Feature: Too small to name,,FD-7545 Logic checks
@@ -25732,12 +25732,12 @@ sam,2022-07-06,1,Overhead,,BD Checkin
 sam,2022-07-06,1,Overhead,,Sprint Checkin and Retro
 sam,2022-07-06,1.5,Support: Training,palladium,Next day training prep
 shane,2022-07-06,8,Out,,
-aasit,2022-07-07,1,,,
+aasit,2022-07-07,1,Overhead,,
 aasit,2022-07-07,2,Business: Contracts,,
-aasit,2022-07-07,2,,,
-aasit,2022-07-07,2,,,
-aasit,2022-07-07,1,,,
-aasit,2022-07-07,2,,,
+aasit,2022-07-07,2,Overhead,,
+aasit,2022-07-07,2,Overhead,,
+aasit,2022-07-07,1,Overhead,,
+aasit,2022-07-07,2,Overhead,,
 brent,2022-07-07,1.6,Overhead,,Email/slack/hours/asana/other/FD
 brent,2022-07-07,2.5,Feature: Too small to name,,Review PR 3228: Angularized checklist template
 brent,2022-07-07,1.5,Overhead,,Engineering team meeting
@@ -25772,9 +25772,9 @@ sam,2022-07-07,4.5,Support: Training,palladium,Training
 sam,2022-07-07,1,Overhead,,Ninja Standup and Backlog
 sam,2022-07-07,2.5,Support: Training,palladium,Next day training prep
 shane,2022-07-07,8,Out,,
-aasit,2022-07-08,3,,,
-aasit,2022-07-08,4,,,
-aasit,2022-07-08,1,,,
+aasit,2022-07-08,3,Overhead,,
+aasit,2022-07-08,4,Overhead,,
+aasit,2022-07-08,1,Overhead,,
 brent,2022-07-08,1.3,Overhead,,Email/slack/hours/asana/other/FD
 brent,2022-07-08,1,Feature: Too small to name,,Review PR 3228: Angularized checklist template
 brent,2022-07-08,2.4,Feature: Enterprise,,FD7472 Linking Disaggregation For Publishing
@@ -25804,8 +25804,8 @@ sam,2022-07-08,4.5,Support: Training,palladium,Training
 sam,2022-07-08,1.5,Support: Training,palladium,Training close out
 sam,2022-07-08,1,Overhead,,Slack/email clean up
 shane,2022-07-08,8,Out,,
-aasit,2022-07-11,4,,,
-aasit,2022-07-11,4,,,
+aasit,2022-07-11,4,Overhead,,
+aasit,2022-07-11,4,Overhead,,
 brent,2022-07-11,1.5,Overhead,,Email/slack/hours/asana/other/FD
 brent,2022-07-11,3,Tech wealth: Bug fixin,,FD-7590: Unable to Upload Files
 brent,2022-07-11,2,Tech wealth: Bug fixin,,FD-7594 Publishing option not appearing
@@ -25837,8 +25837,8 @@ sam,2022-07-11,1,Overhead,,BD Check In
 sam,2022-07-11,3,Support: Scaling training & help,palladium,Training Prep
 sam,2022-07-11,1,Overhead,,Slack/email clean up
 shane,2022-07-11,8,Overhead,,"Weekly review, catch up on email/slack/out of office, task organization, day planning, weekly cashflow, expensify expenses/reports, disable usaid moz, send colleen list of renewals for next 6 months, corpsafrica contract and first invoice, emails, catch up slack, reid computer convos/ordering/etc"
-aasit,2022-07-12,4,,,
-aasit,2022-07-12,3,,,
+aasit,2022-07-12,4,Overhead,,
+aasit,2022-07-12,3,Overhead,,
 aasit,2022-07-12,1,Business: Contracts,,
 brent,2022-07-12,1.8,Overhead,,Email/slack/hours/asana/other/FD
 brent,2022-07-12,0.3,Tech wealth: TypeScript,,Clean up types in EnterpriseReportingPeriodDetail directive
@@ -25901,8 +25901,8 @@ sam,2022-07-13,1,Business: Marketing,,Research on marketing ads
 sam,2022-07-13,2,Business: Marketing,,Comms proposal rewrite
 sam,2022-07-13,3,Overhead,,
 shane,2022-07-13,8,Overhead,,"Winrock renewals, support tickets, share convos and documents with team, catch up emails, emails, task organization, day planning, SAM.gov phone calls x 2, email aasit, email usaid moz, emails, Aasit + Colleen meeting cashflow and cpars renewal/keep account work, cashflow and business development update in github discussions, login/recover access to cpars account and email aasit back with steps to revive josh's old cpars account, more stuff I forget, etc"
-aasit,2022-07-14,4,,,
-aasit,2022-07-14,4,,,
+aasit,2022-07-14,4,Overhead,,
+aasit,2022-07-14,4,Overhead,,
 brent,2022-07-14,0.5,Overhead,,Email/slack/hours/asana/other
 brent,2022-07-14,6.4,Feature: RDTs,,Automatically update disaggregation categories on table refresh
 brent,2022-07-14,1.4,Out,,Out
@@ -25948,10 +25948,10 @@ sam,2022-07-15,1,Overhead,,Slack/Email clean up
 sam,2022-07-15,0.5,Tech wealth: Other,,API Youtube video review
 sam,2022-07-15,3,Support: Ongoing,winrock,DevResults structure outline document
 shane,2022-07-15,8,Overhead,,"Access to diego old dropbox account, phone call, update asana and create follow up tasks, review DIS document, find historical annual subscription amounts for USAID missions, task organization, emails, day planning, update google doc, join weekly meeting/quick catch up with colleen, erin BSAFE winrock renewal quote, July billing run - ping overdue customers, review new contracts, update billing systems, email ninjas with what milestones have been completed, send out new invoices, send out update to colleen, update cashflow, etc"
-aasit,2022-07-18,2,,,
-aasit,2022-07-18,2,,,
-aasit,2022-07-18,2,,,
-aasit,2022-07-18,2,,,
+aasit,2022-07-18,2,Overhead,,
+aasit,2022-07-18,2,Overhead,,
+aasit,2022-07-18,2,Overhead,,
+aasit,2022-07-18,2,Overhead,,
 brent,2022-07-18,0.9,Feature: RDTs,,Review PR 3254: Stub out Data Table Refresh AsyncRequest and Worker
 brent,2022-07-18,0.8,Feature: RDTs,,Review PR 3257: DynamicTablesController: Extract TryImportData logic
 brent,2022-07-18,0.4,Feature: Internal Tooling,,Add Toggl data export to DevResults CLI
@@ -25981,10 +25981,10 @@ sam,2022-07-18,1,Support: Ongoing,inlmexico,FD Ticket: https://helpdesk.devresul
 sam,2022-07-18,1,Out,,
 sam,2022-07-18,1.5,Support: Ongoing,chisuprogram,FD Ticket: https://helpdesk.devresults.com/a/tickets/7617
 shane,2022-07-18,8,Overhead,,"Weekly cashflow, donut meeting aasit + leslie, winrock renewal for bsafe instance/review & sign contract/send invoice, write back sam message safeti site/tie in erin watson, send colleen list of renewals in next 6 months for weekly email, weekly review, dayplanning and task organization, emails and slack, azure past due notice, kill shanekunkle.com from azure, etc"
-aasit,2022-07-19,2,,,
-aasit,2022-07-19,2,,,
-aasit,2022-07-19,2,,,
-aasit,2022-07-19,2,,,
+aasit,2022-07-19,2,Overhead,,
+aasit,2022-07-19,2,Overhead,,
+aasit,2022-07-19,2,Overhead,,
+aasit,2022-07-19,2,Overhead,,
 aasit,2022-07-19,2,Business: Contracts,,
 brent,2022-07-19,1.4,Overhead,,Email/slack/hours/asana/other
 brent,2022-07-19,0.9,Feature: Dropbox integration,,Finish creating Dropbox apps for all environments
@@ -26014,10 +26014,10 @@ sam,2022-07-19,1,Support: Ongoing,helpage,Training prep
 sam,2022-07-19,1,Overhead,,Slack/email clean up
 shane,2022-07-19,8,Overhead,,"BSAFE winrock renewal emails, phone call + contracts, SAFETI emails - price and exact dates, complete just works registration for corps africa/emails x 2, catch up hours, billing questions ninjas, send out palladium/keneyasinsiwale invoices, send out helpage invoice - update billing spreadsheet/cashflow, ifes and cepps billing confusion, email back colleen, ping overdue customers, feed sent check instead of ach issues, contingency planning for if we run out of cash, slow playing paying invoice due to surveycto, winrock prorating safeti emails and phone call, organize personal tasks, parse backpacking tasks, emails, etc"
 aasit,2022-07-20,2,Business: Contracts,,
-aasit,2022-07-20,3,,,
-aasit,2022-07-20,1,,,
-aasit,2022-07-20,2,,,
-aasit,2022-07-20,1,,,
+aasit,2022-07-20,3,Overhead,,
+aasit,2022-07-20,1,Overhead,,
+aasit,2022-07-20,2,Overhead,,
+aasit,2022-07-20,1,Overhead,,
 brent,2022-07-20,2.1,Overhead,,Email/slack/hours/asana/other
 brent,2022-07-20,1.9,Feature: RDTs,,Improve column mapping defaults during refresh data experience
 brent,2022-07-20,0.8,Feature: API,inl,INL API discussion
@@ -26217,9 +26217,9 @@ sam,2022-07-27,1,Overhead,,Sprint Checkin Retro
 sam,2022-07-27,7,Business: Marketing,,LinkedIn post research and post
 shane,2022-07-27,8,Overhead,,"Aasit, Leslie, Shane Donut, cancel Microsoft CSM meeting, respond github issue long term disability, look into Employye Retention Credits/emails, feed the children cancel check drama/wire information/phone call/emails, catch up hours tracking, dayplanning, hours, emails, organize tasks, etc"
 aasit,2022-07-28,2,Business: Proposals,,
-aasit,2022-07-28,2,,,
-aasit,2022-07-28,2,,,
-aasit,2022-07-28,2,,,
+aasit,2022-07-28,2,Overhead,,
+aasit,2022-07-28,2,Overhead,,
+aasit,2022-07-28,2,Overhead,,
 brent,2022-07-28,1.1,Overhead,,Email/slack/hours/asana/other
 brent,2022-07-28,2.9,Feature: RDTs,,Prevent creating a duplicate Disaggregation (Attribute)
 brent,2022-07-28,4,Feature: RDTs,,Allow creating a new Disaggregation from a column while creating a new Dynamic Table
@@ -26255,10 +26255,10 @@ sam,2022-07-28,1,Overhead,,Ninja Standup and Backlog Discussion
 sam,2022-07-28,1,Overhead,,Ad hoc meeting with AN to discuss SCTO
 sam,2022-07-28,1.5,Support: Training,helpage,Assignment review
 shane,2022-07-28,8,Overhead,,"Submit expenses expensify, follow up rakesh IFES/CEPPS confusion, Shane + Colleen sync up before vacation, queue up customers to be pinged, discuss finances while gone, emails, dayplanning, task organization, TODO"
-aasit,2022-07-29,2,,,
-aasit,2022-07-29,2,,,
-aasit,2022-07-29,2,,,
-aasit,2022-07-29,2,,,
+aasit,2022-07-29,2,Overhead,,
+aasit,2022-07-29,2,Overhead,,
+aasit,2022-07-29,2,Overhead,,
+aasit,2022-07-29,2,Overhead,,
 brent,2022-07-29,0.7,Feature: RDTs,,Allow creating a new Disaggregation from a column while creating a new Dynamic Table
 brent,2022-07-29,0.5,Tech wealth: Bug fixin,,Review PR 3304: Fixing UI display for Linked Indicators
 brent,2022-07-29,3.4,Overhead,,Email/slack/hours/asana/other
@@ -26296,9 +26296,9 @@ sam,2022-07-29,3,Business: Marketing,,Cadre research
 shane,2022-07-29,8,Overhead,,TODO
 reid,2022-07-30,1,Support: Ongoing,wri,https://github.com/DevResults/private-gists/pull/21
 leslie,2022-07-31,0.5,Support: Ongoing,syriamel,"On call: percentage, viz, ATAP questions"
-aasit,2022-08-01,2,,,
-aasit,2022-08-01,2,,,
-aasit,2022-08-01,2,,,
+aasit,2022-08-01,2,Overhead,,
+aasit,2022-08-01,2,Overhead,,
+aasit,2022-08-01,2,Overhead,,
 aasit,2022-08-01,2,Business: Contracts,,
 brent,2022-08-01,0.6,Out,,Out (Melia art camp drop off)
 brent,2022-08-01,0.8,Overhead,,Set up new dock and headset
@@ -26331,8 +26331,8 @@ sam,2022-08-01,2,Support: Ongoing,palladium,SCTO - KSW Training follow up
 sam,2022-08-01,0.5,Support: Ongoing,palladium,HSS Deliverables
 sam,2022-08-01,3.5,Support: Ongoing,,PR #22
 shane,2022-08-01,8,Out,,Europe
-aasit,2022-08-02,3,,,
-aasit,2022-08-02,3,,,
+aasit,2022-08-02,3,Overhead,,
+aasit,2022-08-02,3,Overhead,,
 aasit,2022-08-02,2,Business: Contracts,,
 brent,2022-08-02,0.6,Out,,Out (Melia art camp drop off)
 brent,2022-08-02,1.6,Feature: RDTs,,"Review PR 3311: Save background table refresh errors for display and ""broken state"" use"
@@ -26362,10 +26362,10 @@ sam,2022-08-02,1,Support: Ongoing,helpage,Exam Review
 sam,2022-08-02,1,Support: Ongoing,helpage,Exam Review
 sam,2022-08-02,3,Support: Ongoing,,SACI's
 shane,2022-08-02,8,Out,,Europe
-aasit,2022-08-03,2,,,
-aasit,2022-08-03,1,,,
-aasit,2022-08-03,1,,,
-aasit,2022-08-03,3,,,
+aasit,2022-08-03,2,Overhead,,
+aasit,2022-08-03,1,Overhead,,
+aasit,2022-08-03,1,Overhead,,
+aasit,2022-08-03,3,Overhead,,
 aasit,2022-08-03,2,Business: Contracts,,
 brent,2022-08-03,0.4,Out,,Out (Melia art camp drop off)
 brent,2022-08-03,1,Feature: Too small to name,,Warning/diagnostic for DT indicator with lower reporting level than provided by selected column
@@ -26516,7 +26516,7 @@ sam,2022-08-10,1,Overhead,,Sprint Checkin - Retro
 sam,2022-08-10,1,Support: Ongoing,inl,FW: Discuss DvR-INL CLINs
 sam,2022-08-10,1,Support: Ongoing,inl,After call discussion
 sam,2022-08-10,1,Overhead,,Slack/email clean up
-sam,2022-08-10,1,,,
+sam,2022-08-10,1,Overhead,,
 shane,2022-08-10,8,Out,,Europe
 aasit,2022-08-11,8,Business: Proposals,,Qatar Foundation nonstop
 brent,2022-08-11,0.8,Overhead,,Email/slack/hours/asana/other
@@ -26687,10 +26687,10 @@ sam,2022-08-18,3,Business: Contracts,inl,INL Contract discussion with the team
 sam,2022-08-18,1,Overhead,,Slack/email
 shane,2022-08-18,8,Overhead,,TODO
 aasit,2022-08-19,1,Business: Outreach,,
-aasit,2022-08-19,2,,,
-aasit,2022-08-19,1,,,
-aasit,2022-08-19,3,,,
-aasit,2022-08-19,3,,,
+aasit,2022-08-19,2,Overhead,,
+aasit,2022-08-19,1,Overhead,,
+aasit,2022-08-19,3,Overhead,,
+aasit,2022-08-19,3,Overhead,,
 brent,2022-08-19,0.2,Security,,Review dependabot PRs
 brent,2022-08-19,0.5,Feature: Too small to name,,Review PR 3354: Add checklist comments to notification
 brent,2022-08-19,0.4,Security,,Upgrade cypress lib
@@ -26713,9 +26713,9 @@ ritika,2022-08-19,8,Out,,Out
 sam,2022-08-19,1,Overhead,,Weekly Staff Meeting
 sam,2022-08-19,7,Tech wealth: Other,,Google API refractor
 shane,2022-08-19,8,Overhead,,TODO
-aasit,2022-08-22,3,,,
-aasit,2022-08-22,3,,,
-aasit,2022-08-22,2,,,
+aasit,2022-08-22,3,Overhead,,
+aasit,2022-08-22,3,Overhead,,
+aasit,2022-08-22,2,Overhead,,
 brent,2022-08-22,2.2,Overhead,,Email/slack/hours/asana/other
 brent,2022-08-22,1.3,Security,,Review dependabot PRs
 brent,2022-08-22,3.4,Overhead,,Work on 2022-S12 spec and tasking
@@ -26735,8 +26735,8 @@ sam,2022-08-22,1,Business: Proposals,qatarfoundation,Qatar Demo
 sam,2022-08-22,2,Business: Proposals,qatarfoundation,Email communication with QF and slack/zoom meeting
 sam,2022-08-22,2,Business: Proposals,qatarfoundation,QF Documentation re-review
 shane,2022-08-22,8,Overhead,,TODO
-aasit,2022-08-23,4,,,
-aasit,2022-08-23,4,,,
+aasit,2022-08-23,4,Overhead,,
+aasit,2022-08-23,4,Overhead,,
 brent,2022-08-23,1,Security,,Review dependabot PRs
 brent,2022-08-23,0.5,Support: API,wri,Call with WRI about API and PowerBI
 brent,2022-08-23,0.8,Feature: Enterprise,,FD 7739: Enterprise publish request error
@@ -26810,7 +26810,7 @@ sam,2022-08-24,2,Support: Ongoing,inl,Continued INL Discussion and document revi
 sam,2022-08-24,2,Business: Proposals,qatarfoundation,Demo site recreation
 sam,2022-08-24,1,Overhead,,Slack/email clean up
 shane,2022-08-24,8,Overhead,,TODO
-aasit,2022-08-25,2,,,
+aasit,2022-08-25,2,Overhead,,
 aasit,2022-08-25,3,Thought Leadership,,
 aasit,2022-08-25,1,Business: Contracts,,
 aasit,2022-08-25,2,Business: Marketing,,
@@ -26926,8 +26926,8 @@ sam,2022-08-29,6,Business: Proposals,qatarfoundation,Recreation of demo site
 shane,2022-08-29,8,Out,,Backpacking Idaho
 aasit,2022-08-30,2,Thought Leadership,,
 aasit,2022-08-30,3,Business: Proposals,,
-aasit,2022-08-30,1,,,
-aasit,2022-08-30,2,,,
+aasit,2022-08-30,1,Overhead,,
+aasit,2022-08-30,2,Overhead,,
 brent,2022-08-30,2.8,Overhead,,Email/slack/hours/asana/other
 brent,2022-08-30,0.4,Feature: Metadata visualization,,Review PR 3402: Adding first version of Award Dimension Service
 brent,2022-08-30,0.7,Security,,Review PR 3403: Remove code that uses AuthID to override the current cookie
@@ -26960,11 +26960,11 @@ sam,2022-08-30,0.5,Security,,SecFu Meeting
 sam,2022-08-30,8,Business: Proposals,qatarfoundation,Recreation of demo site
 shane,2022-08-30,8,Out,,Backpacking Idaho
 aasit,2022-08-31,8,Out,,
-aasit,2022-08-31,1,,,
-aasit,2022-08-31,2,,,
-aasit,2022-08-31,2,,,
-aasit,2022-08-31,2,,,
-aasit,2022-08-31,1,,,
+aasit,2022-08-31,1,Overhead,,
+aasit,2022-08-31,2,Overhead,,
+aasit,2022-08-31,2,Overhead,,
+aasit,2022-08-31,2,Overhead,,
+aasit,2022-08-31,1,Overhead,,
 brent,2022-08-31,2.4,Overhead,,Email/slack/hours/asana/other
 brent,2022-08-31,0.6,Security,,Secure Bookmarks API endpoints
 brent,2022-08-31,2.8,Feature: Metadata visualization,,Implement matrix on AwardVisualization
@@ -27002,9 +27002,9 @@ ritika,2022-08-31,5,Support: Ongoing,worldlearning,World learning catch up work
 sam,2022-08-31,7,Tech wealth: Other,,Standardizing Video proposal recording
 sam,2022-08-31,1,Overhead,,Sprint Check In
 shane,2022-08-31,8,Out,,Backpacking Idaho
-aasit,2022-09-01,3,,,
-aasit,2022-09-01,3,,,
-aasit,2022-09-01,2,,,
+aasit,2022-09-01,3,Overhead,,
+aasit,2022-09-01,3,Overhead,,
+aasit,2022-09-01,2,Overhead,,
 brent,2022-09-01,0.5,Feature: Metadata visualization,,Review PR 3402: Adding first version of Award Dimension Service
 brent,2022-09-01,1.3,Feature: Metadata visualization,,Add VizConfiguration to AwardVisualization
 brent,2022-09-01,1,Overhead,,Email/slack/hours/asana/other
@@ -27094,10 +27094,10 @@ reid,2022-09-05,8,Out,,labor day
 ritika,2022-09-05,8,Out,,Out
 sam,2022-09-05,8,Out,,Holiday
 shane,2022-09-05,8,Out,,Backpacking Idaho
-aasit,2022-09-06,2,,,
-aasit,2022-09-06,2,,,
-aasit,2022-09-06,2,,,
-aasit,2022-09-06,2,,,
+aasit,2022-09-06,2,Overhead,,
+aasit,2022-09-06,2,Overhead,,
+aasit,2022-09-06,2,Overhead,,
+aasit,2022-09-06,2,Overhead,,
 brent,2022-09-06,2.6,Overhead,,Email/slack/hours/asana/other
 brent,2022-09-06,5.4,Feature: Metadata visualization,,Dig in to matrix/pivot behavior on activity metadata
 fred,2022-09-06,0.5,Tech wealth: Other,,Reviewing PR#3416
@@ -27129,9 +27129,9 @@ reid,2022-09-06,0.5,Overhead,,hours
 ritika,2022-09-06,8.3,Support: External tooling,jsi,CHISU forms
 sam,2022-09-06,8,Tech wealth: Other,,Business proposal video standardization process
 shane,2022-09-06,8,Overhead,,TODO
-aasit,2022-09-07,3,,,
-aasit,2022-09-07,2,,,
-aasit,2022-09-07,3,,,
+aasit,2022-09-07,3,Overhead,,
+aasit,2022-09-07,2,Overhead,,
+aasit,2022-09-07,3,Overhead,,
 brent,2022-09-07,2.4,Overhead,,Email/slack/hours/asana/other
 brent,2022-09-07,2.4,Feature: Metadata visualization,,Create AwardMetaMatrix directive to encapsulate matrix functionality
 brent,2022-09-07,0.4,Overhead,,Sprint check-in meeting
@@ -27171,7 +27171,7 @@ sam,2022-09-07,1,Business: Proposals,qatarfoundation,Follow up questions and ema
 sam,2022-09-07,2,Overhead,,Slack and email catch up from days out
 sam,2022-09-07,3,Business: Marketing,,Google Analytics report building
 shane,2022-09-07,8,Overhead,,"Emails, organize tasks, dayplanning, shane + brent meeting, Catch up hours, Shane + Colleen + Aasit meeting, TASC renewal issues/email sam intent to participate, Ping Rakesh - ask which invoice was paid on 7/22, cashflow update github issues after meeting with aasit + colleen, review IFES contract/sign/responses, confirm payment for setup/ping helpage for subscription payment x 2, tigran devresults emails, expensify payment issues/ask herb for help"
-aasit,2022-09-08,2,,,
+aasit,2022-09-08,2,Overhead,,
 aasit,2022-09-08,6,Overhead,,Out
 brent,2022-09-08,1.9,Overhead,,Email/slack/hours/asana/other
 brent,2022-09-08,2.5,Feature: Metadata visualization,,Dig in to matrix/pivot behavior on activity metadata
@@ -27209,7 +27209,7 @@ reid,2022-09-08,0.5,Support: Ongoing,wri,https://helpdesk.devresults.com/a/ticke
 reid,2022-09-08,1,Business: Proposals,counterpart,editing
 ritika,2022-09-08,2.3,Support: Ongoing,aba,ABAROLI work
 ritika,2022-09-08,6,Business: Proposals,counterpart,Counterpart proposal
-sam,2022-09-08,1,,,
+sam,2022-09-08,1,Overhead,,
 sam,2022-09-08,2,Business: Proposals,qatarfoundation,Proposal Diagram creation
 sam,2022-09-08,3,Business: Proposals,counterpart,Proposal review
 sam,2022-09-08,2,Business: Contracts,,INL Pricing document review
@@ -27406,10 +27406,10 @@ sam,2022-09-16,1,Overhead,,BD Check In
 sam,2022-09-16,1,Overhead,,Slack/Emailclean up
 shane,2022-09-16,6,Overhead,,"Invoice helpage training, next steps dt global ""company wide system"", respond tigran devresults opportunities/setup phone call, emails, task organization, dayplanning, TODO"
 shane,2022-09-16,2,Out,,Funeral
-aasit,2022-09-19,2,,,
-aasit,2022-09-19,2,,,
-aasit,2022-09-19,2,,,
-aasit,2022-09-19,2,,,
+aasit,2022-09-19,2,Overhead,,
+aasit,2022-09-19,2,Overhead,,
+aasit,2022-09-19,2,Overhead,,
+aasit,2022-09-19,2,Overhead,,
 brent,2022-09-19,2.6,Overhead,,Email/slack/hours/asana/other
 brent,2022-09-19,2.8,Tech wealth: Other,,Work on disaggregation management cypress tests
 brent,2022-09-19,0.7,Security,,Review dependabot PRs
@@ -27451,11 +27451,11 @@ sam,2022-09-19,0.5,Overhead,,Slack/Email review and response
 sam,2022-09-19,1,Business: Proposals,qatarfoundation,Integration response and communication
 sam,2022-09-19,1,Business: Proposals,mcc,MCC proposal research
 shane,2022-09-19,8,Overhead,,"Review new contract center for reproductive rights/make edits/email aasit back detailed feedback, update helpage year 1 subscription invoice/send to customer/update books and tracking spreadsheet, update/prorate dt global invoice and resend/dt global convos slack, catch up hours, send colleen list of renewals for this week's update email, vonnage account overdue issues and setup problems, weekly review, emails, day planning, task org, weekly cashflow"
-aasit,2022-09-20,2,,,
-aasit,2022-09-20,2,,,
-aasit,2022-09-20,2,,,
-aasit,2022-09-20,2,,,
-aasit,2022-09-20,1,,,
+aasit,2022-09-20,2,Overhead,,
+aasit,2022-09-20,2,Overhead,,
+aasit,2022-09-20,2,Overhead,,
+aasit,2022-09-20,2,Overhead,,
+aasit,2022-09-20,1,Overhead,,
 brent,2022-09-20,2,Feature: Ag Grid conversions,,Migrate all uses of devInsertableGrid to devAgGrid
 brent,2022-09-20,1.6,Overhead,,Meet with Herb
 brent,2022-09-20,2.3,Overhead,,Email/slack/hours/asana/other
@@ -27500,11 +27500,11 @@ sam,2022-09-20,1,Tech wealth: Other,,Updated BD Org Profile Document
 sam,2022-09-20,1,Business: Proposals,crr,CRR discussion and handover
 sam,2022-09-20,1,Overhead,,Slack/email clean up
 shane,2022-09-20,8,Overhead,,"Review new INL State PO modification, email to clarify + questions, slack convos, on call handoff brent, update center for reprodutive rights service level agreement with changes from customer, export to pdf, sign and send to aasit, review INL AP new PO, catch up hours, emails, parse tasks, dayplanning"
-aasit,2022-09-21,2,,,
-aasit,2022-09-21,3,,,
-aasit,2022-09-21,3,,,
-aasit,2022-09-21,1,,,
-aasit,2022-09-21,2,,,
+aasit,2022-09-21,2,Overhead,,
+aasit,2022-09-21,3,Overhead,,
+aasit,2022-09-21,3,Overhead,,
+aasit,2022-09-21,1,Overhead,,
+aasit,2022-09-21,2,Overhead,,
 brent,2022-09-21,0.5,Feature: Internal Tooling,,Review PR 7: Add toggl sum sub command to devresults-cli
 brent,2022-09-21,2.2,Feature: Internal Tooling,,Add an allow/deny list for Toggle Clients
 brent,2022-09-21,0.7,Feature: Dashboard,,Help Fred with ProgramStatistic geography filtering
@@ -27686,9 +27686,9 @@ sam,2022-09-27,1,Overhead,,Slack/Email Clean up
 shane,2022-09-27,4,Overhead,,"Figure out win 11 licensing for company/work wget windows 11 pro + visual studio running, emails, catch up hours, task organization, day planning, TODO"
 shane,2022-09-27,4,Support: Ongoing,,"Reid PR, INLAP -> INL migration script testing (PR43)"
 aasit,2022-09-28,2,Overhead,,
-aasit,2022-09-28,2,,,
-aasit,2022-09-28,2,,,
-aasit,2022-09-28,2,,,
+aasit,2022-09-28,2,Overhead,,
+aasit,2022-09-28,2,Overhead,,
+aasit,2022-09-28,2,Overhead,,
 brent,2022-09-28,8,Out,,Out
 fred,2022-09-28,0.3,Tech wealth: Other,,Reviewing PR#3482
 fred,2022-09-28,0.3,Tech wealth: Other,,Reviewing PR#3483
@@ -27722,10 +27722,10 @@ sam,2022-09-28,3,Out,,Doctors Appointment & drop car off at mechanic
 sam,2022-09-28,1,Support: Ongoing,wri,FD Ticket: https://helpdesk.devresults.com/a/tickets/7819
 shane,2022-09-28,3,Overhead,,"Fred payroll, update hours tracking/catch up hours, emails, day planning, task organization, review/answer cyber insurance question, Shane + Aasit Donut, etc"
 shane,2022-09-28,5,Support: Ongoing,,"INLAP -> INL migration script testing (PR43), freshdesk tickets (multiple), PR3474 - answer question if changes to any sql file will trigger a db refresh"
-aasit,2022-09-29,1,,,
-aasit,2022-09-29,1,,,
-aasit,2022-09-29,3,,,
-aasit,2022-09-29,4,,,
+aasit,2022-09-29,1,Overhead,,
+aasit,2022-09-29,1,Overhead,,
+aasit,2022-09-29,3,Overhead,,
+aasit,2022-09-29,4,Overhead,,
 brent,2022-09-29,8,Out,,Out
 fred,2022-09-29,2.5,Security,,Handling feedback for PR#3481
 fred,2022-09-29,0.5,Tech wealth: Other,,Reviewing PR#3484
@@ -27785,9 +27785,9 @@ sam,2022-09-30,3,Overhead,,Hours update
 shane,2022-09-30,3.5,Overhead,,"Weekly meeting, trip to TD bank for payroll processing, emails, day planning, task organization, post response to covid exposure issue, TODO"
 shane,2022-09-30,4.5,Support: Ongoing,,On Call
 reid,2022-10-02,0.8,Feature: Too small to name,,enable-assign-sectors-on-indicator-index
-aasit,2022-10-03,1,,,
-aasit,2022-10-03,3,,,
-aasit,2022-10-03,4,,,
+aasit,2022-10-03,1,Overhead,,
+aasit,2022-10-03,3,Overhead,,
+aasit,2022-10-03,4,Overhead,,
 brent,2022-10-03,4.6,Overhead,,Email/slack/hours/asana/other
 brent,2022-10-03,0.5,Feature: Project X,,Herb:Brent Project X check-in
 brent,2022-10-03,3.1,Tech wealth: Other,,Update devresults-automation runbooks to run via Managed Identity instead of Run As Account
@@ -27825,9 +27825,9 @@ sam,2022-10-03,4,Support: Setup,palladium,KSW Form Best Practices Write Up
 sam,2022-10-03,0.5,Support: Ongoing,ndi,FD: https://helpdesk.devresults.com/helpdesk/tickets/7826
 shane,2022-10-03,4,Overhead,,"Monthly cashflow, catch up hours, emails, task organization, day planning, weekly review, inl mexico - emails / phone call / export + filter help desk tickets / export + format change history / export github commits / respond inl mexico + pedro, TODO"
 shane,2022-10-03,4,Support: Ongoing,,On Call
-aasit,2022-10-04,2,,,
-aasit,2022-10-04,2,,,
-aasit,2022-10-04,4,,,
+aasit,2022-10-04,2,Overhead,,
+aasit,2022-10-04,2,Overhead,,
+aasit,2022-10-04,4,Overhead,,
 brent,2022-10-04,2.3,Overhead,,Email/slack/hours/asana/other
 brent,2022-10-04,2.7,Tech wealth: Other,,Create an Azure runbook to automate the monthly training DB refresh
 brent,2022-10-04,1.6,Feature: Single Sign-On,inl,INL MDCA onboarding
@@ -27860,8 +27860,8 @@ sam,2022-10-04,3,Support: Ongoing,palladium,Working meeting with KSW Staff
 sam,2022-10-04,5,Feature: SurveyCTO,palladium,Research and survey rework for KSW
 shane,2022-10-04,2,Overhead,,"Shane + Fred donut, send list of renewals in next 6 months to colleen, expensify approval nathan, expensify rejection aasit, get to bottom of expensify free trial ended/update billing, why aren't results showing after being published to CEPPS, emails, catch up hours, day planning, task organization, etc"
 shane,2022-10-04,6,Support: Ongoing,,On Call
-aasit,2022-10-05,4,,,
-aasit,2022-10-05,4,,,
+aasit,2022-10-05,4,Overhead,,
+aasit,2022-10-05,4,Overhead,,
 brent,2022-10-05,0.3,Overhead,,Email/slack/hours/asana/other
 brent,2022-10-05,2.6,Tech wealth: Other,,Create an Azure runbook to automate the monthly training DB refresh
 brent,2022-10-05,1.6,Overhead,,Sprint check-in meeting
@@ -27905,8 +27905,8 @@ sam,2022-10-05,3,Support: Ongoing,palladium,KSW working session
 sam,2022-10-05,0.5,Overhead,,Email/slack clean up
 shane,2022-10-05,6.5,Overhead,,"Catch up hours, SAM registration/cage code update issues, emails, dayplanning, task organization, Candyce emails and phone call - severance policy broad strokes, update latest verion for review/feedback, TODO"
 shane,2022-10-05,1.5,Support: Ongoing,,On Call
-aasit,2022-10-06,3,,,
-aasit,2022-10-06,3,,,
+aasit,2022-10-06,3,Overhead,,
+aasit,2022-10-06,3,Overhead,,
 aasit,2022-10-06,1,Overhead,,Ninja meeting
 brent,2022-10-06,1.1,Overhead,,Shane + Brent - Easy Engineering Wins for Shane
 brent,2022-10-06,0.7,Security,,Review PR 3505: Apply Partner Permissions to api/contacts/organizations
@@ -27941,9 +27941,9 @@ sam,2022-10-06,1.5,Overhead,,Ninja Standup and
 sam,2022-10-06,6.5,Feature: SurveyCTO,palladium,Research and survey rework for KSW
 shane,2022-10-06,5,Overhead,,"Shane + Brent Meeting engineering tasks/project for Shane, enter hour tracking google spreadsheet, review/reject aasit expenses in expensify, emails, task organization, day planning, catch up hours"
 shane,2022-10-06,3,Support: Ongoing,,FD7826
-aasit,2022-10-07,3,,,
-aasit,2022-10-07,3,,,
-aasit,2022-10-07,3,,,
+aasit,2022-10-07,3,Overhead,,
+aasit,2022-10-07,3,Overhead,,
+aasit,2022-10-07,3,Overhead,,
 brent,2022-10-07,1.1,Feature: API,,Review PR 4 Create some tests for the API
 brent,2022-10-07,1.2,Feature: PowerBI,,Investigate PowerQuerySDK VS Code extension
 brent,2022-10-07,1.2,Overhead,,Weekly meeting
@@ -28267,8 +28267,8 @@ ritika,2022-10-19,1,Support: Ongoing,aba,Help ticket
 sam,2022-10-19,1,Support: External tooling,,Reid : Complimentary Freshdesk Support Desk Consultation with
 sam,2022-10-19,3,Support: Ongoing,palladium,KSW DevResults Working Meeting
 sam,2022-10-19,1,Out,,Doctor Appointment
-sam,2022-10-19,2,,,
-sam,2022-10-19,2,,,
+sam,2022-10-19,2,Overhead,,
+sam,2022-10-19,2,Overhead,,
 shane,2022-10-19,8,Overhead,,"2023 cashflow estimates + github discussion, slack messages, sign task orders, generate new invoices, DevResults deferred revenue schedule, CPARS system updates, emails, day planning, organize tasks, catch up toggl, etc"
 aasit,2022-10-20,8,Out,,Family
 brent,2022-10-20,1.6,Overhead,,Email/slack/hours/asana/other
@@ -29468,7 +29468,7 @@ ritika,2022-12-08,2,Support: Ongoing,,help desk
 ritika,2022-12-08,1,Security,,CIRT emails
 sam,2022-12-08,4,Out,,Dad Doctors Appointment
 sam,2022-12-08,1,Out,,Sam Eye Appointment
-sam,2022-12-08,2,,,
+sam,2022-12-08,2,Overhead,,
 shane,2022-12-08,8,Overhead,,"Emails, womens world bank contract extension/emails, ping all overdue customers, send out invoices for upcoming subscription renewals, emails, day planning, task organization, catchup hours toggl, update cashflow estimates, reserach/send out invoice DT Global/Shejeh Salam for 2023 subscription, compile documentation/send out INL training invoice, chemonics new contract for 2023/talk marie-claire/talk new dept, send out milestone/billing questions to ninjas, etc"
 aasit,2022-12-09,4,Overhead,,
 aasit,2022-12-09,1,Support: Setup,,USDA
@@ -30315,7 +30315,7 @@ sam,2023-01-18,1,Business: Marketing,,2023 Business Strategy Meeting
 sam,2023-01-18,1,Support: Setup,counterpart,DevResults and Counterpart Touchbase
 sam,2023-01-18,0.5,Business: Marketing,,Review SK's Strategy Roadmap
 sam,2023-01-18,1,Business: Marketing,,Cleaning Hours Spreadsheet for CAM instance
-sam,2023-01-18,4,,,
+sam,2023-01-18,4,Overhead,,
 shane,2023-01-18,8,Overhead,,"DevResults marketing plan, Email out intro to dev marketing plan, BD meeting, Sprint check in meeting, emails, day planning, task organization, deloitte audit emails, catch up hours toggl lots, compile list of questions for ninjas, respond to fedramp tailored program request for feedback, Invoice new clients per aasit instructions, add all other remaining payments to billing spreadsheet, devex performance report + mass marketing explanation, etc"
 aasit,2023-01-19,4,Business: Proposals,,proposal research / dataelevates work
 aasit,2023-01-19,4,Business: Marketing,,devindicators / comms plan
@@ -31004,7 +31004,7 @@ leslie,2023-02-14,0.5,Overhead,,Sprint retro
 leslie,2023-02-14,1,Overhead,,Asana/Slack/email
 leslie,2023-02-14,2.5,Support: Scaling training & help,,Generalized metadata query
 leslie,2023-02-14,3,Out,,
-nathan,2023-02-14,6,,,no idea
+nathan,2023-02-14,6,Overhead,,no idea
 nathan,2023-02-14,1,Overhead,,cadence
 nathan,2023-02-14,1,Feature: Project X,,retro
 reid,2023-02-14,0.5,Support: Ongoing,inl,FD #8438: Devresults account issue
@@ -33518,11 +33518,11 @@ ritika,2023-06-06,2,Security,,Audit clean-up work
 ritika,2023-06-06,2,Security,,Appendix B
 ritika,2023-06-06,2,Security,,Tenable troubleshooting
 shane,2023-06-06,8,Out,,
-aasit,2023-06-07,1,,,
+aasit,2023-06-07,1,Overhead,,
 aasit,2023-06-07,1,Overhead,,
 aasit,2023-06-07,2,Business: Outreach,,
 aasit,2023-06-07,2,Support: Ongoing,,
-aasit,2023-06-07,2,,,
+aasit,2023-06-07,2,Overhead,,
 brent,2023-06-07,8,Out,,Vacation
 fred,2023-06-07,1,Tech wealth: Other,,Creating PR#4157 for upgrade of System.IdentityModel.Tokens.Jwt
 fred,2023-06-07,2,Feature: RDTs,,First pass on spec for data tables sprint
@@ -33803,7 +33803,7 @@ ritika,2023-06-21,4,Security,,rev 5
 ritika,2023-06-21,3,Business: Proposals,,proposal editing/email editing
 shane,2023-06-21,8,Overhead,,"Instance deletion for June, number of emails/conversations with Rick/USG contracting consultant, emails, day planning, task organization, TODO"
 aasit,2023-06-22,2,Out,,
-aasit,2023-06-22,2,,,
+aasit,2023-06-22,2,Overhead,,
 aasit,2023-06-22,2,Overhead,,
 aasit,2023-06-22,2,Business: Contracts,,
 aasit,2023-06-22,2,Out,,
@@ -33836,7 +33836,7 @@ ritika,2023-06-22,2,Security,,SSO + tenable scan check
 shane,2023-06-22,8,Overhead,,"Fred - next steps with airfare from retreat, call sam.gov/complete submission wizard online/confirm entity is in submitted status + next steps, catch up hours toggl, update google sheets hours tracking, update xdev with weekly dones, prepare to execute fred wire early next week, order more computer wrist braces online, Check insurance - make sure we have appropriate coverage per DOS EAP PO, Check into ABA ROLI contract - was there a renewal conversation I dropped the ball on, Look at salary model - try to get automatic inflation numbers working again, emails about ultimate USG first impressions and drip campaigns, research ghost writes for devresults book, look into next steps after submitting RFI for usaid syria"
 aasit,2023-06-23,1,Business: Contracts,,
 aasit,2023-06-23,2,Business: Marketing,,
-aasit,2023-06-23,2,,,
+aasit,2023-06-23,2,Overhead,,
 aasit,2023-06-23,3,Overhead,,
 brent,2023-06-23,2.8,Overhead,,Email/slack/hours/asana/other
 brent,2023-06-23,1.1,Overhead,,Weekly meeting
@@ -34732,7 +34732,7 @@ ritika,2023-08-04,1,Support: Scaling training & help,,Training refresh
 sam,2023-08-04,0,Out,,making hours tracker happy
 shane,2023-08-04,8,Out,,
 ritika,2023-08-06,2,Security,,Zoom AI nonsense and also NMAP alert
-aasit,2023-08-07,2,,,
+aasit,2023-08-07,2,Overhead,,
 aasit,2023-08-07,3,Business: Outreach,,
 aasit,2023-08-07,3,Business: Contracts,,
 brent,2023-08-07,0.8,Out,,Out
@@ -35256,7 +35256,7 @@ reid,2023-08-29,1,Tech wealth: Bug fixin,,PR4379
 ritika,2023-08-29,3,Security,,SecFu
 ritika,2023-08-29,5,Out,,Out
 shane,2023-08-29,8,Overhead,,"Clean up google drive/my drive, ping METI invoice 4497/customer emails, phone call and paperwork, catch up hours toggl, setup 2fa for slack, ping all customers overdue payments, quarter 3 2023 vegetables, emails, day planning, task organization, keep devresults google voice number, secfu meeting"
-aasit,2023-08-30,2,,,
+aasit,2023-08-30,2,Overhead,,
 aasit,2023-08-30,2,Business: Outreach,,
 aasit,2023-08-30,2,Overhead,,
 aasit,2023-08-30,2,Out,,
@@ -36392,7 +36392,7 @@ ritika,2023-10-24,1,Feature: Too small to name,,PR reviews
 shane,2023-10-24,8,Overhead,,"Colleen + aasit communications/rescheeule meetings, catch up hours toggl, earthling + devresults 3rd gap assessment, emails, day planning, task organization, shane + aasit + colleen meeting"
 aasit,2023-10-25,3,Overhead,,
 aasit,2023-10-25,3,Thought Leadership,,
-aasit,2023-10-25,2,,,
+aasit,2023-10-25,2,Overhead,,
 brent,2023-10-25,0.8,Overhead,,Email/slack/hours/asana/FD/other
 brent,2023-10-25,3,Feature: Diagnostics,,"Ability to Configure which ""Optional"" Diagnostics categories are displayed"
 brent,2023-10-25,0.5,Overhead,,Sprint check-in meeting
@@ -38831,7 +38831,7 @@ shane,2024-02-29,8,Overhead,,"Add weekly retreat topic to asana friday meeting p
 aasit,2024-03-01,2,Business: Outreach,,
 aasit,2024-03-01,2,Overhead,,
 aasit,2024-03-01,2,Business: Marketing,,
-aasit,2024-03-01,2,,,
+aasit,2024-03-01,2,Overhead,,
 brent,2024-03-01,3.8,Overhead,,Email/slack/hours/asana/FD/other
 brent,2024-03-01,1,Overhead,,Weekly meeting
 brent,2024-03-01,1.5,Security,,Review dependabot PRs
@@ -39478,7 +39478,7 @@ shane,2024-03-27,8,Out,,
 aasit,2024-03-28,2,Overhead,,
 aasit,2024-03-28,2,Business: Contracts,,
 aasit,2024-03-28,1,Business: Marketing,,
-aasit,2024-03-28,1,,,
+aasit,2024-03-28,1,Overhead,,
 aasit,2024-03-28,2,Business: Outreach,,
 aasit,2024-03-28,2,Overhead,,
 brent,2024-03-28,1,Out,,Out (Car service)
@@ -39507,7 +39507,7 @@ reid,2024-03-28,1,Tech wealth: Other,,#4981 Change criteria for being able to de
 ritika,2024-03-28,5.5,Security,,Audit prep
 ritika,2024-03-28,2,Out,,Sick
 shane,2024-03-28,8,Out,,
-aasit,2024-03-29,2,,,
+aasit,2024-03-29,2,Overhead,,
 aasit,2024-03-29,2,Business: Marketing,,
 aasit,2024-03-29,2,Overhead,,
 brent,2024-03-29,0.4,Feature: Single Sign-On,,FD 9734 Re: SSO for Devresults at ROLI
@@ -41485,7 +41485,7 @@ reid,2024-07-05,8,Overhead,,Leave/Mini-Sabbatical
 ritika,2024-07-05,8,Out,,Out
 shane,2024-07-05,8,Out,,
 nathan,2024-07-07,7.5,Tech wealth: Other,,angularizing arp pages
-aasit,2024-07-08,8,,,Spine injury
+aasit,2024-07-08,8,Overhead,,Spine injury
 brent,2024-07-08,1.5,Overhead,,Email/slack/hours/asana/other
 brent,2024-07-08,1.7,Tech wealth: Other,,Review PR 5206 Angularize some ARP pages
 brent,2024-07-08,1.9,Tech wealth: Bug fixin,,Investigate bug with AwardSectorMapping percentage
@@ -48407,8 +48407,8 @@ aasit,2025-07-18,2,Business: Proposals,,Abt
 aasit,2025-07-18,4,Business: Marketing,,RoomtoRead blog
 aasit,2025-07-18,4,Business: Marketing,,
 aasit,2025-07-18,2,Business: Outreach,,
-aasit,2025-07-18,1,,,
-aasit,2025-07-18,1,,,
+aasit,2025-07-18,1,Overhead,,
+aasit,2025-07-18,1,Overhead,,
 brent,2025-07-18,8,Out,,Out
 fred,2025-07-18,1,Overhead,,Weekly meeting
 fred,2025-07-18,3,Tech wealth: Other,,Working on migratind d3-routing usage. Creating PR#6168
@@ -49765,10 +49765,10 @@ ritika,2025-09-26,2,Overhead,,Weekly ++
 ritika,2025-09-26,2,Security,,
 shane,2025-09-26,8,Overhead,,"Prep for financial + operations check in weekly meeting, emails, day planning, task organization, weekly meeting, ping Save the Children indonesia for sign to SLA, catch up hours toggl, SID-US FY26 renewal invoice"
 nathan,2025-09-28,8,Overhead,,
-aasit,2025-09-29,2,,,
-aasit,2025-09-29,2,,,
-aasit,2025-09-29,2,,,
-aasit,2025-09-29,2,,,
+aasit,2025-09-29,2,Overhead,,
+aasit,2025-09-29,2,Overhead,,
+aasit,2025-09-29,2,Overhead,,
+aasit,2025-09-29,2,Overhead,,
 brent,2025-09-29,8,Out,,Out (OH trip)
 fred,2025-09-29,1,Tech wealth: Other,,"Reviewing dependabot PRs 6360, 6361, 6362 and 6363"
 fred,2025-09-29,1.5,Support: Ongoing,,Investigating DT refresh using debug a little bit more. Nothing weird is happening at moment
@@ -49794,8 +49794,8 @@ ritika,2025-09-29,1,Business: Proposals,,
 ritika,2025-09-29,1,Overhead,,
 ritika,2025-09-29,3,Security,,
 shane,2025-09-29,8,Overhead,,"Weekly review, weekly cashflow, emails, day planning, task organization, catch up hours toggl, SIDUS invoice issues/email asset, Register World Bank procurement webinar, Review and sign Monthly Agreement Chesapeake/talk to Colleen about next steps with cash flow - paying them more, invoice NDI for next month, review cash flow projections and update records/look for room to read invoice mailed? get access to their portal, SIDUS annual dues discount negotiations, paying everyone overdue payments, fedramp 20x meeting - type up github discussion phase two application period, bd weekly check in meeting"
-aasit,2025-09-30,4,,,
-aasit,2025-09-30,4,,,
+aasit,2025-09-30,4,Overhead,,
+aasit,2025-09-30,4,Overhead,,
 brent,2025-09-30,0.5,Out,,Out (Reduced hours)
 brent,2025-09-30,2.9,Overhead,,Email/slack/hours/asana/other
 brent,2025-09-30,0.5,Security,,SecFu meeting
@@ -49825,8 +49825,8 @@ reid,2025-09-30,2,Out,,Out
 ritika,2025-09-30,2,Support: Ongoing,,
 ritika,2025-09-30,6,Security,,
 shane,2025-09-30,8,Overhead,,"Catch up hours toggl, emails, day planning, task organization, post GitHub discussion 20x moderate application period, secfu monthly meeting, CFR membership dues invoice, try to locate room to read check"
-aasit,2025-10-01,5,,,
-aasit,2025-10-01,4,,,
+aasit,2025-10-01,5,Overhead,,
+aasit,2025-10-01,4,Overhead,,
 brent,2025-10-01,3,Overhead,,Email/slack/hours/asana/other
 brent,2025-10-01,4,Feature: Enterprise,,Work on linked activity polish
 brent,2025-10-01,0.4,Overhead,,Sprint meeting
@@ -49858,7 +49858,7 @@ ritika,2025-10-01,2,Overhead,,
 ritika,2025-10-01,2,Support: Setup,cipe,
 ritika,2025-10-01,4,Security,,
 shane,2025-10-01,8,Overhead,,"Meet herb 2026 expense level decisions/estimate cashflow/create tasks after meeting as necessary, lobbyist conversations and next steps, emails, day planning, task organization, catch up hours toggl, resubmit invoice INL IPP collector/email INL staff update, room to read lost invoice - redo + communicate cashflow estimates/send updates to colleen new cash shortfall"
-aasit,2025-10-02,8,,,
+aasit,2025-10-02,8,Overhead,,
 brent,2025-10-02,3.7,Overhead,,Email/slack/hours/asana/other
 brent,2025-10-02,1.6,Feature: Dashboard,,Bar chart with one reporting period is awkwardly offcenter
 brent,2025-10-02,1.1,Feature: Ag Grid conversions,,Review PR 6377 Using Grid on linked attribute chooser
@@ -49882,9 +49882,9 @@ nathan,2025-10-02,2,Out,,pediatrician
 reid,2025-10-02,8,Out,,Out
 ritika,2025-10-02,8,Security,,
 shane,2025-10-02,8,Overhead,,"Catch up on discussion topics for week/participate, catch up hours toggl, update hours tracking google sheet for week, update xdev with dones for week, emails, day planning, task organization, ping ninjas room to read check search/parse room to read email/send setup invoice 1 of 4/ask for help locating previous invoice check/work out electronic payment details"
-aasit,2025-10-03,3,,,
-aasit,2025-10-03,3,,,
-aasit,2025-10-03,3,,,
+aasit,2025-10-03,3,Overhead,,
+aasit,2025-10-03,3,Overhead,,
+aasit,2025-10-03,3,Overhead,,
 brent,2025-10-03,8,Out,,Out
 fred,2025-10-03,1,Overhead,,Weely meeting
 fred,2025-10-03,1,Security,,Meeting with RB to check what needs to be done to recreate a database in Azure if needed

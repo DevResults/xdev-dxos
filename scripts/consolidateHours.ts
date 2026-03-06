@@ -39,6 +39,9 @@ const consolidateHours = () => {
       let client = row.client.trim()
       let notes = row.notes.trim()
 
+      // Default empty project to Overhead
+      if (!project) project = "Overhead"
+
       // Apply project corrections
       if (projectCorrections[project]) {
         project = projectCorrections[project]
