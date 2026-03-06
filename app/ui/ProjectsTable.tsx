@@ -12,7 +12,7 @@ export const ProjectsTable = ({ projects, space }: Props) => {
       heading="Projects"
       columns={columns}
       data={projects}
-      gridTemplateColumns="6em 6em 8em 1fr min-content 6em"
+      gridTemplateColumns="6em 6em 1fr min-content 6em"
       addLabel="Add project"
       onAdd={() => {
         space?.db.add(
@@ -58,12 +58,7 @@ const columns: ColumnDef<Project, any>[] = [
       />
     ),
   },
-  {
-    accessorKey: "fullCode",
-    header: "Full code",
-    cell: ({ row }) => <span className="text-neutral-600">{row.original.fullCode}</span>,
-  },
-  {
+{
     accessorKey: "description",
     header: "Description",
     cell: ({ row }) => (
