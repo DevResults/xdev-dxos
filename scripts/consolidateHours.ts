@@ -33,7 +33,7 @@ const consolidateHours = () => {
   const cleanedRows = allRows
     .map(row => {
       const date = normalizeDate(row.date)
-      let name = titleCase(row.name.trim())
+      let name = row.name.trim().toLowerCase()
       const hours = parseFloat(row.hours)
       let project = row.project.trim()
       let client = row.client.trim()
@@ -89,7 +89,7 @@ const consolidateHours = () => {
     .toSorted((a, b) => a.date.localeCompare(b.date) || a.name.localeCompare(b.name))
 
   // Write consolidated CSV
-  const header = "Name,Date,Hours,Project,Client,Notes"
+  const header = "userName,date,duration,project,client,description"
   const csvLines = cleanedRows.map(r =>
     [r.name, r.date, r.hours.toString(), r.project, r.client, escapeField(r.notes)].join(","),
   )
@@ -251,9 +251,6 @@ const filterByYear = (rows: Row[], years: number[]) =>
     const y = parseInt(date.substring(0, 4))
     return years.includes(y)
   })
-
-/** Title-case a name (e.g. "REid" -> "Reid"). */
-const titleCase = (s: string) => (s.length > 0 ? s[0].toUpperCase() + s.slice(1).toLowerCase() : s)
 
 /** Client fields with multiple comma-separated values - take the first one. */
 const splitMultiClient = (client: string): string => {
