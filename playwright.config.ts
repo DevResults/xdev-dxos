@@ -8,8 +8,11 @@ export default defineConfig({
   testDir: "./test",
   testMatch: "*.test.ts",
 
+  /* Warm up Vite's dependency cache before running tests */
+  globalSetup: "./test/global-setup.ts",
+
   /* tests fail if they take longer than this */
-  timeout: 45_000,
+  timeout: 15_000,
 
   /* abort if we get several test failures (probably server isn't running or something) */
   maxFailures: 10,
@@ -24,7 +27,7 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
 
   /* Opt out of parallel tests */
-  workers: 1,
+  workers: process.env.CI ? 1 : 8,
 
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: "list",
@@ -67,8 +70,16 @@ export default defineConfig({
   ],
 
   webServer:
-    isPlaywrightUI ?
-      []
+    isPlaywrightUI ? []
+    : process.env.CI ?
+      // use the built website for testing in ci
+      [
+        {
+          command: "pnpm vite preview --port 3001",
+          url: "http://localhost:3001",
+          reuseExistingServer: false,
+        },
+      ]
     : [
         {
           command: "pnpm react-router dev --port 3001",

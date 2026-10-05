@@ -12,3 +12,4 @@
 /.vscode/
 test-results
 storybook-static
+dist

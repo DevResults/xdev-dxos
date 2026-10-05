@@ -71,6 +71,16 @@ export default defineConfig({
   optimizeDeps: {
     // use route files as entry points when crawling for dependencies
     entries: ["**/routes/**/*.tsx"],
+    // force DXOS packages to be pre-bundled upfront to avoid race conditions
+    // during test startup where dynamic imports fail with 404
+    include: [
+      "@dxos/react-client",
+      "@dxos/react-client/echo",
+      "@dxos/react-client/halo",
+      "@dxos/config",
+      "@dxos/echo-schema",
+      "@dxos/shell/react",
+    ],
   },
   test: { include: ["app/**/*.test.ts"] },
 })
